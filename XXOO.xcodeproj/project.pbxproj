@@ -15,6 +15,16 @@
 		C12486A3225D94CF0040B476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486A2225D94CF0040B476 /* main.m */; };
 		C12486AD225D94CF0040B476 /* XXOOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486AC225D94CF0040B476 /* XXOOTests.m */; };
 		C12486B8225D94CF0040B476 /* XXOOUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486B7225D94CF0040B476 /* XXOOUITests.m */; };
+		C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486CF225D989A0040B476 /* TYAVViewController.m */; };
+		C12486D2225D989A0040B476 /* TYAVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486D0225D989A0040B476 /* TYAVViewController.xib */; };
+		C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486E4225D99720040B476 /* TYEntertainmentViewController.m */; };
+		C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486E5225D99720040B476 /* TYEntertainmentViewController.xib */; };
+		C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486E9225D998C0040B476 /* TYCategoryViewController.m */; };
+		C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486EA225D998C0040B476 /* TYCategoryViewController.xib */; };
+		C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486EE225D99A60040B476 /* TYTaskViewController.m */; };
+		C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486EF225D99A60040B476 /* TYTaskViewController.xib */; };
+		C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486F3225D99B80040B476 /* TYMineViewController.m */; };
+		C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486F4225D99B80040B476 /* TYMineViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,21 @@
 		C12486B3225D94CF0040B476 /* XXOOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XXOOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C12486B7225D94CF0040B476 /* XXOOUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXOOUITests.m; sourceTree = "<group>"; };
 		C12486B9225D94CF0040B476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C12486CE225D989A0040B476 /* TYAVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVViewController.h; sourceTree = "<group>"; };
+		C12486CF225D989A0040B476 /* TYAVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVViewController.m; sourceTree = "<group>"; };
+		C12486D0225D989A0040B476 /* TYAVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVViewController.xib; sourceTree = "<group>"; };
+		C12486E3225D99720040B476 /* TYEntertainmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYEntertainmentViewController.h; sourceTree = "<group>"; };
+		C12486E4225D99720040B476 /* TYEntertainmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYEntertainmentViewController.m; sourceTree = "<group>"; };
+		C12486E5225D99720040B476 /* TYEntertainmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYEntertainmentViewController.xib; sourceTree = "<group>"; };
+		C12486E8225D998C0040B476 /* TYCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYCategoryViewController.h; sourceTree = "<group>"; };
+		C12486E9225D998C0040B476 /* TYCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYCategoryViewController.m; sourceTree = "<group>"; };
+		C12486EA225D998C0040B476 /* TYCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYCategoryViewController.xib; sourceTree = "<group>"; };
+		C12486ED225D99A60040B476 /* TYTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskViewController.h; sourceTree = "<group>"; };
+		C12486EE225D99A60040B476 /* TYTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskViewController.m; sourceTree = "<group>"; };
+		C12486EF225D99A60040B476 /* TYTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTaskViewController.xib; sourceTree = "<group>"; };
+		C12486F2225D99B80040B476 /* TYMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMineViewController.h; sourceTree = "<group>"; };
+		C12486F3225D99B80040B476 /* TYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMineViewController.m; sourceTree = "<group>"; };
+		C12486F4225D99B80040B476 /* TYMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMineViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +126,8 @@
 		C1248692225D94CD0040B476 /* XXOO */ = {
 			isa = PBXGroup;
 			children = (
+				C12486C7225D96D00040B476 /* Main */,
+				C12486C5225D96910040B476 /* Class */,
 				C1248693225D94CD0040B476 /* AppDelegate.h */,
 				C1248694225D94CD0040B476 /* AppDelegate.m */,
 				C1248696225D94CD0040B476 /* ViewController.h */,
@@ -130,6 +157,211 @@
 				C12486B9225D94CF0040B476 /* Info.plist */,
 			);
 			path = XXOOUITests;
+			sourceTree = "<group>";
+		};
+		C12486C5225D96910040B476 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C12486C9225D972A0040B476 /* AV */,
+				C12486CD225D986D0040B476 /* Entertainment */,
+				C12486CC225D98130040B476 /* Category */,
+				C12486CB225D97FD0040B476 /* Task */,
+				C12486CA225D97F20040B476 /* Mine */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		C12486C6225D96A30040B476 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		C12486C7225D96D00040B476 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C12486C6225D96A30040B476 /* Tool */,
+				C12486C8225D96E40040B476 /* Extension */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C12486C8225D96E40040B476 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C12486C9225D972A0040B476 /* AV */ = {
+			isa = PBXGroup;
+			children = (
+				C12486D4225D98FE0040B476 /* Controller */,
+				C12486D5225D98FE0040B476 /* Model */,
+				C12486D6225D98FE0040B476 /* View */,
+			);
+			path = AV;
+			sourceTree = "<group>";
+		};
+		C12486CA225D97F20040B476 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				C12486E1225D99550040B476 /* Controller */,
+				C12486E0225D99550040B476 /* Model */,
+				C12486E2225D99560040B476 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		C12486CB225D97FD0040B476 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				C12486DE225D994E0040B476 /* Controller */,
+				C12486DF225D994E0040B476 /* Model */,
+				C12486DD225D994E0040B476 /* View */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		C12486CC225D98130040B476 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C12486DC225D99460040B476 /* Controller */,
+				C12486DA225D99460040B476 /* Model */,
+				C12486DB225D99460040B476 /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C12486CD225D986D0040B476 /* Entertainment */ = {
+			isa = PBXGroup;
+			children = (
+				C12486D8225D993C0040B476 /* Controller */,
+				C12486D9225D993C0040B476 /* Model */,
+				C12486D7225D993C0040B476 /* View */,
+			);
+			path = Entertainment;
+			sourceTree = "<group>";
+		};
+		C12486D4225D98FE0040B476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C12486CE225D989A0040B476 /* TYAVViewController.h */,
+				C12486CF225D989A0040B476 /* TYAVViewController.m */,
+				C12486D0225D989A0040B476 /* TYAVViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C12486D5225D98FE0040B476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12486D6225D98FE0040B476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C12486D7225D993C0040B476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C12486D8225D993C0040B476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C12486E3225D99720040B476 /* TYEntertainmentViewController.h */,
+				C12486E4225D99720040B476 /* TYEntertainmentViewController.m */,
+				C12486E5225D99720040B476 /* TYEntertainmentViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C12486D9225D993C0040B476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12486DA225D99460040B476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12486DB225D99460040B476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C12486DC225D99460040B476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C12486E8225D998C0040B476 /* TYCategoryViewController.h */,
+				C12486E9225D998C0040B476 /* TYCategoryViewController.m */,
+				C12486EA225D998C0040B476 /* TYCategoryViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C12486DD225D994E0040B476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C12486DE225D994E0040B476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C12486ED225D99A60040B476 /* TYTaskViewController.h */,
+				C12486EE225D99A60040B476 /* TYTaskViewController.m */,
+				C12486EF225D99A60040B476 /* TYTaskViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C12486DF225D994E0040B476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12486E0225D99550040B476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12486E1225D99550040B476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C12486F2225D99B80040B476 /* TYMineViewController.h */,
+				C12486F3225D99B80040B476 /* TYMineViewController.m */,
+				C12486F4225D99B80040B476 /* TYMineViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C12486E2225D99560040B476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +426,7 @@
 		C1248688225D94CD0040B476 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TY;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = wbb;
 				TargetAttributes = {
@@ -235,8 +468,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C124869D225D94CF0040B476 /* Assets.xcassets in Resources */,
+				C12486D2225D989A0040B476 /* TYAVViewController.xib in Resources */,
+				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
+				C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */,
 				C124869B225D94CD0040B476 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +502,11 @@
 			files = (
 				C1248698225D94CD0040B476 /* ViewController.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
+				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
+				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
+				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
+				C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
