@@ -16,6 +16,14 @@
 		C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8B225DEBA700322B2B /* VideoSlider.m */; };
 		C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */; };
 		C1036A96225E042A00322B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1036A95225E042A00322B2B /* Assets.xcassets */; };
+		C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A99225E086F00322B2B /* TYNetWorkTool.m */; };
+		C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A9B225E0C3C00322B2B /* NSString+BXExtension.m */; };
+		C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A9C225E0C3C00322B2B /* UIButton+Extension.m */; };
+		C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A9E225E0C3C00322B2B /* UIColor+Extend.m */; };
+		C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A9F225E0C3C00322B2B /* UIView+Extension.m */; };
+		C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036AA0225E0C3C00322B2B /* NSString+Encrypt.m */; };
+		C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036AAB225E0CA100322B2B /* NSDictionary+safeObjectForKey.m */; };
+		C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036AAE225E0E0000322B2B /* MBProgressHUD+Constructor.m */; };
 		C1248695225D94CD0040B476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248694225D94CD0040B476 /* AppDelegate.m */; };
 		C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C124869E225D94CF0040B476 /* LaunchScreen.storyboard */; };
 		C12486A3225D94CF0040B476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486A2225D94CF0040B476 /* main.m */; };
@@ -73,6 +81,23 @@
 		C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConfiguration.m; sourceTree = "<group>"; };
 		C1036A8F225DEBA700322B2B /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		C1036A95225E042A00322B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1036A98225E086F00322B2B /* TYNetWorkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYNetWorkTool.h; sourceTree = "<group>"; };
+		C1036A99225E086F00322B2B /* TYNetWorkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYNetWorkTool.m; sourceTree = "<group>"; };
+		C1036A9B225E0C3C00322B2B /* NSString+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BXExtension.m"; sourceTree = "<group>"; };
+		C1036A9C225E0C3C00322B2B /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		C1036A9D225E0C3C00322B2B /* NSString+Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encrypt.h"; sourceTree = "<group>"; };
+		C1036A9E225E0C3C00322B2B /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
+		C1036A9F225E0C3C00322B2B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		C1036AA0225E0C3C00322B2B /* NSString+Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encrypt.m"; sourceTree = "<group>"; };
+		C1036AA1225E0C3C00322B2B /* NSString+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BXExtension.h"; sourceTree = "<group>"; };
+		C1036AA2225E0C3C00322B2B /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
+		C1036AA3225E0C3C00322B2B /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		C1036AA4225E0C3C00322B2B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		C1036AAA225E0CA100322B2B /* NSDictionary+safeObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safeObjectForKey.h"; sourceTree = "<group>"; };
+		C1036AAB225E0CA100322B2B /* NSDictionary+safeObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safeObjectForKey.m"; sourceTree = "<group>"; };
+		C1036AAD225E0D5B00322B2B /* ExtensionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionHeader.h; sourceTree = "<group>"; };
+		C1036AAE225E0E0000322B2B /* MBProgressHUD+Constructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Constructor.m"; sourceTree = "<group>"; };
+		C1036AAF225E0E0000322B2B /* MBProgressHUD+Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Constructor.h"; sourceTree = "<group>"; };
 		C1248690225D94CD0040B476 /* XXOO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XXOO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1248693225D94CD0040B476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C1248694225D94CD0040B476 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -177,6 +202,15 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		C1036A97225E077D00322B2B /* NetWorkTool */ = {
+			isa = PBXGroup;
+			children = (
+				C1036A98225E086F00322B2B /* TYNetWorkTool.h */,
+				C1036A99225E086F00322B2B /* TYNetWorkTool.m */,
+			);
+			path = NetWorkTool;
+			sourceTree = "<group>";
+		};
 		C1248687225D94CD0040B476 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +276,7 @@
 		C12486C6225D96A30040B476 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C1036A97225E077D00322B2B /* NetWorkTool */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -260,6 +295,21 @@
 		C12486C8225D96E40040B476 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C1036AAD225E0D5B00322B2B /* ExtensionHeader.h */,
+				C1036AAF225E0E0000322B2B /* MBProgressHUD+Constructor.h */,
+				C1036AAE225E0E0000322B2B /* MBProgressHUD+Constructor.m */,
+				C1036AAA225E0CA100322B2B /* NSDictionary+safeObjectForKey.h */,
+				C1036AAB225E0CA100322B2B /* NSDictionary+safeObjectForKey.m */,
+				C1036AA1225E0C3C00322B2B /* NSString+BXExtension.h */,
+				C1036A9B225E0C3C00322B2B /* NSString+BXExtension.m */,
+				C1036A9D225E0C3C00322B2B /* NSString+Encrypt.h */,
+				C1036AA0225E0C3C00322B2B /* NSString+Encrypt.m */,
+				C1036AA3225E0C3C00322B2B /* UIButton+Extension.h */,
+				C1036A9C225E0C3C00322B2B /* UIButton+Extension.m */,
+				C1036AA2225E0C3C00322B2B /* UIColor+Extend.h */,
+				C1036A9E225E0C3C00322B2B /* UIColor+Extend.m */,
+				C1036AA4225E0C3C00322B2B /* UIView+Extension.h */,
+				C1036A9F225E0C3C00322B2B /* UIView+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -703,19 +753,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
 				C1036A91225DEBA700322B2B /* UIViewController+PlayerRotation.m in Sources */,
 				C1036A90225DEBA700322B2B /* PlaybackControls.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
+				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
+				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
+				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,
+				C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */,
 				C1036A92225DEBA700322B2B /* VideoPlayer.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
 				C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */,
+				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
+				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
 				C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */,
+				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,

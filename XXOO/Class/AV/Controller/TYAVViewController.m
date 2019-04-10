@@ -26,7 +26,7 @@
     self.configuration.imageUrl = @"https://www.baidu.com/s?wd=黑洞&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc";
     NSString *str = @"http://data.vod.itc.cn/?rb=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=fl......dynrybyS1E.mp4 ";//@"http://www.crowncake.cn:18080/wav/no.9.mp4"
     self.configuration.sourceUrl = [NSURL URLWithString:str] ;
-//    self.configuration.title = @"标题";
+    self.configuration.title = @"标题";
     [self.playerView setPlayerConfiguration:self.configuration];
 }
 - (UIView *)playerView
