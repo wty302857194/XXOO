@@ -15,7 +15,7 @@
 #import "MJExtension.h"
 #import "SDWebImage.h"
 
-
+#import "TYBaseViewController.h"
 
 #endif /* PrefixHeader_pch */
 

@@ -6,11 +6,11 @@
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TYBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYEntertainmentViewController : UIViewController
+@interface TYEntertainmentViewController : TYBaseViewController
 
 @end
 

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYCategoryViewController : UIViewController
+@interface TYCategoryViewController : TYBaseViewController
 
 @end
 

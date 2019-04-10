@@ -10,7 +10,12 @@
 		49A86A2074E2C55CB000DDBA /* Pods_XXOOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E5B8A25E285C8DF3A83DE /* Pods_XXOOTests.framework */; };
 		5EB40ABA9399A11C93207535 /* Pods_XXOOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43517042698FD43A17C26385 /* Pods_XXOOUITests.framework */; };
 		810E4558C19DF5624DCBEDCC /* Pods_XXOO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */; };
-		C1036A72225DC64100322B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1036A71225DC64100322B2B /* Assets.xcassets */; };
+		C1036A90225DEBA700322B2B /* PlaybackControls.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A86225DEBA700322B2B /* PlaybackControls.m */; };
+		C1036A91225DEBA700322B2B /* UIViewController+PlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */; };
+		C1036A92225DEBA700322B2B /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8A225DEBA700322B2B /* VideoPlayer.m */; };
+		C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8B225DEBA700322B2B /* VideoSlider.m */; };
+		C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */; };
+		C1036A96225E042A00322B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1036A95225E042A00322B2B /* Assets.xcassets */; };
 		C1248695225D94CD0040B476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248694225D94CD0040B476 /* AppDelegate.m */; };
 		C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C124869E225D94CF0040B476 /* LaunchScreen.storyboard */; };
 		C12486A3225D94CF0040B476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486A2225D94CF0040B476 /* main.m */; };
@@ -57,7 +62,17 @@
 		9FE7918AABCC294270D55BFF /* Pods-XXOOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOTests/Pods-XXOOTests.release.xcconfig"; sourceTree = "<group>"; };
 		B418CC7FDCC7FBBAFAE4CFBE /* Pods-XXOOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE7F2A015EF971460ECFDBE4 /* Pods-XXOO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOO.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOO/Pods-XXOO.release.xcconfig"; sourceTree = "<group>"; };
-		C1036A71225DC64100322B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
+		C1036A86225DEBA700322B2B /* PlaybackControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackControls.m; sourceTree = "<group>"; };
+		C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PlayerRotation.m"; sourceTree = "<group>"; };
+		C1036A88225DEBA700322B2B /* VideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSlider.h; sourceTree = "<group>"; };
+		C1036A89225DEBA700322B2B /* PlayerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerConfiguration.h; sourceTree = "<group>"; };
+		C1036A8A225DEBA700322B2B /* VideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
+		C1036A8B225DEBA700322B2B /* VideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSlider.m; sourceTree = "<group>"; };
+		C1036A8C225DEBA700322B2B /* UIViewController+PlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PlayerRotation.h"; sourceTree = "<group>"; };
+		C1036A8D225DEBA700322B2B /* PlaybackControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackControls.h; sourceTree = "<group>"; };
+		C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConfiguration.m; sourceTree = "<group>"; };
+		C1036A8F225DEBA700322B2B /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
+		C1036A95225E042A00322B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1248690225D94CD0040B476 /* XXOO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XXOO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1248693225D94CD0040B476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C1248694225D94CD0040B476 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +152,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C1036A84225DEBA700322B2B /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				C1036A85225DEBA700322B2B /* Player */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		C1036A85225DEBA700322B2B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				C1036A86225DEBA700322B2B /* PlaybackControls.m */,
+				C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */,
+				C1036A88225DEBA700322B2B /* VideoSlider.h */,
+				C1036A89225DEBA700322B2B /* PlayerConfiguration.h */,
+				C1036A8A225DEBA700322B2B /* VideoPlayer.m */,
+				C1036A8B225DEBA700322B2B /* VideoSlider.m */,
+				C1036A8C225DEBA700322B2B /* UIViewController+PlayerRotation.h */,
+				C1036A8D225DEBA700322B2B /* PlaybackControls.h */,
+				C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */,
+				C1036A8F225DEBA700322B2B /* VideoPlayer.h */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		C1248687225D94CD0040B476 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +249,7 @@
 		C12486C7225D96D00040B476 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C1036A84225DEBA700322B2B /* Vendors */,
 				C12486F7225D9F9F0040B476 /* BaseClass */,
 				C12486C6225D96A30040B476 /* Tool */,
 				C12486C8225D96E40040B476 /* Extension */,
@@ -415,7 +456,7 @@
 				C1248694225D94CD0040B476 /* AppDelegate.m */,
 				C124869E225D94CF0040B476 /* LaunchScreen.storyboard */,
 				C12486A1225D94CF0040B476 /* Info.plist */,
-				C1036A71225DC64100322B2B /* Assets.xcassets */,
+				C1036A95225E042A00322B2B /* Assets.xcassets */,
 				C12486A2225D94CF0040B476 /* main.m */,
 				C1248705225DC0400040B476 /* MyHeader.h */,
 				C1248706225DC0400040B476 /* PrefixHeader.pch */,
@@ -548,9 +589,9 @@
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486D2225D989A0040B476 /* TYAVViewController.xib in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */,
-				C1036A72225DC64100322B2B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,13 +703,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1036A91225DEBA700322B2B /* UIViewController+PlayerRotation.m in Sources */,
+				C1036A90225DEBA700322B2B /* PlaybackControls.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
+				C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
+				C1036A92225DEBA700322B2B /* VideoPlayer.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
+				C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */,
 				C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,

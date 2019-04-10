@@ -6,11 +6,11 @@
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TYBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYAVViewController : UIViewController
+@interface TYAVViewController : TYBaseViewController
 
 @end
 
