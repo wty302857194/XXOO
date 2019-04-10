@@ -10,10 +10,8 @@
 		49A86A2074E2C55CB000DDBA /* Pods_XXOOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E5B8A25E285C8DF3A83DE /* Pods_XXOOTests.framework */; };
 		5EB40ABA9399A11C93207535 /* Pods_XXOOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43517042698FD43A17C26385 /* Pods_XXOOUITests.framework */; };
 		810E4558C19DF5624DCBEDCC /* Pods_XXOO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */; };
+		C1036A72225DC64100322B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1036A71225DC64100322B2B /* Assets.xcassets */; };
 		C1248695225D94CD0040B476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248694225D94CD0040B476 /* AppDelegate.m */; };
-		C1248698225D94CD0040B476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248697225D94CD0040B476 /* ViewController.m */; };
-		C124869B225D94CD0040B476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1248699225D94CD0040B476 /* Main.storyboard */; };
-		C124869D225D94CF0040B476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C124869C225D94CF0040B476 /* Assets.xcassets */; };
 		C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C124869E225D94CF0040B476 /* LaunchScreen.storyboard */; };
 		C12486A3225D94CF0040B476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486A2225D94CF0040B476 /* main.m */; };
 		C12486AD225D94CF0040B476 /* XXOOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486AC225D94CF0040B476 /* XXOOTests.m */; };
@@ -28,6 +26,10 @@
 		C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486EF225D99A60040B476 /* TYTaskViewController.xib */; };
 		C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486F3225D99B80040B476 /* TYMineViewController.m */; };
 		C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486F4225D99B80040B476 /* TYMineViewController.xib */; };
+		C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486F9225D9FEC0040B476 /* TYBaseViewController.m */; };
+		C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486FC225DA01E0040B476 /* TYBaseNavigationController.m */; };
+		C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486FF225DBE0F0040B476 /* TYBaseView.m */; };
+		C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248702225DBE910040B476 /* TYBaseTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +57,10 @@
 		9FE7918AABCC294270D55BFF /* Pods-XXOOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOTests/Pods-XXOOTests.release.xcconfig"; sourceTree = "<group>"; };
 		B418CC7FDCC7FBBAFAE4CFBE /* Pods-XXOOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE7F2A015EF971460ECFDBE4 /* Pods-XXOO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOO.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOO/Pods-XXOO.release.xcconfig"; sourceTree = "<group>"; };
+		C1036A71225DC64100322B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		C1248690225D94CD0040B476 /* XXOO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XXOO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1248693225D94CD0040B476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C1248694225D94CD0040B476 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C1248696225D94CD0040B476 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C1248697225D94CD0040B476 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C124869A225D94CD0040B476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C124869C225D94CF0040B476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C124869F225D94CF0040B476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C12486A1225D94CF0040B476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C12486A2225D94CF0040B476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +85,16 @@
 		C12486F2225D99B80040B476 /* TYMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMineViewController.h; sourceTree = "<group>"; };
 		C12486F3225D99B80040B476 /* TYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMineViewController.m; sourceTree = "<group>"; };
 		C12486F4225D99B80040B476 /* TYMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMineViewController.xib; sourceTree = "<group>"; };
+		C12486F8225D9FEC0040B476 /* TYBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseViewController.h; sourceTree = "<group>"; };
+		C12486F9225D9FEC0040B476 /* TYBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseViewController.m; sourceTree = "<group>"; };
+		C12486FB225DA01E0040B476 /* TYBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseNavigationController.h; sourceTree = "<group>"; };
+		C12486FC225DA01E0040B476 /* TYBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseNavigationController.m; sourceTree = "<group>"; };
+		C12486FE225DBE0F0040B476 /* TYBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseView.h; sourceTree = "<group>"; };
+		C12486FF225DBE0F0040B476 /* TYBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseView.m; sourceTree = "<group>"; };
+		C1248701225DBE910040B476 /* TYBaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseTabBarViewController.h; sourceTree = "<group>"; };
+		C1248702225DBE910040B476 /* TYBaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseTabBarViewController.m; sourceTree = "<group>"; };
+		C1248705225DC0400040B476 /* MyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeader.h; sourceTree = "<group>"; };
+		C1248706225DC0400040B476 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				C1248692225D94CD0040B476 /* XXOO */,
-				C12486AB225D94CF0040B476 /* XXOOTests */,
 				C12486B6225D94CF0040B476 /* XXOOUITests */,
+				C12486AB225D94CF0040B476 /* XXOOTests */,
 				C1248691225D94CD0040B476 /* Products */,
 				D845427D6FF04A076FC3D749 /* Pods */,
 				637054B2F1F710FF13B5624C /* Frameworks */,
@@ -155,15 +164,7 @@
 			children = (
 				C12486C7225D96D00040B476 /* Main */,
 				C12486C5225D96910040B476 /* Class */,
-				C1248693225D94CD0040B476 /* AppDelegate.h */,
-				C1248694225D94CD0040B476 /* AppDelegate.m */,
-				C1248696225D94CD0040B476 /* ViewController.h */,
-				C1248697225D94CD0040B476 /* ViewController.m */,
-				C1248699225D94CD0040B476 /* Main.storyboard */,
-				C124869C225D94CF0040B476 /* Assets.xcassets */,
-				C124869E225D94CF0040B476 /* LaunchScreen.storyboard */,
-				C12486A1225D94CF0040B476 /* Info.plist */,
-				C12486A2225D94CF0040B476 /* main.m */,
+				C1248704225DBF3E0040B476 /* Other */,
 			);
 			path = XXOO;
 			sourceTree = "<group>";
@@ -208,6 +209,7 @@
 		C12486C7225D96D00040B476 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C12486F7225D9F9F0040B476 /* BaseClass */,
 				C12486C6225D96A30040B476 /* Tool */,
 				C12486C8225D96E40040B476 /* Extension */,
 			);
@@ -391,6 +393,36 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C12486F7225D9F9F0040B476 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				C12486F8225D9FEC0040B476 /* TYBaseViewController.h */,
+				C12486F9225D9FEC0040B476 /* TYBaseViewController.m */,
+				C12486FB225DA01E0040B476 /* TYBaseNavigationController.h */,
+				C12486FC225DA01E0040B476 /* TYBaseNavigationController.m */,
+				C12486FE225DBE0F0040B476 /* TYBaseView.h */,
+				C12486FF225DBE0F0040B476 /* TYBaseView.m */,
+				C1248701225DBE910040B476 /* TYBaseTabBarViewController.h */,
+				C1248702225DBE910040B476 /* TYBaseTabBarViewController.m */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		C1248704225DBF3E0040B476 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C1248693225D94CD0040B476 /* AppDelegate.h */,
+				C1248694225D94CD0040B476 /* AppDelegate.m */,
+				C124869E225D94CF0040B476 /* LaunchScreen.storyboard */,
+				C12486A1225D94CF0040B476 /* Info.plist */,
+				C1036A71225DC64100322B2B /* Assets.xcassets */,
+				C12486A2225D94CF0040B476 /* main.m */,
+				C1248705225DC0400040B476 /* MyHeader.h */,
+				C1248706225DC0400040B476 /* PrefixHeader.pch */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		D845427D6FF04A076FC3D749 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,12 +546,11 @@
 			files = (
 				C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
-				C124869D225D94CF0040B476 /* Assets.xcassets in Resources */,
 				C12486D2225D989A0040B476 /* TYAVViewController.xib in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */,
-				C124869B225D94CD0040B476 /* Main.storyboard in Resources */,
+				C1036A72225DC64100322B2B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,23 +633,21 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-XXOO/Pods-XXOO-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,14 +662,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1248698225D94CD0040B476 /* ViewController.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
+				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
 				C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
+				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
+				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,14 +708,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C1248699225D94CD0040B476 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C124869A225D94CD0040B476 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C124869E225D94CF0040B476 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -814,7 +838,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
-				INFOPLIST_FILE = XXOO/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = XXOO/Other/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/XXOO/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -832,7 +858,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
-				INFOPLIST_FILE = XXOO/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = XXOO/Other/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/XXOO/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

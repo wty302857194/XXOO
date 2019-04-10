@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TYBaseTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
+    TYBaseTabBarViewController *tabBarVC = [[TYBaseTabBarViewController alloc] init];
+    self.window.rootViewController = tabBarVC;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

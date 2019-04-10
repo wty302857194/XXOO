@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TYBaseViewController.h
 //  XXOO
 //
 //  Created by wbb on 2019/4/10.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface TYBaseViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

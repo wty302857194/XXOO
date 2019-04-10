@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  MyViewController
+//
+//  Created by 杨飞 on 16/7/12.
+//  Copyright © 2016年 cjh. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Masonry.h"
+#import "MyHeader.h"
+#import "AFNetworking.h"
+#import "MJExtension.h"
+#import "SDWebImage.h"
+
+
+
+#endif /* PrefixHeader_pch */
+
+

@@ -10,9 +10,10 @@ target 'XXOO' do
   pod 'Masonry'
   pod 'MBProgressHUD'
   pod 'MJRefresh'
-  pod 'SDCycleScrollView'  # 广告轮播
+#  pod 'SDCycleScrollView'  # 广告轮播
   pod 'IQKeyboardManager'
-  pod 'IBAnimatable'
+  pod 'MJExtension'
+#  pod 'IBAnimatable'
   
   
   
