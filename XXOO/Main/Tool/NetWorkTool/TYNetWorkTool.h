@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum : NSUInteger {
-    ZJReachabilityStatusUnknown,//未识别网络
-    ZJReachabilityStatusNo,//未连接网络
-    ZJReachabilityStatus3G4G,//3G/4G网络
-    ZJReachabilityStatusWiFi,//Wifi网络
-} ZJNetworkReachabilityStatus;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYNetWorkTool : NSObject

@@ -7,6 +7,7 @@
 //
 
 #import "TYBaseTabBarViewController.h"
+#import "TYBaseNavigationController.h"
 #import "TYMineViewController.h"
 #import "TYTaskViewController.h"
 #import "TYCategoryViewController.h"
@@ -38,7 +39,9 @@
     viewController.tabBarItem.image = [UIImage imageNamed:normalImage];
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
     viewController.tabBarItem.title = title;
-    [self addChildViewController:viewController];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:viewController];
+    
+    [self addChildViewController:nav];
 }
 
 @end

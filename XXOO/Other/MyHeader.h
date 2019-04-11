@@ -9,6 +9,31 @@
 #ifndef MyHeader_h
 #define MyHeader_h
 
+
+// 判断设备类型
+#define iPhone4_Vertical ([UIScreen mainScreen].bounds.size.height==480.0f)
+#define iPhoneX      ([UIScreen mainScreen].bounds.size.width == 375 && [UIScreen mainScreen].bounds.size.height == 812)
+
+#define kSafeAreaMaiginTop         (iPhoneX?44:0)
+#define kSafeAreaMaiginBottom      (iPhoneX?34:0)
+#define kStatusBarHeight           (iPhoneX?44:20)    // 状态栏高度
+#define kNavigationBarHeight       44     // NavBar高度
+#define kTabBarHeight              (iPhoneX?83:49)
+
+// 状态栏＋导航栏高度(兼容iPhoneX)
+#define kLayoutViewMarginTop  ((kStatusBarHeight) + (kNavigationBarHeight))
+#define kTableBarHeight            (iPhoneX?83:49)  // 底部tablebar的高度
+
+
+
+// 颜色 统一用16进制
+#define hexColor(colorV)        [UIColor colorWithHexColorString:@#colorV]
+#define hexColorAlpha(colorV,a) [UIColor colorWithHexColorString:@#colorV alpha:a];
+
+
+// 一些系统单例的简写
+#define USER_DEFAULTS       [NSUserDefaults standardUserDefaults]
+
 //获取通知中心
 #define TYNotificationCenter [NSNotificationCenter defaultCenter]
 

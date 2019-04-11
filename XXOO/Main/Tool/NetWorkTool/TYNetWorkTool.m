@@ -56,29 +56,12 @@
  */
 +(void)postRequest:(NSString*)url parameters:(NSDictionary *)parameters successBlock:(void (^)(BOOL success,id data,NSString* msg))successBlock failureBlock:(void (^)(NSString* description))failureBlock{
     
-    NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:parameters?:@{}];
-//    if ([[HYManager sharedManager] isLogIn]) {
-//        mutableParams[@"token"] = [[HYManager sharedManager] currentUser].token;
-//    }
+    NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary nullDic:parameters?:@{}]];
     
     // 添加默认header
 //    [[AFNetworkClient sharedClient].requestSerializer setValue:HYNONNil([HYManager sharedManager].getDeviceId) forHTTPHeaderField:@"device_sn"];
 //    [[AFNetworkClient sharedClient].requestSerializer setValue:[HYManager sharedManager].currentUser ? HYNONNil([HYManager sharedManager].currentUser.token) : @"" forHTTPHeaderField:@"token"];
-//
-//    NSString *privateKey = [DPOpenSSLRSA shareInstance].clientPrivateKey;
-//    NSString *orignalString = [NSString dpOriginalData:mutableParams];
-//    NSData *signData = [[DPOpenSSLRSA shareInstance] sign:orignalString withPrivateKey:privateKey];
-//    NSString *signString = [signData base64EncodedString];
-    
-    
-//    [mutableParams setObject:signString?:@"" forKey:@"sign"];
-//
-//    [[DPOpenSSLRSA shareInstance] saveClientRSAKey];
-    
-//    if (![url containsString:@"http://"]) {
-//        url = [NSString stringWithFormat:@"%@%@",URL_main,url];
-//    }
-    
+
     [[AFNetworkClient sharedClient] POST:url parameters:mutableParams progress:^(NSProgress * _Nonnull uploadProgress) {
         //进度
         
@@ -87,8 +70,7 @@
         
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             // 开始验签
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:responseObject];
-            responseObject = [NSDictionary nullDic:responseObject];
+            NSMutableDictionary *dict = [NSDictionary nullDic:responseObject];
 //            NSString *signString = [NSString dp_stringWithDictionary:responseObject key:@"sign"];
 //
 //            BOOL bRe = [SXRSA verify:[NSString dpOriginalData:dict] sign:signString publicKey:[DPOpenSSLRSA shareInstance].serverPublicKey];
