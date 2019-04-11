@@ -14,8 +14,8 @@ target 'XXOO' do
   pod 'IQKeyboardManager'
   pod 'MJExtension'
 #  pod 'IBAnimatable'
-  
-  
+  pod 'SJVideoPlayer'
+  pod 'SJScrollEntriesView'
   
   
   

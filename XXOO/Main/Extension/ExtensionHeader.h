@@ -16,5 +16,5 @@
 #import "NSString+BXExtension.h"
 #import "MBProgressHUD+Constructor.h"
 #import "UIView+Extension.h"
-
+#import "UIViewController+TestAdd.h"
 #endif /* ExtensionHeader_h */

@@ -17,6 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.navigationBar.backgroundColor = [UIColor whiteColor];
+    self.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationBar.translucent = NO;
+//    self.navigationBar.tintColor = [UIColor whiteColor];
+    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+    gradientLayer.frame = CGRectMake(0, -kStatusBarHeight, KSCREEN_WIDTH, kLayoutViewMarginTop);
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 0);
+    gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
+    [gradientLayer setColors:@[(id)[[UIColor redColor] CGColor],(id)[TYRGBColor(100, 100, 100) CGColor]]];//渐变数组
+    [self.navigationBar.layer addSublayer:gradientLayer];
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {

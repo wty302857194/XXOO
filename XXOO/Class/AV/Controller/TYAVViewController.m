@@ -7,52 +7,159 @@
 //
 
 #import "TYAVViewController.h"
+#import "TYAVHomeViewController.h"
 #import "VideoPlayer.h"
 #import "PlayerConfiguration.h"
+#import <SJScrollEntriesView/SJScrollEntriesView.h>
 
-@interface TYAVViewController ()
-@property (nonatomic, strong) VideoPlayer *playerView;
-@property (nonatomic, strong) PlayerConfiguration *configuration;
+
+@interface TestItem : NSObject
+
+@property (nonatomic, strong) NSString *title;
+
+- (instancetype)initWithTitle:(NSString *)title;
+
+@end
+
+@implementation TestItem
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [super init];
+    if ( !self ) return nil;
+    _title = title;
+    return self;
+}
+@end
+
+@interface TYAVViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, SJScrollEntriesViewDelegate>
+
+@property (nonatomic, strong, readonly) UIPageViewController *pageViewController;
+@property (nonatomic, strong, readonly) SJScrollEntriesView *titlesView;
+@property (nonatomic, copy) NSArray * titleArr;
+
 @end
 
 @implementation TYAVViewController
 
+@synthesize titlesView = _titlesView;
+@synthesize pageViewController = _pageViewController;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.view addSubview:self.titlesView];
+    [self.titlesView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.leading.trailing.offset(0);
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+        make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+        make.height.offset(44);
+    }];
     
-    [self.view addSubview:self.playerView];
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titlesView.mas_bottom).offset(1);
+        make.leading.bottom.trailing.offset(0);
+    }];
     
-    self.configuration.imageUrl = @"https://www.baidu.com/s?wd=黑洞&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc";
-    NSString *str = @"http://183.146.19.12/sohu/v1/TmPdTmwGoEIGh2btfFdvg8EveAkb8OWOy2C7T8yv5m47fFoGRMNiNw.mp4?k=gIPvVp&p=XWldzHqu4ZkWXZxIWhoBoJ2svm1BqVPcNmsdytP&r=TmI20LscWOo3NMAcgSwgqK8lqps7g6eR5ey3T2x6DhdFqSKM089RPmN60SXSqTPGRDNOWhoioMycY&q=OpC7hW7IWhodRDbXWY6SotE7ZDNslG6OWJX4WOXOfYWS0F2OfDAsWD1ORYoURD64fOoUZD6SotocWhCsRTT&cip=61.132.53.203";//@"http://www.crowncake.cn:18080/wav/no.9.mp4"
-    self.configuration.sourceUrl = [NSURL URLWithString:str] ;
-    self.configuration.title = @"标题";
-    [self.playerView setPlayerConfiguration:self.configuration];
+    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
 }
-- (UIView *)playerView
-{
-    if (!_playerView) {
-        _playerView = [[VideoPlayer alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 180)];
-    }
-    return _playerView;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
-- (PlayerConfiguration *)configuration
-{
-    if (!_configuration) {
-        _configuration = [[PlayerConfiguration alloc]init];
-        _configuration.shouldAutoPlay = NO;
-        _configuration.supportedDoubleTap = YES;
-        _configuration.shouldAutorotate = YES;
-        _configuration.repeatPlay = NO;
-        _configuration.videoGravity = VideoGravityResizeAspect;
-    }
-    return _configuration;
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+- (BOOL)prefersStatusBarHidden {
+    return self.pageViewController.viewControllers.firstObject.prefersStatusBarHidden;
 }
 
--(void)dealloc
-{
-    [self.playerView _pauseVideo];
-    [self.playerView _deallocPlayer];
-    [self.playerView removeFromSuperview];
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.pageViewController.viewControllers.firstObject.preferredStatusBarStyle;
 }
+
+- (BOOL)prefersHomeIndicatorAutoHidden {
+    return YES;
+}
+
+#pragma mark - lazy
+
+- (SJScrollEntriesView *)titlesView {
+    if ( _titlesView ) return _titlesView;
+    SJScrollEntriesViewSettings *settins = [SJScrollEntriesViewSettings defaultSettings];
+    settins.selectedColor = TYRGBColor(138, 78, 220);
+    settins.lineColor = TYRGBColor(138, 78, 220);
+    
+    _titlesView = [[SJScrollEntriesView alloc] initWithSettings:settins];
+    _titlesView.backgroundColor = [UIColor whiteColor];
+    NSMutableArray<TestItem *> *arrM = [NSMutableArray array];
+    for ( int i = 0 ; i < self.titleArr.count ; ++ i ) {
+        [arrM addObject:[[TestItem alloc] initWithTitle:self.titleArr[i]]];
+    }
+    [_titlesView setValue:arrM forKey:@"items"];
+    _titlesView.delegate = self;
+    return _titlesView;
+}
+
+- (UIPageViewController *)pageViewController {
+    if ( _pageViewController ) return _pageViewController;
+    _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(2)}];
+    _pageViewController.view.backgroundColor = [UIColor whiteColor];
+    _pageViewController.dataSource = self;
+    _pageViewController.delegate = self;
+    return _pageViewController;
+}
+
+- (NSArray *)titleArr {
+    if (!_titleArr) {
+        _titleArr = @[@"最新",@"限免",@"无码",@"独家",@"中文"];
+    }
+    return _titleArr;
+}
+
+#pragma mark - delegate
+
+- (void)scrollEntriesView:(SJScrollEntriesView *)view currentIndex:(NSInteger)currentIndex beforeIndex:(NSInteger)beforeIndex {
+    NSInteger vcIndex = self.pageViewController.viewControllers.firstObject.index;
+    if ( currentIndex == vcIndex ) return;
+    UIPageViewControllerNavigationDirection direction = (vcIndex > currentIndex) ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
+    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:currentIndex]] direction:direction animated:YES completion:nil];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    return [self _viewControllerAtIndex:viewController.index - 1];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    return [self _viewControllerAtIndex:viewController.index + 1];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    UIViewController *vc = pageViewController.viewControllers.firstObject;
+    [self.titlesView changeIndex:[vc index]];
+}
+- (UIViewController *)_viewControllerAtIndex:(NSInteger)index {
+    if ( index >= self.titleArr.count) return nil;
+    if ( index < 0 ) return nil;
+    
+    UIViewController *vc = self.dataViewControllersDictM[@(index)];
+    if ( vc ) return vc;
+    vc = [TYAVHomeViewController new];
+    vc.index = index;
+    self.dataViewControllersDictM[@(index)] = vc;
+    return vc;
+}
+- (NSMutableDictionary< NSNumber *, UIViewController *> *)dataViewControllersDictM {
+    NSMutableDictionary< NSNumber *, UIViewController *> *dataViewControllersDictM = objc_getAssociatedObject(self, _cmd);
+    if ( dataViewControllersDictM ) return dataViewControllersDictM;
+    dataViewControllersDictM = [NSMutableDictionary new];
+    objc_setAssociatedObject(self, _cmd, dataViewControllersDictM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return dataViewControllersDictM;
+}
+
 @end
