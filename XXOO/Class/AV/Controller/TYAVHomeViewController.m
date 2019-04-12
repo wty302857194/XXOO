@@ -7,41 +7,103 @@
 //
 
 #import "TYAVHomeViewController.h"
+#import "TYEntertainmentCollectionViewCell.h"
+#import "TYHomeTableViewCell.h"
 
-@interface TYAVHomeViewController ()
+#define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
+
+@interface TYAVHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIView *searchBackView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation TYAVHomeViewController
 
+- (IBAction)selectBtnClick:(UIButton *)sender {
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSInteger index =  [self.tabBarController selectedIndex];
+    self.tableView.hidden = index == 0?NO:YES;
+    self.collectionView.hidden = index == 0?YES:NO;
     
-    UIButton *thirdBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    thirdBtn.frame = CGRectMake(10, 50, 200, 44);
-    
-    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(0, 0, 200, 44);
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(1, 0);
-    gradientLayer.locations = @[@(0.2),@(1.0)];//渐变点
-    [gradientLayer setColors:@[(id)[[UIColor redColor] CGColor],(id)[TYRGBColor(100, 100, 100) CGColor]]];//渐变数组
-    [thirdBtn.layer addSublayer:gradientLayer];
-    
-    [thirdBtn setTitle:@"代码创建的按钮，使用layer" forState:UIControlStateNormal];
-    
-    [self.view addSubview:thirdBtn];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
+{
+    return 5;//_dataArr.count;
 }
-*/
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellid = @"TYHomeTableViewCell";
+    TYHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if (cell == nil) {
+        cell = [[NSBundle mainBundle] loadNibNamed:@"TYHomeTableViewCell" owner:nil options:nil].lastObject;
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+
+
+#pragma mark -- UICollectionDataSource
+#pragma mark -- UICollectionViewDataSource //定义展示的UICollectionViewCell的个数
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+//定义展示的Section的个数
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+    
+}
+//每个UICollectionView展示的内容
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TYEntertainmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell" forIndexPath:indexPath];
+//    [cell sizeToFit];
+    
+    return cell;
+    
+}
+//定义每个UICollectionView 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionWidth, collectionWidth*(118/165.f));
+    
+}
+//定义每个UICollectionView 的间距
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(5, 10, 5, 10);
+    
+} //每个item之间的间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 2;
+    
+}
+
+//UICollectionView被选中时调用的方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 @end

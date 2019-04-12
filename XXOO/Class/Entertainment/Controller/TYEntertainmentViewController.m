@@ -7,148 +7,142 @@
 //
 
 #import "TYEntertainmentViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <AVKit/AVKit.h>
+#import "TYAVHomeViewController.h"
+#import <SJScrollEntriesView/SJScrollEntriesView.h>
+#import "TestItem.h"
 
-#define url_str @"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
-@interface TYEntertainmentViewController ()
-@property (nonatomic, strong) AVPlayerLayer * playerLayer;
-@property (nonatomic, strong) AVPlayer * myPlayer;
-@property (nonatomic, strong) AVPlayerItem * item;
-@property (nonatomic, strong) AVPlayerViewController *playerVC;
+@interface TYEntertainmentViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, SJScrollEntriesViewDelegate>
+
+@property (nonatomic, strong, readonly) UIPageViewController *pageViewController;
+@property (nonatomic, strong, readonly) SJScrollEntriesView *titlesView;
+@property (nonatomic, copy) NSArray * titleArr;
+
 @end
 
 @implementation TYEntertainmentViewController
 
+@synthesize titlesView = _titlesView;
+@synthesize pageViewController = _pageViewController;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.view addSubview:self.titlesView];
+    [self.titlesView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+        make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+        make.height.offset(44);
+    }];
     
-    [self setUI];
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titlesView.mas_bottom).offset(1);
+        make.leading.bottom.trailing.offset(0);
+    }];
+    
+    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+- (BOOL)prefersStatusBarHidden {
+    return self.pageViewController.viewControllers.firstObject.prefersStatusBarHidden;
 }
 
--(void)avPlayerMethod{
-    //构建播放网址
-    NSURL *mediaURL = [NSURL URLWithString:url_str];
-    //构建播放单元
-    self.item = [AVPlayerItem playerItemWithURL:mediaURL];
-    //构建播放器对象
-    self.myPlayer = [AVPlayer playerWithPlayerItem:self.item];
-    //构建播放器的layer
-    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
-    self.playerLayer.frame = CGRectMake(0, 66, self.view.bounds.size.width, 300);
-    [self.view.layer addSublayer:self.playerLayer];
-    //通过KVO来观察status属性的变化，来获得播放之前的错误信息
-//    [self.item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.pageViewController.viewControllers.firstObject.preferredStatusBarStyle;
 }
-/****************avplayer********************/
-#pragma mark - Private Methods
-- (void)setUI
-{
-    
-    //初始化视频播放地址
-    NSURL *mediaUrl = [NSURL URLWithString:url_str];
-    
-    // 初始化播放单元
-    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:mediaUrl];
-    
-    //初始化播放器对象
-    self.myPlayer = [[AVPlayer alloc]initWithPlayerItem:item];
-    
-    
-    //显示画面
-    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
-    layer.backgroundColor = [UIColor redColor].CGColor;
-    
-    //视频填充模式
-    layer.videoGravity = AVLayerVideoGravityResizeAspect;
-    
-    //设置画布frame
-    layer.frame = CGRectMake(0, KSCREENH_HEIGHT/2-250/2, KSCREEN_WIDTH, 250);
-    
-    
-    //添加到当前视图
-    [self.view.layer addSublayer:layer];
-    
-    [self.myPlayer play];
-    
-    //设置播放暂停按钮
-    NSArray *titles = @[@"播放",@"暂停"];
-    CGFloat gap = (KSCREEN_WIDTH-120)/3.0f;
-    
-    for (int i = 0; i < 2; i++) {
-        
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setTitle:titles[i] forState:UIControlStateNormal];
-        btn.backgroundColor = [UIColor redColor];
-        btn.tag = 555+i;
-        btn.frame = CGRectMake(gap+i*(gap+60), KSCREENH_HEIGHT-200, 60, 40);
-        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        btn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [btn addTarget:self action:@selector(targetAction:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.view addSubview:btn];
-        
-        
+
+- (BOOL)prefersHomeIndicatorAutoHidden {
+    return YES;
+}
+
+#pragma mark - lazy
+
+- (SJScrollEntriesView *)titlesView {
+    if ( _titlesView ) return _titlesView;
+    SJScrollEntriesViewSettings *settins = [SJScrollEntriesViewSettings defaultSettings];
+    settins.selectedColor = TYRGBColor(138, 78, 220);
+    settins.lineColor = TYRGBColor(138, 78, 220);
+    settins.fontSize = 16.0;
+    settins.itemSpacing = 0;
+    settins.lineScale = 1;
+    _titlesView = [[SJScrollEntriesView alloc] initWithSettings:settins];
+    _titlesView.backgroundColor = [UIColor whiteColor];
+    NSMutableArray<TestItem *> *arrM = [NSMutableArray array];
+    for ( int i = 0 ; i < self.titleArr.count ; ++ i ) {
+        [arrM addObject:[[TestItem alloc] initWithTitle:self.titleArr[i]]];
     }
-    
-    
-}//绘制UI
-#pragma mark - Action Methods
-- (void)targetAction:(UIButton*)sender
-{
-    switch (sender.tag) {
-            
-        case 555:  //播放
-            
-            [self play];
-            break;
-            
-        case 556:  //暂停
-            
-            [self pause];
-            break;
-            
-        default:
-            break;
+    [_titlesView setValue:arrM forKey:@"items"];
+    _titlesView.delegate = self;
+    return _titlesView;
+}
+
+- (UIPageViewController *)pageViewController {
+    if ( _pageViewController ) return _pageViewController;
+    _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(2)}];
+    _pageViewController.view.backgroundColor = [UIColor whiteColor];
+    _pageViewController.dataSource = self;
+    _pageViewController.delegate = self;
+    return _pageViewController;
+}
+
+- (NSArray *)titleArr {
+    if (!_titleArr) {
+        _titleArr = @[@"最新",@"限免",@"无码",@"独家",@"中文"];
     }
+    return _titleArr;
+}
+
+#pragma mark - delegate
+
+- (void)scrollEntriesView:(SJScrollEntriesView *)view currentIndex:(NSInteger)currentIndex beforeIndex:(NSInteger)beforeIndex {
+    NSInteger vcIndex = self.pageViewController.viewControllers.firstObject.index;
+    if ( currentIndex == vcIndex ) return;
+    UIPageViewControllerNavigationDirection direction = (vcIndex > currentIndex) ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
+    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:currentIndex]] direction:direction animated:YES completion:nil];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    return [self _viewControllerAtIndex:viewController.index - 1];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    return [self _viewControllerAtIndex:viewController.index + 1];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    UIViewController *vc = pageViewController.viewControllers.firstObject;
+    [self.titlesView changeIndex:[vc index]];
+}
+- (UIViewController *)_viewControllerAtIndex:(NSInteger)index {
+    if ( index >= self.titleArr.count) return nil;
+    if ( index < 0 ) return nil;
+    
+    UIViewController *vc = self.dataViewControllersDictM[@(index)];
+    if ( vc ) return vc;
+    vc = [TYAVHomeViewController new];
+    vc.index = index;
+    self.dataViewControllersDictM[@(index)] = vc;
+    return vc;
+}
+- (NSMutableDictionary< NSNumber *, UIViewController *> *)dataViewControllersDictM {
+    NSMutableDictionary< NSNumber *, UIViewController *> *dataViewControllersDictM = objc_getAssociatedObject(self, _cmd);
+    if ( dataViewControllersDictM ) return dataViewControllersDictM;
+    dataViewControllersDictM = [NSMutableDictionary new];
+    objc_setAssociatedObject(self, _cmd, dataViewControllersDictM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return dataViewControllersDictM;
 }
 
 
-- (void)play
-{
-    
-    if (self.myPlayer.rate == 0) {
-        
-        [self.myPlayer play];
-    }
-    
-}// 播放
-
-
-- (void)pause
-{
-    if (self.myPlayer.rate != 0)
-    {
-        [self.myPlayer pause];
-    }
-    
-}//暂停
-/************end**************/
-
-
-/******AVPlayerViewController******/
-- (void)setAVPlayerViewControllerUI {
-    NSURL *remoteURL = [NSURL URLWithString:url_str];
-    AVPlayer *player = [AVPlayer playerWithURL:remoteURL];
-    _playerVC = [[AVPlayerViewController alloc] init];
-    _playerVC.player = player;
-    // 设置播放视图的frame
-    self.playerVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height * 9 / 16);
-    
-    // 添加播放视图到要显示的视图
-    [self.view addSubview:self.playerVC.view];
-//    [self presentViewController:self.playerVC animated:YES completion:nil];
-    [self.playerVC.player play];
-}
 @end

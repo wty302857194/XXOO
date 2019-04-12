@@ -13,10 +13,8 @@ target 'XXOO' do
 #  pod 'SDCycleScrollView'  # 广告轮播
   pod 'IQKeyboardManager'
   pod 'MJExtension'
-#  pod 'IBAnimatable'
   pod 'SJVideoPlayer'
   pod 'SJScrollEntriesView'
-  
   
   
   

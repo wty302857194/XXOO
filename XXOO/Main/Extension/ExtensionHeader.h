@@ -17,4 +17,6 @@
 #import "MBProgressHUD+Constructor.h"
 #import "UIView+Extension.h"
 #import "UIViewController+TestAdd.h"
+#import "UIView+IBExtension.h"
+
 #endif /* ExtensionHeader_h */

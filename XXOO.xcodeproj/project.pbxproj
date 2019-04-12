@@ -10,11 +10,6 @@
 		49A86A2074E2C55CB000DDBA /* Pods_XXOOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E5B8A25E285C8DF3A83DE /* Pods_XXOOTests.framework */; };
 		5EB40ABA9399A11C93207535 /* Pods_XXOOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43517042698FD43A17C26385 /* Pods_XXOOUITests.framework */; };
 		810E4558C19DF5624DCBEDCC /* Pods_XXOO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */; };
-		C1036A90225DEBA700322B2B /* PlaybackControls.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A86225DEBA700322B2B /* PlaybackControls.m */; };
-		C1036A91225DEBA700322B2B /* UIViewController+PlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */; };
-		C1036A92225DEBA700322B2B /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8A225DEBA700322B2B /* VideoPlayer.m */; };
-		C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8B225DEBA700322B2B /* VideoSlider.m */; };
-		C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */; };
 		C1036A96225E042A00322B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1036A95225E042A00322B2B /* Assets.xcassets */; };
 		C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A99225E086F00322B2B /* TYNetWorkTool.m */; };
 		C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1036A9B225E0C3C00322B2B /* NSString+BXExtension.m */; };
@@ -48,6 +43,13 @@
 		C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE69C225F617A00050DCE /* TYAVHomeViewController.m */; };
 		C17DE69F225F617A00050DCE /* TYAVHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE69D225F617A00050DCE /* TYAVHomeViewController.xib */; };
 		C17DE6A3225F6F1E00050DCE /* TYGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6A2225F6F1E00050DCE /* TYGradientButton.m */; };
+		C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6A5225F855D00050DCE /* UIView+IBExtension.m */; };
+		C17DE6A9225F85BA00050DCE /* UIScreen+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6A7225F85B900050DCE /* UIScreen+Extension.m */; };
+		C17DE6AC2260273900050DCE /* TestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6AB2260273900050DCE /* TestItem.m */; };
+		C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6AE22602F5800050DCE /* TYEntertainmentCollectionViewCell.m */; };
+		C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */; };
+		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
+		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,16 +77,6 @@
 		9FE7918AABCC294270D55BFF /* Pods-XXOOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOTests/Pods-XXOOTests.release.xcconfig"; sourceTree = "<group>"; };
 		B418CC7FDCC7FBBAFAE4CFBE /* Pods-XXOOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE7F2A015EF971460ECFDBE4 /* Pods-XXOO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOO.release.xcconfig"; path = "Pods/Target Support Files/Pods-XXOO/Pods-XXOO.release.xcconfig"; sourceTree = "<group>"; };
-		C1036A86225DEBA700322B2B /* PlaybackControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackControls.m; sourceTree = "<group>"; };
-		C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PlayerRotation.m"; sourceTree = "<group>"; };
-		C1036A88225DEBA700322B2B /* VideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSlider.h; sourceTree = "<group>"; };
-		C1036A89225DEBA700322B2B /* PlayerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerConfiguration.h; sourceTree = "<group>"; };
-		C1036A8A225DEBA700322B2B /* VideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
-		C1036A8B225DEBA700322B2B /* VideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSlider.m; sourceTree = "<group>"; };
-		C1036A8C225DEBA700322B2B /* UIViewController+PlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PlayerRotation.h"; sourceTree = "<group>"; };
-		C1036A8D225DEBA700322B2B /* PlaybackControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackControls.h; sourceTree = "<group>"; };
-		C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConfiguration.m; sourceTree = "<group>"; };
-		C1036A8F225DEBA700322B2B /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		C1036A95225E042A00322B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1036A98225E086F00322B2B /* TYNetWorkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYNetWorkTool.h; sourceTree = "<group>"; };
 		C1036A99225E086F00322B2B /* TYNetWorkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYNetWorkTool.m; sourceTree = "<group>"; };
@@ -149,6 +141,18 @@
 		C17DE69D225F617A00050DCE /* TYAVHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVHomeViewController.xib; sourceTree = "<group>"; };
 		C17DE6A1225F6F1E00050DCE /* TYGradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGradientButton.h; sourceTree = "<group>"; };
 		C17DE6A2225F6F1E00050DCE /* TYGradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGradientButton.m; sourceTree = "<group>"; };
+		C17DE6A4225F855D00050DCE /* UIView+IBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBExtension.h"; sourceTree = "<group>"; };
+		C17DE6A5225F855D00050DCE /* UIView+IBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBExtension.m"; sourceTree = "<group>"; };
+		C17DE6A7225F85B900050DCE /* UIScreen+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Extension.m"; sourceTree = "<group>"; };
+		C17DE6A8225F85BA00050DCE /* UIScreen+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Extension.h"; sourceTree = "<group>"; };
+		C17DE6AA2260273900050DCE /* TestItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestItem.h; sourceTree = "<group>"; };
+		C17DE6AB2260273900050DCE /* TestItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestItem.m; sourceTree = "<group>"; };
+		C17DE6AD22602F5800050DCE /* TYEntertainmentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYEntertainmentCollectionViewCell.h; sourceTree = "<group>"; };
+		C17DE6AE22602F5800050DCE /* TYEntertainmentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYEntertainmentCollectionViewCell.m; sourceTree = "<group>"; };
+		C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYEntertainmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeTableViewCell.h; sourceTree = "<group>"; };
+		C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeTableViewCell.m; sourceTree = "<group>"; };
+		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,26 +198,8 @@
 		C1036A84225DEBA700322B2B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				C1036A85225DEBA700322B2B /* Player */,
 			);
 			path = Vendors;
-			sourceTree = "<group>";
-		};
-		C1036A85225DEBA700322B2B /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				C1036A8D225DEBA700322B2B /* PlaybackControls.h */,
-				C1036A86225DEBA700322B2B /* PlaybackControls.m */,
-				C1036A88225DEBA700322B2B /* VideoSlider.h */,
-				C1036A8B225DEBA700322B2B /* VideoSlider.m */,
-				C1036A89225DEBA700322B2B /* PlayerConfiguration.h */,
-				C1036A8E225DEBA700322B2B /* PlayerConfiguration.m */,
-				C1036A8F225DEBA700322B2B /* VideoPlayer.h */,
-				C1036A8A225DEBA700322B2B /* VideoPlayer.m */,
-				C1036A8C225DEBA700322B2B /* UIViewController+PlayerRotation.h */,
-				C1036A87225DEBA700322B2B /* UIViewController+PlayerRotation.m */,
-			);
-			path = Player;
 			sourceTree = "<group>";
 		};
 		C1036A97225E077D00322B2B /* NetWorkTool */ = {
@@ -313,6 +299,10 @@
 				C1036AAD225E0D5B00322B2B /* ExtensionHeader.h */,
 				C17DE693225F60DD00050DCE /* UIViewController+TestAdd.h */,
 				C17DE694225F60DD00050DCE /* UIViewController+TestAdd.m */,
+				C17DE6A8225F85BA00050DCE /* UIScreen+Extension.h */,
+				C17DE6A7225F85B900050DCE /* UIScreen+Extension.m */,
+				C17DE6A4225F855D00050DCE /* UIView+IBExtension.h */,
+				C17DE6A5225F855D00050DCE /* UIView+IBExtension.m */,
 				C1036AAF225E0E0000322B2B /* MBProgressHUD+Constructor.h */,
 				C1036AAE225E0E0000322B2B /* MBProgressHUD+Constructor.m */,
 				C1036AAA225E0CA100322B2B /* NSDictionary+safeObjectForKey.h */,
@@ -399,6 +389,8 @@
 		C12486D5225D98FE0040B476 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C17DE6AA2260273900050DCE /* TestItem.h */,
+				C17DE6AB2260273900050DCE /* TestItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,6 +398,9 @@
 		C12486D6225D98FE0040B476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */,
+				C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */,
+				C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +408,9 @@
 		C12486D7225D993C0040B476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C17DE6AD22602F5800050DCE /* TYEntertainmentCollectionViewCell.h */,
+				C17DE6AE22602F5800050DCE /* TYEntertainmentCollectionViewCell.m */,
+				C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,8 +666,10 @@
 			files = (
 				C17DE69F225F617A00050DCE /* TYAVHomeViewController.xib in Resources */,
 				C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */,
+				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */,
@@ -756,6 +756,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-XXOO/Pods-XXOO-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -771,6 +772,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -796,24 +798,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
-				C1036A91225DEBA700322B2B /* UIViewController+PlayerRotation.m in Sources */,
-				C1036A90225DEBA700322B2B /* PlaybackControls.m in Sources */,
+				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
+				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
+				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
-				C1036A94225DEBA700322B2B /* PlayerConfiguration.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
+				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,
+				C17DE6A9225F85BA00050DCE /* UIScreen+Extension.m in Sources */,
 				C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */,
-				C1036A92225DEBA700322B2B /* VideoPlayer.m in Sources */,
 				C17DE6A3225F6F1E00050DCE /* TYGradientButton.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
-				C1036A93225DEBA700322B2B /* VideoSlider.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,

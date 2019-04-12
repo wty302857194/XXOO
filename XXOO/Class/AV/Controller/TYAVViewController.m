@@ -8,27 +8,8 @@
 
 #import "TYAVViewController.h"
 #import "TYAVHomeViewController.h"
-#import "VideoPlayer.h"
-#import "PlayerConfiguration.h"
 #import <SJScrollEntriesView/SJScrollEntriesView.h>
-
-
-@interface TestItem : NSObject
-
-@property (nonatomic, strong) NSString *title;
-
-- (instancetype)initWithTitle:(NSString *)title;
-
-@end
-
-@implementation TestItem
-- (instancetype)initWithTitle:(NSString *)title {
-    self = [super init];
-    if ( !self ) return nil;
-    _title = title;
-    return self;
-}
-@end
+#import "TestItem.h"
 
 @interface TYAVViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, SJScrollEntriesViewDelegate>
 
@@ -49,7 +30,6 @@
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:self.titlesView];
     [self.titlesView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.leading.trailing.offset(0);
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
         make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
         make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
@@ -94,7 +74,9 @@
     SJScrollEntriesViewSettings *settins = [SJScrollEntriesViewSettings defaultSettings];
     settins.selectedColor = TYRGBColor(138, 78, 220);
     settins.lineColor = TYRGBColor(138, 78, 220);
-    
+    settins.fontSize = 16.0;
+    settins.itemSpacing = 0;
+    settins.lineScale = 1;
     _titlesView = [[SJScrollEntriesView alloc] initWithSettings:settins];
     _titlesView.backgroundColor = [UIColor whiteColor];
     NSMutableArray<TestItem *> *arrM = [NSMutableArray array];
