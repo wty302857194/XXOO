@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYHomeTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *contentImg;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,10 @@
 
 @implementation TYHomeTableViewCell
 
+- (IBAction)saveClick:(UIButton *)sender {
+    
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

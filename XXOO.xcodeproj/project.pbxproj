@@ -31,8 +31,6 @@
 		C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486EA225D998C0040B476 /* TYCategoryViewController.xib */; };
 		C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486EE225D99A60040B476 /* TYTaskViewController.m */; };
 		C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486EF225D99A60040B476 /* TYTaskViewController.xib */; };
-		C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486F3225D99B80040B476 /* TYMineViewController.m */; };
-		C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12486F4225D99B80040B476 /* TYMineViewController.xib */; };
 		C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486F9225D9FEC0040B476 /* TYBaseViewController.m */; };
 		C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486FC225DA01E0040B476 /* TYBaseNavigationController.m */; };
 		C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C12486FF225DBE0F0040B476 /* TYBaseView.m */; };
@@ -50,6 +48,8 @@
 		C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */; };
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
+		C1DE5383226065B700D41A04 /* mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DE5382226065B700D41A04 /* mine.storyboard */; };
+		C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE538522606BC400D41A04 /* TYUserTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,9 +118,6 @@
 		C12486ED225D99A60040B476 /* TYTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskViewController.h; sourceTree = "<group>"; };
 		C12486EE225D99A60040B476 /* TYTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskViewController.m; sourceTree = "<group>"; };
 		C12486EF225D99A60040B476 /* TYTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTaskViewController.xib; sourceTree = "<group>"; };
-		C12486F2225D99B80040B476 /* TYMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMineViewController.h; sourceTree = "<group>"; };
-		C12486F3225D99B80040B476 /* TYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMineViewController.m; sourceTree = "<group>"; };
-		C12486F4225D99B80040B476 /* TYMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMineViewController.xib; sourceTree = "<group>"; };
 		C12486F8225D9FEC0040B476 /* TYBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseViewController.h; sourceTree = "<group>"; };
 		C12486F9225D9FEC0040B476 /* TYBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseViewController.m; sourceTree = "<group>"; };
 		C12486FB225DA01E0040B476 /* TYBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseNavigationController.h; sourceTree = "<group>"; };
@@ -153,6 +150,9 @@
 		C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeTableViewCell.h; sourceTree = "<group>"; };
 		C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeTableViewCell.m; sourceTree = "<group>"; };
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
+		C1DE5382226065B700D41A04 /* mine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mine.storyboard; sourceTree = "<group>"; };
+		C1DE538422606BC400D41A04 /* TYUserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYUserTableViewController.h; sourceTree = "<group>"; };
+		C1DE538522606BC400D41A04 /* TYUserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYUserTableViewController.m; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -490,9 +490,8 @@
 		C12486E1225D99550040B476 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C12486F2225D99B80040B476 /* TYMineViewController.h */,
-				C12486F3225D99B80040B476 /* TYMineViewController.m */,
-				C12486F4225D99B80040B476 /* TYMineViewController.xib */,
+				C1DE538422606BC400D41A04 /* TYUserTableViewController.h */,
+				C1DE538522606BC400D41A04 /* TYUserTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +521,7 @@
 		C1248704225DBF3E0040B476 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				C1DE53812260659700D41A04 /* storyboard */,
 				C1248693225D94CD0040B476 /* AppDelegate.h */,
 				C1248694225D94CD0040B476 /* AppDelegate.m */,
 				C124869E225D94CF0040B476 /* LaunchScreen.storyboard */,
@@ -541,6 +541,14 @@
 				C17DE6A2225F6F1E00050DCE /* TYGradientButton.m */,
 			);
 			path = Inherit;
+			sourceTree = "<group>";
+		};
+		C1DE53812260659700D41A04 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C1DE5382226065B700D41A04 /* mine.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		D845427D6FF04A076FC3D749 /* Pods */ = {
@@ -669,10 +677,10 @@
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
-				C12486F6225D99B80040B476 /* TYMineViewController.xib in Resources */,
 				C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +813,7 @@
 				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
+				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
 				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
@@ -819,7 +828,6 @@
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
-				C12486F5225D99B80040B476 /* TYMineViewController.m in Sources */,
 				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,

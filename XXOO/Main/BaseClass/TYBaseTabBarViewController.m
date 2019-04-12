@@ -8,11 +8,11 @@
 
 #import "TYBaseTabBarViewController.h"
 #import "TYBaseNavigationController.h"
-#import "TYMineViewController.h"
 #import "TYTaskViewController.h"
 #import "TYCategoryViewController.h"
 #import "TYEntertainmentViewController.h"
 #import "TYAVViewController.h"
+#import "TYUserTableViewController.h"
 
 @interface TYBaseTabBarViewController ()
 
@@ -30,7 +30,9 @@
     [self addTabBarVC:[[TYEntertainmentViewController alloc] init] withTitle:@"娱乐" withNormalImage:@"Entertainment_table_normal" withSelectImage:@"Entertainment_table_select"];
     [self addTabBarVC:[[TYCategoryViewController alloc] init] withTitle:@"分类" withNormalImage:@"category_tabbar_normal" withSelectImage:@"category_tabbar_select"];
     [self addTabBarVC:[[TYTaskViewController alloc] init] withTitle:@"任务" withNormalImage:@"task_tabbar_normal" withSelectImage:@"task_tabbar_select"];
-    [self addTabBarVC:[[TYMineViewController alloc] init] withTitle:@"我的" withNormalImage:@"mine_tabbar_normal" withSelectImage:@"mine_tabbar_select"];
+    
+    TYUserTableViewController *testVC =  [[UIStoryboard storyboardWithName:@"mine" bundle:nil] instantiateViewControllerWithIdentifier:@"TYUserTableViewController"];;
+    [self addTabBarVC:testVC withTitle:@"我的" withNormalImage:@"mine_tabbar_normal" withSelectImage:@"mine_tabbar_select"];
 
     
 }

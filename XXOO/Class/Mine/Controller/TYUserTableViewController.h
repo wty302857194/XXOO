@@ -1,8 +1,8 @@
 //
-//  TYMineViewController.h
+//  TYUserTableViewController.h
 //  XXOO
 //
-//  Created by wbb on 2019/4/10.
+//  Created by wbb on 2019/4/12.
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYMineViewController : TYBaseViewController
+@interface TYUserTableViewController : UITableViewController
 
 @end
 
