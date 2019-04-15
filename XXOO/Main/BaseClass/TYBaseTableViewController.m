@@ -1,77 +1,28 @@
 //
-//  TYUserTableViewController.m
+//  TYBaseTableViewController.m
 //  XXOO
 //
-//  Created by wbb on 2019/4/12.
+//  Created by wbb on 2019/4/15.
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
-#import "TYUserTableViewController.h"
-#import "TYSettingTableVC.h"
+#import "TYBaseTableViewController.h"
 
-@interface TYUserTableViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *backImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
-@property (weak, nonatomic) IBOutlet UILabel *userNameLab;
-@property (weak, nonatomic) IBOutlet UIImageView *vipLogoImg;
-@property (weak, nonatomic) IBOutlet UIButton *buyVIPBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backImgLayout;
+@interface TYBaseTableViewController ()
 
 @end
 
-@implementation TYUserTableViewController
-- (IBAction)settingClick:(UIButton *)sender {
-    
-}
-- (IBAction)buyVIPClick:(UIButton *)sender {
-}
-- (IBAction)featureBtnClick:(UIButton *)sender {
-    switch (sender.tag) {
-        case 100:
-        {
-            
-        }
-            break;
-        case 101:
-        {
-            
-        }
-            break;
-        case 102:
-        {
-            
-        }
-            break;
-        case 103:
-        {
-            
-        }
-            break;
-            
-        default:
-            break;
-    }
-}
+@implementation TYBaseTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.backImgLayout.constant = -kLayoutViewMarginTop;
-}
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-
-
-#pragma mark - Table view data source
-
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,14 +78,4 @@
 }
 */
 
-#pragma mark - delegate
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger offsetY = scrollView.contentOffset.y;
-    if (offsetY < 0) {
-        float totalOffset = 229 + labs(offsetY);
-
-        float f = totalOffset / 229.f;
-        self.backImgView.frame = CGRectMake(-KSCREEN_WIDTH * (f - 1) * 0.5, offsetY, KSCREEN_WIDTH * f, totalOffset);
-    }
-}
 @end

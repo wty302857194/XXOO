@@ -48,6 +48,8 @@
 		C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */; };
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
+		C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */; };
+		C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */; };
 		C1DE5383226065B700D41A04 /* mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DE5382226065B700D41A04 /* mine.storyboard */; };
 		C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE538522606BC400D41A04 /* TYUserTableViewController.m */; };
 		C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */; };
@@ -152,6 +154,10 @@
 		C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeTableViewCell.h; sourceTree = "<group>"; };
 		C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeTableViewCell.m; sourceTree = "<group>"; };
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
+		C1DD4B10226472CF005FD5F5 /* TYBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseTableViewController.h; sourceTree = "<group>"; };
+		C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseTableViewController.m; sourceTree = "<group>"; };
+		C1DD4B1322647315005FD5F5 /* TYSettingTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSettingTableVC.h; sourceTree = "<group>"; };
+		C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSettingTableVC.m; sourceTree = "<group>"; };
 		C1DE5382226065B700D41A04 /* mine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mine.storyboard; sourceTree = "<group>"; };
 		C1DE538422606BC400D41A04 /* TYUserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYUserTableViewController.h; sourceTree = "<group>"; };
 		C1DE538522606BC400D41A04 /* TYUserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYUserTableViewController.m; sourceTree = "<group>"; };
@@ -500,6 +506,8 @@
 			children = (
 				C1DE538422606BC400D41A04 /* TYUserTableViewController.h */,
 				C1DE538522606BC400D41A04 /* TYUserTableViewController.m */,
+				C1DD4B1322647315005FD5F5 /* TYSettingTableVC.h */,
+				C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -518,6 +526,8 @@
 				C12486F9225D9FEC0040B476 /* TYBaseViewController.m */,
 				C12486FB225DA01E0040B476 /* TYBaseNavigationController.h */,
 				C12486FC225DA01E0040B476 /* TYBaseNavigationController.m */,
+				C1DD4B10226472CF005FD5F5 /* TYBaseTableViewController.h */,
+				C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */,
 				C12486FE225DBE0F0040B476 /* TYBaseView.h */,
 				C12486FF225DBE0F0040B476 /* TYBaseView.m */,
 				C1248701225DBE910040B476 /* TYBaseTabBarViewController.h */,
@@ -779,6 +789,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework",
@@ -795,6 +806,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJBaseVideoPlayer.framework",
@@ -815,6 +827,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
+				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
@@ -835,6 +848,7 @@
 				C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */,
 				C17DE6A3225F6F1E00050DCE /* TYGradientButton.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
+				C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,

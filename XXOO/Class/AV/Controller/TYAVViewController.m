@@ -48,11 +48,11 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
 - (BOOL)prefersStatusBarHidden {
@@ -99,7 +99,7 @@
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"最新",@"限免",@"无码",@"独家",@"中文"];
+        _titleArr = @[@"最新",@"无码",@"独家",@"中文"];
     }
     return _titleArr;
 }

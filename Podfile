@@ -15,8 +15,8 @@ target 'XXOO' do
   pod 'MJExtension'
   pod 'SJVideoPlayer'
   pod 'SJScrollEntriesView'
-  
-  
+  pod 'PYSearch'
+  pod 'Canvas'
   
   
   # Pods for XXOO

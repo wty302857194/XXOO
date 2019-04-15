@@ -39,12 +39,8 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     NSString *STR = @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";//@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:STR]];
     _player.URLAsset.title = @"十五年前, 一见钟情";
-    
     _player.placeholderImageView.image = [UIImage imageNamed:@"av_tabbar_normal"];
-//    NSTimeInterval secs = 20.0;
-//    _player.URLAsset.specifyStartTime = secs;
-    
-//    [_player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
+
     TYWeakSelf(self);
     [weakself.player setPlayTimeDidChangeExeBlok:^(__kindof SJBaseVideoPlayer * _Nonnull videoPlayer) {
         NSTimeInterval time = videoPlayer.currentTime;
@@ -52,9 +48,10 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         if (time>10) {
             [weakself.player pause];
             [weakself.player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
+            weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
         }
     }];
-    
+        
      SJVideoPlayer.update(^(SJVideoPlayerSettings * _Nonnull commonSettings) {
          commonSettings.more_trackColor = [UIColor whiteColor];
          commonSettings.progress_trackColor = [UIColor colorWithWhite:0.4 alpha:1];
@@ -69,7 +66,6 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     /// 可以通过下面这个属性, 来控制item是否隐藏
     /// 注意: 将逻辑放到item的代理方法中`updatePropertiesIfNeeded:videoPlayer:`
     imageItem.delegate = self;
-    //    imageItem.hidden = YES;
     [_player.defaultEdgeControlLayer.topAdapter addItem:imageItem];
     
     
@@ -81,9 +77,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     // 调整 item 前后间隔
     titleItem.insets = SJEdgeInsetsMake(8, 8);
     [_player.defaultEdgeControlLayer.topAdapter addItem:titleItem];
-    
-    
-    
+
     [_player.defaultEdgeControlLayer.topAdapter reload];
     
     

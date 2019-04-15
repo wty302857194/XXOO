@@ -10,6 +10,7 @@
 #import "TYEntertainmentCollectionViewCell.h"
 #import "TYHomeTableViewCell.h"
 #import "TYAVDetailsViewController.h"
+#import "PYSearch.h"
 
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
@@ -24,6 +25,7 @@
 @implementation TYAVHomeViewController
 
 - (IBAction)selectBtnClick:(UIButton *)sender {
+    
 }
 
 - (void)viewDidLoad {
@@ -34,8 +36,21 @@
     self.collectionView.hidden = index == 0?YES:NO;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
+    
+    [self.searchBackView addTarget:self action:@selector(goSearch)];
 }
 
+- (void)goSearch {
+    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:@[] searchBarPlaceholder:@"Search programming language" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+        // Call this Block when completion search automatically
+        // Such as: Push to a view controller
+        [searchViewController.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+        
+    }];
+    // 3. present the searchViewController
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
+    [self presentViewController:nav  animated:NO completion:nil];
+}
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
