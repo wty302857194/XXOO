@@ -50,6 +50,8 @@
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
 		C1DE5383226065B700D41A04 /* mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DE5382226065B700D41A04 /* mine.storyboard */; };
 		C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE538522606BC400D41A04 /* TYUserTableViewController.m */; };
+		C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */; };
+		C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,9 @@
 		C1DE5382226065B700D41A04 /* mine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mine.storyboard; sourceTree = "<group>"; };
 		C1DE538422606BC400D41A04 /* TYUserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYUserTableViewController.h; sourceTree = "<group>"; };
 		C1DE538522606BC400D41A04 /* TYUserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYUserTableViewController.m; sourceTree = "<group>"; };
+		C1DE53872260CF1500D41A04 /* TYTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskTableViewCell.h; sourceTree = "<group>"; };
+		C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskTableViewCell.m; sourceTree = "<group>"; };
+		C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTaskTableViewCell.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -459,6 +464,9 @@
 		C12486DD225D994E0040B476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1DE53872260CF1500D41A04 /* TYTaskTableViewCell.h */,
+				C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */,
+				C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -680,6 +688,7 @@
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
+				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */,
 			);
@@ -819,6 +828,7 @@
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,
 				C17DE6A9225F85BA00050DCE /* UIScreen+Extension.m in Sources */,

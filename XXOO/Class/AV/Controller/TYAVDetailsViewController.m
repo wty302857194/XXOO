@@ -9,6 +9,7 @@
 #import "TYAVDetailsViewController.h"
 #import "SJVideoPlayer.h"
 #import <SJUIKit/SJAttributeWorker.h>
+#import "SJCommonProgressSlider.h"
 
 static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        // 分享
 
@@ -23,9 +24,6 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     // create a player of the default type
     _player = [SJVideoPlayer player];
     
@@ -38,13 +36,31 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     }];
     
     _player.pausedToKeepAppearState = YES;
-    _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"]];
+    NSString *STR = @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";//@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
+    _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:STR]];
     _player.URLAsset.title = @"十五年前, 一见钟情";
-    NSTimeInterval secs = 20.0;
-    _player.URLAsset.specifyStartTime = secs;
     
-    [_player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
+    _player.placeholderImageView.image = [UIImage imageNamed:@"av_tabbar_normal"];
+//    NSTimeInterval secs = 20.0;
+//    _player.URLAsset.specifyStartTime = secs;
     
+//    [_player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
+    TYWeakSelf(self);
+    [weakself.player setPlayTimeDidChangeExeBlok:^(__kindof SJBaseVideoPlayer * _Nonnull videoPlayer) {
+        NSTimeInterval time = videoPlayer.currentTime;
+        NSLog(@"%f",time);
+        if (time>10) {
+            [weakself.player pause];
+            [weakself.player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
+        }
+    }];
+    
+     SJVideoPlayer.update(^(SJVideoPlayerSettings * _Nonnull commonSettings) {
+         commonSettings.more_trackColor = [UIColor whiteColor];
+         commonSettings.progress_trackColor = [UIColor colorWithWhite:0.4 alpha:1];
+         commonSettings.progress_bufferColor = [UIColor whiteColor];
+         commonSettings.progress_thumbSize = 10;
+     });
     
     // 1. 49 * 49 大小的图片item
     SJEdgeControlButtonItem *imageItem = [[SJEdgeControlButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] target:self action:@selector(test:) tag:SJEdgeControlButtonItemTag_Share];

@@ -9,6 +9,7 @@
 #import "TYAVHomeViewController.h"
 #import "TYEntertainmentCollectionViewCell.h"
 #import "TYHomeTableViewCell.h"
+#import "TYAVDetailsViewController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
@@ -61,6 +62,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -103,7 +106,8 @@
 
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
