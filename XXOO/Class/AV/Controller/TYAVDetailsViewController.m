@@ -7,7 +7,7 @@
 //
 
 #import "TYAVDetailsViewController.h"
-#import "TYEntertainmentCollectionViewCell.h"
+#import "TYAVDetailContentCollectionViewCell.h"
 #import "TYAVDetailCollectionViewCell.h"
 
 #import "SJVideoPlayer.h"
@@ -56,6 +56,11 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
             [weakself.player stop];
             [weakself.player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
             weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
+            
+            
+            UIView *view = [[UIView alloc] initWithFrame:weakself.player.view.bounds];
+            view.backgroundColor = [UIColor redColor];
+            [weakself.player.view addSubview:view];
         }
     }];
         
@@ -88,7 +93,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     [_player.defaultEdgeControlLayer.topAdapter reload];
     
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailContentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailContentCollectionViewCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailCollectionViewCell"];
     
 }
@@ -117,7 +122,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         return cell;
     }
     
-    TYEntertainmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell" forIndexPath:indexPath];
+    TYAVDetailContentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYAVDetailContentCollectionViewCell" forIndexPath:indexPath];
     
     return cell;
     

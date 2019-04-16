@@ -56,6 +56,14 @@
 		C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */; };
 		C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */; };
 		C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */; };
+		C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */; };
+		C1F13A0C2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A0A2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib */; };
+		C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A0E2265C3D7006E754A /* TYLongVideoViewController.m */; };
+		C1F13A112265C3D7006E754A /* TYLongVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A0F2265C3D7006E754A /* TYLongVideoViewController.xib */; };
+		C1F13A152265C43B006E754A /* TYGoddessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A132265C43B006E754A /* TYGoddessViewController.m */; };
+		C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A142265C43B006E754A /* TYGoddessViewController.xib */; };
+		C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */; };
+		C1F13A1B2265C6F2006E754A /* TYVideoLableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +177,18 @@
 		C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		C1F13A082265BE25006E754A /* TYAVDetailContentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailContentCollectionViewCell.h; sourceTree = "<group>"; };
+		C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailContentCollectionViewCell.m; sourceTree = "<group>"; };
+		C1F13A0A2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVDetailContentCollectionViewCell.xib; sourceTree = "<group>"; };
+		C1F13A0D2265C3D7006E754A /* TYLongVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYLongVideoViewController.h; sourceTree = "<group>"; };
+		C1F13A0E2265C3D7006E754A /* TYLongVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYLongVideoViewController.m; sourceTree = "<group>"; };
+		C1F13A0F2265C3D7006E754A /* TYLongVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYLongVideoViewController.xib; sourceTree = "<group>"; };
+		C1F13A122265C43B006E754A /* TYGoddessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGoddessViewController.h; sourceTree = "<group>"; };
+		C1F13A132265C43B006E754A /* TYGoddessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessViewController.m; sourceTree = "<group>"; };
+		C1F13A142265C43B006E754A /* TYGoddessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGoddessViewController.xib; sourceTree = "<group>"; };
+		C1F13A172265C6F2006E754A /* TYVideoLableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYVideoLableViewController.h; sourceTree = "<group>"; };
+		C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYVideoLableViewController.m; sourceTree = "<group>"; };
+		C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYVideoLableViewController.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -420,6 +440,9 @@
 				C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */,
 				C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */,
 				C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */,
+				C1F13A082265BE25006E754A /* TYAVDetailContentCollectionViewCell.h */,
+				C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */,
+				C1F13A0A2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -471,6 +494,15 @@
 				C12486E8225D998C0040B476 /* TYCategoryViewController.h */,
 				C12486E9225D998C0040B476 /* TYCategoryViewController.m */,
 				C12486EA225D998C0040B476 /* TYCategoryViewController.xib */,
+				C1F13A0D2265C3D7006E754A /* TYLongVideoViewController.h */,
+				C1F13A0E2265C3D7006E754A /* TYLongVideoViewController.m */,
+				C1F13A0F2265C3D7006E754A /* TYLongVideoViewController.xib */,
+				C1F13A122265C43B006E754A /* TYGoddessViewController.h */,
+				C1F13A132265C43B006E754A /* TYGoddessViewController.m */,
+				C1F13A142265C43B006E754A /* TYGoddessViewController.xib */,
+				C1F13A172265C6F2006E754A /* TYVideoLableViewController.h */,
+				C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */,
+				C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -699,11 +731,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17DE69F225F617A00050DCE /* TYAVHomeViewController.xib in Resources */,
+				C1F13A112265C3D7006E754A /* TYLongVideoViewController.xib in Resources */,
+				C1F13A1B2265C6F2006E754A /* TYVideoLableViewController.xib in Resources */,
 				C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */,
+				C1F13A0C2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib in Resources */,
 				C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */,
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */,
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
@@ -838,15 +874,18 @@
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
+				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
 				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
+				C1F13A152265C43B006E754A /* TYGoddessViewController.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
 				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
+				C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
@@ -866,6 +905,7 @@
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
+				C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */,
 				C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

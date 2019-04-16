@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYLongVideoViewController">
+            <connections>
+                <outlet property="collectionView" destination="vwJ-4v-hwW" id="FzI-dV-epj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSO-ho-3cS">
+                    <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnq-hv-Gi8">
+                            <rect key="frame" x="13" y="13" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="Mjr-2D-YhT"/>
+                                <constraint firstAttribute="height" constant="26" id="ftz-6z-F4v"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-4k-xtf">
+                            <rect key="frame" x="107" y="13" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="rXV-32-S8c"/>
+                                <constraint firstAttribute="height" constant="26" id="wPk-0b-aRn"/>
+                            </constraints>
+                            <state key="normal" title="最新更新">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zl-Z1-yQ5">
+                            <rect key="frame" x="13" y="44" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="NL3-z0-z1R"/>
+                                <constraint firstAttribute="width" constant="84" id="k48-rw-0h2"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nm4-pP-Ivp">
+                            <rect key="frame" x="107" y="44" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="Meh-Nh-R1x"/>
+                                <constraint firstAttribute="width" constant="84" id="kKF-zn-Qim"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-7z-LMR">
+                            <rect key="frame" x="201" y="44" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="eQg-w8-bJs"/>
+                                <constraint firstAttribute="width" constant="84" id="nbd-t4-epc"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-kB-TD5">
+                            <rect key="frame" x="13" y="75" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="gSZ-J6-3a3"/>
+                                <constraint firstAttribute="width" constant="84" id="raS-sZ-7ZS"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV3-rh-jhD">
+                            <rect key="frame" x="107" y="75" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="Hkt-P3-Anb"/>
+                                <constraint firstAttribute="height" constant="26" id="b7G-Gg-4gq"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqV-sq-rII">
+                            <rect key="frame" x="201" y="75" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="Iy7-iX-lFG"/>
+                                <constraint firstAttribute="height" constant="26" id="sgN-lK-7Ex"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlI-Ue-FmL">
+                            <rect key="frame" x="295" y="75" width="84" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="EYN-7V-Xh2"/>
+                                <constraint firstAttribute="width" constant="84" id="Xix-c3-ufe"/>
+                            </constraints>
+                            <state key="normal" title="最多播放">
+                                <color key="titleColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9zl-Z1-yQ5" firstAttribute="top" secondItem="Wnq-hv-Gi8" secondAttribute="bottom" constant="5" id="43w-Kw-gBo"/>
+                        <constraint firstItem="Wnq-hv-Gi8" firstAttribute="leading" secondItem="BSO-ho-3cS" secondAttribute="leading" constant="13" id="6Ff-TE-LJh"/>
+                        <constraint firstItem="Fsi-kB-TD5" firstAttribute="leading" secondItem="9zl-Z1-yQ5" secondAttribute="leading" id="8J4-hQ-7Lf"/>
+                        <constraint firstItem="x6K-4k-xtf" firstAttribute="centerY" secondItem="Wnq-hv-Gi8" secondAttribute="centerY" id="ASu-zm-mXA"/>
+                        <constraint firstItem="Nm4-pP-Ivp" firstAttribute="leading" secondItem="9zl-Z1-yQ5" secondAttribute="trailing" constant="10" id="Ep5-UK-tdb"/>
+                        <constraint firstItem="x6K-4k-xtf" firstAttribute="leading" secondItem="Wnq-hv-Gi8" secondAttribute="trailing" constant="10" id="H4j-pC-J96"/>
+                        <constraint firstItem="XlI-Ue-FmL" firstAttribute="centerY" secondItem="EqV-sq-rII" secondAttribute="centerY" id="MfF-zz-15q"/>
+                        <constraint firstAttribute="height" constant="100" id="OJj-gG-mZc"/>
+                        <constraint firstItem="GV3-rh-jhD" firstAttribute="centerY" secondItem="Fsi-kB-TD5" secondAttribute="centerY" id="Qyj-tg-3rN"/>
+                        <constraint firstItem="Fsi-kB-TD5" firstAttribute="top" secondItem="9zl-Z1-yQ5" secondAttribute="bottom" constant="5" id="XJF-Bz-F28"/>
+                        <constraint firstItem="Nm4-pP-Ivp" firstAttribute="centerY" secondItem="9zl-Z1-yQ5" secondAttribute="centerY" id="XiY-uR-uWY"/>
+                        <constraint firstItem="gFm-7z-LMR" firstAttribute="centerY" secondItem="Nm4-pP-Ivp" secondAttribute="centerY" id="boV-xP-RE0"/>
+                        <constraint firstItem="gFm-7z-LMR" firstAttribute="leading" secondItem="Nm4-pP-Ivp" secondAttribute="trailing" constant="10" id="cC5-2L-6V5"/>
+                        <constraint firstItem="EqV-sq-rII" firstAttribute="leading" secondItem="GV3-rh-jhD" secondAttribute="trailing" constant="10" id="dMd-SH-ZAz"/>
+                        <constraint firstItem="EqV-sq-rII" firstAttribute="centerY" secondItem="GV3-rh-jhD" secondAttribute="centerY" id="lSL-yy-eyL"/>
+                        <constraint firstItem="GV3-rh-jhD" firstAttribute="leading" secondItem="Fsi-kB-TD5" secondAttribute="trailing" constant="10" id="tFm-7f-Peb"/>
+                        <constraint firstItem="XlI-Ue-FmL" firstAttribute="leading" secondItem="EqV-sq-rII" secondAttribute="trailing" constant="10" id="v80-gD-sob"/>
+                        <constraint firstItem="Wnq-hv-Gi8" firstAttribute="top" secondItem="BSO-ho-3cS" secondAttribute="top" constant="13" id="xkx-1Y-e66"/>
+                        <constraint firstItem="9zl-Z1-yQ5" firstAttribute="leading" secondItem="Wnq-hv-Gi8" secondAttribute="leading" id="z0B-y4-7mj"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-4v-hwW">
+                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nTB-QQ-TMn">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Nd3-VK-QUQ"/>
+                        <outlet property="delegate" destination="-1" id="k91-kq-3qg"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BSO-ho-3cS" secondAttribute="trailing" id="4o4-cS-c3S"/>
+                <constraint firstItem="BSO-ho-3cS" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="7Mu-y4-Mt1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="vwJ-4v-hwW" secondAttribute="bottom" id="UoA-Ft-WpR"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="vwJ-4v-hwW" secondAttribute="trailing" id="a0n-0J-14J"/>
+                <constraint firstItem="vwJ-4v-hwW" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ecT-AL-yeX"/>
+                <constraint firstItem="vwJ-4v-hwW" firstAttribute="top" secondItem="BSO-ho-3cS" secondAttribute="bottom" id="nOw-5n-2Ks"/>
+                <constraint firstItem="BSO-ho-3cS" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="uMR-vA-lfQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="94.419642857142847"/>
+        </view>
+    </objects>
+</document>

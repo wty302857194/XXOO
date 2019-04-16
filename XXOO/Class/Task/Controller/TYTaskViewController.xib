@@ -16,6 +16,8 @@
                 <outlet property="recommendLab" destination="n4p-N2-rR4" id="4Pf-A0-dqz"/>
                 <outlet property="tableView" destination="vP6-kw-6PL" id="VSe-Wq-vFN"/>
                 <outlet property="topBackView" destination="sri-nz-0Ff" id="ntE-Zj-yYl"/>
+                <outlet property="topBackViewLayout" destination="wo4-eD-hCC" id="ddT-hG-8Mf"/>
+                <outlet property="topViewHeghtLayout" destination="ZCn-4n-4eT" id="MmH-oR-XVf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,11 +26,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sri-nz-0Ff">
-                    <rect key="frame" x="0.0" y="44" width="414" height="154"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sri-nz-0Ff" customClass="TYBaseView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="175"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-ZD-s1k">
-                            <rect key="frame" x="57" y="-20" width="300" height="154"/>
+                            <rect key="frame" x="57" y="1" width="300" height="154"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biR-dC-0fO">
                                     <rect key="frame" x="0.0" y="0.0" width="137" height="154"/>
@@ -84,14 +86,14 @@
                             <constraints>
                                 <constraint firstItem="WJN-r4-SQQ" firstAttribute="height" secondItem="biR-dC-0fO" secondAttribute="height" id="3W9-hv-ylc"/>
                                 <constraint firstItem="WJN-r4-SQQ" firstAttribute="width" secondItem="biR-dC-0fO" secondAttribute="width" id="OPe-Rx-2r8"/>
+                                <constraint firstAttribute="height" constant="154" id="bWv-PN-Y96"/>
                             </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.01155133929" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="XFF-ZD-s1k" firstAttribute="leading" secondItem="sri-nz-0Ff" secondAttribute="leading" constant="57" id="GQv-Fm-iNn"/>
                         <constraint firstAttribute="bottom" secondItem="XFF-ZD-s1k" secondAttribute="bottom" constant="20" id="V4B-lx-1Us"/>
-                        <constraint firstAttribute="height" constant="154" id="ZCn-4n-4eT"/>
+                        <constraint firstAttribute="height" constant="175" id="ZCn-4n-4eT"/>
                         <constraint firstAttribute="trailing" secondItem="XFF-ZD-s1k" secondAttribute="trailing" constant="57" id="en2-IR-kGE"/>
                     </constraints>
                 </view>

@@ -21,15 +21,19 @@
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.translucent = NO;
     
-    //    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-    //    gradientLayer.frame = CGRectMake(0, -kStatusBarHeight, KSCREEN_WIDTH, kLayoutViewMarginTop);
-    //    gradientLayer.startPoint = CGPointMake(0, 0);
-    //    gradientLayer.endPoint = CGPointMake(1, 0);
-    //    gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
-    //    [gradientLayer setColors:@[(id)[[UIColor redColor] CGColor],(id)[TYRGBColor(100, 100, 100) CGColor]]];//渐变数组
-    //    [self.navigationBar.layer addSublayer:gradientLayer];
+    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+    gradientLayer.frame = CGRectMake(0, -kStatusBarHeight, KSCREEN_WIDTH, kLayoutViewMarginTop);
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 0);
+    gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
+    [gradientLayer setColors:@[(id)[hexColor(d97ff7) CGColor],(id)[hexColor(f282f4) CGColor]]];//渐变数组
+    [self.navigationBar.layer addSublayer:gradientLayer];
+    
+    [self.navigationBar.layer insertSublayer:gradientLayer atIndex:0];
     
     
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {

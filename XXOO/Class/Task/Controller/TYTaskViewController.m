@@ -10,6 +10,8 @@
 #import "TYTaskTableViewCell.h"
 
 @interface TYTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeghtLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBackViewLayout;
 @property (weak, nonatomic) IBOutlet UIView *topBackView;
 @property (weak, nonatomic) IBOutlet UILabel *recommendLab;//推荐
 @property (weak, nonatomic) IBOutlet UILabel *integralLab;//积分
@@ -21,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.topBackViewLayout.constant = -kStatusBarHeight;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TYTaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TYTaskTableViewCell"];
 }

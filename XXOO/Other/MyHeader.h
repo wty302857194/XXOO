@@ -30,6 +30,10 @@
 #define hexColor(colorV)        [UIColor colorWithHexColorString:@#colorV]
 #define hexColorAlpha(colorV,a) [UIColor colorWithHexColorString:@#colorV alpha:a];
 
+#define main_text_color         hexColor(333333)
+#define main_light_text_color   hexColor(676767)
+#define line_color              hexColor(f4f5f6)
+#define main_select_text_color  hexColor(8a4edc)
 
 // 一些系统单例的简写
 #define USER_DEFAULTS       [NSUserDefaults standardUserDefaults]
