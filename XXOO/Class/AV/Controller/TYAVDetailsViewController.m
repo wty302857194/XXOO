@@ -7,14 +7,20 @@
 //
 
 #import "TYAVDetailsViewController.h"
+#import "TYEntertainmentCollectionViewCell.h"
+#import "TYAVDetailCollectionViewCell.h"
+
 #import "SJVideoPlayer.h"
 #import <SJUIKit/SJAttributeWorker.h>
 #import "SJCommonProgressSlider.h"
 
 static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        // 分享
+#define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
-@interface TYAVDetailsViewController ()<SJEdgeControlButtonItemDelegate>
+@interface TYAVDetailsViewController ()<SJEdgeControlButtonItemDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+
 @property (nonatomic, strong) SJVideoPlayer *player;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
@@ -23,6 +29,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     
     // create a player of the default type
     _player = [SJVideoPlayer player];
@@ -46,7 +53,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         NSTimeInterval time = videoPlayer.currentTime;
         NSLog(@"%f",time);
         if (time>10) {
-            [weakself.player pause];
+            [weakself.player stop];
             [weakself.player showTitle:@"当前Demo为: 更多 item 的创建示例" duration:-1];
             weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
         }
@@ -81,6 +88,8 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     [_player.defaultEdgeControlLayer.topAdapter reload];
     
     
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailCollectionViewCell"];
     
 }
 
@@ -88,6 +97,75 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     
 }
 
+
+
+#pragma mark - delegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return section == 0 ? 1 : 6;
+    
+}
+//定义展示的Section的个数
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+    
+}
+//每个UICollectionView展示的内容
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        TYAVDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYAVDetailCollectionViewCell" forIndexPath:indexPath];
+        return cell;
+    }
+    
+    TYEntertainmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell" forIndexPath:indexPath];
+    
+    return cell;
+    
+}
+//定义每个UICollectionView 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return CGSizeMake(KSCREEN_WIDTH, 120);
+    }
+    return CGSizeMake(collectionWidth, collectionWidth*(160/211.f));
+    
+}
+//定义每个UICollectionView 的间距
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return section == 0 ? UIEdgeInsetsZero : UIEdgeInsetsMake(5, 10, 5, 10);
+    
+} //每个item之间的间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 2;
+    
+}
+
+//UICollectionView被选中时调用的方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+#pragma mark - 懒加载
+
+-(UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        [self.view addSubview:_collectionView];
+        TYWeakSelf(self);
+        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(weakself.player.view.mas_bottom);
+            make.leading.trailing.bottom.offset(0);
+        }];
+    }
+    return _collectionView;
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

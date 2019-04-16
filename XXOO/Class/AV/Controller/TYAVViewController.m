@@ -48,7 +48,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -77,6 +77,12 @@
     settins.fontSize = 16.0;
     settins.itemSpacing = 0;
     settins.lineScale = 1;
+    float scrollViewMaxWidth = self.titleArr.count*60.f;
+    if(scrollViewMaxWidth > KSCREEN_WIDTH)  {
+        settins.scrollViewMaxWidth = scrollViewMaxWidth;
+    }else {
+        settins.scrollViewMaxWidth = KSCREEN_WIDTH;
+    }
     _titlesView = [[SJScrollEntriesView alloc] initWithSettings:settins];
     _titlesView.backgroundColor = [UIColor whiteColor];
     NSMutableArray<TestItem *> *arrM = [NSMutableArray array];
@@ -99,7 +105,7 @@
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"最新",@"无码",@"独家",@"中文"];
+        _titleArr = @[@"中文",@"中文",@"中文"];
     }
     return _titleArr;
 }

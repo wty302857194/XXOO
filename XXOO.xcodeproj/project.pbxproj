@@ -54,6 +54,8 @@
 		C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE538522606BC400D41A04 /* TYUserTableViewController.m */; };
 		C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */; };
 		C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */; };
+		C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */; };
+		C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,9 @@
 		C1DE53872260CF1500D41A04 /* TYTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskTableViewCell.h; sourceTree = "<group>"; };
 		C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskTableViewCell.m; sourceTree = "<group>"; };
 		C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTaskTableViewCell.xib; sourceTree = "<group>"; };
+		C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailCollectionViewCell.h; sourceTree = "<group>"; };
+		C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailCollectionViewCell.m; sourceTree = "<group>"; };
+		C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -412,6 +417,9 @@
 				C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */,
 				C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */,
 				C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */,
+				C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */,
+				C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */,
+				C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -692,6 +700,7 @@
 			files = (
 				C17DE69F225F617A00050DCE /* TYAVHomeViewController.xib in Resources */,
 				C12486F1225D99A60040B476 /* TYTaskViewController.xib in Resources */,
+				C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */,
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
@@ -849,6 +858,7 @@
 				C17DE6A3225F6F1E00050DCE /* TYGradientButton.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
 				C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */,
+				C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
