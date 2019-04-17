@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSO-ho-3cS">
-                    <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="110"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnq-hv-Gi8">
                             <rect key="frame" x="13" y="13" width="84" height="26"/>
@@ -205,7 +205,7 @@
                         <constraint firstItem="Nm4-pP-Ivp" firstAttribute="leading" secondItem="9zl-Z1-yQ5" secondAttribute="trailing" constant="10" id="Ep5-UK-tdb"/>
                         <constraint firstItem="x6K-4k-xtf" firstAttribute="leading" secondItem="Wnq-hv-Gi8" secondAttribute="trailing" constant="10" id="H4j-pC-J96"/>
                         <constraint firstItem="XlI-Ue-FmL" firstAttribute="centerY" secondItem="EqV-sq-rII" secondAttribute="centerY" id="MfF-zz-15q"/>
-                        <constraint firstAttribute="height" constant="100" id="OJj-gG-mZc"/>
+                        <constraint firstAttribute="height" constant="110" id="OJj-gG-mZc"/>
                         <constraint firstItem="GV3-rh-jhD" firstAttribute="centerY" secondItem="Fsi-kB-TD5" secondAttribute="centerY" id="Qyj-tg-3rN"/>
                         <constraint firstItem="Fsi-kB-TD5" firstAttribute="top" secondItem="9zl-Z1-yQ5" secondAttribute="bottom" constant="5" id="XJF-Bz-F28"/>
                         <constraint firstItem="Nm4-pP-Ivp" firstAttribute="centerY" secondItem="9zl-Z1-yQ5" secondAttribute="centerY" id="XiY-uR-uWY"/>
@@ -220,7 +220,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-4v-hwW">
-                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                    <rect key="frame" x="0.0" y="154" width="414" height="708"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nTB-QQ-TMn">
                         <size key="itemSize" width="50" height="50"/>

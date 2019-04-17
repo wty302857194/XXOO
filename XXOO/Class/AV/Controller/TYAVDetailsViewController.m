@@ -43,6 +43,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     }];
     
     _player.pausedToKeepAppearState = YES;
+    
     NSString *STR = @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";//@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:STR]];
     _player.URLAsset.title = @"十五年前, 一见钟情";
@@ -176,10 +177,18 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     [super viewDidAppear:animated];
     [self.player vc_viewDidAppear];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self setStatusBarBackgroundColor:[UIColor blackColor]];
 
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.player vc_viewWillDisappear];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -192,7 +201,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return [self.player vc_preferredStatusBarStyle];
+    return UIStatusBarStyleLightContent;
 }
 
 - (BOOL)prefersHomeIndicatorAutoHidden {

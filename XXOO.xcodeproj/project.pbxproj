@@ -54,6 +54,8 @@
 		C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE538522606BC400D41A04 /* TYUserTableViewController.m */; };
 		C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */; };
 		C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */; };
+		C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DF47212266149E00C4C71C /* TYGoddessCollectionViewCell.m */; };
+		C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DF47222266149E00C4C71C /* TYGoddessCollectionViewCell.xib */; };
 		C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */; };
 		C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */; };
 		C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */; };
@@ -174,6 +176,9 @@
 		C1DE53872260CF1500D41A04 /* TYTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskTableViewCell.h; sourceTree = "<group>"; };
 		C1DE53882260CF1500D41A04 /* TYTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskTableViewCell.m; sourceTree = "<group>"; };
 		C1DE53892260CF1500D41A04 /* TYTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTaskTableViewCell.xib; sourceTree = "<group>"; };
+		C1DF47202266149E00C4C71C /* TYGoddessCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGoddessCollectionViewCell.h; sourceTree = "<group>"; };
+		C1DF47212266149E00C4C71C /* TYGoddessCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessCollectionViewCell.m; sourceTree = "<group>"; };
+		C1DF47222266149E00C4C71C /* TYGoddessCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGoddessCollectionViewCell.xib; sourceTree = "<group>"; };
 		C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -484,6 +489,9 @@
 		C12486DB225D99460040B476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1DF47202266149E00C4C71C /* TYGoddessCollectionViewCell.h */,
+				C1DF47212266149E00C4C71C /* TYGoddessCollectionViewCell.m */,
+				C1DF47222266149E00C4C71C /* TYGoddessCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -741,6 +749,7 @@
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
 				C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */,
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
+				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
@@ -899,6 +908,7 @@
 				C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */,
 				C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
+				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
 				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,
