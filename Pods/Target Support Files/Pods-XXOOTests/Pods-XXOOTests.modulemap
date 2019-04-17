@@ -1,0 +1,6 @@
+framework module Pods_XXOOTests {
+  umbrella header "Pods-XXOOTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
