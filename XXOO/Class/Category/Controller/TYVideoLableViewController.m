@@ -44,7 +44,6 @@
         cell.contentView.backgroundColor = [UIColor redColor];
         
         UIView *topLabView = [UIView new];
-//        topLabView.backgroundColor = [UIColor whiteColor];
         [cell.contentView addSubview:topLabView];
         [topLabView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.left.right.offset(0);
@@ -55,7 +54,7 @@
         CGFloat gap = 10;    //按钮与按钮之间的距离
         
         UIButton *selectBtn = nil;
-        for (int i =0; i<20; i++) {
+        for (int i =0; i<31; i++) {
             UIButton *btn = [UIButton buttonWithTitle:[NSString stringWithFormat:@"  %d  ",i] titleColor:main_select_text_color font:[UIFont systemFontOfSize:14] target:self action:@selector(chooseStation:)];
             btn.tag = 10+i;
             btn.cornerRadius = 15;
@@ -64,16 +63,10 @@
             [topLabView addSubview:btn];
             
             [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-                
                 if (selectBtn) {
-//                    if (selectBtn.right+marginX>KSCREEN_WIDTH) {
-//                        make.left.offset(marginX);
-//                        make.top.equalTo(selectBtn.mas_bottom).offset(10);
-//                    }else {
                         make.top.equalTo(selectBtn.mas_top);
                         make.left.equalTo(selectBtn.mas_right).offset(gap);
-//                    }
-                    if (i == 19) {
+                    if (i == 30) {
                         make.bottom.offset(-marginX);
                     }
                 }
@@ -87,14 +80,12 @@
             
             [topLabView layoutIfNeeded];
             
-            NSLog(@"btn.right+marginX === %f",(btn.right+marginX));
             if ((btn.right+marginX)>KSCREEN_WIDTH) {
-                [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                [btn mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.offset(marginX);
                     make.top.equalTo(selectBtn.mas_bottom).offset(10);
                     make.height.offset(30);
                 }];
-                [topLabView layoutIfNeeded];
             }
             
             selectBtn = btn;
