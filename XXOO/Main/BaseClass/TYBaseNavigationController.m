@@ -21,19 +21,22 @@
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.translucent = NO;
     
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
+    
+    //view生成渐变色的图片 添加到BackgroundImage
+    UIView *view = [UIView new];
     CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(0, -kStatusBarHeight, KSCREEN_WIDTH, kLayoutViewMarginTop);
+    gradientLayer.frame = CGRectMake(0, 0, KSCREEN_WIDTH, kLayoutViewMarginTop);
     gradientLayer.startPoint = CGPointMake(0, 0);
     gradientLayer.endPoint = CGPointMake(1, 0);
     gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
     [gradientLayer setColors:@[(id)[hexColor(d97ff7) CGColor],(id)[hexColor(f282f4) CGColor]]];//渐变数组
-    [self.navigationBar.layer addSublayer:gradientLayer];
+    [view.layer  addSublayer:gradientLayer];
     
-    [self.navigationBar.layer insertSublayer:gradientLayer atIndex:0];
+    UIImage *img = [UIImage makeImageWithView:view withSize:CGSizeMake(KSCREEN_WIDTH, kLayoutViewMarginTop)];
+    [self.navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
     
-    
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {

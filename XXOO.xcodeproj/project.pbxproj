@@ -66,6 +66,7 @@
 		C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A142265C43B006E754A /* TYGoddessViewController.xib */; };
 		C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */; };
 		C1F13A1B2265C6F2006E754A /* TYVideoLableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */; };
+		C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,8 @@
 		C1F13A172265C6F2006E754A /* TYVideoLableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYVideoLableViewController.h; sourceTree = "<group>"; };
 		C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYVideoLableViewController.m; sourceTree = "<group>"; };
 		C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYVideoLableViewController.xib; sourceTree = "<group>"; };
+		C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -358,6 +361,8 @@
 				C1036A9E225E0C3C00322B2B /* UIColor+Extend.m */,
 				C1036AA4225E0C3C00322B2B /* UIView+Extension.h */,
 				C1036A9F225E0C3C00322B2B /* UIView+Extension.m */,
+				C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */,
+				C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
+				C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */,
 				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
 				C1F13A152265C43B006E754A /* TYGoddessViewController.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
