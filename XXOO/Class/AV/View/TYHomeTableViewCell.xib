@@ -34,7 +34,7 @@
                             <constraint firstAttribute="height" constant="30" id="HOi-Qu-8nf"/>
                             <constraint firstAttribute="width" constant="30" id="lZV-b0-AnR"/>
                         </constraints>
-                        <state key="normal" image="IQButtonBarArrowDown.png"/>
+                        <state key="normal" image="home_add"/>
                         <connections>
                             <action selector="saveClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GUO-dH-JI3"/>
                         </connections>
@@ -85,6 +85,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IQButtonBarArrowDown.png" width="21" height="12"/>
+        <image name="home_add" width="39" height="39"/>
     </resources>
 </document>

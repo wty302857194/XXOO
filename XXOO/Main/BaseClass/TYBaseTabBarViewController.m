@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBar.tintColor = [UIColor colorWithRed: 245 / 255.0 green:90 / 255.0 blue:93 / 255.0 alpha:1.0];
+    self.tabBar.tintColor = main_select_text_color;
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     [UITabBar appearance].translucent = NO;
     
