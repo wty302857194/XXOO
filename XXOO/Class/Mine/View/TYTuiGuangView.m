@@ -17,5 +17,10 @@
     // Drawing code
 }
 */
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.topStackViewLayout.constant = 20 + kLayoutViewMarginTop;
+    
+    [self layoutIfNeeded];
+}
 @end

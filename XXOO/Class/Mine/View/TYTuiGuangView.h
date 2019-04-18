@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYTuiGuangView : TYBaseView
 @property (weak, nonatomic) IBOutlet UIImageView *tuiGuangBackImg;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topStackViewLayout;
 
 @end
 
