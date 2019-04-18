@@ -48,6 +48,10 @@
 		C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */; };
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
+		C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */; };
+		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
+		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
+		C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */; };
 		C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */; };
 		C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */; };
 		C1DE5383226065B700D41A04 /* mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DE5382226065B700D41A04 /* mine.storyboard */; };
@@ -167,6 +171,12 @@
 		C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeTableViewCell.h; sourceTree = "<group>"; };
 		C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeTableViewCell.m; sourceTree = "<group>"; };
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
+		C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyTuiGunagViewController.h; sourceTree = "<group>"; };
+		C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyTuiGunagViewController.m; sourceTree = "<group>"; };
+		C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyTuiGunagViewController.xib; sourceTree = "<group>"; };
+		C1C5B898226865E800ADB7E0 /* TYTuiGuangView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTuiGuangView.h; sourceTree = "<group>"; };
+		C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTuiGuangView.m; sourceTree = "<group>"; };
+		C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTuiGuangView.xib; sourceTree = "<group>"; };
 		C1DD4B10226472CF005FD5F5 /* TYBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseTableViewController.h; sourceTree = "<group>"; };
 		C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseTableViewController.m; sourceTree = "<group>"; };
 		C1DD4B1322647315005FD5F5 /* TYSettingTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSettingTableVC.h; sourceTree = "<group>"; };
@@ -561,6 +571,9 @@
 				C1DE538522606BC400D41A04 /* TYUserTableViewController.m */,
 				C1DD4B1322647315005FD5F5 /* TYSettingTableVC.h */,
 				C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */,
+				C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */,
+				C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */,
+				C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -568,6 +581,9 @@
 		C12486E2225D99560040B476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1C5B898226865E800ADB7E0 /* TYTuiGuangView.h */,
+				C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */,
+				C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -752,10 +768,12 @@
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */,
 				C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */,
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
+				C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
@@ -889,6 +907,7 @@
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
+				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
@@ -899,6 +918,7 @@
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
 				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
+				C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,

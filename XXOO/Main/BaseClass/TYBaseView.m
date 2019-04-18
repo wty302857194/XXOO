@@ -17,18 +17,18 @@
     // Drawing code
 }
 */
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-    gradientLayer.frame = self.bounds;
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(1, 1);
-    gradientLayer.locations = @[@(0.1),@(0.6),@(1.0)];//渐变点
-    [gradientLayer setColors:@[(id)[hexColor(d87ff7) CGColor],(id)[hexColor(c97df9) CGColor],(id)[hexColor(fa84f2) CGColor]]];//渐变数组
-    [self.layer addSublayer:gradientLayer];
-    
-    [self.layer insertSublayer:gradientLayer atIndex:0];
-}
+//- (void)awakeFromNib {
+//    [super awakeFromNib];
+//    
+//    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+//    gradientLayer.frame = self.bounds;
+//    gradientLayer.startPoint = CGPointMake(0, 0);
+//    gradientLayer.endPoint = CGPointMake(1, 1);
+//    gradientLayer.locations = @[@(0.1),@(0.6),@(1.0)];//渐变点
+//    [gradientLayer setColors:@[(id)[hexColor(d87ff7) CGColor],(id)[hexColor(c97df9) CGColor],(id)[hexColor(fa84f2) CGColor]]];//渐变数组
+//    [self.layer addSublayer:gradientLayer];
+//    
+//    [self.layer insertSublayer:gradientLayer atIndex:0];
+//}
 
 @end

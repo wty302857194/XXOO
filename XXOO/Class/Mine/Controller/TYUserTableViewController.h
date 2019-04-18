@@ -6,11 +6,11 @@
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TYBaseTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYUserTableViewController : UITableViewController
+@interface TYUserTableViewController : TYBaseTableViewController
 
 @end
 

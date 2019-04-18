@@ -26,16 +26,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sri-nz-0Ff" customClass="TYBaseView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sri-nz-0Ff">
                     <rect key="frame" x="0.0" y="44" width="414" height="175"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_topBackImg" translatesAutoresizingMaskIntoConstraints="NO" id="Jch-iy-txa">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                        </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-ZD-s1k">
                             <rect key="frame" x="57" y="1" width="300" height="154"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biR-dC-0fO">
                                     <rect key="frame" x="0.0" y="0.0" width="137" height="154"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-eS-JBH">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_tuijian_img" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-eS-JBH">
                                             <rect key="frame" x="43.5" y="53.5" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="HjE-Sr-kRk"/>
@@ -60,7 +63,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJN-r4-SQQ">
                                     <rect key="frame" x="163" y="0.0" width="137" height="154"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyj-xM-5rW">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_jiFen_img" translatesAutoresizingMaskIntoConstraints="NO" id="eyj-xM-5rW">
                                             <rect key="frame" x="43.5" y="53.5" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="eyj-xM-5rW" secondAttribute="height" multiplier="1:1" id="QPN-Kr-24K"/>
@@ -92,13 +95,17 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="XFF-ZD-s1k" firstAttribute="leading" secondItem="sri-nz-0Ff" secondAttribute="leading" constant="57" id="GQv-Fm-iNn"/>
+                        <constraint firstAttribute="bottom" secondItem="Jch-iy-txa" secondAttribute="bottom" id="QMm-y5-hrE"/>
                         <constraint firstAttribute="bottom" secondItem="XFF-ZD-s1k" secondAttribute="bottom" constant="20" id="V4B-lx-1Us"/>
+                        <constraint firstAttribute="trailing" secondItem="Jch-iy-txa" secondAttribute="trailing" id="VbT-q1-Voc"/>
+                        <constraint firstItem="Jch-iy-txa" firstAttribute="leading" secondItem="sri-nz-0Ff" secondAttribute="leading" id="XbY-Xr-Rzs"/>
                         <constraint firstAttribute="height" constant="175" id="ZCn-4n-4eT"/>
                         <constraint firstAttribute="trailing" secondItem="XFF-ZD-s1k" secondAttribute="trailing" constant="57" id="en2-IR-kGE"/>
+                        <constraint firstItem="Jch-iy-txa" firstAttribute="top" secondItem="sri-nz-0Ff" secondAttribute="top" id="g5I-h9-mhC"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vP6-kw-6PL">
-                    <rect key="frame" x="11" y="206" width="414" height="664"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vP6-kw-6PL">
+                    <rect key="frame" x="0.0" y="219" width="414" height="643"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="sEx-Qk-Hac"/>
@@ -120,4 +127,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </view>
     </objects>
+    <resources>
+        <image name="mine_topBackImg" width="375" height="147"/>
+        <image name="task_jiFen_img" width="24" height="26.5"/>
+        <image name="task_tuijian_img" width="52" height="35.5"/>
+    </resources>
 </document>

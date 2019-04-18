@@ -8,14 +8,17 @@
 
 #import "TYUserTableViewController.h"
 #import "TYSettingTableVC.h"
+#import "TYMyTuiGunagViewController.h"
 
 @interface TYUserTableViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
 @property (weak, nonatomic) IBOutlet UIImageView *backImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLab;
 @property (weak, nonatomic) IBOutlet UIImageView *vipLogoImg;
 @property (weak, nonatomic) IBOutlet UIButton *buyVIPBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backImgLayout;
+@property (weak, nonatomic) IBOutlet UILabel *myJiFen_lab;
 
 @end
 
@@ -55,8 +58,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.backImgLayout.constant = -kLayoutViewMarginTop;
+    self.topViewLayout.constant = kStatusBarHeight;
+    self.backImgLayout.constant = -kStatusBarHeight;
+
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -71,70 +75,12 @@
 
 
 #pragma mark - Table view data source
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark - delegate
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger offsetY = scrollView.contentOffset.y;
-    if (offsetY < 0) {
-        float totalOffset = 229 + labs(offsetY);
-
-        float f = totalOffset / 229.f;
-        self.backImgView.frame = CGRectMake(-KSCREEN_WIDTH * (f - 1) * 0.5, offsetY, KSCREEN_WIDTH * f, totalOffset);
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 6) {
+        TYMyTuiGunagViewController *vc = [[TYMyTuiGunagViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+
 @end
