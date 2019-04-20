@@ -8,7 +8,7 @@
 
 #import "TYBaseViewController.h"
 
-@interface TYBaseViewController ()
+@interface TYBaseViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
 
@@ -18,12 +18,23 @@
 #ifdef DEBUG
     NSLog(@"%d - -[%@ dealloc]", (int)__LINE__, NSStringFromClass([self class]));
 #endif
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[UITableView class]]) {
+            UITableView *tableView = (UITableView *)view;
+            tableView.emptyDataSetSource = self;
+            tableView.emptyDataSetDelegate = self;
+            tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        }
+    }
 }
 
 //设置状态栏颜色
@@ -34,4 +45,22 @@
         statusBar.backgroundColor = color;
     }
 }
+
+#pragma mark - 视图为空
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"mine_noting_img"];
+}
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *title = @"暂无数据";
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+                                 };
+    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+}
+// 向上偏移量
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    return -150;
+}
+
 @end

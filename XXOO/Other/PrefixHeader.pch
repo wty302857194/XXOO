@@ -9,6 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "TYRequestURL.h"
 #import "Masonry.h"
 #import "MyHeader.h"
 #import "AFNetworking.h"
@@ -17,6 +18,8 @@
 #import "ExtensionHeader.h"
 #import "Canvas.h"
 #import "TYBaseViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import "TYNetWorkTool.h"
 
 #endif /* PrefixHeader_pch */
 

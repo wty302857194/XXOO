@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class TYTaskModel;
+
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^GoPlanBlock)(void);
 @interface TYTaskTableViewCell : UITableViewCell
@@ -19,6 +21,7 @@ typedef void(^GoPlanBlock)(void);
 
 @property (nonatomic, copy) GoPlanBlock goPlanBlock;
 
+@property (nonatomic, strong) TYTaskModel * taskModel;
 @end
 
 NS_ASSUME_NONNULL_END

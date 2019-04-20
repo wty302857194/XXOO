@@ -21,23 +21,10 @@
     
     dispatch_once(&onceToken, ^{
         
-        NSString *userAgent = [NSString stringWithFormat:@"%@/%@ (%@; iOS %@; Scale/%0.2f)",
-                               [[NSBundle mainBundle] infoDictionary][(__bridge NSString *)kCFBundleExecutableKey] ?: [[NSBundle mainBundle] infoDictionary][(__bridge NSString *)kCFBundleIdentifierKey],
-                               [[NSBundle mainBundle] infoDictionary][(__bridge NSString *)kCFBundleVersionKey],
-                               [[UIDevice currentDevice] model],
-                               [[UIDevice currentDevice] systemVersion],
-                               [[UIScreen mainScreen] scale]];
+        _sharedClient = [AFNetworkClient manager];
+        // 设置请求接口回来的时候支持什么类型的数据
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html",nil];
         
-        _sharedClient = [[AFNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
-        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        _sharedClient.requestSerializer = [AFHTTPRequestSerializer serializer];;
-        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
-        
-        // 证书
-        // _sharedClient.securityPolicy.allowInvalidCertificates = YES;
-        // _sharedClient.securityPolicy.validatesDomainName = YES;
-        
-        [_sharedClient.requestSerializer setValue:userAgent forHTTPHeaderField:@"User-Agent"];
     });
     
     return _sharedClient;
@@ -56,13 +43,10 @@
  */
 +(void)postRequest:(NSString*)url parameters:(NSDictionary *)parameters successBlock:(void (^)(BOOL success,id data,NSString* msg))successBlock failureBlock:(void (^)(NSString* description))failureBlock{
     
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@",URL_main,url];
     NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary nullDic:parameters?:@{}]];
-    
-    // 添加默认header
-//    [[AFNetworkClient sharedClient].requestSerializer setValue:HYNONNil([HYManager sharedManager].getDeviceId) forHTTPHeaderField:@"device_sn"];
-//    [[AFNetworkClient sharedClient].requestSerializer setValue:[HYManager sharedManager].currentUser ? HYNONNil([HYManager sharedManager].currentUser.token) : @"" forHTTPHeaderField:@"token"];
 
-    [[AFNetworkClient sharedClient] POST:url parameters:mutableParams progress:^(NSProgress * _Nonnull uploadProgress) {
+    [[AFNetworkClient sharedClient] POST:URLStr parameters:mutableParams progress:^(NSProgress * _Nonnull uploadProgress) {
         //进度
         
         
@@ -70,7 +54,12 @@
         
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             // 开始验签
-            NSMutableDictionary *dict = [NSDictionary nullDic:responseObject];
+            NSDictionary *dict = [NSDictionary nullDic:responseObject];
+            if ([dict[@"responseCode"] isEqualToString:@"0000"]) {
+                successBlock(YES, dict[@"info"], dict[@"responseMsg"]);
+            }else {
+                successBlock(NO,nil,responseObject[@"msg"]);
+            }
 //            NSString *signString = [NSString dp_stringWithDictionary:responseObject key:@"sign"];
 //
 //            BOOL bRe = [SXRSA verify:[NSString dpOriginalData:dict] sign:signString publicKey:[DPOpenSSLRSA shareInstance].serverPublicKey];
@@ -135,6 +124,12 @@
         
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             // 开始验签
+            NSDictionary *dict = [NSDictionary nullDic:responseObject];
+            if ([dict[@"responseCode"] isEqualToString:@"0000"]) {
+                successBlock(YES, dict[@"info"], dict[@"responseMsg"]);
+            }else {
+                successBlock(NO,nil,responseObject[@"msg"]);
+            }
 //            NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
 //            [dict removeObjectForKey:@"sign"];
 //

@@ -9,6 +9,7 @@
 #import "TYUserTableViewController.h"
 #import "TYSettingTableVC.h"
 #import "TYMyTuiGunagViewController.h"
+#import "TYMyCollectionViewController.h"
 
 @interface TYUserTableViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
@@ -64,7 +65,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -76,9 +77,32 @@
 
 #pragma mark - Table view data source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 6) {
-        TYMyTuiGunagViewController *vc = [[TYMyTuiGunagViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+    
+    switch (indexPath.row) {
+        case 3:
+        {
+            
+        }
+            break;
+        case 4:
+        {
+            TYMyCollectionViewController *vc = [[TYMyCollectionViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 5:
+        {
+            
+        }
+            break;
+        case 6:
+        {
+            TYMyTuiGunagViewController *vc = [[TYMyTuiGunagViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        default:
+            break;
     }
 }
 

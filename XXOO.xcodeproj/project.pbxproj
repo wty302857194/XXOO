@@ -52,6 +52,10 @@
 		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
 		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
 		C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */; };
+		C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B89E226ADA0400ADB7E0 /* TYMyCollectionViewController.m */; };
+		C1C5B8A1226ADA0400ADB7E0 /* TYMyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B89F226ADA0400ADB7E0 /* TYMyCollectionViewController.xib */; };
+		C1C5B8A5226B488000ADB7E0 /* TYTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B8A4226B488000ADB7E0 /* TYTaskModel.m */; };
+		C1C5B8A8226B48E400ADB7E0 /* TYBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B8A7226B48E400ADB7E0 /* TYBaseModel.m */; };
 		C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */; };
 		C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */; };
 		C1DE5383226065B700D41A04 /* mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DE5382226065B700D41A04 /* mine.storyboard */; };
@@ -177,6 +181,14 @@
 		C1C5B898226865E800ADB7E0 /* TYTuiGuangView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTuiGuangView.h; sourceTree = "<group>"; };
 		C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTuiGuangView.m; sourceTree = "<group>"; };
 		C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTuiGuangView.xib; sourceTree = "<group>"; };
+		C1C5B89D226ADA0400ADB7E0 /* TYMyCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyCollectionViewController.h; sourceTree = "<group>"; };
+		C1C5B89E226ADA0400ADB7E0 /* TYMyCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyCollectionViewController.m; sourceTree = "<group>"; };
+		C1C5B89F226ADA0400ADB7E0 /* TYMyCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyCollectionViewController.xib; sourceTree = "<group>"; };
+		C1C5B8A2226B2BE200ADB7E0 /* TYRequestURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYRequestURL.h; sourceTree = "<group>"; };
+		C1C5B8A3226B488000ADB7E0 /* TYTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTaskModel.h; sourceTree = "<group>"; };
+		C1C5B8A4226B488000ADB7E0 /* TYTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTaskModel.m; sourceTree = "<group>"; };
+		C1C5B8A6226B48E400ADB7E0 /* TYBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseModel.h; sourceTree = "<group>"; };
+		C1C5B8A7226B48E400ADB7E0 /* TYBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseModel.m; sourceTree = "<group>"; };
 		C1DD4B10226472CF005FD5F5 /* TYBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBaseTableViewController.h; sourceTree = "<group>"; };
 		C1DD4B11226472CF005FD5F5 /* TYBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBaseTableViewController.m; sourceTree = "<group>"; };
 		C1DD4B1322647315005FD5F5 /* TYSettingTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSettingTableVC.h; sourceTree = "<group>"; };
@@ -553,6 +565,8 @@
 		C12486DF225D994E0040B476 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1C5B8A3226B488000ADB7E0 /* TYTaskModel.h */,
+				C1C5B8A4226B488000ADB7E0 /* TYTaskModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -574,6 +588,9 @@
 				C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */,
 				C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */,
 				C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */,
+				C1C5B89D226ADA0400ADB7E0 /* TYMyCollectionViewController.h */,
+				C1C5B89E226ADA0400ADB7E0 /* TYMyCollectionViewController.m */,
+				C1C5B89F226ADA0400ADB7E0 /* TYMyCollectionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -601,6 +618,8 @@
 				C12486FF225DBE0F0040B476 /* TYBaseView.m */,
 				C1248701225DBE910040B476 /* TYBaseTabBarViewController.h */,
 				C1248702225DBE910040B476 /* TYBaseTabBarViewController.m */,
+				C1C5B8A6226B48E400ADB7E0 /* TYBaseModel.h */,
+				C1C5B8A7226B48E400ADB7E0 /* TYBaseModel.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -616,6 +635,7 @@
 				C1036A95225E042A00322B2B /* Assets.xcassets */,
 				C12486A2225D94CF0040B476 /* main.m */,
 				C1248705225DC0400040B476 /* MyHeader.h */,
+				C1C5B8A2226B2BE200ADB7E0 /* TYRequestURL.h */,
 				C1248706225DC0400040B476 /* PrefixHeader.pch */,
 			);
 			path = Other;
@@ -773,6 +793,7 @@
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
+				C1C5B8A1226ADA0400ADB7E0 /* TYMyCollectionViewController.xib in Resources */,
 				C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
@@ -861,6 +882,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-XXOO/Pods-XXOO-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -878,6 +900,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -904,7 +927,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
+				C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
+				C1C5B8A8226B48E400ADB7E0 /* TYBaseModel.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
@@ -935,6 +960,7 @@
 				C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
+				C1C5B8A5226B488000ADB7E0 /* TYTaskModel.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
 				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,

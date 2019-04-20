@@ -17,6 +17,7 @@ target 'XXOO' do
   pod 'SJScrollEntriesView'
   pod 'PYSearch'
   pod 'Canvas'
+  pod 'DZNEmptyDataSet'
   
   
   # Pods for XXOO

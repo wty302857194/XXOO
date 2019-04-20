@@ -10,6 +10,7 @@
 #define MyHeader_h
 
 
+
 // 判断设备类型
 #define iPhone4_Vertical ([UIScreen mainScreen].bounds.size.height==480.0f)
 #define iPhoneX   (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(812.f, 375.f), [UIScreen mainScreen].bounds.size)  || CGSizeEqualToSize(CGSizeMake(414.f, 896.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(896.f, 414.f), [UIScreen mainScreen].bounds.size))

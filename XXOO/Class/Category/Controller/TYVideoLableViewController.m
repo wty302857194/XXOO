@@ -8,6 +8,19 @@
 
 #import "TYVideoLableViewController.h"
 
+@interface TYVideoLabletTableViewCell : UITableViewCell
+
+@property (nonatomic, copy) NSArray *dataArr;
+
+@end
+@implementation TYVideoLabletTableViewCell
+
+-(void)setDataArr:(NSArray *)dataArr {
+    
+}
+
+@end
+
 @interface TYVideoLableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * tableView;
@@ -93,7 +106,7 @@
             if (selectBtn) {
                 make.top.equalTo(selectBtn.mas_top);
                 make.left.equalTo(selectBtn.mas_right).offset(gap);
-                if (i == 30) {
+                if (i == labArr.count-1) {
                     make.bottom.offset(-marginX);
                 }
             }

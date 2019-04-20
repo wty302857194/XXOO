@@ -27,13 +27,13 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="HOK-CE-irO">
-                        <rect key="frame" x="176" y="14" width="44" height="20"/>
+                        <rect key="frame" x="180" y="14" width="40" height="20"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="tx7-aZ-lpn">
-                                <rect key="frame" x="0.0" y="0.0" width="15" height="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_jifen_cell_img" translatesAutoresizingMaskIntoConstraints="NO" id="tx7-aZ-lpn">
+                                <rect key="frame" x="0.0" y="0.0" width="11" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAz-Ak-cXN">
-                                <rect key="frame" x="18" y="0.0" width="26" height="20"/>
+                                <rect key="frame" x="14" y="0.0" width="26" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.56470588235294117" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -57,6 +57,9 @@
                             <constraint firstAttribute="height" constant="34" id="dPE-Sd-336"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="17"/>
@@ -110,6 +113,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow.png" width="15" height="40"/>
+        <image name="task_jifen_cell_img" width="11" height="12.5"/>
     </resources>
 </document>
