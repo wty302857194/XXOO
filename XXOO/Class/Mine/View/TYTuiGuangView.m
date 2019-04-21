@@ -10,17 +10,29 @@
 
 @implementation TYTuiGuangView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.topStackViewLayout.constant = 20 + kLayoutViewMarginTop;
     
     [self layoutIfNeeded];
+    
+    [self.tiXianBackView addTarget:self action:@selector(tiXianClick)];
+}
+-(void)tiXianClick {
+    
+}
+- (IBAction)btnClick:(UIButton *)sender {
+    if (sender == _selectBtn) return;
+    
+    if (sender == _userBtn) {
+        
+    }else {
+        
+    }
+    
+    [self.lineLab mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(sender.mas_centerX);
+    }];
+    _selectBtn = sender;
 }
 @end

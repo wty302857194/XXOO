@@ -48,7 +48,7 @@
 
 #pragma mark - 视图为空
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIImage imageNamed:@"mine_noting_img"];
+    return [UIImage imageNamed:@"ming_shouCang_empty_img"];
 }
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *title = @"暂无数据";

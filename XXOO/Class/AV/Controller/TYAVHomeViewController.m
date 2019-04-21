@@ -11,6 +11,8 @@
 #import "TYHomeTableViewCell.h"
 #import "TYAVDetailsViewController.h"
 #import "PYSearch.h"
+#import "TYSearchViewController.h"
+#import "TYBaseNavigationController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
@@ -41,15 +43,18 @@
 }
 
 - (void)goSearch {
-    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:@[] searchBarPlaceholder:@"Search programming language" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-        // Call this Block when completion search automatically
-        // Such as: Push to a view controller
-        [searchViewController.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
-        
-    }];
-    // 3. present the searchViewController
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
-    [self presentViewController:nav  animated:NO completion:nil];
+    TYSearchViewController *vc = [[TYSearchViewController alloc] init];
+    
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:NO completion:nil];
+    
+//    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:@[] searchBarPlaceholder:@"输入关键字查找片源" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+//        
+//        [searchViewController.navigationController pushViewController:[[TYSearchViewController alloc] init] animated:YES];
+//    }];
+//    
+//    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:searchViewController];
+//    [self presentViewController:nav  animated:YES completion:nil];
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section

@@ -54,6 +54,7 @@
         if (success) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data];
             NSLog(@"dataArr === %@",self.dataArr);
+//            [self.tableView reloadData];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -88,4 +89,34 @@
     
 }
 
+
+//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+//    NSString *title = @"暂无数据";
+//
+//    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+//    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+//    paragraph.alignment = NSTextAlignmentCenter;
+//
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+//                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
+//                                 NSParagraphStyleAttributeName:paragraph
+//                                 };
+//
+//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+//}
+//
+//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+//    // 设置按钮标题
+//    NSString *buttonTitle = @"立即推广";
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:15.0f],
+//                                 NSForegroundColorAttributeName:[UIColor whiteColor],
+//                                 };
+//    return [[NSAttributedString alloc] initWithString:buttonTitle attributes:attributes];
+//}
+//
+//- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+//    return [UIImage imageNamed:@"short_btn_backImg"];
+//}
 @end

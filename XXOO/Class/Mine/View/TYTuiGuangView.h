@@ -11,9 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYTuiGuangView : TYBaseView
+
 @property (weak, nonatomic) IBOutlet UIImageView *tuiGuangBackImg;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topStackViewLayout;
-
+@property (weak, nonatomic) IBOutlet UIView *tiXianBackView;
+@property (weak, nonatomic) IBOutlet UIButton *userBtn;
+@property (weak, nonatomic) IBOutlet UIButton *xiaJiBtn;
+@property (weak, nonatomic) IBOutlet UILabel *lineLab;
+@property (nonatomic, strong) UIButton * selectBtn;
 @end
 
 NS_ASSUME_NONNULL_END

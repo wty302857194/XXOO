@@ -75,6 +75,13 @@
 		C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */; };
 		C1F13A1B2265C6F2006E754A /* TYVideoLableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */; };
 		C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */; };
+		C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */; };
+		C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */; };
+		C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC03226C3D070090677E /* TYSearchDetailViewController.xib */; };
+		C1F3FC09226C4F870090677E /* TYSeachTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC07226C4F870090677E /* TYSeachTableViewCell.m */; };
+		C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC08226C4F870090677E /* TYSeachTableViewCell.xib */; };
+		C1F3FC0E226C652D0090677E /* TYSearchDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC0C226C652D0090677E /* TYSearchDetailCollectionViewCell.m */; };
+		C1F3FC0F226C652D0090677E /* TYSearchDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC0D226C652D0090677E /* TYSearchDetailCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +226,17 @@
 		C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYVideoLableViewController.xib; sourceTree = "<group>"; };
 		C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		C1F3FBFE226C1F1E0090677E /* TYSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchViewController.h; sourceTree = "<group>"; };
+		C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSearchViewController.m; sourceTree = "<group>"; };
+		C1F3FC01226C3D070090677E /* TYSearchDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchDetailViewController.h; sourceTree = "<group>"; };
+		C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSearchDetailViewController.m; sourceTree = "<group>"; };
+		C1F3FC03226C3D070090677E /* TYSearchDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYSearchDetailViewController.xib; sourceTree = "<group>"; };
+		C1F3FC06226C4F870090677E /* TYSeachTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSeachTableViewCell.h; sourceTree = "<group>"; };
+		C1F3FC07226C4F870090677E /* TYSeachTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSeachTableViewCell.m; sourceTree = "<group>"; };
+		C1F3FC08226C4F870090677E /* TYSeachTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYSeachTableViewCell.xib; sourceTree = "<group>"; };
+		C1F3FC0B226C652D0090677E /* TYSearchDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchDetailCollectionViewCell.h; sourceTree = "<group>"; };
+		C1F3FC0C226C652D0090677E /* TYSearchDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSearchDetailCollectionViewCell.m; sourceTree = "<group>"; };
+		C1F3FC0D226C652D0090677E /* TYSearchDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYSearchDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -450,6 +468,11 @@
 				C17DE696225F614000050DCE /* TYAVDetailsViewController.h */,
 				C17DE697225F614000050DCE /* TYAVDetailsViewController.m */,
 				C17DE698225F614000050DCE /* TYAVDetailsViewController.xib */,
+				C1F3FBFE226C1F1E0090677E /* TYSearchViewController.h */,
+				C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */,
+				C1F3FC01226C3D070090677E /* TYSearchDetailViewController.h */,
+				C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */,
+				C1F3FC03226C3D070090677E /* TYSearchDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -475,6 +498,12 @@
 				C1F13A082265BE25006E754A /* TYAVDetailContentCollectionViewCell.h */,
 				C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */,
 				C1F13A0A2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib */,
+				C1F3FC06226C4F870090677E /* TYSeachTableViewCell.h */,
+				C1F3FC07226C4F870090677E /* TYSeachTableViewCell.m */,
+				C1F3FC08226C4F870090677E /* TYSeachTableViewCell.xib */,
+				C1F3FC0B226C652D0090677E /* TYSearchDetailCollectionViewCell.h */,
+				C1F3FC0C226C652D0090677E /* TYSearchDetailCollectionViewCell.m */,
+				C1F3FC0D226C652D0090677E /* TYSearchDetailCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,11 +815,13 @@
 				C1F13A0C2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib in Resources */,
 				C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */,
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
+				C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
 				C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */,
 				C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */,
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
+				C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1C5B8A1226ADA0400ADB7E0 /* TYMyCollectionViewController.xib in Resources */,
@@ -799,6 +830,7 @@
 				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */,
+				C1F3FC0F226C652D0090677E /* TYSearchDetailCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +971,7 @@
 				C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */,
 				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
 				C1F13A152265C43B006E754A /* TYGoddessViewController.m in Sources */,
+				C1F3FC09226C4F870090677E /* TYSeachTableViewCell.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
@@ -950,6 +983,7 @@
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
+				C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,
 				C17DE6A9225F85BA00050DCE /* UIScreen+Extension.m in Sources */,
@@ -957,6 +991,7 @@
 				C17DE6A3225F6F1E00050DCE /* TYGradientButton.m in Sources */,
 				C12486E6225D99720040B476 /* TYEntertainmentViewController.m in Sources */,
 				C1DD4B12226472CF005FD5F5 /* TYBaseTableViewController.m in Sources */,
+				C1F3FC0E226C652D0090677E /* TYSearchDetailCollectionViewCell.m in Sources */,
 				C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
@@ -967,6 +1002,7 @@
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
+				C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */,
 				C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */,
 				C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */,
 			);
