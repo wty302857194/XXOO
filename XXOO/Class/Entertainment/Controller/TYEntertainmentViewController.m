@@ -12,10 +12,15 @@
 
 #define collectionWidth (KSCREEN_WIDTH-40)/3.0f
 
-@interface TYEntertainmentViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface TYEntertainmentViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
+    
+}
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, assign) NSInteger page;//页数
+@property (nonatomic, assign) BOOL isFresh;//是否加载
+@property (nonatomic, strong) NSMutableArray *dataArr;
 
 @end
 
@@ -27,29 +32,68 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"娱乐";
-
+    self.dataArr = [NSMutableArray arrayWithCapacity:0];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
     
+    TYWEAK_SELF;
+    [TYRefershClass refreshCollectionWithHeader:self.collectionView refreshingBlock:^{
+        [weakSelf headerRefreshRequest];
+    }];
+    [TYRefershClass refreshCollectionWithFooter:self.collectionView refreshingBlock:^{
+        weakSelf.page ++;
+        weakSelf.isFresh = YES;
+        [weakSelf getAdListRequestData];
+    }];
+    
+    
+    [self headerRefreshRequest];
+}
+- (void)headerRefreshRequest {
+    [self.dataArr removeAllObjects];
+    self.page = 1;
+    self.isFresh = NO;
     [self getAdListRequestData];
 }
 ///sysAd/api/getAdList
 - (void)getAdListRequestData {
-    
+    NSDictionary *dic = @{
+                          @"pageNum":@(self.page),
+                          @"password":@"20"
+                          };
+    TYWEAK_SELF;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{
-                                                                     @"pageNum":@"",
-                                                                     @"password":@""
-                                                                     } successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysAd/api/getAdList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer endRefreshing];
         if (success&&data) {
-            //            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+            NSArray *arr = @[];//[HYMyAreaModel mj_objectArrayWithKeyValuesArray:data[@"rows"]];
+            
+            if (weakSelf.isFresh) {
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.collectionView reloadData];
+                }else {
+                    [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                    [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                    
+                }
+            }else {
+                [weakSelf.dataArr removeAllObjects];
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.collectionView reloadData];
+                }else {
+                    NSLog(@"加载空视图");
+                }
+            }
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+        [MBProgressHUD promptMessage:description inView:weakSelf.view];
     }];
 }
 #pragma mark - delegate
@@ -60,7 +104,7 @@
 }
 //定义展示的Section的个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.dataArr.count;
     
 }
 //每个UICollectionView展示的内容
@@ -87,8 +131,8 @@
 
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
+    //    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

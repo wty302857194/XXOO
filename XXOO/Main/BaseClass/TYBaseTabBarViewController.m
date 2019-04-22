@@ -13,6 +13,7 @@
 #import "TYEntertainmentViewController.h"
 #import "TYAVViewController.h"
 #import "TYUserTableViewController.h"
+#import "HDeviceIdentifier.h"
 
 @interface TYBaseTabBarViewController ()
 
@@ -35,7 +36,9 @@
     [self addTabBarVC:testVC withTitle:@"我的" withNormalImage:@"mine_tabbar_normal" withSelectImage:@"mine_tabbar_select"];
 
     
+    [self firstRequestData];
 }
+
 - (void)addTabBarVC:(UIViewController *)viewController withTitle:(NSString *)title withNormalImage:(NSString *)normalImage withSelectImage:(NSString *)selectImage {
     
     viewController.tabBarItem.image = [UIImage imageNamed:normalImage];
@@ -44,6 +47,20 @@
     TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:viewController];
     
     [self addChildViewController:nav];
+}
+
+- (void)firstRequestData {
+    //获取唯一设备标识
+    NSString *deviceIdentifier = [HDeviceIdentifier deviceIdentifier];
+    NSLog(@"唯一设备标识:%@",deviceIdentifier);
+    
+    //判断应用是第一次在这台手机上安装
+    BOOL isFirstInstall = [HDeviceIdentifier isFirstInstall];
+    if (isFirstInstall) {
+        NSLog(@"本应用是第一次在这台手机上安装");
+    }else{
+        NSLog(@"本应用不是第一次在这台手机上安装");
+    }
 }
 
 @end

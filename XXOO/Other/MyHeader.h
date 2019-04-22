@@ -119,6 +119,7 @@
 
 #define TYWeakSelf(type)  __weak typeof(type) weak##type = type;
 
+#define TYWEAK_SELF __weak typeof(self) weakSelf = self;
 
 
 #define HistoryDataSource @"historyDataSource"

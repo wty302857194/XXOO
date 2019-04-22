@@ -20,6 +20,8 @@
 #import "TYBaseViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "TYNetWorkTool.h"
+#import "TYRefershClass.h"
+#import "MJRefresh.h"
 
 #endif /* PrefixHeader_pch */
 
