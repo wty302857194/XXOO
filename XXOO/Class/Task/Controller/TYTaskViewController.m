@@ -49,7 +49,7 @@
 - (void)getTaskListRequestData {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"sysTask/api/getTaskList" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data];

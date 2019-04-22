@@ -46,7 +46,7 @@
 
 /**生产服务器*/
 
-#define URL_main       @"http://47.95.207.185:8080/"
+#define URL_main       @"http://47.95.207.185:8080"
 
 /** H5 */
 #define WEBURL_main    @""

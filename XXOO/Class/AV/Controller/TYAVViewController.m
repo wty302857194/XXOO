@@ -10,13 +10,14 @@
 #import "TYAVHomeViewController.h"
 #import <SJScrollEntriesView/SJScrollEntriesView.h>
 #import "TestItem.h"
+#import "TYAVLableModel.h"
 
 @interface TYAVViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, SJScrollEntriesViewDelegate>
 
 @property (nonatomic, strong, readonly) UIPageViewController *pageViewController;
 @property (nonatomic, strong, readonly) SJScrollEntriesView *titlesView;
 @property (nonatomic, copy) NSArray * titleArr;
-
+@property (nonatomic, strong) NSDictionary * adDic;//广告参数
 @end
 
 @implementation TYAVViewController
@@ -45,6 +46,8 @@
     
     [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
+    
+    [self getAVRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -66,6 +69,69 @@
 - (BOOL)prefersHomeIndicatorAutoHidden {
     return YES;
 }
+
+
+#pragma mark - requestData
+// 顶部标签的请求
+- (void)getAVRequestData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/videoCategroy/api/videoClassHome" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+//            self.titleArr = [TYAVLableModel mj_objectArrayWithKeyValuesArray:data];
+            [self getAVADRequestData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    }];
+}
+// 首页广告
+- (void)getAVADRequestData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+//            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+            [self getVideoListRequestData:@""];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//首页初始化接口
+- (void)getVideoListRequestData:(NSString *)vClass {
+    NSDictionary * dic = @{
+                           @"orderBy":@"",
+                           @"vCode":@"",
+                           @"vClass":vClass,
+                           @"vActor":@"",
+                           @"vLael":@"",
+                           @"pageNum":@"",
+                           @"limit":@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/video/api/getVideoList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            //            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+            
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+
+
 
 #pragma mark - lazy
 
@@ -117,6 +183,10 @@
     if ( currentIndex == vcIndex ) return;
     UIPageViewControllerNavigationDirection direction = (vcIndex > currentIndex) ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
     [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:currentIndex]] direction:direction animated:YES completion:nil];
+    
+    
+    TYAVLableModel *model =  self.titleArr[currentIndex];
+    [self getVideoListRequestData:model.name];
 }
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

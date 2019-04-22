@@ -44,7 +44,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     
     _player.pausedToKeepAppearState = YES;
     
-    NSString *STR = @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";//@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
+    NSString *STR = @"https://ddppnew1.135-cdn.com/20190417/Ljzrvdab/index.m3u8";// @"https://dco4urblvsasc.cloudfront.net/811/81095_ywfZjAuP/game/1000kbps.m3u8";//@"https://xy2.v.netease.com/2018/0815/d08adab31cc9e6ce36111afc8a92c937qt.mp4"
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:STR]];
     _player.URLAsset.title = @"十五年前, 一见钟情";
     _player.placeholderImageView.image = [UIImage imageNamed:@"av_tabbar_normal"];

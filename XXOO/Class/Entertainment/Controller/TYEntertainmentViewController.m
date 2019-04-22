@@ -30,8 +30,28 @@
 
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYEntertainmentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell"];
+    
+    [self getAdListRequestData];
 }
-
+///sysAd/api/getAdList
+- (void)getAdListRequestData {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{
+                                                                     @"pageNum":@"",
+                                                                     @"password":@""
+                                                                     } successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            //            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 #pragma mark - delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {

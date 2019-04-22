@@ -48,6 +48,7 @@
 		C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6AF22602F5800050DCE /* TYEntertainmentCollectionViewCell.xib */; };
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
+		C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1831308226C95B000933B55 /* TYAVLableModel.m */; };
 		C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */; };
 		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
 		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
@@ -182,6 +183,8 @@
 		C17DE6B222602F7900050DCE /* TYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeTableViewCell.h; sourceTree = "<group>"; };
 		C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeTableViewCell.m; sourceTree = "<group>"; };
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
+		C1831307226C95B000933B55 /* TYAVLableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVLableModel.h; sourceTree = "<group>"; };
+		C1831308226C95B000933B55 /* TYAVLableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVLableModel.m; sourceTree = "<group>"; };
 		C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyTuiGunagViewController.h; sourceTree = "<group>"; };
 		C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyTuiGunagViewController.m; sourceTree = "<group>"; };
 		C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyTuiGunagViewController.xib; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 			children = (
 				C17DE6AA2260273900050DCE /* TestItem.h */,
 				C17DE6AB2260273900050DCE /* TestItem.m */,
+				C1831307226C95B000933B55 /* TYAVLableModel.h */,
+				C1831308226C95B000933B55 /* TYAVLableModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */,
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
 				C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
