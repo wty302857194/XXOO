@@ -13,10 +13,30 @@
 
 @interface TYSearchDetailViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *longAVBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shortBtn;
+@property (weak, nonatomic) IBOutlet UILabel *lineLab;
+@property (nonatomic, strong) UIButton * selectBtn;
+
 
 @end
 
 @implementation TYSearchDetailViewController
+- (IBAction)tabTouch:(UIButton *)sender {
+    if (sender == _selectBtn) return;
+    
+    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
+    [_selectBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
+    self.lineLab.center = CGPointMake(sender.center.x, self.lineLab.centerY);
+
+    if (sender == _longAVBtn) {
+        
+    }else {
+        
+    }
+    
+    _selectBtn = sender;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -7,6 +7,7 @@
 //
 
 #import "TYEntertainmentCollectionViewCell.h"
+#import "TYEntertainmentModel.h"
 
 @implementation TYEntertainmentCollectionViewCell
 
@@ -14,5 +15,7 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)setItemModel:(TYEntertainmentItemModel *)itemModel {
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.picUrl] placeholderImage:[UIImage imageNamed:@""]];
+}
 @end

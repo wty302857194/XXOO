@@ -9,6 +9,7 @@
 #import "TYEntertainmentViewController.h"
 #import "TYEntertainmentCollectionViewCell.h"
 #import "TYAVDetailsViewController.h"
+#import "TYEntertainmentModel.h"
 
 #define collectionWidth (KSCREEN_WIDTH-40)/3.0f
 
@@ -21,7 +22,7 @@
 @property (nonatomic, assign) NSInteger page;//页数
 @property (nonatomic, assign) BOOL isFresh;//是否加载
 @property (nonatomic, strong) NSMutableArray *dataArr;
-
+@property (nonatomic, strong) TYEntertainmentModel * entertainmentModel;
 @end
 
 @implementation TYEntertainmentViewController
@@ -68,7 +69,8 @@
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.mj_footer endRefreshing];
         if (success&&data) {
-            NSArray *arr = @[];//[HYMyAreaModel mj_objectArrayWithKeyValuesArray:data[@"rows"]];
+            weakSelf.entertainmentModel = [TYEntertainmentModel mj_objectWithKeyValues:data];
+            NSArray *arr = [NSArray arrayWithArray:weakSelf.entertainmentModel.data];
             
             if (weakSelf.isFresh) {
                 if (arr&&arr.count>0) {
@@ -99,17 +101,19 @@
 #pragma mark - delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return self.dataArr.count;
     
 }
 //定义展示的Section的个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.dataArr.count;
+    return 1;
     
 }
 //每个UICollectionView展示的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TYEntertainmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYEntertainmentCollectionViewCell" forIndexPath:indexPath];
+    TYEntertainmentItemModel *model = self.entertainmentModel.data[indexPath.row];
+    cell.itemModel = model;
     return cell;
     
     

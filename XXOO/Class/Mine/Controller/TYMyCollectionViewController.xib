@@ -34,17 +34,17 @@
                                 <color key="titleColor" red="0.54117647059999996" green="0.30588235289999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="tabClick:" destination="-1" eventType="touchUpInside" id="lvy-UH-QPR"/>
+                                <action selector="tabClick:" destination="-1" eventType="touchUpInside" id="GWg-0H-73O"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4C-VX-i8J">
                             <rect key="frame" x="207" y="0.0" width="207" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="女优">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="tabClick:" destination="-1" eventType="touchUpInside" id="iG1-ZH-OXO"/>
+                                <action selector="tabClick:" destination="-1" eventType="touchUpInside" id="kFq-Nv-72G"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oe-ez-KSm">

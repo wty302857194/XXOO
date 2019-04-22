@@ -9,20 +9,30 @@
 #import "TYMyCollectionViewController.h"
 
 @interface TYMyCollectionViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UIButton *avBtn;
 @property (weak, nonatomic) IBOutlet UIButton *angelBtn;
 @property (weak, nonatomic) IBOutlet UILabel *lineLab;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) UIButton * selectBtn;
 @end
 
 @implementation TYMyCollectionViewController
 - (IBAction)tabClick:(UIButton *)sender {
+    if(_selectBtn == sender) return;
+    
+    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
+    [_selectBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
+    self.lineLab.center = CGPointMake(sender.center.x, self.lineLab.centerY);
+    
     if (sender == _avBtn) {
         
     }else {
         
     }
+    
+    _selectBtn = sender;
 }
 
 - (void)viewDidLoad {

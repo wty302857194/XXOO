@@ -44,6 +44,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="135" height="172"/>
+            <connections>
+                <outlet property="imgView" destination="8ad-jb-0UD" id="vC0-Zg-cPm"/>
+                <outlet property="titleLab" destination="0xL-fk-ard" id="L33-JK-eXK"/>
+            </connections>
             <point key="canvasLocation" x="-190.57971014492756" y="46.205357142857139"/>
         </collectionViewCell>
     </objects>

@@ -79,6 +79,11 @@
 		C1F2843C226D551A009B57A5 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28438226D551A009B57A5 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C1F2843D226D551A009B57A5 /* HDeviceIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28439226D551A009B57A5 /* HDeviceIdentifier.m */; };
 		C1F28440226D5F65009B57A5 /* TYEntertainmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2843F226D5F65009B57A5 /* TYEntertainmentModel.m */; };
+		C1F28444226D8F94009B57A5 /* TYTuiGuangTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28442226D8F94009B57A5 /* TYTuiGuangTableViewCell.m */; };
+		C1F28445226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F28443226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib */; };
+		C1F28448226D993F009B57A5 /* TYCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28447226D993F009B57A5 /* TYCollectionView.m */; };
+		C1F2844C226DA328009B57A5 /* TYHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2844A226DA328009B57A5 /* TYHelpViewController.m */; };
+		C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F2844B226DA328009B57A5 /* TYHelpViewController.xib */; };
 		C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */; };
 		C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */; };
 		C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */; };
@@ -239,6 +244,14 @@
 		C1F2843B226D551A009B57A5 /* HDeviceIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDeviceIdentifier.h; sourceTree = "<group>"; };
 		C1F2843E226D5F65009B57A5 /* TYEntertainmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYEntertainmentModel.h; sourceTree = "<group>"; };
 		C1F2843F226D5F65009B57A5 /* TYEntertainmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYEntertainmentModel.m; sourceTree = "<group>"; };
+		C1F28441226D8F94009B57A5 /* TYTuiGuangTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTuiGuangTableViewCell.h; sourceTree = "<group>"; };
+		C1F28442226D8F94009B57A5 /* TYTuiGuangTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTuiGuangTableViewCell.m; sourceTree = "<group>"; };
+		C1F28443226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYTuiGuangTableViewCell.xib; sourceTree = "<group>"; };
+		C1F28446226D993F009B57A5 /* TYCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYCollectionView.h; sourceTree = "<group>"; };
+		C1F28447226D993F009B57A5 /* TYCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYCollectionView.m; sourceTree = "<group>"; };
+		C1F28449226DA327009B57A5 /* TYHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHelpViewController.h; sourceTree = "<group>"; };
+		C1F2844A226DA328009B57A5 /* TYHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHelpViewController.m; sourceTree = "<group>"; };
+		C1F2844B226DA328009B57A5 /* TYHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHelpViewController.xib; sourceTree = "<group>"; };
 		C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		C1F3FBFE226C1F1E0090677E /* TYSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchViewController.h; sourceTree = "<group>"; };
@@ -641,6 +654,9 @@
 				C1C5B89D226ADA0400ADB7E0 /* TYMyCollectionViewController.h */,
 				C1C5B89E226ADA0400ADB7E0 /* TYMyCollectionViewController.m */,
 				C1C5B89F226ADA0400ADB7E0 /* TYMyCollectionViewController.xib */,
+				C1F28449226DA327009B57A5 /* TYHelpViewController.h */,
+				C1F2844A226DA328009B57A5 /* TYHelpViewController.m */,
+				C1F2844B226DA328009B57A5 /* TYHelpViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -651,6 +667,11 @@
 				C1C5B898226865E800ADB7E0 /* TYTuiGuangView.h */,
 				C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */,
 				C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */,
+				C1F28441226D8F94009B57A5 /* TYTuiGuangTableViewCell.h */,
+				C1F28442226D8F94009B57A5 /* TYTuiGuangTableViewCell.m */,
+				C1F28443226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib */,
+				C1F28446226D993F009B57A5 /* TYCollectionView.h */,
+				C1F28447226D993F009B57A5 /* TYCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -864,7 +885,9 @@
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
+				C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
+				C1F28445226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib in Resources */,
 				C1C5B8A1226ADA0400ADB7E0 /* TYMyCollectionViewController.xib in Resources */,
 				C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
@@ -1010,6 +1033,7 @@
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
 				C1F2843C226D551A009B57A5 /* SFHFKeychainUtils.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
+				C1F28444226D8F94009B57A5 /* TYTuiGuangTableViewCell.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
 				C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */,
@@ -1025,6 +1049,7 @@
 				C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */,
+				C1F2844C226DA328009B57A5 /* TYHelpViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
@@ -1051,6 +1076,7 @@
 				C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */,
 				C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */,
 				C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */,
+				C1F28448226D993F009B57A5 /* TYCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

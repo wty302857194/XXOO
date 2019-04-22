@@ -1,8 +1,8 @@
 //
-//  TYMyCollectionViewController.h
+//  TYHelpViewController.h
 //  XXOO
 //
-//  Created by wbb on 2019/4/20.
+//  Created by wbb on 2019/4/22.
 //  Copyright © 2019 wbb. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYMyCollectionViewController : TYBaseViewController
-
+@interface TYHelpViewController : TYBaseViewController
 
 @end
 

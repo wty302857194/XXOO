@@ -7,7 +7,9 @@
 //
 
 #import "TYMyTuiGunagViewController.h"
+#import "TYTuiGuangTableViewCell.h"
 #import "TYTuiGuangView.h"
+#import "TYHelpViewController.h"
 
 @interface TYMyTuiGunagViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,6 +43,10 @@
 }
 - (void)helpClick {
     
+    TYHelpViewController *vc = [[TYHelpViewController alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)fileClick {
     
@@ -80,10 +86,12 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellid=@"listviewid";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    TYTuiGuangTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangTableViewCell" owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    [cell getMessage:nil indexPath:indexPath];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

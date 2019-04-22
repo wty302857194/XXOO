@@ -12,27 +12,29 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _selectBtn = _userBtn;
     self.topStackViewLayout.constant = 20 + kLayoutViewMarginTop;
     
     [self layoutIfNeeded];
     
     [self.tiXianBackView addTarget:self action:@selector(tiXianClick)];
+    
 }
 -(void)tiXianClick {
     
 }
 - (IBAction)btnClick:(UIButton *)sender {
     if (sender == _selectBtn) return;
-    
+
+    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
+    [_selectBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
     if (sender == _userBtn) {
-        
+
     }else {
-        
+
     }
-    
-    [self.lineLab mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(sender.mas_centerX);
-    }];
+    self.lineLab.center = CGPointMake(sender.center.x, self.lineLab.centerY);
+
     _selectBtn = sender;
 }
 @end
