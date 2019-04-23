@@ -84,6 +84,8 @@
 		C1F28448226D993F009B57A5 /* TYCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28447226D993F009B57A5 /* TYCollectionView.m */; };
 		C1F2844C226DA328009B57A5 /* TYHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2844A226DA328009B57A5 /* TYHelpViewController.m */; };
 		C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F2844B226DA328009B57A5 /* TYHelpViewController.xib */; };
+		C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2844F226DDDB4009B57A5 /* TYHomeModel.m */; };
+		C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28452226DE9C4009B57A5 /* UIImageView+TYExtension.m */; };
 		C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */; };
 		C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */; };
 		C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */; };
@@ -252,6 +254,10 @@
 		C1F28449226DA327009B57A5 /* TYHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHelpViewController.h; sourceTree = "<group>"; };
 		C1F2844A226DA328009B57A5 /* TYHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHelpViewController.m; sourceTree = "<group>"; };
 		C1F2844B226DA328009B57A5 /* TYHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHelpViewController.xib; sourceTree = "<group>"; };
+		C1F2844E226DDDB4009B57A5 /* TYHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeModel.h; sourceTree = "<group>"; };
+		C1F2844F226DDDB4009B57A5 /* TYHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeModel.m; sourceTree = "<group>"; };
+		C1F28451226DE9C4009B57A5 /* UIImageView+TYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TYExtension.h"; sourceTree = "<group>"; };
+		C1F28452226DE9C4009B57A5 /* UIImageView+TYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TYExtension.m"; sourceTree = "<group>"; };
 		C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		C1F3FBFE226C1F1E0090677E /* TYSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchViewController.h; sourceTree = "<group>"; };
@@ -433,6 +439,8 @@
 				C1036A9F225E0C3C00322B2B /* UIView+Extension.m */,
 				C1F2B5842266C1E50002ACB4 /* UIImage+Extension.h */,
 				C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */,
+				C1F28451226DE9C4009B57A5 /* UIImageView+TYExtension.h */,
+				C1F28452226DE9C4009B57A5 /* UIImageView+TYExtension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -514,6 +522,8 @@
 				C17DE6AB2260273900050DCE /* TestItem.m */,
 				C1831307226C95B000933B55 /* TYAVLableModel.h */,
 				C1831308226C95B000933B55 /* TYAVLableModel.m */,
+				C1F2844E226DDDB4009B57A5 /* TYHomeModel.h */,
+				C1F2844F226DDDB4009B57A5 /* TYHomeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -988,7 +998,6 @@
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/SJScrollEntriesView/SJScrollEntriesView.framework",
 				"${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SJVideoPlayer/SJVideoPlayer.framework",
 			);
@@ -1006,7 +1015,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJBaseVideoPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJScrollEntriesView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJVideoPlayer.framework",
 			);
@@ -1053,6 +1061,7 @@
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */,
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
 				C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
@@ -1073,6 +1082,7 @@
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
+				C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */,
 				C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */,
 				C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */,
 				C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */,

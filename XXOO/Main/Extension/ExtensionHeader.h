@@ -19,5 +19,6 @@
 #import "UIViewController+TestAdd.h"
 #import "UIView+IBExtension.h"
 #import "UIImage+Extension.h"
+#import "UIImageView+TYExtension.h"
 
 #endif /* ExtensionHeader_h */

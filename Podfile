@@ -6,7 +6,7 @@ target 'XXOO' do
   use_frameworks!
   
   pod 'AFNetworking'
-  pod 'SDWebImage'
+  pod 'SDWebImage', '~> 4.4.3'
   pod 'Masonry'
   pod 'MBProgressHUD'
   pod 'MJRefresh'
@@ -14,7 +14,7 @@ target 'XXOO' do
   pod 'IQKeyboardManager'
   pod 'MJExtension'
   pod 'SJVideoPlayer'
-  pod 'SJScrollEntriesView'
+#  pod 'SJScrollEntriesView'
   pod 'PYSearch'
   pod 'Canvas'
   pod 'DZNEmptyDataSet'

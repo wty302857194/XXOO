@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4C0F08282D52E1F4DB8745E14655AB5"
+               BlueprintIdentifier = "B10C5F11053560F4162912D37AE18225"
                BlueprintName = "SJUIKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SJUIKit.framework">

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYAVHomeViewController : TYBaseViewController
 
+//首页初始化
+- (void)headerRefreshRequest:(NSString *)vClass;
 
 @end
 

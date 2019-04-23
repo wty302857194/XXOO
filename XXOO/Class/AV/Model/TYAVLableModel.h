@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * modifyTime;
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * orderBy;
+
+@property (nonatomic, copy) NSString * code;
 @end
 
 NS_ASSUME_NONNULL_END

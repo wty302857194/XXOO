@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString  * picUrl;
 @property (nonatomic, copy) NSString * position;
 @property (nonatomic, copy) NSString * showTime;
+@property (nonatomic, copy) NSString * title;
+@property (nonatomic, copy) NSString * state;
 @end
 
 NS_ASSUME_NONNULL_END

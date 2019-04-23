@@ -19,10 +19,11 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setItemModel:(TYHomeItemModel *)itemModel {
+    [self.contentImg sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:[UIImage imageNamed:@"image_ready"]];
+    self.nameLab.text = itemModel.title;
+    self.timeLab.text = itemModel.timeLong;
+    
 }
 
 @end

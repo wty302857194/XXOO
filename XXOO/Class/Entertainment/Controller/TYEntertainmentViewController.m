@@ -60,7 +60,7 @@
 - (void)getAdListRequestData {
     NSDictionary *dic = @{
                           @"pageNum":@(self.page),
-                          @"password":@"20"
+                          @"limit":@"20"
                           };
     TYWEAK_SELF;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -55,7 +55,7 @@
         if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
             // 开始验签
             NSDictionary *dict = [NSDictionary nullDic:responseObject];
-            if ([dict[@"responseCode"] isEqualToString:@"0000"]) {
+            if (dict[@"responseCode"]&&[dict[@"responseCode"] isEqualToString:@"0000"]) {
                 successBlock(YES, dict[@"info"]?:@{}, dict[@"responseMsg"]);
             }else {
                 successBlock(NO,nil,responseObject[@"msg"]);

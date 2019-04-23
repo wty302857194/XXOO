@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYHomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
+@property (nonatomic, strong) TYHomeItemModel * itemModel;
 @end
 
 NS_ASSUME_NONNULL_END

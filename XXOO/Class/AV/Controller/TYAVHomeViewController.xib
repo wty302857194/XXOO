@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYAVHomeViewController">
             <connections>
-                <outlet property="collectionView" destination="7gn-z2-34U" id="80m-G8-ybS"/>
                 <outlet property="searchBackView" destination="yJ0-3g-IBd" id="X3R-f5-7j2"/>
                 <outlet property="tableView" destination="76C-xp-Zgs" id="SbG-yP-YxO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -99,29 +98,11 @@
                         <outlet property="delegate" destination="-1" id="IvP-FR-C8w"/>
                     </connections>
                 </tableView>
-                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7gn-z2-34U">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4mh-MM-cbi">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="XWF-iR-ogh"/>
-                        <outlet property="delegate" destination="-1" id="aR6-Um-LmS"/>
-                    </connections>
-                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="7gn-z2-34U" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="107-BZ-CGu"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="7gn-z2-34U" secondAttribute="trailing" id="CQm-Ae-lcs"/>
                 <constraint firstItem="76C-xp-Zgs" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="TH8-y1-j0S"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="76C-xp-Zgs" secondAttribute="bottom" id="Tuu-v4-Tsk"/>
-                <constraint firstItem="7gn-z2-34U" firstAttribute="top" secondItem="WbR-qP-gOH" secondAttribute="bottom" id="aeN-1F-CRB"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="7gn-z2-34U" secondAttribute="bottom" id="euV-CW-VdN"/>
                 <constraint firstItem="76C-xp-Zgs" firstAttribute="top" secondItem="WbR-qP-gOH" secondAttribute="bottom" id="ixb-DV-1KY"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="WbR-qP-gOH" secondAttribute="trailing" id="jl4-2W-eAa"/>
                 <constraint firstItem="WbR-qP-gOH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="mul-Nf-I5y"/>

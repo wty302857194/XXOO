@@ -8,45 +8,30 @@
 
 #import "TYAVViewController.h"
 #import "TYAVHomeViewController.h"
-#import <SJScrollEntriesView/SJScrollEntriesView.h>
-#import "TestItem.h"
 #import "TYAVLableModel.h"
+#import "TYHomeModel.h"
 
-@interface TYAVViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, SJScrollEntriesViewDelegate>
+static NSInteger const scHeight = 40;
+static NSInteger const jianGe = 10;//间隔距离
+static NSInteger const btnWidth = 90;
 
-@property (nonatomic, strong, readonly) UIPageViewController *pageViewController;
-@property (nonatomic, strong, readonly) SJScrollEntriesView *titlesView;
+@interface TYAVViewController ()<UIScrollViewDelegate>
+
 @property (nonatomic, copy) NSArray * titleArr;
-@property (nonatomic, strong) NSDictionary * adDic;//广告参数
+
+@property (nonatomic, strong) UILabel * lineLab;
+@property (nonatomic, strong) UIButton * currentBtn;
+@property (nonatomic, strong) UIScrollView * scrollView;
+@property (nonatomic, strong) UIScrollView *titleSC;
+@property (nonatomic, strong) NSMutableDictionary *listVCQueue;
 @end
 
 @implementation TYAVViewController
 
-@synthesize titlesView = _titlesView;
-@synthesize pageViewController = _pageViewController;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self.view addSubview:self.titlesView];
-    [self.titlesView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-        make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-        make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-        make.height.offset(44);
-    }];
-    
-    [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
-    [self.pageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titlesView.mas_bottom).offset(1);
-        make.leading.bottom.trailing.offset(0);
-    }];
-    
-    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
-    
+    _listVCQueue = [NSMutableDictionary dictionaryWithCapacity:0];
     [self getAVRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,18 +43,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
-- (BOOL)prefersStatusBarHidden {
-    return self.pageViewController.viewControllers.firstObject.prefersStatusBarHidden;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.pageViewController.viewControllers.firstObject.preferredStatusBarStyle;
-}
-
-- (BOOL)prefersHomeIndicatorAutoHidden {
-    return YES;
-}
-
 
 #pragma mark - requestData
 // 顶部标签的请求
@@ -78,146 +51,147 @@
     [TYNetWorkTool postRequest:@"/videoCategroy/api/videoClassHome" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-//            self.titleArr = [TYAVLableModel mj_objectArrayWithKeyValuesArray:data];
-            [self getAVADRequestData];
-        }else {
-            [MBProgressHUD promptMessage:msg inView:self.view];
-        }
-    } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-
-    }];
-}
-// 首页广告
-- (void)getAVADRequestData {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (success&&data) {
-//            self.adDic = [NSDictionary dictionaryWithDictionary:data];
-            [self getVideoListRequestData:@""];
-        }else {
-            [MBProgressHUD promptMessage:msg inView:self.view];
-        }
-    } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-    }];
-}
-//首页初始化接口
-- (void)getVideoListRequestData:(NSString *)vClass {
-    NSDictionary * dic = @{
-                           @"orderBy":@"",
-                           @"vCode":@"",
-                           @"vClass":vClass,
-                           @"vActor":@"",
-                           @"vLael":@"",
-                           @"pageNum":@"",
-                           @"limit":@""
-                           };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/video/api/getVideoList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (success&&data) {
-            //            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+            self.titleArr = [TYAVLableModel mj_objectArrayWithKeyValuesArray:data];
             
+            [self setUI];
+            
+            TYAVLableModel *model =  self.titleArr[0];
+            TYAVHomeViewController *currentVC = (TYAVHomeViewController *)self.listVCQueue[@(0)];
+            [currentVC headerRefreshRequest:model.name];
+
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+
     }];
 }
 
 
 
-#pragma mark - lazy
+- (void)setUI {
 
-- (SJScrollEntriesView *)titlesView {
-    if ( _titlesView ) return _titlesView;
-    SJScrollEntriesViewSettings *settins = [SJScrollEntriesViewSettings defaultSettings];
-    settins.selectedColor = TYRGBColor(138, 78, 220);
-    settins.lineColor = TYRGBColor(138, 78, 220);
-    settins.fontSize = 16.0;
-    settins.itemSpacing = 0;
-    settins.lineScale = 1;
-    float scrollViewMaxWidth = self.titleArr.count*60.f;
-    if(scrollViewMaxWidth > KSCREEN_WIDTH)  {
-        settins.scrollViewMaxWidth = scrollViewMaxWidth;
-    }else {
-        settins.scrollViewMaxWidth = KSCREEN_WIDTH;
-    }
-    _titlesView = [[SJScrollEntriesView alloc] initWithSettings:settins];
-    _titlesView.backgroundColor = [UIColor whiteColor];
-    NSMutableArray<TestItem *> *arrM = [NSMutableArray array];
-    for ( int i = 0 ; i < self.titleArr.count ; ++ i ) {
-        [arrM addObject:[[TestItem alloc] initWithTitle:self.titleArr[i]]];
-    }
-    [_titlesView setValue:arrM forKey:@"items"];
-    _titlesView.delegate = self;
-    return _titlesView;
-}
-
-- (UIPageViewController *)pageViewController {
-    if ( _pageViewController ) return _pageViewController;
-    _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(2)}];
-    _pageViewController.view.backgroundColor = [UIColor whiteColor];
-    _pageViewController.dataSource = self;
-    _pageViewController.delegate = self;
-    return _pageViewController;
-}
-
-- (NSArray *)titleArr {
-    if (!_titleArr) {
-        _titleArr = @[@"中文",@"中文",@"中文"];
-    }
-    return _titleArr;
-}
-
-#pragma mark - delegate
-
-- (void)scrollEntriesView:(SJScrollEntriesView *)view currentIndex:(NSInteger)currentIndex beforeIndex:(NSInteger)beforeIndex {
-    NSInteger vcIndex = self.pageViewController.viewControllers.firstObject.index;
-    if ( currentIndex == vcIndex ) return;
-    UIPageViewControllerNavigationDirection direction = (vcIndex > currentIndex) ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
-    [self.pageViewController setViewControllers:@[[self _viewControllerAtIndex:currentIndex]] direction:direction animated:YES completion:nil];
+    UIScrollView *topTitleSC = [[UIScrollView alloc] init];
+    topTitleSC.showsHorizontalScrollIndicator = NO;
+    topTitleSC.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:topTitleSC];
+    self.titleSC = topTitleSC;
+    [topTitleSC mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+        make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+        make.height.offset(scHeight);
+    }];
     
     
-    TYAVLableModel *model =  self.titleArr[currentIndex];
-    [self getVideoListRequestData:model.name];
-}
-
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    return [self _viewControllerAtIndex:viewController.index - 1];
-}
-
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    return [self _viewControllerAtIndex:viewController.index + 1];
-}
-
-- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-    UIViewController *vc = pageViewController.viewControllers.firstObject;
-    [self.titlesView changeIndex:[vc index]];
-}
-- (UIViewController *)_viewControllerAtIndex:(NSInteger)index {
-    if ( index >= self.titleArr.count) return nil;
-    if ( index < 0 ) return nil;
     
-    UIViewController *vc = self.dataViewControllersDictM[@(index)];
-    if ( vc ) return vc;
-    vc = [TYAVHomeViewController new];
-    vc.index = index;
-    self.dataViewControllersDictM[@(index)] = vc;
-    return vc;
-}
-- (NSMutableDictionary< NSNumber *, UIViewController *> *)dataViewControllersDictM {
-    NSMutableDictionary< NSNumber *, UIViewController *> *dataViewControllersDictM = objc_getAssociatedObject(self, _cmd);
-    if ( dataViewControllersDictM ) return dataViewControllersDictM;
-    dataViewControllersDictM = [NSMutableDictionary new];
-    objc_setAssociatedObject(self, _cmd, dataViewControllersDictM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return dataViewControllersDictM;
+    UIButton *selectBtn = nil;
+    for (int i =0; i<self.titleArr.count; i++) {
+         TYAVLableModel *model =  self.titleArr[0];
+        UIButton *btn = [UIButton buttonWithTitle:model.name titleColor:main_light_text_color font:[UIFont systemFontOfSize:15] target:self action:@selector(titleBtnClick:)];
+        btn.frame = CGRectMake((jianGe+btnWidth)*i+jianGe, 0, btnWidth, scHeight-1);
+        btn.tag = i+100;
+        [topTitleSC addSubview:btn];
+        
+        
+        if (i == 0) {
+            _lineLab = [[UILabel alloc] initWithFrame:CGRectMake(jianGe, scHeight-1, btnWidth, 1)];
+            _lineLab.backgroundColor = main_select_text_color;
+            [topTitleSC addSubview:_lineLab];
+        }
+       
+        selectBtn = btn;
+    }
+    
+    topTitleSC.contentSize = CGSizeMake(selectBtn.right+jianGe, topTitleSC.height);
+
+    self.scrollView.contentSize = CGSizeMake(self.titleArr.count*KSCREEN_WIDTH, self.scrollView.height);
+    
+    [self addListVCWithIndex:0];
 }
 
+- (void)titleBtnClick:(UIButton *)btn {
+    if(btn == _currentBtn) return;
+    
+    [_currentBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
+    [btn setTitleColor:main_select_text_color forState:UIControlStateNormal];
+
+    _lineLab.center = CGPointMake(btn.center.x, _lineLab.center.y);
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.scrollView setContentOffset:CGPointMake((btn.tag-100)*KSCREEN_WIDTH, self.scrollView.contentOffset.y)  animated:NO];
+    }];
+    
+    [self addListVCWithIndex:btn.tag-100];
+    
+    // 有数学公式得出的算法
+    if((KSCREEN_WIDTH - btn.x) < 2*btn.width) {
+        if((btn.x - (KSCREEN_WIDTH -btn.width)/2.f)<(self.titleSC.contentSize.width-KSCREEN_WIDTH)) {
+            [UIView animateWithDuration:0.5 animations:^{
+                self.titleSC.contentOffset = CGPointMake(btn.x - (KSCREEN_WIDTH -btn.width)/2.f, 0);
+            }];
+        } else {
+            [UIView animateWithDuration:0.5 animations:^{
+                self.titleSC.contentOffset = CGPointMake(self.titleSC.contentSize.width - KSCREEN_WIDTH, 0);
+            }];
+        }
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.titleSC.contentOffset = CGPointMake(0, 0);
+        }];
+    }
+    
+    
+    _currentBtn = btn;
+}
+
+#pragma mark - getter
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+//        _scrollView.frame = CGRectMake(0, self.titleSC.bottom, KSCREEN_WIDTH, KSCREENH_HEIGHT-self.titleSC.height);
+        _scrollView.delegate = self;
+        _scrollView.pagingEnabled = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        [self.view addSubview:_scrollView];
+        [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.titleSC.mas_bottom).offset(0);
+            make.left.right.bottom.offset(0);
+        }];
+    }
+    return  _scrollView;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    NSInteger index = (scrollView.contentOffset.x+KSCREEN_WIDTH/2.f)/KSCREEN_WIDTH;
+    UIButton *btn = (UIButton *)[self.titleSC viewWithTag:index+100];
+    [self titleBtnClick:btn];
+    
+    [self addListVCWithIndex:(int)(scrollView.contentOffset.x/KSCREEN_WIDTH)];
+}
+
+#pragma mark - addVC
+
+- (void)addListVCWithIndex:(NSInteger)index {
+    
+    if (index<0||index>=self.titleArr.count) {
+        return;
+    }
+    //根据页数添加相对应的视图 并存入数组
+    
+    if (![_listVCQueue objectForKey:@(index)]) {
+        TYAVHomeViewController *contentVC = [[TYAVHomeViewController alloc] init];
+        [self addChildViewController:contentVC];
+
+         contentVC.view.frame = CGRectMake(KSCREEN_WIDTH*index, 0, self.scrollView.width, self.scrollView.height);
+        [self.scrollView addSubview:contentVC.view];
+        
+        [_listVCQueue setObject:contentVC forKey:@(index)];
+    }
+}
 @end
+
