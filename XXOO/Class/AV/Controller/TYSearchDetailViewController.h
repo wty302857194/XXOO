@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYSearchDetailViewController : TYBaseViewController
-
+@property (nonatomic, copy) NSString * keyWord;
 @end
 
 NS_ASSUME_NONNULL_END

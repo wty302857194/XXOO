@@ -10,7 +10,7 @@
 #import "TYHomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^ItemShouCangBlock)(void);
 @interface TYHomeTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *contentImg;
@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
 @property (nonatomic, strong) TYHomeItemModel * itemModel;
+@property (nonatomic, copy) ItemShouCangBlock itemShouCangBlock;
 @end
 
 NS_ASSUME_NONNULL_END

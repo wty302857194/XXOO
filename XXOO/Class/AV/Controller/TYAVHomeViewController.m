@@ -95,7 +95,7 @@
                            @"vCode":@"",
                            @"vClass":self.vClass?:@"",
                            @"vActor":@"",
-                           @"vLael":@"",
+                           @"vLabel":@"",
                            @"pageNum":@(self.page),
                            @"limit":@"20"
                            };
@@ -168,15 +168,20 @@
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYHomeItemModel *model = self.dataArr[indexPath.row];
         cell.itemModel = model;
+        cell.itemShouCangBlock = ^() {
+            [self shouCangRequestData:model];
+        };
     }
+    
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TYHomeItemModel *model = self.dataArr[indexPath.row];
     TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-    
+    vc.avID = model.ID;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -198,5 +203,21 @@
     
 }
 
-
+//收藏请求
+- (void)shouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":USERID,
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 @end

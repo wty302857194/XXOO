@@ -25,7 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+/*
+ {
+ "content": "皇子彻夜啼哭，",                                                        //视频内容
+ "cover": "http://pic.youku778.com/upload/vod/2019-04-16/201904161555394820.png",  //封面
+ "createTime": "2019-04-22 14:22:44",                                              //上传时间
+ "id": 22673,                                                                      //id
+ "timeLong": "150",                                                                //时长
+ "title": "隐天子之大话江湖"                                                         //标题
+ }
+ */
 @interface TYHomeItemModel : TYBaseModel
 
 @property (nonatomic, copy) NSString * click;

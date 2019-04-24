@@ -13,6 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.nameLab.text = @"";
 }
-
+-(void)setItemModel:(TYHomeItemModel *)itemModel {
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
+    self.nameLab.text = itemModel.title;
+}
 @end

@@ -58,44 +58,8 @@
             if (dict[@"responseCode"]&&[dict[@"responseCode"] isEqualToString:@"0000"]) {
                 successBlock(YES, dict[@"info"]?:@{}, dict[@"responseMsg"]);
             }else {
-                successBlock(NO,nil,responseObject[@"msg"]);
+                successBlock(NO,nil,responseObject[@"responseMsg"]);
             }
-//            NSString *signString = [NSString dp_stringWithDictionary:responseObject key:@"sign"];
-//
-//            BOOL bRe = [SXRSA verify:[NSString dpOriginalData:dict] sign:signString publicKey:[DPOpenSSLRSA shareInstance].serverPublicKey];
-//
-//            HYResponseStatus *status = [HYResponseStatus mj_objectWithKeyValues:responseObject];
-            
-            // 调试状态暂时不验签
-//            bRe = YES;
-            
-//            if(bRe) {
-//                NSLog(@"验签通过");
-//                [[DPOpenSSLRSA shareInstance] saveClientRSAKey];
-//
-//                if ([status stateIsSuccess]) {
-//                    responseObject = [NSDictionary nullDic:responseObject];
-//                    successBlock(YES, responseObject[@"data"], responseObject[@"msg"]);
-//
-//                }
-//                else if ([status stateIsTokenExpired]) {
-//
-//                    [[HYManager sharedManager] logout];
-//                }
-//                else {
-//                    successBlock(NO,nil,responseObject[@"msg"]);
-//                }
-//            }
-//            else {
-//                NSLog(@"验签失败");
-//                if ([status stateIsTokenExpired]) {
-//
-//                    [[HYManager sharedManager] logout];
-//
-//                } else {
-//                    successBlock(NO,nil,(@"验签失败"));
-//                }
-//            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

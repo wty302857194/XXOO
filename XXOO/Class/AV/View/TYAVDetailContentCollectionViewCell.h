@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYHomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYAVDetailContentCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 
+
+@property (nonatomic, strong) TYHomeItemModel * itemModel;
 @end
 
 NS_ASSUME_NONNULL_END

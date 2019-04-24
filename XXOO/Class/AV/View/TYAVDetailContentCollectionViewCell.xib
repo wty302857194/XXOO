@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="264" height="162"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW9-DC-vde">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW9-DC-vde">
                         <rect key="frame" x="0.0" y="0.0" width="264" height="119"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="oW9-DC-vde" secondAttribute="height" multiplier="264:119" id="Ki5-Ua-xdb"/>
@@ -43,6 +43,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="264" height="162"/>
+            <connections>
+                <outlet property="imgView" destination="oW9-DC-vde" id="uva-iH-if9"/>
+                <outlet property="nameLab" destination="FKs-Rn-g7g" id="R3u-ma-tvO"/>
+            </connections>
             <point key="canvasLocation" x="292.75362318840581" y="131.91964285714286"/>
         </collectionViewCell>
     </objects>

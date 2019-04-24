@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYAVDetailsViewController : TYBaseViewController
-
+@property (nonatomic, copy) NSString * avID;
 @end
 
 NS_ASSUME_NONNULL_END

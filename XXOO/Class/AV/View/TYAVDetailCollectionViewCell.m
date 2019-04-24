@@ -25,6 +25,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self.jianJieView addTarget:self action:@selector(jianJieClick)];
 }
-
+- (void)jianJieClick {
+    if (self.jianJieBlock) {
+        self.jianJieBlock();
+    }
+}
 @end

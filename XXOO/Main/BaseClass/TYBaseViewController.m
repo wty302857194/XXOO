@@ -33,6 +33,10 @@
             tableView.emptyDataSetSource = self;
             tableView.emptyDataSetDelegate = self;
             tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        }else if ([view isKindOfClass:[UICollectionView class]]) {
+            UICollectionView *collectionView = (UICollectionView *)view;
+            collectionView.emptyDataSetSource = self;
+            collectionView.emptyDataSetDelegate = self;
         }
     }
 }

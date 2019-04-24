@@ -88,7 +88,7 @@ static NSInteger const btnWidth = 90;
     
     UIButton *selectBtn = nil;
     for (int i =0; i<self.titleArr.count; i++) {
-         TYAVLableModel *model =  self.titleArr[0];
+         TYAVLableModel *model =  self.titleArr[i];
         UIButton *btn = [UIButton buttonWithTitle:model.name titleColor:main_light_text_color font:[UIFont systemFontOfSize:15] target:self action:@selector(titleBtnClick:)];
         btn.frame = CGRectMake((jianGe+btnWidth)*i+jianGe, 0, btnWidth, scHeight-1);
         btn.tag = i+100;

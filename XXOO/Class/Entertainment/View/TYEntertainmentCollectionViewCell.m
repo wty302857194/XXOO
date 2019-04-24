@@ -17,7 +17,7 @@
 }
 -(void)setItemModel:(TYEntertainmentItemModel *)itemModel {
 
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.picUrl] placeholderImage:[UIImage imageNamed:@"image_ready"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.picUrl] placeholderImage:PLACEHOLEDERIMAGE];
     self.titleLab.text = itemModel.title;
 }
 @end

@@ -11,7 +11,9 @@
 @implementation TYHomeTableViewCell
 
 - (IBAction)saveClick:(UIButton *)sender {
-    
+    if (self.itemShouCangBlock) {
+        self.itemShouCangBlock();
+    }
 }
 
 - (void)awakeFromNib {
@@ -20,7 +22,7 @@
 }
 
 -(void)setItemModel:(TYHomeItemModel *)itemModel {
-    [self.contentImg sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:[UIImage imageNamed:@"image_ready"]];
+    [self.contentImg sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
     self.nameLab.text = itemModel.title;
     self.timeLab.text = itemModel.timeLong;
     

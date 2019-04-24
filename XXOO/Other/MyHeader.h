@@ -117,9 +117,16 @@
 #define TYLog(...)
 #endif
 
-#define TYWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define TYWeakSelf(type)  __weak typeof(type) weak##type = type
 
-#define TYWEAK_SELF __weak typeof(self) weakSelf = self;
+#define TYWEAK_SELF   __weak typeof(self) weakSelf = self;
 
+
+#define PLACEHOLEDERIMAGE  [UIImage imageNamed:@"image_ready"]
 
 #define HistoryDataSource @"historyDataSource"
+
+
+#define USERID @"2"
+
+
