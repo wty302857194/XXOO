@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *shortBtn;
 @property (weak, nonatomic) IBOutlet UILabel *lineLab;
 @property (nonatomic, strong) UIButton * selectBtn;
-//@property (nonatomic, strong) TYHomeItemModel * itemModel;
+@property (nonatomic, strong) TYHomeModel * homeModel;
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) NSInteger page;//页数
@@ -47,9 +47,84 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"搜索结果";
+    self.dataArr = [NSMutableArray arrayWithCapacity:0];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYSearchDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYSearchDetailCollectionViewCell"];
 
+    [self headerRefreshRequest];
+    
+    TYWEAK_SELF;
+    [TYRefershClass refreshCollectionWithHeader:self.collectionView refreshingBlock:^{
+        [weakSelf headerRefreshRequest];
+    }];
+    [TYRefershClass refreshCollectionWithFooter:self.collectionView refreshingBlock:^{
+        weakSelf.page ++;
+        weakSelf.isFresh = YES;
+        
+        if (self.vLabel&&self.vLabel.length>0) {
+            [self labelSearchRequestData];
+        }else {
+            [self searchResultRequestData];
+        }
+    }];
 }
+- (void)headerRefreshRequest{
+    [self.dataArr removeAllObjects];
+    self.page = 1;
+    self.isFresh = NO;
+    if (self.vLabel&&self.vLabel.length>0) {
+        [self labelSearchRequestData];
+    }else {
+        [self searchResultRequestData];
+    }
+}
+- (void)labelSearchRequestData {
+    NSDictionary * dic = @{
+                           @"orderBy":@"",
+                           @"vCode":@"",
+                           @"vClass":@"",
+                           @"vActor":@"",
+                           @"vLabel":self.vLabel?:@"",
+                           @"pageNum":@(self.page),
+                           @"limit":@"20"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/video/api/getVideoList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer endRefreshing];
+        if (success&&data) {
+            weakSelf.homeModel = [TYHomeModel mj_objectWithKeyValues:data];
+            NSArray *arr = [NSArray arrayWithArray:weakSelf.homeModel.data];
+            
+            if (weakSelf.isFresh) {
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.collectionView reloadData];
+                }else {
+                    [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                    [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                    
+                }
+            }else {
+                [weakSelf.dataArr removeAllObjects];
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    
+                }else {
+                    NSLog(@"加载空视图");
+                }
+                [weakSelf.collectionView reloadData];
+            }
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+
 - (void)searchResultRequestData {
     NSDictionary * dic = @{
                            @"keyWord":self.keyWord?:@""
@@ -57,21 +132,27 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/video/api/getSearchVideo" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self.collectionView.mj_header endRefreshing];
-        [self.collectionView.mj_footer endRefreshing];
-        if (success&&data) {
-            NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data];
-            
+        
+        NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data];
+        
+        if (weakSelf.isFresh) {
             if (arr&&arr.count>0) {
-                weakSelf.dataArr = [NSMutableArray arrayWithArray:arr];
+                [weakSelf.dataArr addObjectsFromArray:arr];
+                [weakSelf.collectionView reloadData];
+            }else {
+                [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                
+            }
+        }else {
+            [weakSelf.dataArr removeAllObjects];
+            if (arr&&arr.count>0) {
+                [weakSelf.dataArr addObjectsFromArray:arr];
+                
             }else {
                 NSLog(@"加载空视图");
             }
             [weakSelf.collectionView reloadData];
-            
-        }else {
-            [MBProgressHUD promptMessage:msg inView:self.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -93,8 +174,13 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TYSearchDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYSearchDetailCollectionViewCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];
+    if (self.dataArr&&self.dataArr.count>indexPath.row) {
+        TYHomeItemModel *model = self.dataArr[indexPath.row];
+        cell.itemShouCangBlock = ^{
+            [self shouCangRequestData:model];
+        };
+    }
     return cell;
-
 }
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,4 +205,21 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//收藏请求
+- (void)shouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":USERID,
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 @end

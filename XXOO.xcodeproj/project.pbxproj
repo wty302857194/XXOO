@@ -52,6 +52,7 @@
 		C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */; };
 		C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */; };
 		C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */; };
+		C1ADA2E52270070D00CA8566 /* TYHotSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2E42270070D00CA8566 /* TYHotSearchModel.m */; };
 		C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */; };
 		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
 		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
@@ -204,6 +205,9 @@
 		C1ADA2DE226F453B00CA8566 /* TYJianJieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYJianJieView.h; sourceTree = "<group>"; };
 		C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYJianJieView.m; sourceTree = "<group>"; };
 		C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYJianJieView.xib; sourceTree = "<group>"; };
+		C1ADA2E32270070D00CA8566 /* TYHotSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHotSearchModel.h; sourceTree = "<group>"; };
+		C1ADA2E42270070D00CA8566 /* TYHotSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHotSearchModel.m; sourceTree = "<group>"; };
+		C1ADA2E62270119D00CA8566 /* XXOO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XXOO.entitlements; sourceTree = "<group>"; };
 		C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyTuiGunagViewController.h; sourceTree = "<group>"; };
 		C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyTuiGunagViewController.m; sourceTree = "<group>"; };
 		C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyTuiGunagViewController.xib; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		C1248692225D94CD0040B476 /* XXOO */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADA2E62270119D00CA8566 /* XXOO.entitlements */,
 				C12486C7225D96D00040B476 /* Main */,
 				C12486C5225D96910040B476 /* Class */,
 				C1248704225DBF3E0040B476 /* Other */,
@@ -534,6 +539,8 @@
 				C1F2844F226DDDB4009B57A5 /* TYHomeModel.m */,
 				C1ADA2DB226F09E100CA8566 /* TYAVDetailModel.h */,
 				C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */,
+				C1ADA2E32270070D00CA8566 /* TYHotSearchModel.h */,
+				C1ADA2E42270070D00CA8566 /* TYHotSearchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -857,6 +864,11 @@
 				TargetAttributes = {
 					C124868F225D94CD0040B476 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					C12486A7225D94CF0040B476 = {
 						CreatedOnToolsVersion = 10.2;
@@ -1048,6 +1060,7 @@
 				C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */,
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
 				C1F2843D226D551A009B57A5 /* HDeviceIdentifier.m in Sources */,
+				C1ADA2E52270070D00CA8566 /* TYHotSearchModel.m in Sources */,
 				C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
 				C1C5B8A8226B48E400ADB7E0 /* TYBaseModel.m in Sources */,
@@ -1266,6 +1279,7 @@
 			baseConfigurationReference = 8CCCE7A27C2DD3A418CF414C /* Pods-XXOO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1286,6 +1300,7 @@
 			baseConfigurationReference = BE7F2A015EF971460ECFDBE4 /* Pods-XXOO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

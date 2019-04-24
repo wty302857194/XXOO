@@ -36,7 +36,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqt-fZ-usD">
-                        <rect key="frame" x="43" y="13" width="37.5" height="18"/>
+                        <rect key="frame" x="43" y="13" width="264" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -45,6 +45,7 @@
                 <constraints>
                     <constraint firstItem="R0i-l4-cwO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="JRo-97-wkN"/>
                     <constraint firstItem="rqt-fZ-usD" firstAttribute="centerY" secondItem="R0i-l4-cwO" secondAttribute="centerY" id="Sou-7k-Mdb"/>
+                    <constraint firstAttribute="trailing" secondItem="rqt-fZ-usD" secondAttribute="trailing" constant="13" id="edN-JT-6V6"/>
                     <constraint firstItem="rqt-fZ-usD" firstAttribute="leading" secondItem="R0i-l4-cwO" secondAttribute="trailing" constant="10" id="qky-bz-wGP"/>
                     <constraint firstItem="R0i-l4-cwO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rqN-kz-1Uh"/>
                 </constraints>

@@ -10,11 +10,14 @@
 #import "TYSeachTableViewCell.h"
 #import "TYAVDetailsViewController.h"
 #import "TYSearchDetailViewController.h"
+#import "TYHotSearchModel.h"
 
 @interface TYSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, copy) NSArray * historyDataArr;
 @property (nonatomic, strong) UIView * searchBackView;
+@property (nonatomic, strong) NSMutableArray *dataArr;
+
 @end
 
 @implementation TYSearchViewController
@@ -25,7 +28,8 @@
     [self searchView];
     
     self.tableView.tableFooterView = [UIView new];
-
+    
+    [self hotSearchRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -35,6 +39,33 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+}
+///video/api/getHotSearchVideo
+- (void)hotSearchRequestData {
+    
+    NSDictionary * dic = @{
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/video/api/getHotSearchVideo" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        if (success&&data) {
+            NSArray *arr = [TYHotSearchModel mj_objectArrayWithKeyValuesArray:data];
+            if (arr&&arr.count>0) {
+                weakSelf.dataArr =  [NSMutableArray arrayWithArray:arr];
+            }else {
+                NSLog(@"加载空视图");
+            }
+            [weakSelf.tableView reloadData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
 }
 - (void)searchView {
     UIView *searchBackView = [[UIView alloc] init];
@@ -100,7 +131,7 @@
    
     if (section == 0) return 1;
     
-    return 2;//_dataArr.count;
+    return self.dataArr.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -132,6 +163,10 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"TYSeachTableViewCell" owner:nil options:nil] lastObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        if (self.dataArr&&self.dataArr.count>indexPath.row) {
+            [cell cellWithModel:self.dataArr[indexPath.row] andIndexPath:indexPath];
+        }
+       
         return cell;
     }
 }
@@ -182,8 +217,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.section == 1) {
+        TYHotSearchModel *mode = self.dataArr[indexPath.row];
+        TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+        vc.avID = mode.ID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 #pragma mark - textfield delegata
 //- (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -217,6 +257,7 @@
     
     
     TYSearchDetailViewController *vc = [[TYSearchDetailViewController alloc] init];
+    vc.keyWord = textField.text;
     [self.navigationController pushViewController:vc animated:YES];
     
     return YES;
@@ -286,6 +327,7 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.searchBackView.mas_bottom);

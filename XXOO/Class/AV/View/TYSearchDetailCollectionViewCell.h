@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYHomeModel.h"
+
+
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^ItemShouCangBlock)(void);
 
 @interface TYSearchDetailCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -16,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
 
+@property (nonatomic, strong) TYHomeItemModel * itemModel;
+@property (nonatomic, copy) ItemShouCangBlock itemShouCangBlock;
 @end
 
 NS_ASSUME_NONNULL_END

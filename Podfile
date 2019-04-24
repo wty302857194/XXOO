@@ -18,7 +18,7 @@ target 'XXOO' do
   pod 'PYSearch'
   pod 'Canvas'
   pod 'DZNEmptyDataSet'
-  
+  pod 'libOpenInstallSDK'
   
   # Pods for XXOO
 

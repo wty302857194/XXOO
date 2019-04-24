@@ -237,7 +237,10 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     
 }
 - (void)chooseStation:(UIButton *)btn {
+     NSArray *arr = [self.detailModel.vLabel componentsSeparatedByString:@","];
+    NSString *wordStr = arr[btn.tag -10];
     TYSearchDetailViewController *vc = [[TYSearchDetailViewController alloc] init];
+    vc.vLabel = wordStr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //定义每个UICollectionView 的大小
