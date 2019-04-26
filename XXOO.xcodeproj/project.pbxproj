@@ -53,6 +53,10 @@
 		C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */; };
 		C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */; };
 		C1ADA2E52270070D00CA8566 /* TYHotSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2E42270070D00CA8566 /* TYHotSearchModel.m */; };
+		C1ADA2E92270485F00CA8566 /* TYVideoTypeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2E82270485F00CA8566 /* TYVideoTypeListModel.m */; };
+		C1ADA2EC227061DC00CA8566 /* TYCategroyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2EB227061DC00CA8566 /* TYCategroyListModel.m */; };
+		C1ADA2EF22713EF800CA8566 /* TYGoddessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */; };
+		C1ADA2F22271B53700CA8566 /* TYActorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2F12271B53700CA8566 /* TYActorModel.m */; };
 		C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */; };
 		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
 		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
@@ -208,6 +212,14 @@
 		C1ADA2E32270070D00CA8566 /* TYHotSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHotSearchModel.h; sourceTree = "<group>"; };
 		C1ADA2E42270070D00CA8566 /* TYHotSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHotSearchModel.m; sourceTree = "<group>"; };
 		C1ADA2E62270119D00CA8566 /* XXOO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XXOO.entitlements; sourceTree = "<group>"; };
+		C1ADA2E72270485F00CA8566 /* TYVideoTypeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYVideoTypeListModel.h; sourceTree = "<group>"; };
+		C1ADA2E82270485F00CA8566 /* TYVideoTypeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYVideoTypeListModel.m; sourceTree = "<group>"; };
+		C1ADA2EA227061DC00CA8566 /* TYCategroyListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYCategroyListModel.h; sourceTree = "<group>"; };
+		C1ADA2EB227061DC00CA8566 /* TYCategroyListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYCategroyListModel.m; sourceTree = "<group>"; };
+		C1ADA2ED22713EF800CA8566 /* TYGoddessModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGoddessModel.h; sourceTree = "<group>"; };
+		C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessModel.m; sourceTree = "<group>"; };
+		C1ADA2F02271B53700CA8566 /* TYActorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYActorModel.h; sourceTree = "<group>"; };
+		C1ADA2F12271B53700CA8566 /* TYActorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYActorModel.m; sourceTree = "<group>"; };
 		C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyTuiGunagViewController.h; sourceTree = "<group>"; };
 		C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyTuiGunagViewController.m; sourceTree = "<group>"; };
 		C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyTuiGunagViewController.xib; sourceTree = "<group>"; };
@@ -602,6 +614,14 @@
 		C12486DA225D99460040B476 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADA2E72270485F00CA8566 /* TYVideoTypeListModel.h */,
+				C1ADA2E82270485F00CA8566 /* TYVideoTypeListModel.m */,
+				C1ADA2EA227061DC00CA8566 /* TYCategroyListModel.h */,
+				C1ADA2EB227061DC00CA8566 /* TYCategroyListModel.m */,
+				C1ADA2ED22713EF800CA8566 /* TYGoddessModel.h */,
+				C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */,
+				C1ADA2F02271B53700CA8566 /* TYActorModel.h */,
+				C1ADA2F12271B53700CA8566 /* TYActorModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1056,6 +1076,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1ADA2F22271B53700CA8566 /* TYActorModel.m in Sources */,
 				C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */,
 				C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */,
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
@@ -1082,17 +1103,20 @@
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
 				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
+				C1ADA2EF22713EF800CA8566 /* TYGoddessModel.m in Sources */,
 				C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */,
 				C1F2844C226DA328009B57A5 /* TYHelpViewController.m in Sources */,
 				C12486D1225D989A0040B476 /* TYAVViewController.m in Sources */,
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
+				C1ADA2EC227061DC00CA8566 /* TYCategroyListModel.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */,
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
 				C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
+				C1ADA2E92270485F00CA8566 /* TYVideoTypeListModel.m in Sources */,
 				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,
 				C17DE6A9225F85BA00050DCE /* UIScreen+Extension.m in Sources */,
 				C1036A9A225E086F00322B2B /* TYNetWorkTool.m in Sources */,

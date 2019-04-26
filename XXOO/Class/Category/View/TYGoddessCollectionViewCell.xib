@@ -50,6 +50,9 @@
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="shouCang:" destination="gTV-IL-0wX" eventType="touchUpInside" id="w6L-Oe-wTt"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -64,6 +67,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="103" height="178"/>
+            <connections>
+                <outlet property="imgView" destination="Pjl-fS-MlD" id="QIs-wh-dSG"/>
+                <outlet property="nameLab" destination="erh-69-PK5" id="Tdc-JF-QgJ"/>
+            </connections>
             <point key="canvasLocation" x="176.08695652173915" y="154.01785714285714"/>
         </collectionViewCell>
     </objects>
