@@ -20,107 +20,20 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) UIView * topBackView;
-//@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
-//@property (weak, nonatomic) IBOutlet UIButton *allBtn;
-//@property (nonatomic, strong) UIButton * selectBtn1;//第一行选中的btn
-//@property (nonatomic, strong) UIButton * selectBtn2;//第二行选中的btn
 
 @property (nonatomic, strong) NSMutableArray * allCupArr;
 @property (nonatomic, copy) NSArray * zuiDuoArr;
-@property (nonatomic, copy) NSString * cupID;
+
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) NSInteger page;//页数
 @property (nonatomic, assign) BOOL isFresh;//是否加载
 @property (nonatomic, copy) NSString * orderBy;
+@property (nonatomic, copy) NSString * cupID;
 @property (nonatomic, strong) TYActorModel *actorModel;
 @end
 
 @implementation TYGoddessViewController
-//- (IBAction)topBtnClick:(UIButton *)sender {
-//    if (_selectBtn1 == sender) return;
-//
-//    sender.borderWidth = 1;
-//    sender.cornerRadius = 13;
-//    sender.borderColor = main_select_text_color;
-//    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
-//    _selectBtn1.borderWidth = 0;
-//    [_selectBtn1 setTitleColor:main_light_text_color forState:UIControlStateNormal];
-//
-//    switch (sender.tag) {
-//        case 100:
-//        {
-//
-//        }
-//            break;
-//        case 101:
-//        {
-//
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//
-//    _selectBtn1 = sender;
-//}
-//- (IBAction)zhaoBeiClick:(UIButton *)sender {
-//    if (_selectBtn2 == sender) return;
-//
-//    sender.cornerRadius = 13;
-//    sender.borderWidth = 1;
-//    sender.borderColor = main_select_text_color;
-//    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
-//     _selectBtn2.borderWidth = 0;
-//    [_selectBtn2 setTitleColor:main_light_text_color forState:UIControlStateNormal];
-//
-//    switch (sender.tag) {
-//        case 1000:
-//        {
-//
-//        }
-//            break;
-//        case 1001:
-//        {
-//
-//        }
-//            break;
-//        case 1002:
-//        {
-//
-//        }
-//            break;
-//        case 1003:
-//        {
-//
-//        }
-//            break;
-//        case 1004:
-//        {
-//
-//        }
-//            break;
-//        case 1005:
-//        {
-//
-//        }
-//            break;
-//        case 1006:
-//        {
-//
-//        }
-//            break;
-//        case 1007:
-//        {
-//
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//
-//    _selectBtn2 = sender;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -207,6 +120,24 @@
         
     }];
 }
+
+//收藏请求
+- (void)shouCangRequestData:(TYActorListModel *)model {
+    NSDictionary * dic = @{
+                           @"id":USERID,
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 #pragma mark - delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -223,7 +154,12 @@
     
     TYGoddessCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYGoddessCollectionViewCell" forIndexPath:indexPath];
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
-        cell.listModel = self.dataArr[indexPath.row];
+        TYActorListModel *model = self.dataArr[indexPath.row];
+        cell.listModel = model;
+        TYWEAK_SELF;
+        cell.shouCangBlock = ^{
+            [weakSelf shouCangRequestData:model];
+        };
     }
     return cell;
     

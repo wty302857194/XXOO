@@ -57,6 +57,8 @@
 		C1ADA2EC227061DC00CA8566 /* TYCategroyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2EB227061DC00CA8566 /* TYCategroyListModel.m */; };
 		C1ADA2EF22713EF800CA8566 /* TYGoddessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */; };
 		C1ADA2F22271B53700CA8566 /* TYActorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2F12271B53700CA8566 /* TYActorModel.m */; };
+		C1ADA2F522732F7900CA8566 /* TYVideoLabelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2F422732F7900CA8566 /* TYVideoLabelModel.m */; };
+		C1ADA2F82273331F00CA8566 /* UIButton+TYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2F72273331F00CA8566 /* UIButton+TYExtension.m */; };
 		C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */; };
 		C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */; };
 		C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */; };
@@ -220,6 +222,10 @@
 		C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessModel.m; sourceTree = "<group>"; };
 		C1ADA2F02271B53700CA8566 /* TYActorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYActorModel.h; sourceTree = "<group>"; };
 		C1ADA2F12271B53700CA8566 /* TYActorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYActorModel.m; sourceTree = "<group>"; };
+		C1ADA2F322732F7900CA8566 /* TYVideoLabelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYVideoLabelModel.h; sourceTree = "<group>"; };
+		C1ADA2F422732F7900CA8566 /* TYVideoLabelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYVideoLabelModel.m; sourceTree = "<group>"; };
+		C1ADA2F62273331F00CA8566 /* UIButton+TYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+TYExtension.h"; sourceTree = "<group>"; };
+		C1ADA2F72273331F00CA8566 /* UIButton+TYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TYExtension.m"; sourceTree = "<group>"; };
 		C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyTuiGunagViewController.h; sourceTree = "<group>"; };
 		C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyTuiGunagViewController.m; sourceTree = "<group>"; };
 		C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyTuiGunagViewController.xib; sourceTree = "<group>"; };
@@ -466,6 +472,8 @@
 				C1F2B5832266C1E50002ACB4 /* UIImage+Extension.m */,
 				C1F28451226DE9C4009B57A5 /* UIImageView+TYExtension.h */,
 				C1F28452226DE9C4009B57A5 /* UIImageView+TYExtension.m */,
+				C1ADA2F62273331F00CA8566 /* UIButton+TYExtension.h */,
+				C1ADA2F72273331F00CA8566 /* UIButton+TYExtension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -622,6 +630,8 @@
 				C1ADA2EE22713EF800CA8566 /* TYGoddessModel.m */,
 				C1ADA2F02271B53700CA8566 /* TYActorModel.h */,
 				C1ADA2F12271B53700CA8566 /* TYActorModel.m */,
+				C1ADA2F322732F7900CA8566 /* TYVideoLabelModel.h */,
+				C1ADA2F422732F7900CA8566 /* TYVideoLabelModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1099,6 +1109,7 @@
 				C1F28436226D52B9009B57A5 /* TYRefershClass.m in Sources */,
 				C1F28440226D5F65009B57A5 /* TYEntertainmentModel.m in Sources */,
 				C1F3FC09226C4F870090677E /* TYSeachTableViewCell.m in Sources */,
+				C1ADA2F522732F7900CA8566 /* TYVideoLabelModel.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
 				C1DE538622606BC400D41A04 /* TYUserTableViewController.m in Sources */,
@@ -1133,6 +1144,7 @@
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
 				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
+				C1ADA2F82273331F00CA8566 /* UIButton+TYExtension.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
 				C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */,

@@ -20,5 +20,6 @@
 #import "UIView+IBExtension.h"
 #import "UIImage+Extension.h"
 #import "UIImageView+TYExtension.h"
+#import "UIButton+TYExtension.h"
 
 #endif /* ExtensionHeader_h */
