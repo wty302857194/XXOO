@@ -319,6 +319,7 @@
 - (void)chooseStation:(UIButton *)btn {
     //TYSearchDetailViewController
     TYSearchDetailViewController *vc = [[TYSearchDetailViewController alloc] init];
+    vc.keyWord = self.historyDataArr[btn.tag-10];
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - ==懒加载==

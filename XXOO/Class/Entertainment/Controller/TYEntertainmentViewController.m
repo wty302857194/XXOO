@@ -48,7 +48,7 @@
     }];
     
     
-    [self headerRefreshRequest];
+//    [self headerRefreshRequest];
 }
 - (void)headerRefreshRequest {
     [self.dataArr removeAllObjects];

@@ -8,7 +8,7 @@
 
 #import "TYVideoLableViewController.h"
 #import "TYVideoLabelModel.h"
-
+#import "TYSearchDetailViewController.h"
 
 @interface TYVideoLableViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -29,10 +29,15 @@
 - (IBAction)chooseBTN:(UIButton *)sender {
     NSString *labStr = @"";
     for (id obj in self.labDic) {
-        labStr = [NSString stringWithFormat:@"%@%@",labStr,self.labDic[obj]];
+        labStr = [NSString stringWithFormat:@"%@,%@",labStr,self.labDic[obj]];
     }
- NSLog(@"%@",labStr);
-    
+    if (labStr.length==0) {
+        [MBProgressHUD promptMessage:@"你未选择影片标签" inView:self.view];
+        return;
+    }
+    TYSearchDetailViewController *vc = [[TYSearchDetailViewController alloc] init];
+    vc.vLabel = labStr;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewDidLoad {
@@ -236,7 +241,6 @@
         }
         self.num_lab.text = [NSString stringWithFormat:@"%ld",(long)_num];
         btn.selected = !btn.selected;
-
     }
 }
 @end

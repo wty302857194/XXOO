@@ -15,10 +15,10 @@
 
 @interface TYSearchDetailViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIButton *longAVBtn;
-@property (weak, nonatomic) IBOutlet UIButton *shortBtn;
-@property (weak, nonatomic) IBOutlet UILabel *lineLab;
-@property (nonatomic, strong) UIButton * selectBtn;
+//@property (weak, nonatomic) IBOutlet UIButton *longAVBtn;
+//@property (weak, nonatomic) IBOutlet UIButton *shortBtn;
+//@property (weak, nonatomic) IBOutlet UILabel *lineLab;
+//@property (nonatomic, strong) UIButton * selectBtn;
 @property (nonatomic, strong) TYHomeModel * homeModel;
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -27,21 +27,6 @@
 @end
 
 @implementation TYSearchDetailViewController
-- (IBAction)tabTouch:(UIButton *)sender {
-    if (sender == _selectBtn) return;
-    
-    [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
-    [_selectBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
-    self.lineLab.center = CGPointMake(sender.center.x, self.lineLab.centerY);
-    
-    if (sender == _longAVBtn) {
-        
-    }else {
-        
-    }
-    
-    _selectBtn = sender;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +35,7 @@
     self.dataArr = [NSMutableArray arrayWithCapacity:0];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYSearchDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYSearchDetailCollectionViewCell"];
 
-    [self headerRefreshRequest];
+//    [self headerRefreshRequest];
     
     TYWEAK_SELF;
     [TYRefershClass refreshCollectionWithHeader:self.collectionView refreshingBlock:^{
@@ -104,7 +89,6 @@
                 }else {
                     [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
                     [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
-                    
                 }
             }else {
                 [weakSelf.dataArr removeAllObjects];
@@ -132,27 +116,34 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/video/api/getSearchVideo" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer endRefreshing];
         
-        NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data];
-        
-        if (weakSelf.isFresh) {
-            if (arr&&arr.count>0) {
-                [weakSelf.dataArr addObjectsFromArray:arr];
-                [weakSelf.collectionView reloadData];
+        if (success&&data) {
+            NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data];
+            
+            if (weakSelf.isFresh) {
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.collectionView reloadData];
+                }else {
+                    [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                    [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                    
+                }
             }else {
-                [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
-                [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
-                
+                [weakSelf.dataArr removeAllObjects];
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    
+                }else {
+                    NSLog(@"加载空视图");
+                }
+                [weakSelf.collectionView reloadData];
             }
         }else {
-            [weakSelf.dataArr removeAllObjects];
-            if (arr&&arr.count>0) {
-                [weakSelf.dataArr addObjectsFromArray:arr];
-                
-            }else {
-                NSLog(@"加载空视图");
-            }
-            [weakSelf.collectionView reloadData];
+            [MBProgressHUD promptMessage:msg inView:self.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -173,11 +164,12 @@
 //每个UICollectionView展示的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TYSearchDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYSearchDetailCollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYHomeItemModel *model = self.dataArr[indexPath.row];
+        cell.itemModel = model;
+        TYWEAK_SELF;
         cell.itemShouCangBlock = ^{
-            [self shouCangRequestData:model];
+            [weakSelf shouCangRequestData:model];
         };
     }
     return cell;

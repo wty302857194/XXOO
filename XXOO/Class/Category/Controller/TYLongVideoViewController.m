@@ -45,7 +45,7 @@
     self.dataArr = [NSMutableArray arrayWithCapacity:0];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailContentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailContentCollectionViewCell"];
     
-    [self headerRefreshRequest];
+//    [self headerRefreshRequest];
     
     TYWEAK_SELF;
     [TYRefershClass refreshCollectionWithHeader:self.collectionView refreshingBlock:^{

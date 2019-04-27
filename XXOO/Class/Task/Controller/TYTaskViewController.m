@@ -51,7 +51,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (success) {
+        if (success&&data) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data];
             NSLog(@"dataArr === %@",self.dataArr);
 //            [self.tableView reloadData];
