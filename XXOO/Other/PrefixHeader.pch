@@ -23,6 +23,7 @@
 #import "TYNetWorkTool.h"
 #import "TYRefershClass.h"
 #import "MJRefresh.h"
+#import "TYGlobal.h"
 
 #endif /* PrefixHeader_pch */
 

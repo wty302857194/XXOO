@@ -87,6 +87,7 @@
 		C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A142265C43B006E754A /* TYGoddessViewController.xib */; };
 		C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */; };
 		C1F13A1B2265C6F2006E754A /* TYVideoLableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */; };
+		C1F157862275A6B300984A32 /* TYGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F157852275A6B300984A32 /* TYGlobal.m */; };
 		C1F28436226D52B9009B57A5 /* TYRefershClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28435226D52B9009B57A5 /* TYRefershClass.m */; };
 		C1F2843C226D551A009B57A5 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28438226D551A009B57A5 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C1F2843D226D551A009B57A5 /* HDeviceIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F28439226D551A009B57A5 /* HDeviceIdentifier.m */; };
@@ -273,6 +274,8 @@
 		C1F13A172265C6F2006E754A /* TYVideoLableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYVideoLableViewController.h; sourceTree = "<group>"; };
 		C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYVideoLableViewController.m; sourceTree = "<group>"; };
 		C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYVideoLableViewController.xib; sourceTree = "<group>"; };
+		C1F157842275A6B300984A32 /* TYGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGlobal.h; sourceTree = "<group>"; };
+		C1F157852275A6B300984A32 /* TYGlobal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGlobal.m; sourceTree = "<group>"; };
 		C1F28434226D52B9009B57A5 /* TYRefershClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYRefershClass.h; sourceTree = "<group>"; };
 		C1F28435226D52B9009B57A5 /* TYRefershClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYRefershClass.m; sourceTree = "<group>"; };
 		C1F28438226D551A009B57A5 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 		C1036A84225DEBA700322B2B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				C1F157842275A6B300984A32 /* TYGlobal.h */,
+				C1F157852275A6B300984A32 /* TYGlobal.m */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -1134,6 +1139,7 @@
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
 				C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */,
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
+				C1F157862275A6B300984A32 /* TYGlobal.m in Sources */,
 				C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C1ADA2E92270485F00CA8566 /* TYVideoTypeListModel.m in Sources */,

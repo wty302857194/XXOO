@@ -55,7 +55,7 @@
     
     
     //做一个延时处理
-    [[OpenInstallSDK defaultManager] getInstallParmsWithTimeoutInterval:10 completed:^(OpeninstallData * _Nullable appData) {
+    [[OpenInstallSDK defaultManager] getInstallParmsWithTimeoutInterval:1 completed:^(OpeninstallData * _Nullable appData) {
         //在主线程中回调
         if (appData.data) {//(动态安装参数)
             //e.g.如免填邀请码建立邀请关系、自动加好友、自动进入某个群组或房间等

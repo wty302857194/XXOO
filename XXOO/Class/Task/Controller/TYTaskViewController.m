@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.topBackViewLayout.constant = -kStatusBarHeight;
+//    self.topBackViewLayout.constant = -xkStatusBarHeight;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TYTaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TYTaskTableViewCell"];
     
@@ -112,12 +112,11 @@
                 [weakSelf getSignInRequestData:currentCell];
             }else if ([model.ID isEqualToString:@"2"]) {//二维码
                 TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
+                vc.ID = model.ID;
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if ([model.ID isEqualToString:@"3"]) {//加群
                 
             }else if ([model.ID isEqualToString:@"4"]) {
-                
-            }else if ([model.ID isEqualToString:@"5"]) {
                 
             }else {
                 

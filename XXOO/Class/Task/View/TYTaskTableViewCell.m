@@ -30,6 +30,14 @@
     self.contentLab.text = taskModel.content?:@"";
     self.jiFenLab.text = [NSString stringWithFormat:@"+%@",taskModel.score?:@""];
     [self.planBtn setTitle:taskModel.btnContent?:@"" forState:UIControlStateNormal];
+    
+    if([taskModel.state isEqualToString:@"1"]) {
+        self.planBtn.userInteractionEnabled = YES;
+        [self.planBtn setBackgroundImage:[UIImage imageNamed:@"middle_btn_backImg"] forState:UIControlStateNormal];
+    }else {
+        self.planBtn.userInteractionEnabled = NO;
+        [self.planBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    }
 }
 
 @end

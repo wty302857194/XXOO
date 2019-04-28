@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYSaveCodeViewController">
             <connections>
                 <outlet property="codeBackView" destination="hDD-aj-Zik" id="Xuc-Mx-E9X"/>
+                <outlet property="codeImage" destination="Rqx-Fr-phA" id="UBN-x7-nTi"/>
                 <outlet property="myInvitationLab" destination="3Ge-Pp-S5W" id="ALA-9f-8se"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,8 +27,18 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDD-aj-Zik">
                     <rect key="frame" x="100" y="341" width="214" height="214"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rqx-Fr-phA">
+                            <rect key="frame" x="0.0" y="0.0" width="214" height="214"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="214" id="DGx-BN-fTs"/>
+                        <constraint firstItem="Rqx-Fr-phA" firstAttribute="leading" secondItem="hDD-aj-Zik" secondAttribute="leading" id="JqC-DK-bjt"/>
+                        <constraint firstAttribute="trailing" secondItem="Rqx-Fr-phA" secondAttribute="trailing" id="Z4v-JG-Y17"/>
+                        <constraint firstAttribute="bottom" secondItem="Rqx-Fr-phA" secondAttribute="bottom" id="bmL-zh-5jf"/>
+                        <constraint firstItem="Rqx-Fr-phA" firstAttribute="top" secondItem="hDD-aj-Zik" secondAttribute="top" id="fWu-oW-NnG"/>
                         <constraint firstAttribute="width" secondItem="hDD-aj-Zik" secondAttribute="height" multiplier="1:1" id="qi0-80-MeL"/>
                     </constraints>
                 </view>
@@ -98,9 +109,7 @@
                 <constraint firstAttribute="trailing" secondItem="qZU-HJ-NCb" secondAttribute="trailing" id="hAt-Lp-aH2"/>
                 <constraint firstItem="Z6t-qu-bFv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="v6z-4o-T3K"/>
                 <constraint firstItem="vl9-L7-xDe" firstAttribute="centerY" secondItem="Z6t-qu-bFv" secondAttribute="centerY" id="wTO-uv-A46"/>
-                <constraint firstAttribute="trailing" secondItem="hDD-aj-Zik" secondAttribute="trailing" constant="100" id="xbM-YO-aCK"/>
                 <constraint firstItem="qZU-HJ-NCb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xrX-AP-XnZ"/>
-                <constraint firstItem="hDD-aj-Zik" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="z6T-he-Jyj"/>
                 <constraint firstAttribute="bottom" secondItem="Z6t-qu-bFv" secondAttribute="bottom" constant="45" id="zqU-Sc-n8U"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>

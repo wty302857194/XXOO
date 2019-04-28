@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,7 +46,7 @@
                                                                 <segue destination="PHG-cB-szz" kind="show" id="RVA-40-KjS"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tt-Nr-sDh">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_header_img" translatesAutoresizingMaskIntoConstraints="NO" id="6tt-Nr-sDh">
                                                             <rect key="frame" x="10" y="65" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="WqK-U6-5xC"/>
@@ -615,6 +616,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QFf-SL-fiW">
                     <rect key="frame" x="0.0" y="0.0" width="35" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="vSZ-Rb-5Cp"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -626,6 +628,7 @@
     <resources>
         <image name="mine_buy_vip" width="59" height="24.5"/>
         <image name="mine_change_center" width="46.5" height="46.5"/>
+        <image name="mine_header_img" width="74.5" height="74.5"/>
         <image name="mine_invite_friend" width="46.5" height="46.5"/>
         <image name="mine_setting" width="19" height="19"/>
         <image name="mine_topBackImg" width="375" height="147"/>

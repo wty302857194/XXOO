@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYSaveCodeViewController : TYBaseViewController
-
+@property (nonatomic, copy) NSString * ID;
 @end
 
 NS_ASSUME_NONNULL_END
