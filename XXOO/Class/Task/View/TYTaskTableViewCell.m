@@ -23,7 +23,13 @@
 }
 
 -(void)setTaskModel:(TYTaskModel *)taskModel {
+    NSString *imgUrl = [NSString stringWithFormat:@"%@%@",IMAGE_URL_main,taskModel.icon?:@""];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:PLACEHOLEDERIMAGE];
     
+    self.titleLab.text = taskModel.title?:@"";
+    self.contentLab.text = taskModel.content?:@"";
+    self.jiFenLab.text = [NSString stringWithFormat:@"+%@",taskModel.score?:@""];
+    [self.planBtn setTitle:taskModel.btnContent?:@"" forState:UIControlStateNormal];
 }
 
 @end

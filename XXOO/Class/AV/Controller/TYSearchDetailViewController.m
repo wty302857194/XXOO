@@ -111,7 +111,9 @@
 
 - (void)searchResultRequestData {
     NSDictionary * dic = @{
-                           @"keyWord":self.keyWord?:@""
+                           @"keyWord":self.keyWord?:@"",
+                           @"pageNum":@(self.page),
+                           @"limit":@"20"
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;

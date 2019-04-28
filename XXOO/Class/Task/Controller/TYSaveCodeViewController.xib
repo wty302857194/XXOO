@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYSaveCodeViewController">
+            <connections>
+                <outlet property="codeBackView" destination="hDD-aj-Zik" id="Xuc-Mx-E9X"/>
+                <outlet property="myInvitationLab" destination="3Ge-Pp-S5W" id="ALA-9f-8se"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_saveCode_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZU-HJ-NCb">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDD-aj-Zik">
+                    <rect key="frame" x="100" y="341" width="214" height="214"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hDD-aj-Zik" secondAttribute="height" multiplier="1:1" id="qi0-80-MeL"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的邀请码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ge-Pp-S5W">
+                    <rect key="frame" x="151.5" y="575" width="111.5" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" red="0.99215686274509807" green="0.34509803921568627" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写上面的邀请码还可获得观影特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQd-2C-EmM">
+                    <rect key="frame" x="44" y="621.5" width="326.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.99607843137254903" green="0.63137254901960782" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6t-qu-bFv">
+                    <rect key="frame" x="20" y="808" width="140" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="kY2-2Z-2Qw"/>
+                        <constraint firstAttribute="height" constant="43" id="xcl-kP-pQq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="保存二维码" backgroundImage="task_Code_btnBackImg">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="saveCode:" destination="-1" eventType="touchUpInside" id="hMb-Lm-cZs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl9-L7-xDe">
+                    <rect key="frame" x="254" y="808" width="140" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="O7P-dL-oxc"/>
+                        <constraint firstAttribute="height" constant="43" id="x4C-Vt-Szu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="保存推广链接" backgroundImage="task_Code_btnBackImg">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="saveCode:" destination="-1" eventType="touchUpInside" id="h4d-UT-Knv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT9-kO-7mp">
+                    <rect key="frame" x="0.0" y="30" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="2XG-1Q-ODN"/>
+                        <constraint firstAttribute="height" constant="50" id="n47-70-KeN"/>
+                    </constraints>
+                    <connections>
+                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="Cv9-pP-BDk"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hDD-aj-Zik" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1VF-EI-M2n"/>
+                <constraint firstItem="3Ge-Pp-S5W" firstAttribute="top" secondItem="hDD-aj-Zik" secondAttribute="bottom" constant="20" id="6MQ-GU-mgr"/>
+                <constraint firstItem="3Ge-Pp-S5W" firstAttribute="centerX" secondItem="hDD-aj-Zik" secondAttribute="centerX" id="9xN-HT-9hb"/>
+                <constraint firstItem="hDD-aj-Zik" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="B9D-1A-PN6"/>
+                <constraint firstItem="OQd-2C-EmM" firstAttribute="top" secondItem="3Ge-Pp-S5W" secondAttribute="bottom" constant="20" id="Fm2-GI-tf0"/>
+                <constraint firstItem="GT9-kO-7mp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GrF-GH-9Ig"/>
+                <constraint firstItem="GT9-kO-7mp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="MMc-gA-z1Z"/>
+                <constraint firstItem="OQd-2C-EmM" firstAttribute="centerX" secondItem="3Ge-Pp-S5W" secondAttribute="centerX" id="OJi-tc-sZO"/>
+                <constraint firstAttribute="bottom" secondItem="qZU-HJ-NCb" secondAttribute="bottom" id="cty-gY-gkp"/>
+                <constraint firstItem="qZU-HJ-NCb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dfs-WS-KiG"/>
+                <constraint firstAttribute="trailing" secondItem="vl9-L7-xDe" secondAttribute="trailing" constant="20" id="frZ-g2-BUQ"/>
+                <constraint firstAttribute="trailing" secondItem="qZU-HJ-NCb" secondAttribute="trailing" id="hAt-Lp-aH2"/>
+                <constraint firstItem="Z6t-qu-bFv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="v6z-4o-T3K"/>
+                <constraint firstItem="vl9-L7-xDe" firstAttribute="centerY" secondItem="Z6t-qu-bFv" secondAttribute="centerY" id="wTO-uv-A46"/>
+                <constraint firstAttribute="trailing" secondItem="hDD-aj-Zik" secondAttribute="trailing" constant="100" id="xbM-YO-aCK"/>
+                <constraint firstItem="qZU-HJ-NCb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xrX-AP-XnZ"/>
+                <constraint firstItem="hDD-aj-Zik" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="z6T-he-Jyj"/>
+                <constraint firstAttribute="bottom" secondItem="Z6t-qu-bFv" secondAttribute="bottom" constant="45" id="zqU-Sc-n8U"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="task_Code_btnBackImg" width="143" height="42.5"/>
+        <image name="task_saveCode_image" width="375" height="667"/>
+    </resources>
+</document>

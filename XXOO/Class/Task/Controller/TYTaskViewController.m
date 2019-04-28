@@ -9,6 +9,7 @@
 #import "TYTaskViewController.h"
 #import "TYTaskTableViewCell.h"
 #import "TYTaskModel.h"
+#import "TYSaveCodeViewController.h"
 
 @interface TYTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeghtLayout;
@@ -38,26 +39,45 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 #pragma mark - requestData
 // /sysTask/api/getTaskList
-
 - (void)getTaskListRequestData {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{@"id":USERID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data];
+            self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data[@"data"]];
             NSLog(@"dataArr === %@",self.dataArr);
-//            [self.tableView reloadData];
+            self.integralLab.text = [NSString stringWithFormat:@"积分%@",data[@"score"]?:@""];
+            self.recommendLab.text = [NSString stringWithFormat:@"已推荐%@人",data[@"spreadNum"]?:@""];
+            [self.tableView reloadData];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
+        
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+//  /user/api/signIn
+- (void)getSignInRequestData:(TYTaskTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    TYTaskModel *model = self.dataArr[indexPath.row];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/user/api/signIn" parameters:@{@"id":USERID,@"tid":model.ID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            cell.planBtn.enabled = NO;
+//            cell.planBtn.backgroundColor = []
+        }
+        [MBProgressHUD promptMessage:msg inView:self.view];
         
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -80,7 +100,30 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TYTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TYTaskTableViewCell" forIndexPath:indexPath];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (self.dataArr&&self.dataArr.count>indexPath.row) {
+        TYTaskModel *model = self.dataArr[indexPath.row];
+        cell.taskModel = model;
+        
+        __block TYTaskTableViewCell *currentCell = cell;
+        TYWEAK_SELF;
+        cell.goPlanBlock = ^{
+            if([model.ID isEqualToString:@"1"]) {//签到
+                [weakSelf getSignInRequestData:currentCell];
+            }else if ([model.ID isEqualToString:@"2"]) {//二维码
+                TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }else if ([model.ID isEqualToString:@"3"]) {//加群
+                
+            }else if ([model.ID isEqualToString:@"4"]) {
+                
+            }else if ([model.ID isEqualToString:@"5"]) {
+                
+            }else {
+                
+            }
+        };
+    }
     return cell;
 }
 
@@ -89,34 +132,4 @@
     
 }
 
-
-//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-//    NSString *title = @"暂无数据";
-//
-//    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-//    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-//    paragraph.alignment = NSTextAlignmentCenter;
-//
-//    NSDictionary *attributes = @{
-//                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
-//                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
-//                                 NSParagraphStyleAttributeName:paragraph
-//                                 };
-//
-//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
-//}
-//
-//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-//    // 设置按钮标题
-//    NSString *buttonTitle = @"立即推广";
-//    NSDictionary *attributes = @{
-//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:15.0f],
-//                                 NSForegroundColorAttributeName:[UIColor whiteColor],
-//                                 };
-//    return [[NSAttributedString alloc] initWithString:buttonTitle attributes:attributes];
-//}
-//
-//- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-//    return [UIImage imageNamed:@"short_btn_backImg"];
-//}
 @end

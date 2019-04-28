@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/AV/View/TYAVDetailCollectionViewCell.h"
-            timestampString = "578061678.584069"
+            timestampString = "578062739.123993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/AV/Controller/TYAVHomeViewController.m"
-            timestampString = "578061678.584535"
+            filePath = "XXOO/Class/Task/Controller/TYTaskViewController.m"
+            timestampString = "578123070.209635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-shouCangRequestData:"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-getSignInRequestData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/Task/Controller/TYTaskViewController.m"
-            timestampString = "578061678.584868"
+            filePath = "XXOO/Class/AV/Controller/TYSearchDetailViewController.m"
+            timestampString = "578123098.9019541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-getTaskListRequestData"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-searchResultRequestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
