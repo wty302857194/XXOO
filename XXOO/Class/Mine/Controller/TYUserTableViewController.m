@@ -10,6 +10,7 @@
 #import "TYSettingTableVC.h"
 #import "TYMyTuiGunagViewController.h"
 #import "TYMyCollectionViewController.h"
+#import "TYDuiHuanViewController.h"
 
 @interface TYUserTableViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
@@ -20,14 +21,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *buyVIPBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backImgLayout;
 @property (weak, nonatomic) IBOutlet UILabel *myJiFen_lab;
+@property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 
 @property (nonatomic, copy) NSDictionary * dataDic;
 
+@property (nonatomic, copy) NSDictionary * adDic;
 @end
 
 @implementation TYUserTableViewController
 - (IBAction)settingClick:(UIButton *)sender {
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
+    TYSettingTableVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYSettingTableVC"];
+    [self.navigationController pushVC:vc animated:YES];
+
 }
 - (IBAction)buyVIPClick:(UIButton *)sender {
 }
@@ -40,12 +47,20 @@
             break;
         case 101:
         {
-            
+            TYBaseTabBarViewController *tabbar = [[TYBaseTabBarViewController alloc] init];
+            UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+            keyWindow.rootViewController = tabbar;
+            tabbar.selectedIndex = 3;
         }
             break;
         case 102:
         {
-            
+            TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
+            TYWEAK_SELF;
+            vc.refreshBlock = ^{
+                [weakSelf getUserRequestData];
+            };
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 103:
@@ -63,7 +78,8 @@
     [super viewDidLoad];
     self.topViewLayout.constant = kStatusBarHeight;
     self.backImgLayout.constant = -kStatusBarHeight;
-
+    [self getCenterAdRequestData];
+    [self getUserRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -74,6 +90,24 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
+#pragma mark -  广告
+// /sysAd/api/getCenterAd
+- (void)getCenterAdRequestData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/sysAd/api/getCenterAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            self.adDic = [NSDictionary dictionaryWithDictionary:data];
+            [self.adImageView sd_setImageWithURL:[NSURL URLWithString:data[@"picUrl"]] placeholderImage:PLACEHOLEDERIMAGE];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+
 /*
  {
  avatar: "1.png",               //用户头像
@@ -90,15 +124,20 @@
  */
 - (void)getUserRequestData {
     NSDictionary * dic = @{
-                           @"imei":[TYGlobal getDeviceIdentifier]
+                           @"imei":[TYGlobal getDeviceIdentifier],
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            weakSelf.dataDic = [NSDictionary dictionaryWithDictionary:data];
-            [weakSelf initWithData];
+            NSDictionary *dic = [NSDictionary nullDic:data];
+            [USER_DEFAULTS setObject:dic forKey:USERMESSAGE];
+            [USER_DEFAULTS synchronize];
+            
+            if ([TYGlobal userMessage]) {
+                self.dataDic = [NSDictionary nullDic:[TYGlobal userMessage]];
+                [self initWithData];
+            }
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -109,11 +148,24 @@
 }
 - (void)initWithData {
     [self.headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_URL_main,self.dataDic[@"avatar"]]] placeholderImage:PLACEHOLEDERIMAGE];
+    self.userNameLab.text = [NSString stringWithFormat:@"代理用户（%@）",self.dataDic[@"name"]];
+    self.myJiFen_lab.text = [NSString stringWithFormat:@"%@",self.dataDic[@"score"]];
+    NSString *level = [NSString stringWithFormat:@"%@",self.dataDic[@"level"]];
+    if ([level isEqualToString:@"1"]) {
+        self.buyVIPBtn.hidden = NO;
+    }else {
+        self.buyVIPBtn.hidden = YES;
+    }
 }
 #pragma mark - Table view data source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
+        case 2:
+        {
+            [TYGlobal openScheme:self.adDic[@"linkUrl"]];
+        }
+            break;
         case 3:
         {
             

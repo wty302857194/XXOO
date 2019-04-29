@@ -18,12 +18,14 @@
 #import "UIImageView+WebCache.h"
 #import "ExtensionHeader.h"
 #import "Canvas.h"
-#import "TYBaseViewController.h"
+#import "TYBaseTabBarViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "TYNetWorkTool.h"
 #import "TYRefershClass.h"
 #import "MJRefresh.h"
 #import "TYGlobal.h"
+#import "TYBaseView.h"
+#import "TYBaseNavigationController.h"
 
 #endif /* PrefixHeader_pch */
 

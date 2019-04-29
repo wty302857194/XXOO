@@ -33,6 +33,7 @@
 @property (nonatomic, copy) NSString * vClass;
 @property (nonatomic, strong) UILabel *header_lab;
 @property (nonatomic, strong) UIImageView *header_imgView;
+@property (nonatomic, strong) NSDictionary * adDic;
 @end
 
 @implementation TYAVHomeViewController
@@ -77,6 +78,7 @@
     [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
+            self.adDic = [NSDictionary nullDic:data];
             self.header_lab.text = data[@"title"];
             [self.header_imgView sd_setImageWithURL:[NSURL URLWithString:data[@"picUrl"]]];
             
@@ -193,6 +195,7 @@
     self.tableView.tableHeaderView = headerView;
     
     _header_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(13, 10, KSCREEN_WIDTH-26, height-10-20)];
+    [_header_imgView addTarget:self action:@selector(adChoose)];
     [headerView addSubview:_header_imgView];
     
     _header_lab = [[UILabel alloc] initWithFrame:CGRectMake(13, height-20, KSCREEN_WIDTH-26, 20)];
@@ -202,7 +205,9 @@
     [headerView addSubview:_header_lab];
     
 }
-
+- (void)adChoose {
+    [TYGlobal openScheme:self.adDic[@"linkUrl"]];
+}
 //收藏请求
 - (void)shouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{

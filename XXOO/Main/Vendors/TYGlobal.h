@@ -11,7 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYGlobal : NSObject
+//手机id
 + (NSString *)getDeviceIdentifier;
+// 用户信息
++ (NSDictionary *)userMessage;
+// 用户id
++ (NSString *)userId;
+// 打开URL
++ (void)openScheme:(NSString *)scheme;
 @end
 
 NS_ASSUME_NONNULL_END

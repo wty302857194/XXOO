@@ -135,8 +135,9 @@
 
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-    //    [self.navigationController pushViewController:vc animated:YES];
+    
+    TYEntertainmentItemModel *model = self.entertainmentModel.data[indexPath.row];
+    [TYGlobal openScheme:model.linkUrl];
 }
 
 

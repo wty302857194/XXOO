@@ -129,4 +129,6 @@
 
 #define USERID @"2"
 
+#define USERMESSAGE @"USERMESSAGE"
+
 

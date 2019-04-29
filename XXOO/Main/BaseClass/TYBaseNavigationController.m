@@ -22,7 +22,7 @@
     self.navigationBar.translucent = NO;
     
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
+    
     
     //view生成渐变色的图片 添加到BackgroundImage
     UIView *view = [UIView new];
@@ -55,7 +55,17 @@
     [super pushViewController:viewController animated:animated];
 }
 
-
+- (void)pushVC:(UIViewController *)viewController animated:(BOOL)animated {
+    [super pushViewController:viewController animated:animated];
+    if (self.viewControllers.count > 0) {
+        [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:main_text_color}];
+        
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"mineGoBickImg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+        backItem.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        viewController.navigationItem.leftBarButtonItem = backItem;
+    }
+}
 - (void)back {
     
     [self popViewControllerAnimated:YES];

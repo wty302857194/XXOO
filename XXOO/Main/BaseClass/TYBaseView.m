@@ -30,5 +30,11 @@
 //    
 //    [self.layer insertSublayer:gradientLayer atIndex:0];
 //}
-
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor whiteColor];
+    }
+    return self;
+}
 @end
