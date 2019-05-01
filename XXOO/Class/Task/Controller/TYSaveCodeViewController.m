@@ -28,22 +28,36 @@
 }
 - (void)saveCodeRequestData {
     NSDictionary * dic = @{
-                           @"id":USERID,
+                           @"id":[TYGlobal userId],
                            @"tid":self.ID
                            };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/saveQr" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        //开启一个图形上下文
+        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
+        //获取图形上下文
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        //截图
+        [self.view.layer renderInContext:ctx];
+        //获取图片
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        //关闭图形上下文
+        UIGraphicsEndImageContext();
+        [self loadImageFinished:image];
+        
+        
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [MBProgressHUD promptMessage:msg inView:self.view];
     } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
     }];
 }
 // /user/api/getMySpreadCode
 - (void)getMyCodeRequestData {
     NSDictionary * dic = @{
-                           @"id":USERID,
+                           @"id":[TYGlobal userId],
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/getMySpreadCode" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
@@ -62,7 +76,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading t
-    
+    [self getMyCodeRequestData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,7 +88,14 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
-
+- (void)loadImageFinished:(UIImage *)image
+{
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
+}
 
 /**
  二维码生成

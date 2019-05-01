@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TYBaseTabBarViewController.h"
 #import "OpenInstallSDK.h"
+#import "TYGesturePasswordViewController.h"
 
 @interface AppDelegate ()<OpenInstallDelegate>
 
@@ -22,20 +23,28 @@
     
     [OpenInstallSDK initWithDelegate:self];
     
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
-    TYBaseTabBarViewController *tabBarVC = [[TYBaseTabBarViewController alloc] init];
-    self.window.rootViewController = tabBarVC;
+    if ([TYGlobal gesturePassword].length>0) {
+        [self rootPasswordVC];
+    }else {
+        [self rootVC];
+    }
 
-    
     [self getInstallParms];
 
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
+- (void)rootVC {
+    self.window.rootViewController = [[TYBaseTabBarViewController alloc] init];
+}
+- (void)rootPasswordVC {
+    TYGesturePasswordViewController *passwordvVC = [[TYGesturePasswordViewController alloc] init];
+    passwordvVC.title = @"验证手势密码";
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:passwordvVC];
+    self.window.rootViewController = nav;
+}
 - (void)getInstallParms {
     
 //    [[OpenInstallSDK defaultManager] getInstallParmsCompleted:^(OpeninstallData*_Nullable appData) {
@@ -65,9 +74,9 @@
         }
         
         //弹出提示框(便于调试，调试完成后删除此代码)
-        NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n1、新应用是否上传安装包(是否集成完毕)  2、是否正确配置appKey  3、是否通过含有动态参数的分享链接(或二维码)安装的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+//        NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n1、新应用是否上传安装包(是否集成完毕)  2、是否正确配置appKey  3、是否通过含有动态参数的分享链接(或二维码)安装的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
     }];
 }
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler NS_AVAILABLE_IOS(8_0) {

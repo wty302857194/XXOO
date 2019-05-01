@@ -19,6 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)userId;
 // 打开URL
 + (void)openScheme:(NSString *)scheme;
+// 用户 手势密码
++ (NSString *)gesturePassword;
+// 用户 手势密码
++ (NSString *)userEmail;
+
+//判断邮箱格式是否正确的代码：
+//利用正则表达式验证
++(BOOL)isValidateEmail:(NSString *)email;
++ (BOOL)deptIdInputShouldAlphaNum:(NSString *)password ;
 @end
 
 NS_ASSUME_NONNULL_END

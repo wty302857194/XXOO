@@ -510,6 +510,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsZ-Pa-OG0">
+                                                    <rect key="frame" x="321.5" y="14.5" width="41.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVc-UF-M8u">
                                                     <rect key="frame" x="0.0" y="48" width="476" height="1"/>
                                                     <color key="backgroundColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -519,10 +525,12 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="VsZ-Pa-OG0" secondAttribute="trailing" constant="13" id="96W-d2-UPh"/>
                                                 <constraint firstItem="zJr-QA-kJC" firstAttribute="centerY" secondItem="vzP-cf-UQz" secondAttribute="centerY" id="AYQ-Lp-ia3"/>
                                                 <constraint firstItem="lVc-UF-M8u" firstAttribute="leading" secondItem="vzP-cf-UQz" secondAttribute="leading" id="C2u-Fh-JyI"/>
                                                 <constraint firstAttribute="trailing" secondItem="lVc-UF-M8u" secondAttribute="trailing" constant="-100" id="Oed-0b-Ko5"/>
                                                 <constraint firstAttribute="bottom" secondItem="lVc-UF-M8u" secondAttribute="bottom" id="cde-8w-aHY"/>
+                                                <constraint firstItem="VsZ-Pa-OG0" firstAttribute="centerY" secondItem="vzP-cf-UQz" secondAttribute="centerY" id="fSF-8j-k1h"/>
                                                 <constraint firstItem="zJr-QA-kJC" firstAttribute="leading" secondItem="vzP-cf-UQz" secondAttribute="leading" constant="16" id="lIU-C0-eTP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -534,8 +542,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改手势密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-9u-Lu1">
-                                                    <rect key="frame" x="16" y="14" width="104" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="变更密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-9u-Lu1">
+                                                    <rect key="frame" x="16" y="14" width="69.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -557,8 +565,38 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="49" id="yaU-EC-KEi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="49" id="wzu-6t-IzV">
                                         <rect key="frame" x="0.0" y="147" width="414" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzu-6t-IzV" id="ysd-ql-lMQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置个人锁（下次启动时生效）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdz-2q-oI6">
+                                                    <rect key="frame" x="16" y="14" width="243" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rT-AW-WJM">
+                                                    <rect key="frame" x="0.0" y="48" width="476" height="1"/>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="F70-ln-BUG"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5rT-AW-WJM" firstAttribute="leading" secondItem="ysd-ql-lMQ" secondAttribute="leading" id="1EY-ho-Avy"/>
+                                                <constraint firstItem="mdz-2q-oI6" firstAttribute="leading" secondItem="ysd-ql-lMQ" secondAttribute="leading" constant="16" id="3aR-QK-CA2"/>
+                                                <constraint firstAttribute="trailing" secondItem="5rT-AW-WJM" secondAttribute="trailing" constant="-100" id="Azp-bL-Tfq"/>
+                                                <constraint firstItem="mdz-2q-oI6" firstAttribute="centerY" secondItem="ysd-ql-lMQ" secondAttribute="centerY" id="ZfN-nl-n9r"/>
+                                                <constraint firstAttribute="bottom" secondItem="5rT-AW-WJM" secondAttribute="bottom" id="dvK-fz-HsU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="49" id="yaU-EC-KEi">
+                                        <rect key="frame" x="0.0" y="196" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yaU-EC-KEi" id="RM3-BN-19O">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -604,6 +642,10 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="emailCell" destination="ruq-Ok-vbf" id="BtJ-aI-JDO"/>
+                        <outlet property="emailLab" destination="VsZ-Pa-OG0" id="s4k-LH-Sxr"/>
+                        <outlet property="mySwitch" destination="3RA-9R-JEO" id="ovn-lw-qHg"/>
+                        <outlet property="statePasswordLab" destination="mdz-2q-oI6" id="ii2-cq-oh3"/>
                         <outlet property="zhangHaoLab" destination="Ehz-AY-oVO" id="WLW-cg-49d"/>
                     </connections>
                 </tableViewController>
@@ -643,11 +685,11 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你的邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1X-C2-Guz">
-                                                    <rect key="frame" x="13" y="42" width="388" height="17"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你的邮箱" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N1X-C2-Guz">
+                                                    <rect key="frame" x="13" y="42" width="388" height="19"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <action selector="textChange:" destination="77r-td-Y2H" eventType="editingChanged" id="SJK-md-EqG"/>
                                                     </connections>
@@ -675,11 +717,11 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码（6位以上）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeX-3R-3Ah">
-                                                    <rect key="frame" x="13" y="42" width="388" height="17"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码（6位以上）" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SeX-3R-3Ah">
+                                                    <rect key="frame" x="13" y="42" width="388" height="19"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                                                     <connections>
                                                         <action selector="textChange:" destination="77r-td-Y2H" eventType="editingDidEnd" id="FTI-ii-V2M"/>
                                                     </connections>
@@ -707,11 +749,11 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="96j-xb-cYz">
-                                                    <rect key="frame" x="13" y="42" width="388" height="17"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="96j-xb-cYz">
+                                                    <rect key="frame" x="13" y="42" width="388" height="19"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                                                     <connections>
                                                         <action selector="textChange:" destination="77r-td-Y2H" eventType="editingDidEnd" id="qD6-as-Z6y"/>
                                                     </connections>

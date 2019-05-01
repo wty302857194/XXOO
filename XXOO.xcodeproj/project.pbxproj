@@ -51,6 +51,9 @@
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
 		C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1831308226C95B000933B55 /* TYAVLableModel.m */; };
+		C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0022794F3300CB2096 /* ZSBntview.m */; };
+		C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */; };
+		C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */; };
 		C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */; };
 		C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */; };
 		C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */; };
@@ -222,6 +225,11 @@
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
 		C1831307226C95B000933B55 /* TYAVLableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVLableModel.h; sourceTree = "<group>"; };
 		C1831308226C95B000933B55 /* TYAVLableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVLableModel.m; sourceTree = "<group>"; };
+		C19189FF22794F3300CB2096 /* ZSBntview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBntview.h; sourceTree = "<group>"; };
+		C1918A0022794F3300CB2096 /* ZSBntview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBntview.m; sourceTree = "<group>"; };
+		C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGesturePasswordViewController.h; sourceTree = "<group>"; };
+		C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGesturePasswordViewController.m; sourceTree = "<group>"; };
+		C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGesturePasswordViewController.xib; sourceTree = "<group>"; };
 		C1ADA2DB226F09E100CA8566 /* TYAVDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailModel.h; sourceTree = "<group>"; };
 		C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailModel.m; sourceTree = "<group>"; };
 		C1ADA2DE226F453B00CA8566 /* TYJianJieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYJianJieView.h; sourceTree = "<group>"; };
@@ -459,6 +467,7 @@
 		C12486C6225D96A30040B476 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C19189FE22794F3300CB2096 /* GesturePassward */,
 				C1F28437226D551A009B57A5 /* HDeviceIdentifierUtils */,
 				C1F28433226D5275009B57A5 /* RefershClass */,
 				C17DE6A0225F6ED700050DCE /* Inherit */,
@@ -751,6 +760,9 @@
 				C1DD4B1422647315005FD5F5 /* TYSettingTableVC.m */,
 				C117B506227728970091A627 /* TYEmailTableViewController.h */,
 				C117B507227728970091A627 /* TYEmailTableViewController.m */,
+				C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */,
+				C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */,
+				C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */,
 				C1C5B893226864B700ADB7E0 /* TYMyTuiGunagViewController.h */,
 				C1C5B894226864B700ADB7E0 /* TYMyTuiGunagViewController.m */,
 				C1C5B895226864B700ADB7E0 /* TYMyTuiGunagViewController.xib */,
@@ -831,6 +843,15 @@
 				C17DE6A2225F6F1E00050DCE /* TYGradientButton.m */,
 			);
 			path = Inherit;
+			sourceTree = "<group>";
+		};
+		C19189FE22794F3300CB2096 /* GesturePassward */ = {
+			isa = PBXGroup;
+			children = (
+				C19189FF22794F3300CB2096 /* ZSBntview.h */,
+				C1918A0022794F3300CB2096 /* ZSBntview.m */,
+			);
+			path = GesturePassward;
 			sourceTree = "<group>";
 		};
 		C1DE53812260659700D41A04 /* storyboard */ = {
@@ -1017,6 +1038,7 @@
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */,
 				C1F3FC0F226C652D0090677E /* TYSearchDetailCollectionViewCell.xib in Resources */,
+				C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,12 +1183,14 @@
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1F28444226D8F94009B57A5 /* TYTuiGuangTableViewCell.m in Sources */,
 				C1036AA9225E0C3C00322B2B /* NSString+Encrypt.m in Sources */,
+				C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */,
 				C1036AA8225E0C3C00322B2B /* UIView+Extension.m in Sources */,
 				C1F2B5852266C1E50002ACB4 /* UIImage+Extension.m in Sources */,
 				C17DE6AC2260273900050DCE /* TestItem.m in Sources */,
 				C1F13A152265C43B006E754A /* TYGoddessViewController.m in Sources */,
 				C1F28436226D52B9009B57A5 /* TYRefershClass.m in Sources */,
 				C1F28440226D5F65009B57A5 /* TYEntertainmentModel.m in Sources */,
+				C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */,
 				C1F3FC09226C4F870090677E /* TYSeachTableViewCell.m in Sources */,
 				C1F1579922769C6500984A32 /* TYDuiHuanFirstTableViewCell.m in Sources */,
 				C1ADA2F522732F7900CA8566 /* TYVideoLabelModel.m in Sources */,
@@ -1380,6 +1404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1391,6 +1416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xo.XXOO.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1401,6 +1427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1412,6 +1439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xo.XXOO.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

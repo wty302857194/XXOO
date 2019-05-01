@@ -49,7 +49,7 @@
 - (void)getTaskListRequestData {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{@"id":USERID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{@"id":[TYGlobal userId]} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data[@"data"]];
@@ -71,7 +71,7 @@
     TYTaskModel *model = self.dataArr[indexPath.row];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/user/api/signIn" parameters:@{@"id":USERID,@"tid":model.ID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/user/api/signIn" parameters:@{@"id":[TYGlobal userId],@"tid":model.ID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             cell.planBtn.enabled = NO;

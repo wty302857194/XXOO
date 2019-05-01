@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"电子邮箱绑定";
+    self.view.backgroundColor = hexColor(f0eff5);
     self.tableView.tableFooterView = [UIView new];
 
     _emailStr = @"";
@@ -36,7 +37,7 @@
         _emailStr = sender.text;
     }else if(sender == _firstPassword){
         _firstPasswordStr = sender.text;
-    }else {
+    }else if(sender == _secondPassword){
         _secondPasswordStr = sender.text;
     }
 }
@@ -51,10 +52,22 @@
         [MBProgressHUD promptMessage:@"请输入您的邮箱" inView:self.view];
         return;
     }
+    if (![TYGlobal isValidateEmail:_emailStr]) {
+        [MBProgressHUD promptMessage:@"邮箱格式不对" inView:self.view];
+        return;
+    }
     if (_firstPasswordStr.length==0) {
         [MBProgressHUD promptMessage:@"请输入您的密码" inView:self.view];
         return;
     }
+    if (_firstPasswordStr.length<6) {
+        [MBProgressHUD promptMessage:@"最少6位密码" inView:self.view];
+        return;
+    }
+//    if (![TYGlobal deptIdInputShouldAlphaNum:_firstPasswordStr]) {
+//        [MBProgressHUD promptMessage:@"请输入您的密码" inView:self.view];
+//        return;
+//    }
     if (_secondPasswordStr.length==0) {
         [MBProgressHUD promptMessage:@"请再次输入您的密码" inView:self.view];
         return;
@@ -71,29 +84,24 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/user/api/bindEmail" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         if (success&&data) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [USER_DEFAULTS setObject:self->_emailStr forKey:USER_EMAIL];
+            [USER_DEFAULTS synchronize];
+            
+            if (weakSelf.emailBlock) {
+                weakSelf.emailBlock(self->_emailStr);
+            }
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }else {
-            [MBProgressHUD promptMessage:msg inView:self.view];
+            [MBProgressHUD promptMessage:msg inView:weakSelf.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
     }];
 }
 
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
 
 
 

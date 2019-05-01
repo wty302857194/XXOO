@@ -8,10 +8,11 @@
 
 #import "TYBaseTableViewController.h"
 
+typedef void(^EmailBlock)(NSString * _Nullable email);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYEmailTableViewController : TYBaseTableViewController
-
+@property (nonatomic, copy) EmailBlock emailBlock;
 @end
 
 NS_ASSUME_NONNULL_END

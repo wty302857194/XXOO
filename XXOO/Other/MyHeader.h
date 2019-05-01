@@ -126,8 +126,10 @@
 
 #define HistoryDataSource @"historyDataSource"
 
-
-#define USERID @"2"
+//手势密码
+#define GESTURE_PASSWORD @"GESTURE_PASSWORD"
+#define GESTURE_OPIN @"GESTURE_OPIN"
+#define USER_EMAIL @"USER_EMAIL"
 
 #define USERMESSAGE @"USERMESSAGE"
 

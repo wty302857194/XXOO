@@ -124,7 +124,7 @@
 //收藏请求
 - (void)shouCangRequestData:(TYActorListModel *)model {
     NSDictionary * dic = @{
-                           @"id":USERID,
+                           @"id":[TYGlobal userId],
                            @"tid":model.ID,
                            @"type":@"1"
                            };

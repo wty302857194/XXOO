@@ -211,7 +211,7 @@
 //收藏请求
 - (void)shouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{
-                           @"id":USERID,
+                           @"id":[TYGlobal userId],
                            @"tid":model.ID,
                            @"type":@"1"
                            };
