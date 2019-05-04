@@ -14,8 +14,8 @@
             <connections>
                 <outlet property="angelBtn" destination="j4C-VX-i8J" id="vvT-qa-oca"/>
                 <outlet property="avBtn" destination="GLR-tK-YIv" id="1CO-h2-KY4"/>
+                <outlet property="collectionView" destination="DVM-ca-G88" id="QNo-Qs-cyM"/>
                 <outlet property="lineLab" destination="4oe-ez-KSm" id="wqk-2v-BwZ"/>
-                <outlet property="tableView" destination="FHG-Lu-hAM" id="R1Q-QO-1GL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -74,24 +74,30 @@
                         <constraint firstAttribute="height" constant="45" id="x5e-Ju-ZYG"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FHG-Lu-hAM">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DVM-ca-G88">
                     <rect key="frame" x="0.0" y="89" width="414" height="773"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oQ4-Bq-X0V">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="1xd-8a-Vpo"/>
-                        <outlet property="delegate" destination="-1" id="3TY-La-rFR"/>
+                        <outlet property="dataSource" destination="-1" id="pXJ-Zx-zMe"/>
+                        <outlet property="delegate" destination="-1" id="ItD-RI-xNu"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="DVM-ca-G88" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1BS-iC-oGZ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Qim-P3-rlg" secondAttribute="trailing" id="62Y-Lx-zsr"/>
-                <constraint firstItem="FHG-Lu-hAM" firstAttribute="top" secondItem="Qim-P3-rlg" secondAttribute="bottom" id="SDc-Vd-ldK"/>
-                <constraint firstItem="FHG-Lu-hAM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Yo9-K0-3GB"/>
+                <constraint firstItem="DVM-ca-G88" firstAttribute="top" secondItem="Qim-P3-rlg" secondAttribute="bottom" id="dhu-gC-pjd"/>
                 <constraint firstItem="Qim-P3-rlg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="doq-9S-6x9"/>
                 <constraint firstItem="Qim-P3-rlg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hR9-GZ-3Bq"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="FHG-Lu-hAM" secondAttribute="bottom" id="jOe-Tf-0ps"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="FHG-Lu-hAM" secondAttribute="trailing" id="ztf-bi-fXM"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DVM-ca-G88" secondAttribute="trailing" id="jOl-4d-Zh6"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="DVM-ca-G88" secondAttribute="bottom" id="vyW-6X-sJJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>

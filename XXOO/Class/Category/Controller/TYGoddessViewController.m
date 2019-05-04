@@ -11,6 +11,7 @@
 #import "TYGoddessCollectionViewCell.h"
 #import "TYGoddessModel.h"
 #import "TYActorModel.h"
+#import "TYGoddessDetailViewController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-50)/4.0f
 
@@ -182,8 +183,11 @@
 
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    TYActorListModel *model = self.dataArr[indexPath.row];
+    
+    TYGoddessDetailViewController *vc = [[TYGoddessDetailViewController alloc] init];
+    vc.ID = model.ID;
+    [self.navigationController pushVC:vc animated:YES];
 }
 
 - (UIView *)topBackView {

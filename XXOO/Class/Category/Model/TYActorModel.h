@@ -43,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * sort;
 @end
 
-
 @interface TYActorListModel : TYBaseModel
 
 @property (nonatomic, copy) NSString * avatar;

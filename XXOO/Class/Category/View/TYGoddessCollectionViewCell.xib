@@ -68,6 +68,7 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="103" height="178"/>
             <connections>
+                <outlet property="collectionBtn" destination="aMD-8S-UFE" id="zPx-3g-hxe"/>
                 <outlet property="imgView" destination="Pjl-fS-MlD" id="QIs-wh-dSG"/>
                 <outlet property="nameLab" destination="erh-69-PK5" id="Tdc-JF-QgJ"/>
             </connections>

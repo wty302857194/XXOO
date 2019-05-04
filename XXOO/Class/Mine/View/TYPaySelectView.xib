@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TYPaySelectView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vi4-2k-Ssc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hC-Wi-73d">
+                            <rect key="frame" x="0.0" y="318" width="414" height="500"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcM-EL-upH">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="tQd-FV-4wy"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSM-4i-Hij">
+                                    <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="DMb-NJ-fNf"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="VSM-4i-Hij" firstAttribute="width" secondItem="gcM-EL-upH" secondAttribute="width" id="BHq-EE-zxj"/>
+                                <constraint firstItem="VSM-4i-Hij" firstAttribute="leading" secondItem="gcM-EL-upH" secondAttribute="trailing" id="FR5-bR-ObN"/>
+                                <constraint firstItem="VSM-4i-Hij" firstAttribute="top" secondItem="4hC-Wi-73d" secondAttribute="top" id="Hm9-na-RPM"/>
+                                <constraint firstItem="gcM-EL-upH" firstAttribute="top" secondItem="4hC-Wi-73d" secondAttribute="top" id="PPF-Iu-wGk"/>
+                                <constraint firstAttribute="trailing" secondItem="VSM-4i-Hij" secondAttribute="trailing" id="Vak-2m-Ojb"/>
+                                <constraint firstItem="gcM-EL-upH" firstAttribute="leading" secondItem="4hC-Wi-73d" secondAttribute="leading" id="iXX-fE-3HW"/>
+                                <constraint firstAttribute="height" constant="500" id="oAX-9L-afE"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="4hC-Wi-73d" firstAttribute="leading" secondItem="Vi4-2k-Ssc" secondAttribute="leading" id="9Qj-bt-U92"/>
+                        <constraint firstAttribute="trailing" secondItem="4hC-Wi-73d" secondAttribute="trailing" id="GWb-15-fID"/>
+                        <constraint firstAttribute="bottom" secondItem="4hC-Wi-73d" secondAttribute="bottom" id="r5S-C5-btv"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vi4-2k-Ssc" secondAttribute="trailing" id="6cN-K9-4tf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vi4-2k-Ssc" secondAttribute="bottom" id="9ho-h5-z1S"/>
+                <constraint firstItem="Vi4-2k-Ssc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EI4-1e-JVV"/>
+                <constraint firstItem="Vi4-2k-Ssc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vkf-UP-ezh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

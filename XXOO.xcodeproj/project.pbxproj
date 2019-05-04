@@ -54,6 +54,19 @@
 		C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0022794F3300CB2096 /* ZSBntview.m */; };
 		C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */; };
 		C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */; };
+		C1918A0A2279C3B900CB2096 /* TYHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A082279C3B900CB2096 /* TYHistoryListViewController.m */; };
+		C1918A0B2279C3B900CB2096 /* TYHistoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A092279C3B900CB2096 /* TYHistoryListViewController.xib */; };
+		C1918A0E2279C55200CB2096 /* TYAVHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0D2279C55200CB2096 /* TYAVHistoryModel.m */; };
+		C1918A122279C71400CB2096 /* TYHistoryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A102279C71400CB2096 /* TYHistoryListTableViewCell.m */; };
+		C1918A132279C71400CB2096 /* TYHistoryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A112279C71400CB2096 /* TYHistoryListTableViewCell.xib */; };
+		C1918A1C2279D26200CB2096 /* TYMyCollectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A1A2279D26200CB2096 /* TYMyCollectionCollectionViewCell.m */; };
+		C1918A1D2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A1B2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib */; };
+		C1918A21227D450000CB2096 /* TYGoddessDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A1F227D450000CB2096 /* TYGoddessDetailViewController.m */; };
+		C1918A22227D450000CB2096 /* TYGoddessDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A20227D450000CB2096 /* TYGoddessDetailViewController.xib */; };
+		C1918A25227D45FB00CB2096 /* TYGoddessHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A24227D45FB00CB2096 /* TYGoddessHeaderView.m */; };
+		C1918A27227D460700CB2096 /* TYGoddessHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A26227D460700CB2096 /* TYGoddessHeaderView.xib */; };
+		C1918A2A227D86D600CB2096 /* TYPaySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A29227D86D600CB2096 /* TYPaySelectView.m */; };
+		C1918A2C227D86E400CB2096 /* TYPaySelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A2B227D86E400CB2096 /* TYPaySelectView.xib */; };
 		C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */; };
 		C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */; };
 		C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */; };
@@ -230,6 +243,26 @@
 		C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGesturePasswordViewController.h; sourceTree = "<group>"; };
 		C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGesturePasswordViewController.m; sourceTree = "<group>"; };
 		C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGesturePasswordViewController.xib; sourceTree = "<group>"; };
+		C1918A072279C3B900CB2096 /* TYHistoryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHistoryListViewController.h; sourceTree = "<group>"; };
+		C1918A082279C3B900CB2096 /* TYHistoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHistoryListViewController.m; sourceTree = "<group>"; };
+		C1918A092279C3B900CB2096 /* TYHistoryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHistoryListViewController.xib; sourceTree = "<group>"; };
+		C1918A0C2279C55200CB2096 /* TYAVHistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVHistoryModel.h; sourceTree = "<group>"; };
+		C1918A0D2279C55200CB2096 /* TYAVHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVHistoryModel.m; sourceTree = "<group>"; };
+		C1918A0F2279C71400CB2096 /* TYHistoryListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHistoryListTableViewCell.h; sourceTree = "<group>"; };
+		C1918A102279C71400CB2096 /* TYHistoryListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHistoryListTableViewCell.m; sourceTree = "<group>"; };
+		C1918A112279C71400CB2096 /* TYHistoryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHistoryListTableViewCell.xib; sourceTree = "<group>"; };
+		C1918A192279D26200CB2096 /* TYMyCollectionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyCollectionCollectionViewCell.h; sourceTree = "<group>"; };
+		C1918A1A2279D26200CB2096 /* TYMyCollectionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyCollectionCollectionViewCell.m; sourceTree = "<group>"; };
+		C1918A1B2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyCollectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		C1918A1E227D450000CB2096 /* TYGoddessDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGoddessDetailViewController.h; sourceTree = "<group>"; };
+		C1918A1F227D450000CB2096 /* TYGoddessDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessDetailViewController.m; sourceTree = "<group>"; };
+		C1918A20227D450000CB2096 /* TYGoddessDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGoddessDetailViewController.xib; sourceTree = "<group>"; };
+		C1918A23227D45FB00CB2096 /* TYGoddessHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGoddessHeaderView.h; sourceTree = "<group>"; };
+		C1918A24227D45FB00CB2096 /* TYGoddessHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGoddessHeaderView.m; sourceTree = "<group>"; };
+		C1918A26227D460700CB2096 /* TYGoddessHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYGoddessHeaderView.xib; sourceTree = "<group>"; };
+		C1918A28227D86D600CB2096 /* TYPaySelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPaySelectView.h; sourceTree = "<group>"; };
+		C1918A29227D86D600CB2096 /* TYPaySelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPaySelectView.m; sourceTree = "<group>"; };
+		C1918A2B227D86E400CB2096 /* TYPaySelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYPaySelectView.xib; sourceTree = "<group>"; };
 		C1ADA2DB226F09E100CA8566 /* TYAVDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailModel.h; sourceTree = "<group>"; };
 		C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailModel.m; sourceTree = "<group>"; };
 		C1ADA2DE226F453B00CA8566 /* TYJianJieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYJianJieView.h; sourceTree = "<group>"; };
@@ -687,6 +720,9 @@
 				C1DF47202266149E00C4C71C /* TYGoddessCollectionViewCell.h */,
 				C1DF47212266149E00C4C71C /* TYGoddessCollectionViewCell.m */,
 				C1DF47222266149E00C4C71C /* TYGoddessCollectionViewCell.xib */,
+				C1918A23227D45FB00CB2096 /* TYGoddessHeaderView.h */,
+				C1918A24227D45FB00CB2096 /* TYGoddessHeaderView.m */,
+				C1918A26227D460700CB2096 /* TYGoddessHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,6 +742,9 @@
 				C1F13A172265C6F2006E754A /* TYVideoLableViewController.h */,
 				C1F13A182265C6F2006E754A /* TYVideoLableViewController.m */,
 				C1F13A192265C6F2006E754A /* TYVideoLableViewController.xib */,
+				C1918A1E227D450000CB2096 /* TYGoddessDetailViewController.h */,
+				C1918A1F227D450000CB2096 /* TYGoddessDetailViewController.m */,
+				C1918A20227D450000CB2096 /* TYGoddessDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -747,6 +786,8 @@
 			children = (
 				C1F157A02276E50000984A32 /* TYDuiHuanModel.h */,
 				C1F157A12276E50000984A32 /* TYDuiHuanModel.m */,
+				C1918A0C2279C55200CB2096 /* TYAVHistoryModel.h */,
+				C1918A0D2279C55200CB2096 /* TYAVHistoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -775,6 +816,9 @@
 				C1F1579122769A5100984A32 /* TYDuiHuanViewController.h */,
 				C1F1579222769A5100984A32 /* TYDuiHuanViewController.m */,
 				C1F1579322769A5100984A32 /* TYDuiHuanViewController.xib */,
+				C1918A072279C3B900CB2096 /* TYHistoryListViewController.h */,
+				C1918A082279C3B900CB2096 /* TYHistoryListViewController.m */,
+				C1918A092279C3B900CB2096 /* TYHistoryListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -785,9 +829,15 @@
 				C1C5B898226865E800ADB7E0 /* TYTuiGuangView.h */,
 				C1C5B899226865E800ADB7E0 /* TYTuiGuangView.m */,
 				C1C5B89B226865FC00ADB7E0 /* TYTuiGuangView.xib */,
+				C1918A28227D86D600CB2096 /* TYPaySelectView.h */,
+				C1918A29227D86D600CB2096 /* TYPaySelectView.m */,
+				C1918A2B227D86E400CB2096 /* TYPaySelectView.xib */,
 				C1F28441226D8F94009B57A5 /* TYTuiGuangTableViewCell.h */,
 				C1F28442226D8F94009B57A5 /* TYTuiGuangTableViewCell.m */,
 				C1F28443226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib */,
+				C1918A192279D26200CB2096 /* TYMyCollectionCollectionViewCell.h */,
+				C1918A1A2279D26200CB2096 /* TYMyCollectionCollectionViewCell.m */,
+				C1918A1B2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib */,
 				C1F28446226D993F009B57A5 /* TYCollectionView.h */,
 				C1F28447226D993F009B57A5 /* TYCollectionView.m */,
 				C1F1579622769C6500984A32 /* TYDuiHuanFirstTableViewCell.h */,
@@ -796,6 +846,9 @@
 				C1F1579B22769E8800984A32 /* TYDuiHuanSecondTableViewCell.h */,
 				C1F1579C22769E8800984A32 /* TYDuiHuanSecondTableViewCell.m */,
 				C1F1579D22769E8800984A32 /* TYDuiHuanSecondTableViewCell.xib */,
+				C1918A0F2279C71400CB2096 /* TYHistoryListTableViewCell.h */,
+				C1918A102279C71400CB2096 /* TYHistoryListTableViewCell.m */,
+				C1918A112279C71400CB2096 /* TYHistoryListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1018,26 +1071,32 @@
 				C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */,
 				C1F1579A22769C6500984A32 /* TYDuiHuanFirstTableViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
+				C1918A0B2279C3B900CB2096 /* TYHistoryListViewController.xib in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
 				C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */,
 				C1F1579522769A5100984A32 /* TYDuiHuanViewController.xib in Resources */,
 				C1F13A162265C43B006E754A /* TYGoddessViewController.xib in Resources */,
+				C1918A22227D450000CB2096 /* TYGoddessDetailViewController.xib in Resources */,
 				C1DE5383226065B700D41A04 /* mine.storyboard in Resources */,
 				C1ADA2FD22748E4800CA8566 /* TYSaveCodeViewController.xib in Resources */,
 				C1F1579F22769E8800984A32 /* TYDuiHuanSecondTableViewCell.xib in Resources */,
 				C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
 				C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */,
+				C1918A1D2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib in Resources */,
 				C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */,
 				C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */,
 				C1F28445226D8F94009B57A5 /* TYTuiGuangTableViewCell.xib in Resources */,
 				C1C5B8A1226ADA0400ADB7E0 /* TYMyCollectionViewController.xib in Resources */,
 				C1C5B897226864B700ADB7E0 /* TYMyTuiGunagViewController.xib in Resources */,
+				C1918A132279C71400CB2096 /* TYHistoryListTableViewCell.xib in Resources */,
+				C1918A2C227D86E400CB2096 /* TYPaySelectView.xib in Resources */,
 				C1036A96225E042A00322B2B /* Assets.xcassets in Resources */,
 				C1DE538B2260CF1500D41A04 /* TYTaskTableViewCell.xib in Resources */,
 				C12486E7225D99720040B476 /* TYEntertainmentViewController.xib in Resources */,
 				C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */,
 				C1F3FC0F226C652D0090677E /* TYSearchDetailCollectionViewCell.xib in Resources */,
+				C1918A27227D460700CB2096 /* TYGoddessHeaderView.xib in Resources */,
 				C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1171,6 +1230,7 @@
 				C1036AAC225E0CA100322B2B /* NSDictionary+safeObjectForKey.m in Sources */,
 				C1F1579E22769E8800984A32 /* TYDuiHuanSecondTableViewCell.m in Sources */,
 				C1F2843D226D551A009B57A5 /* HDeviceIdentifier.m in Sources */,
+				C1918A0A2279C3B900CB2096 /* TYHistoryListViewController.m in Sources */,
 				C1ADA2E52270070D00CA8566 /* TYHotSearchModel.m in Sources */,
 				C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
@@ -1179,6 +1239,7 @@
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
 				C1F1579422769A5100984A32 /* TYDuiHuanViewController.m in Sources */,
+				C1918A21227D450000CB2096 /* TYGoddessDetailViewController.m in Sources */,
 				C1F2843C226D551A009B57A5 /* SFHFKeychainUtils.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
 				C1F28444226D8F94009B57A5 /* TYTuiGuangTableViewCell.m in Sources */,
@@ -1193,6 +1254,7 @@
 				C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */,
 				C1F3FC09226C4F870090677E /* TYSeachTableViewCell.m in Sources */,
 				C1F1579922769C6500984A32 /* TYDuiHuanFirstTableViewCell.m in Sources */,
+				C1918A122279C71400CB2096 /* TYHistoryListTableViewCell.m in Sources */,
 				C1ADA2F522732F7900CA8566 /* TYVideoLabelModel.m in Sources */,
 				C17DE69E225F617A00050DCE /* TYAVHomeViewController.m in Sources */,
 				C12486F0225D99A60040B476 /* TYTaskViewController.m in Sources */,
@@ -1200,6 +1262,7 @@
 				C17DE6A6225F855D00050DCE /* UIView+IBExtension.m in Sources */,
 				C1ADA2EF22713EF800CA8566 /* TYGoddessModel.m in Sources */,
 				C1C5B89A226865E800ADB7E0 /* TYTuiGuangView.m in Sources */,
+				C1918A1C2279D26200CB2096 /* TYMyCollectionCollectionViewCell.m in Sources */,
 				C12486FA225D9FEC0040B476 /* TYBaseViewController.m in Sources */,
 				C1F13A1A2265C6F2006E754A /* TYVideoLableViewController.m in Sources */,
 				C1F2844C226DA328009B57A5 /* TYHelpViewController.m in Sources */,
@@ -1225,6 +1288,8 @@
 				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
 				C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */,
 				C117B50B22772F3D0091A627 /* UINavigationController+TYExtension.m in Sources */,
+				C1918A0E2279C55200CB2096 /* TYAVHistoryModel.m in Sources */,
+				C1918A25227D45FB00CB2096 /* TYGoddessHeaderView.m in Sources */,
 				C1C5B8A5226B488000ADB7E0 /* TYTaskModel.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
@@ -1237,6 +1302,7 @@
 				C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */,
 				C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */,
 				C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */,
+				C1918A2A227D86D600CB2096 /* TYPaySelectView.m in Sources */,
 				C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */,
 				C1F28448226D993F009B57A5 /* TYCollectionView.m in Sources */,
 				C1F157A22276E50000984A32 /* TYDuiHuanModel.m in Sources */,
@@ -1405,7 +1471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XXOO/Other/PrefixHeader.pch;
@@ -1416,7 +1482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xo.XXOO.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "xoxo-development";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1427,8 +1493,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BFF9J86Y62;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XXOO/Other/PrefixHeader.pch;
@@ -1439,7 +1505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xo.XXOO.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "xxoo-distribution";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

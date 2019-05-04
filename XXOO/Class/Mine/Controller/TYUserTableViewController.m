@@ -11,6 +11,7 @@
 #import "TYMyTuiGunagViewController.h"
 #import "TYMyCollectionViewController.h"
 #import "TYDuiHuanViewController.h"
+#import "TYHistoryListViewController.h"
 
 @interface TYUserTableViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
@@ -169,12 +170,14 @@
         case 3:
         {
             
+            TYHistoryListViewController *vc = [[TYHistoryListViewController alloc] init];
+            [self.navigationController pushVC:vc animated:YES];
         }
             break;
         case 4:
         {
             TYMyCollectionViewController *vc = [[TYMyCollectionViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController pushVC:vc animated:YES];
         }
             break;
         case 5:

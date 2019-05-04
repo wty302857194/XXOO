@@ -23,4 +23,9 @@
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:listModel.avatar] placeholderImage:PLACEHOLEDERIMAGE];
     self.nameLab.text = listModel.name;
 }
+
+-(void)setGoddessModel:(TYAVHistoryModel *)goddessModel {
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:goddessModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
+    self.nameLab.text = goddessModel.title;
+}
 @end
