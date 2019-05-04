@@ -10,10 +10,16 @@
 #import "TYTuiGuangTableViewCell.h"
 #import "TYTuiGuangView.h"
 #import "TYHelpViewController.h"
+#import "TYPaySelectView.h"
+#import "TYLevelAgentModel.h"
 
 @interface TYMyTuiGunagViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) TYTuiGuangView * tuiGuangView;
+@property (nonatomic, strong) TYPaySelectView * paySelectView;
+//@property (nonatomic, strong) NSDictionary * dataDic;
+@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, copy) NSString * levelAgent;//代理级别（2代理 3用户）
 @end
 
 @implementation TYMyTuiGunagViewController
@@ -23,16 +29,16 @@
     
     self.navigationItem.title = @"我的推广佣金";
     self.edgesForExtendedLayout =  UIRectEdgeAll;
+    self.levelAgent = @"3";
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         // Fallback on earlier versions
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-
-    self.tableView.tableHeaderView = self.tuiGuangView;
-    self.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
+    self.dataArr = [NSMutableArray arrayWithCapacity:0];
     
+    [self spreadRequestData];
     
     UIBarButtonItem *helpItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"mine_help_img"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(helpClick)];
     helpItem.imageInsets = UIEdgeInsetsMake(0, 50, 0, 0);
@@ -66,12 +72,71 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = nil;
 }
-
-
+//  /user/api/spread
+- (void)spreadRequestData {
+    /*
+     {
+     todayRechargeMoney: null,             //今日充值金额
+     spreadNum: 0,                         //累计推广人数
+     todaySpreadMoney: null,               //今日推广金额
+     todaySpreadNum: 0,                    //今日推广人数
+     spreadMoney: 0,                       //累计推广佣金
+     withdrawMoney: 0,                    //可提现金额
+     rechargeMoney: 0                      //累计充值金额
+     }
+     */
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId]
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/user/api/spread" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            weakSelf.tuiGuangView.dataDic = [NSDictionary nullDic:data];
+            weakSelf.tableView.tableHeaderView = weakSelf.tuiGuangView;
+            weakSelf.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
+            [weakSelf spreadUserRequestData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//  /user/api/spreadUser
+- (void)spreadUserRequestData {
+    
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"levelAgent":self.levelAgent?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/user/api/spreadUser" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            NSArray *arr = [TYLevelAgentModel mj_objectArrayWithKeyValuesArray:data];
+            
+            if (arr&&arr.count>0) {
+                [weakSelf.dataArr addObjectsFromArray:arr];
+            }else {
+                NSLog(@"加载空视图");
+            }
+            [weakSelf.tableView reloadData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
-    return 5;//_dataArr.count;
+    return self.dataArr.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -91,7 +156,10 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangTableViewCell" owner:nil options:nil] lastObject];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    [cell getMessage:nil indexPath:indexPath];
+    if (self.dataArr.count>indexPath.row) {
+        TYLevelAgentModel *model = self.dataArr[indexPath.row];
+        [cell getMessage:model indexPath:indexPath];
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,10 +208,30 @@
 - (TYTuiGuangView *)tuiGuangView {
     if (!_tuiGuangView) {
         _tuiGuangView = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangView" owner:nil options:nil] lastObject];
+        TYWEAK_SELF;
+        _tuiGuangView.tiXianBlock = ^{
+            weakSelf.paySelectView.hidden = NO;
+        };
     }
     return _tuiGuangView;
 }
-
+- (TYPaySelectView *)paySelectView {
+    if (!_paySelectView) {
+        _paySelectView = [[[NSBundle mainBundle] loadNibNamed:@"TYPaySelectView" owner:nil options:nil] lastObject];
+        [self.view addSubview:_paySelectView];
+        [_paySelectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (@available(iOS 11.0,*)) {
+                make.top.equalTo(self.view.mas_top);
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            } else {
+                make.edges.equalTo(self.view);
+            }
+        }];
+    }
+    return _paySelectView;
+}
 - (void)emptybBackView {
     
 }

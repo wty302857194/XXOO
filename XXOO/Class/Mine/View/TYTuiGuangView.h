@@ -9,7 +9,7 @@
 #import "TYBaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^TiXianBlock)(void);
 @interface TYTuiGuangView : TYBaseView
 
 @property (weak, nonatomic) IBOutlet UIImageView *tuiGuangBackImg;
@@ -17,9 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *tiXianBackView;
 @property (weak, nonatomic) IBOutlet UIButton *userBtn;
 @property (weak, nonatomic) IBOutlet UIButton *xiaJiBtn;
-@property (strong, nonatomic) UILabel *lineLab;
+@property (weak, nonatomic) IBOutlet UILabel *allManeyLab;
+@property (weak, nonatomic) IBOutlet UILabel *cunnentMoneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *allPeasonLab;
+@property (weak, nonatomic) IBOutlet UILabel *currentPeasonLab;
+@property (weak, nonatomic) IBOutlet UILabel *allPayMoneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *currentPayMoneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *withdrawMoneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *lineLab;
 
 @property (nonatomic, strong) UIButton * selectBtn;
+
+@property (nonatomic, copy) TiXianBlock tiXianBlock;
+
+@property (nonatomic, strong) NSDictionary * dataDic;
 @end
 
 NS_ASSUME_NONNULL_END

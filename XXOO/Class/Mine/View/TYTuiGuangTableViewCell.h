@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYLevelAgentModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYTuiGuangTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *idlab;
 @property (weak, nonatomic) IBOutlet UILabel *fanLiLab;
 @property (weak, nonatomic) IBOutlet UILabel *xiaJILab;

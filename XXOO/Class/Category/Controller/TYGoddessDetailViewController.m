@@ -8,19 +8,33 @@
 
 #import "TYGoddessDetailViewController.h"
 #import "TYGoddessHeaderView.h"
-//#import "TYGoddessHeaderView.h"
+#import "TYHomeModel.h"
+#import "TYHomeTableViewCell.h"
+#import "TYAVDetailsViewController.h"
 
 @interface TYGoddessDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, assign) NSInteger page;//页数
+@property (nonatomic, assign) BOOL isFresh;//是否加载
+@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) TYHomeModel * homeModel;
 @end
 
 @implementation TYGoddessDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.dataArr = [NSMutableArray arrayWithCapacity:0];
+    
     [self getActorByIdRequestData];
+    
+    TYWEAK_SELF;
+    [TYRefershClass refreshWithFooter:self.tableView refreshingBlock:^{
+        weakSelf.page ++;
+        weakSelf.isFresh = YES;
+        [weakSelf getVideoListRequestData:weakSelf.title];
+    }];
 }
 /*
  
@@ -57,9 +71,75 @@
         if (success&&data) {
             weakSelf.title = data[@"name"];
             [weakSelf addTableHeaderView:data];
+            [weakSelf getVideoListRequestData:data[@"name"]];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//初始化接口
+- (void)getVideoListRequestData:(NSString *)vActor {
+    NSDictionary * dic = @{
+                           @"orderBy":@"",
+                           @"vCode":@"",
+                           @"vClass":vActor?:@"",
+                           @"vActor":@"",
+                           @"vLabel":@"",
+                           @"pageNum":@(self.page),
+                           @"limit":@"20"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/video/api/getVideoList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        if (success&&data) {
+            weakSelf.homeModel = [TYHomeModel mj_objectWithKeyValues:data];
+            NSArray *arr = [NSArray arrayWithArray:weakSelf.homeModel.data];
+            
+            if (weakSelf.isFresh) {
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.tableView reloadData];
+                }else {
+                    [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                    [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                    
+                }
+            }else {
+                [weakSelf.dataArr removeAllObjects];
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    
+                }else {
+                    NSLog(@"加载空视图");
+                }
+                [weakSelf.tableView reloadData];
+            }
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//收藏请求
+- (void)shouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -73,7 +153,7 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
-    return 0;//_dataArr.count;
+    return self.dataArr.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -81,34 +161,35 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 0;
-}
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
+    return 245;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid=@"listviewid";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    static NSString *cellid = @"TYHomeTableViewCell";
+    TYHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell = [[NSBundle mainBundle] loadNibNamed:@"TYHomeTableViewCell" owner:nil options:nil].lastObject;
     }
-    return cell;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
+    if (self.dataArr&&self.dataArr.count>indexPath.row) {
+        TYHomeItemModel *model = self.dataArr[indexPath.row];
+        cell.itemModel = model;
+        TYWEAK_SELF;
+        cell.itemShouCangBlock = ^() {
+            [weakSelf shouCangRequestData:model];
+        };
+    }
     
-    return nil;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0;
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TYHomeItemModel *model = self.dataArr[indexPath.row];
+    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    vc.avID = model.ID;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

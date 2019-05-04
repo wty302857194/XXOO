@@ -15,7 +15,6 @@
     // Initialization code
     self.idlab.text = @"";
     self.fanLiLab.text = @"";
-    self.xiaJILab.text = @"";
     self.timeLab.text = @"";
     self.yejiLab.text = @"";
 }
@@ -29,11 +28,14 @@
     if (indexPath.row == 0) {
         self.idlab.text = @"id";
         self.fanLiLab.text = @"返利比例";
-        self.xiaJILab.text = @"下级代理";
         self.timeLab.text = @"加入时间";
         self.yejiLab.text = @"累计业绩";
     }else {
-        
+        TYLevelAgentModel *model = (TYLevelAgentModel *)dataSource;
+        self.idlab.text = model.ID;
+        self.fanLiLab.text = model.agentRatio;
+        self.timeLab.text = model.createTime;
+        self.yejiLab.text = model.spreadNum;
     }
 }
 @end

@@ -67,6 +67,7 @@
 		C1918A27227D460700CB2096 /* TYGoddessHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A26227D460700CB2096 /* TYGoddessHeaderView.xib */; };
 		C1918A2A227D86D600CB2096 /* TYPaySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A29227D86D600CB2096 /* TYPaySelectView.m */; };
 		C1918A2C227D86E400CB2096 /* TYPaySelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A2B227D86E400CB2096 /* TYPaySelectView.xib */; };
+		C1918A2F227DCDB600CB2096 /* TYLevelAgentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A2E227DCDB600CB2096 /* TYLevelAgentModel.m */; };
 		C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */; };
 		C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ADA2DF226F453B00CA8566 /* TYJianJieView.m */; };
 		C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ADA2E1226F458100CA8566 /* TYJianJieView.xib */; };
@@ -263,6 +264,8 @@
 		C1918A28227D86D600CB2096 /* TYPaySelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPaySelectView.h; sourceTree = "<group>"; };
 		C1918A29227D86D600CB2096 /* TYPaySelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPaySelectView.m; sourceTree = "<group>"; };
 		C1918A2B227D86E400CB2096 /* TYPaySelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYPaySelectView.xib; sourceTree = "<group>"; };
+		C1918A2D227DCDB600CB2096 /* TYLevelAgentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYLevelAgentModel.h; sourceTree = "<group>"; };
+		C1918A2E227DCDB600CB2096 /* TYLevelAgentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYLevelAgentModel.m; sourceTree = "<group>"; };
 		C1ADA2DB226F09E100CA8566 /* TYAVDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailModel.h; sourceTree = "<group>"; };
 		C1ADA2DC226F09E100CA8566 /* TYAVDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailModel.m; sourceTree = "<group>"; };
 		C1ADA2DE226F453B00CA8566 /* TYJianJieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYJianJieView.h; sourceTree = "<group>"; };
@@ -788,6 +791,8 @@
 				C1F157A12276E50000984A32 /* TYDuiHuanModel.m */,
 				C1918A0C2279C55200CB2096 /* TYAVHistoryModel.h */,
 				C1918A0D2279C55200CB2096 /* TYAVHistoryModel.m */,
+				C1918A2D227DCDB600CB2096 /* TYLevelAgentModel.h */,
+				C1918A2E227DCDB600CB2096 /* TYLevelAgentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1274,6 +1279,7 @@
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,
 				C1F157862275A6B300984A32 /* TYGlobal.m in Sources */,
 				C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */,
+				C1918A2F227DCDB600CB2096 /* TYLevelAgentModel.m in Sources */,
 				C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */,
 				C1ADA2E92270485F00CA8566 /* TYVideoTypeListModel.m in Sources */,
 				C1036AA6225E0C3C00322B2B /* UIButton+Extension.m in Sources */,

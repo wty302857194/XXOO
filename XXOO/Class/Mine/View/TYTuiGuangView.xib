@@ -202,11 +202,18 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="lineLab" destination="uoz-I0-Y4U" id="Q37-Dc-G9W"/>
+                <outlet property="allManeyLab" destination="IBe-Td-UG4" id="fUu-Gs-lpk"/>
+                <outlet property="allPayMoneyLab" destination="Cjr-y6-uYe" id="hsQ-iv-BnA"/>
+                <outlet property="allPeasonLab" destination="Vcd-Ia-8Ah" id="hSz-jP-YDw"/>
+                <outlet property="cunnentMoneyLab" destination="Ywf-ni-TlY" id="dop-7e-Jjv"/>
+                <outlet property="currentPayMoneyLab" destination="984-59-N8D" id="m04-jt-gWi"/>
+                <outlet property="currentPeasonLab" destination="qvw-am-g3l" id="hMU-CT-QJX"/>
+                <outlet property="lineLab" destination="uoz-I0-Y4U" id="OgL-9N-gIG"/>
                 <outlet property="tiXianBackView" destination="6cD-rq-eiy" id="4tV-FG-A1c"/>
                 <outlet property="topStackViewLayout" destination="E6o-0J-uPu" id="UFj-X1-Wd6"/>
                 <outlet property="tuiGuangBackImg" destination="rZ4-Hy-XuP" id="cxT-6y-gNe"/>
                 <outlet property="userBtn" destination="bDf-j7-1Sv" id="Mhk-kx-UeG"/>
+                <outlet property="withdrawMoneyLab" destination="buR-0e-ZL9" id="Otg-lM-m3U"/>
                 <outlet property="xiaJiBtn" destination="nM9-ej-uxX" id="Wg0-LZ-yv6"/>
             </connections>
             <point key="canvasLocation" x="146.37681159420291" y="-199.21875"/>

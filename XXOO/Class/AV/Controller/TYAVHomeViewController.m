@@ -170,8 +170,9 @@
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYHomeItemModel *model = self.dataArr[indexPath.row];
         cell.itemModel = model;
+        TYWEAK_SELF;
         cell.itemShouCangBlock = ^() {
-            [self shouCangRequestData:model];
+            [weakSelf shouCangRequestData:model];
         };
     }
     

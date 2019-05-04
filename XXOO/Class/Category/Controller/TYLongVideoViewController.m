@@ -213,7 +213,7 @@
     TYHomeItemModel *model = self.dataArr[indexPath.row];
     TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
     vc.avID = model.ID;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushVC:vc animated:YES];
 }
 
 - (UIView *)topBackView {
