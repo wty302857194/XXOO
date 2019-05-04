@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/Mine/Controller/TYMyTuiGunagViewController.m"
-            timestampString = "578678006.924199"
+            filePath = "XXOO/Class/Mine/View/TYPaySelectView.m"
+            timestampString = "578680807.944358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-userWithdrawRequestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

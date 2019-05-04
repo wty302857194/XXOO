@@ -94,6 +94,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             weakSelf.tuiGuangView.dataDic = [NSDictionary nullDic:data];
+            
             weakSelf.tableView.tableHeaderView = weakSelf.tuiGuangView;
             weakSelf.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
             [weakSelf spreadUserRequestData];
@@ -210,7 +211,9 @@
         _tuiGuangView = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangView" owner:nil options:nil] lastObject];
         TYWEAK_SELF;
         _tuiGuangView.tiXianBlock = ^{
+            weakSelf.paySelectView.tixianMoney = [NSString stringWithFormat:@"%@",weakSelf.tuiGuangView.dataDic[@"withdrawMoney"]];
             weakSelf.paySelectView.hidden = NO;
+
         };
     }
     return _tuiGuangView;
@@ -218,6 +221,11 @@
 - (TYPaySelectView *)paySelectView {
     if (!_paySelectView) {
         _paySelectView = [[[NSBundle mainBundle] loadNibNamed:@"TYPaySelectView" owner:nil options:nil] lastObject];
+//        TYWEAK_SELF;
+//        _paySelectView.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.tuiGuangView.dataDic[@"withdrawMoney"]];
+//        _paySelectView.tiXianBlock = ^{
+//           weakSelf.paySelectView.currentMoneyTF.text = [NSString stringWithFormat:@"%@",weakSelf.tuiGuangView.dataDic[@"withdrawMoney"]];
+//        };
         [self.view addSubview:_paySelectView];
         [_paySelectView mas_makeConstraints:^(MASConstraintMaker *make) {
             if (@available(iOS 11.0,*)) {
