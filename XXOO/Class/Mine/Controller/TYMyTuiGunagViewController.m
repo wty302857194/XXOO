@@ -12,13 +12,19 @@
 #import "TYHelpViewController.h"
 #import "TYPaySelectView.h"
 #import "TYLevelAgentModel.h"
+#import "TYTuiGuangEmptyView.h"
+#import "TYSaveCodeViewController.h"
+#import "TYTuiGuangHistoryViewController.h"
 
 @interface TYMyTuiGunagViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) TYTuiGuangView * tuiGuangView;
 @property (nonatomic, strong) TYPaySelectView * paySelectView;
-//@property (nonatomic, strong) NSDictionary * dataDic;
+@property (nonatomic, strong) TYTuiGuangEmptyView * tuiGuangEmptyView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, assign) NSInteger page;//页数
+@property (nonatomic, assign) BOOL isFresh;//是否加载
+
 @property (nonatomic, copy) NSString * levelAgent;//代理级别（2代理 3用户）
 @end
 
@@ -46,6 +52,13 @@
     UIBarButtonItem *fileItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"mine_file_img"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(fileClick)];
     fileItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, -10);
     self.navigationItem.rightBarButtonItems = @[fileItem,helpItem];
+    
+    TYWEAK_SELF;
+    [TYRefershClass refreshWithFooter:self.tableView refreshingBlock:^{
+        weakSelf.page ++;
+        weakSelf.isFresh = YES;
+        [weakSelf spreadUserRequestData];
+    }];
 }
 - (void)helpClick {
     
@@ -55,7 +68,8 @@
     [self presentViewController:vc animated:NO completion:nil];
 }
 - (void)fileClick {
-    
+    TYTuiGuangHistoryViewController *vc = [[TYTuiGuangHistoryViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -69,7 +83,7 @@
     [super viewWillDisappear:animated];
     // 导航栏不透明
     [self.navigationController.navigationBar setTranslucent:false];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage jianBianImage] forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = nil;
 }
 //  /user/api/spread
@@ -111,7 +125,9 @@
     
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
-                           @"levelAgent":self.levelAgent?:@""
+                           @"levelAgent":self.levelAgent?:@"",
+                           @"pageNum":@(self.page),
+                           @"limit":@"20"
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;
@@ -119,13 +135,26 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             NSArray *arr = [TYLevelAgentModel mj_objectArrayWithKeyValuesArray:data];
-            
-            if (arr&&arr.count>0) {
-                [weakSelf.dataArr addObjectsFromArray:arr];
+
+            if (weakSelf.isFresh) {
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    [weakSelf.tableView reloadData];
+                }else {
+                    [MBProgressHUD promptMessage:@"没有更多了" inView:self.view];
+                    [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
             }else {
-                NSLog(@"加载空视图");
+                [weakSelf.dataArr removeAllObjects];
+                if (arr&&arr.count>0) {
+                    [weakSelf.dataArr addObjectsFromArray:arr];
+                    weakSelf.tableView.tableFooterView = [UIView new];
+                }else {
+                    NSLog(@"加载空视图");
+                    weakSelf.tableView.tableFooterView = self.tuiGuangEmptyView;
+                }
+                [weakSelf.tableView reloadData];
             }
-            [weakSelf.tableView reloadData];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -186,6 +215,7 @@
     if(!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = hexColor(f0eef5);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [self.view addSubview:_tableView];
@@ -199,10 +229,7 @@
             } else {
                 make.edges.equalTo(self.view);
             }
-            
         }];
-        
-        
     }
     return _tableView;
 }
@@ -215,18 +242,22 @@
             weakSelf.paySelectView.hidden = NO;
 
         };
+        _tuiGuangView.levelAgentBlock = ^(NSInteger index) {
+            if (index == 1) {
+                weakSelf.levelAgent = @"3";
+            }else {
+                weakSelf.levelAgent = @"2";
+            }
+            [weakSelf spreadUserRequestData];
+        };
     }
     return _tuiGuangView;
 }
 - (TYPaySelectView *)paySelectView {
     if (!_paySelectView) {
         _paySelectView = [[[NSBundle mainBundle] loadNibNamed:@"TYPaySelectView" owner:nil options:nil] lastObject];
-//        TYWEAK_SELF;
-//        _paySelectView.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.tuiGuangView.dataDic[@"withdrawMoney"]];
-//        _paySelectView.tiXianBlock = ^{
-//           weakSelf.paySelectView.currentMoneyTF.text = [NSString stringWithFormat:@"%@",weakSelf.tuiGuangView.dataDic[@"withdrawMoney"]];
-//        };
         [self.view addSubview:_paySelectView];
+        
         [_paySelectView mas_makeConstraints:^(MASConstraintMaker *make) {
             if (@available(iOS 11.0,*)) {
                 make.top.equalTo(self.view.mas_top);
@@ -239,6 +270,19 @@
         }];
     }
     return _paySelectView;
+}
+//tuiGuangEmptyView
+- (TYTuiGuangEmptyView *)tuiGuangEmptyView {
+    if (!_tuiGuangEmptyView) {
+        _tuiGuangEmptyView = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangEmptyView" owner:nil options:nil] lastObject];
+        TYWEAK_SELF;
+        _tuiGuangEmptyView.tuiGuangBlcok = ^{
+            TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
+//            vc.ID = model.ID;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        };
+    }
+    return _tuiGuangEmptyView;
 }
 - (void)emptybBackView {
     

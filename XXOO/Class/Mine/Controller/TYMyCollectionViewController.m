@@ -173,13 +173,13 @@
     if ([self.type isEqualToString:@"1"]) {
         TYAVHistoryModel *model = self.dataArr[indexPath.row];
         TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
-        vc.avID = model.ID;
+        vc.avID = model.tid;
         [self.navigationController pushVC:vc animated:YES];
     }else {
         TYAVHistoryModel *model = self.dataArr[indexPath.row];
 
         TYGoddessDetailViewController *vc = [[TYGoddessDetailViewController alloc] init];
-        vc.ID = model.ID;
+        vc.ID = model.tid;
         [self.navigationController pushVC:vc animated:YES];
     }
     

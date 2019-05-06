@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^TiXianBlock)(void);
+typedef void(^LevelAgentBlock)(NSInteger index);
 @interface TYTuiGuangView : TYBaseView
 
 @property (weak, nonatomic) IBOutlet UIImageView *tuiGuangBackImg;
@@ -29,6 +30,7 @@ typedef void(^TiXianBlock)(void);
 @property (nonatomic, strong) UIButton * selectBtn;
 
 @property (nonatomic, copy) TiXianBlock tiXianBlock;
+@property (nonatomic, copy) LevelAgentBlock levelAgentBlock;
 
 @property (nonatomic, strong) NSDictionary * dataDic;
 @end

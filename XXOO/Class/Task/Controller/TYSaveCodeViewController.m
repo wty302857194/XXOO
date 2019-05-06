@@ -29,7 +29,7 @@
 - (void)saveCodeRequestData {
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
-                           @"tid":self.ID
+                           @"tid":self.ID?:@""
                            };
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/saveQr" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
@@ -83,8 +83,8 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 

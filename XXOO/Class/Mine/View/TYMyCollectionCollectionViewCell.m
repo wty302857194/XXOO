@@ -16,7 +16,7 @@
     self.nameLab.text = @"";
 }
 - (void)setCollectionModel:(TYAVHistoryModel *)collectionModel {
-    [self.imgView sd_setImageWithURL:[UIImage imageNamed:collectionModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:collectionModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
     self.nameLab.text = collectionModel.title;
 }
 @end

@@ -66,12 +66,10 @@
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/videoActor/api/getActorById" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
         if (success&&data) {
-            weakSelf.title = data[@"name"];
+            weakSelf.title = data[@"name"]?:@"";
             [weakSelf addTableHeaderView:data];
-            [weakSelf getVideoListRequestData:data[@"name"]];
+            [weakSelf getVideoListRequestData:data[@"name"]?:@""];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -85,8 +83,8 @@
     NSDictionary * dic = @{
                            @"orderBy":@"",
                            @"vCode":@"",
-                           @"vClass":vActor?:@"",
-                           @"vActor":@"",
+                           @"vClass":@"",
+                           @"vActor":vActor?:@"",
                            @"vLabel":@"",
                            @"pageNum":@(self.page),
                            @"limit":@"20"
@@ -147,7 +145,7 @@
 }
 - (void)addTableHeaderView:(NSDictionary *)dic {
     TYGoddessHeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"TYGoddessHeaderView" owner:nil options:nil] lastObject];
-    view.dataDic = dic;
+    view.dataDic = [NSDictionary nullDic:dic];
     self.tableView.tableHeaderView = view;
 }
 #pragma mark - UITableViewDelegate

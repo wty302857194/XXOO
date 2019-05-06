@@ -23,7 +23,7 @@
 }
 
 -(void)setTaskModel:(TYTaskModel *)taskModel {
-    NSString *imgUrl = [NSString stringWithFormat:@"%@%@",IMAGE_URL_main,taskModel.icon?:@""];
+    NSString *imgUrl = [NSString stringWithFormat:@"%@",taskModel.icon?:@""];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:PLACEHOLEDERIMAGE];
     
     self.titleLab.text = taskModel.title?:@"";

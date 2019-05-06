@@ -51,4 +51,7 @@
 + (instancetype)makeImageWithView:(UIView *)view withSize:(CGSize)size;
 
 
+//渐变色image
++ (instancetype)jianBianImage;
+
 @end

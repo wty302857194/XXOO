@@ -127,7 +127,7 @@
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
                            @"tid":model.ID,
-                           @"type":@"1"
+                           @"type":@"2"
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     

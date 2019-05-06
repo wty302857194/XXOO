@@ -32,6 +32,11 @@
     
     self.withdrawMoneyLab.text = [NSString stringWithFormat:@"可提现金额：%@元",dataDic[@"withdrawMoney"]];
 
+    if([[NSString stringWithFormat:@"%@",dataDic[@"spreadNum"]] isEqualToString:@"0"]) {
+        self.xiaJiBtn.hidden = YES;
+    }else {
+        self.xiaJiBtn.hidden = NO;
+    }
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -53,10 +58,13 @@
 
     [sender setTitleColor:main_select_text_color forState:UIControlStateNormal];
     [_selectBtn setTitleColor:main_light_text_color forState:UIControlStateNormal];
-    if (sender == _userBtn) {
-
-    }else {
-
+//    if (sender == _userBtn) {
+//
+//    }else {
+//
+//    }
+    if (self.levelAgentBlock) {
+        self.levelAgentBlock(sender == _userBtn?1:2);
     }
     self.lineLab.center = CGPointMake(sender.center.x, self.lineLab.centerY);
 

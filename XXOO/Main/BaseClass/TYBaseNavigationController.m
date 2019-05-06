@@ -31,19 +31,8 @@
 {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        
-        //view生成渐变色的图片 添加到BackgroundImage
-        UIView *view = [UIView new];
-        CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-        gradientLayer.frame = CGRectMake(0, 0, KSCREEN_WIDTH, kLayoutViewMarginTop);
-        gradientLayer.startPoint = CGPointMake(0, 0);
-        gradientLayer.endPoint = CGPointMake(1, 0);
-        gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
-        [gradientLayer setColors:@[(id)[hexColor(d97ff7) CGColor],(id)[hexColor(f282f4) CGColor]]];//渐变数组
-        [view.layer  addSublayer:gradientLayer];
-        
-        UIImage *img = [UIImage makeImageWithView:view withSize:CGSizeMake(KSCREEN_WIDTH, kLayoutViewMarginTop)];
-        [self.navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+
+        [self.navigationBar setBackgroundImage:[UIImage jianBianImage] forBarMetrics:UIBarMetricsDefault];
         
         [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
         
@@ -62,7 +51,7 @@
     [super pushViewController:viewController animated:animated];
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        
+//        [self.navigationBar setTranslucent:false];
         [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:main_text_color}];
         

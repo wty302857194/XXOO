@@ -129,4 +129,18 @@
     return image;
     
 }
+//渐变色image
++ (instancetype)jianBianImage {
+    //view生成渐变色的图片 添加到BackgroundImage
+    UIView *view = [UIView new];
+    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+    gradientLayer.frame = CGRectMake(0, 0, KSCREEN_WIDTH, kLayoutViewMarginTop);
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 0);
+    gradientLayer.locations = @[@(0.5),@(1.0)];//渐变点
+    [gradientLayer setColors:@[(id)[hexColor(d97ff7) CGColor],(id)[hexColor(f282f4) CGColor]]];//渐变数组
+    [view.layer  addSublayer:gradientLayer];
+    
+    return  [self makeImageWithView:view withSize:CGSizeMake(KSCREEN_WIDTH, kLayoutViewMarginTop)];
+}
 @end

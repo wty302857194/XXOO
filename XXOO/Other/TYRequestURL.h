@@ -51,7 +51,7 @@
 /** H5 */
 #define WEBURL_main    @""
 /** 图片 */
-#define IMAGE_URL_main @"http://47.95.207.185/pictures/pic/foxVideo/"
+#define IMAGE_URL_main @""//@"http://47.95.207.185/pictures/pic/foxVideo/"
 /** 视频 */
 #define VIDEO_URL_main @""
 
