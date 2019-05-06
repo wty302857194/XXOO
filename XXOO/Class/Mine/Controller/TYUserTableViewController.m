@@ -12,6 +12,7 @@
 #import "TYMyCollectionViewController.h"
 #import "TYDuiHuanViewController.h"
 #import "TYHistoryListViewController.h"
+#import "TYPromotionVIPViewController.h"
 
 @interface TYUserTableViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
@@ -38,6 +39,9 @@
 
 }
 - (IBAction)buyVIPClick:(UIButton *)sender {
+    TYPromotionVIPViewController *vc = [[TYPromotionVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)featureBtnClick:(UIButton *)sender {
     switch (sender.tag) {

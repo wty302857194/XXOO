@@ -74,8 +74,7 @@
     [TYNetWorkTool postRequest:@"/user/api/signIn" parameters:@{@"id":[TYGlobal userId],@"tid":model.ID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            cell.planBtn.enabled = NO;
-            cell.planBtn.backgroundColor = hexColor(dddddd);
+
         }
         [MBProgressHUD promptMessage:msg inView:self.view];
         

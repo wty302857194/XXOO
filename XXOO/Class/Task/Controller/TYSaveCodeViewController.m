@@ -63,8 +63,8 @@
     [TYNetWorkTool postRequest:@"/user/api/getMySpreadCode" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(success&&data) {
-            self.myInvitationLab.text = data;
-            self.codeImage.image = [self drawImageWithString:data withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
+            self.myInvitationLab.text = data[@"code"]?:@"";
+            self.codeImage.image = [self drawImageWithString:data[@"QR"]?:@"" withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }

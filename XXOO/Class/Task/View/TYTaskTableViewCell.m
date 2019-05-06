@@ -36,7 +36,7 @@
         [self.planBtn setBackgroundImage:[UIImage imageNamed:@"middle_btn_backImg"] forState:UIControlStateNormal];
     }else {
         self.planBtn.userInteractionEnabled = NO;
-        [self.planBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [self.planBtn setBackgroundImage:[UIImage imageNamed:@"planSelectImage"] forState:UIControlStateNormal];
     }
 }
 

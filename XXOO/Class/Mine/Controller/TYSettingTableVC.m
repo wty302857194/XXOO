@@ -9,6 +9,7 @@
 #import "TYSettingTableVC.h"
 #import "TYEmailTableViewController.h"
 #import "TYGesturePasswordViewController.h"
+#import "TYChangePasswordViewController.h"
 
 @interface TYSettingTableVC ()
 @property (weak, nonatomic) IBOutlet UILabel *zhangHaoLab;
@@ -89,7 +90,10 @@
             break;
         case 2:
         {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
+            TYChangePasswordViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYChangePasswordViewController"];
             
+            [self.navigationController pushVC:vc animated:YES];
         }
             break;
         case 3://手势密码

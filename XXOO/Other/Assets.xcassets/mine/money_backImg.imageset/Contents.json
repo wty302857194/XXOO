@@ -6,19 +6,17 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "quxiao.png",
+      "filename" : "圆角矩形2拷贝16@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "圆角矩形2拷贝16@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
