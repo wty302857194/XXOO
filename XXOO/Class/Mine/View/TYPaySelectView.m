@@ -20,6 +20,9 @@
 @end
 @implementation TYPaySelectView
 - (IBAction)payState:(UIButton *)sender {
+    if(_selectBtn == sender) return;
+    [sender setBackgroundColor:hexColor(FFF4F5)];
+    [_selectBtn setBackgroundColor:[UIColor whiteColor]];
     if (sender == _zhifubaoBtn) {
         self.bankNameView.hidden = YES;
         self.kaHaoTopLayout.constant = 10;
@@ -38,14 +41,11 @@
 }
 - (IBAction)allTiXian:(UIButton *)sender {
     self.currentMoneyTF.text = [NSString stringWithFormat:@"%@",self.tixianMoney];
-//    if (self.tiXianBlock) {
-//        self.tiXianBlock();
-//    }
 }
 - (IBAction)sureTiXian:(UIButton *)sender {
     [self userWithdrawRequestData];
 }
-- (IBAction)changeTF:(UITextField *)sender {
+- (IBAction)editingChange:(UITextField *)sender {
     if (sender == _currentMoneyTF) {
         self.tixianMoney = sender.text;
     }else if(sender == _userNameTF) {
@@ -60,8 +60,25 @@
         }
         
     }
-    
 }
+
+//- (IBAction)changeTF:(UITextField *)sender {
+//    if (sender == _currentMoneyTF) {
+//        self.tixianMoney = sender.text;
+//    }else if(sender == _userNameTF) {
+//        _userName = sender.text;
+//    }else if(sender == _bankNameTF) {
+//        _bankName = sender.text;
+//    }else if(sender == _kaHaoTF) {
+//        if ([self.type isEqualToString:@"1"]) {
+//            _kaHao = sender.text;
+//        }else {
+//            _kaHao = sender.text;
+//        }
+//        
+//    }
+//    
+//}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

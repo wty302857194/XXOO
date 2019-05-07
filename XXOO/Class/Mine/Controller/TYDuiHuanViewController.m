@@ -10,6 +10,7 @@
 #import "TYDuiHuanFirstTableViewCell.h"
 #import "TYDuiHuanSecondTableViewCell.h"
 #import "TYDuiHuanModel.h"
+#import "TYPromotionVIPViewController.h"
 
 @interface TYDuiHuanHeaderView : TYBaseView
 @property (nonatomic, strong) UIImageView * headerImgView;
@@ -174,7 +175,9 @@
         TYDuiHuanFirstTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"TYDuiHuanFirstTableViewCell" owner:nil options:nil] lastObject];
         cell.cellBackBlock = ^(NSInteger index) {
             if (index == 0) {//购买VIP
-                
+                TYPromotionVIPViewController *vc = [[TYPromotionVIPViewController alloc] init];
+                TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+                [weakSelf presentViewController:nav animated:YES completion:nil];
             }else {
                 TYBaseTabBarViewController *tabbar = [[TYBaseTabBarViewController alloc] init];
                 UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
@@ -205,7 +208,7 @@
                     [weakSelf exchangeVipRequestData:model.ID];
 
                 }]];
-                 [self presentViewController:alertController animated:YES completion:nil];;
+                 [weakSelf presentViewController:alertController animated:YES completion:nil];;
                 
             };
         

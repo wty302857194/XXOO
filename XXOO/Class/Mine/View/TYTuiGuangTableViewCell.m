@@ -34,7 +34,9 @@
         TYLevelAgentModel *model = (TYLevelAgentModel *)dataSource;
         self.idlab.text = model.ID;
         self.fanLiLab.text = model.agentRatio;
-        self.timeLab.text = model.createTime;
+        
+        NSArray *arr = [model.createTime componentsSeparatedByString:@" "];
+        self.timeLab.text = arr[0]?:@"";
         self.yejiLab.text = model.spreadNum;
     }
 }

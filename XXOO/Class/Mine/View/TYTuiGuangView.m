@@ -21,6 +21,7 @@
  }
  */
 - (void)setDataDic:(NSDictionary *)dataDic {
+    _dataDic = dataDic;
     self.allManeyLab.text = [NSString stringWithFormat:@"%@",dataDic[@"spreadMoney"]];
     self.cunnentMoneyLab.text = [NSString stringWithFormat:@"今日%@元",dataDic[@"todaySpreadMoney"]];
     

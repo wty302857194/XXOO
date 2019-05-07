@@ -7,6 +7,7 @@
 //
 
 #import "TYPromotionVIPTableViewCell.h"
+#import "TYPromotionVIPModel.h"
 
 @implementation TYPromotionVIPTableViewCell
 
@@ -14,11 +15,17 @@
     [super awakeFromNib];
     // Initialization code
 }
+- (IBAction)shengJi:(UIButton *)sender {
+    
+}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(TYPromotionVIPModel *)model {
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:model.icon]];
+    self.describeLab.text = model.describe;
+    self.favorableLab.text = [NSString stringWithFormat:@"首购优惠加码送%@天",model.favorableDays];
+    self.moneyLab.text = model.money;
+    [self.shengjiBtn setTitle:model.btn forState:UIControlStateNormal];
+    
 }
 
 @end

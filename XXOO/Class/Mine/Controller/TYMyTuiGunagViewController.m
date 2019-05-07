@@ -107,7 +107,7 @@
     [TYNetWorkTool postRequest:@"/user/api/spread" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            weakSelf.tuiGuangView.dataDic = [NSDictionary nullDic:data];
+            weakSelf.tuiGuangView.dataDic = [NSDictionary dictionaryWithDictionary:data];
             
             weakSelf.tableView.tableHeaderView = weakSelf.tuiGuangView;
             weakSelf.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
@@ -133,6 +133,8 @@
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/user/api/spreadUser" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.mj_footer endRefreshing];
+
         if (success&&data) {
             NSArray *arr = [TYLevelAgentModel mj_objectArrayWithKeyValuesArray:data];
 
@@ -160,6 +162,7 @@
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.mj_footer endRefreshing];
         
     }];
 }

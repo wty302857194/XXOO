@@ -145,6 +145,9 @@
 		C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC08226C4F870090677E /* TYSeachTableViewCell.xib */; };
 		C1F3FC0E226C652D0090677E /* TYSearchDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC0C226C652D0090677E /* TYSearchDetailCollectionViewCell.m */; };
 		C1F3FC0F226C652D0090677E /* TYSearchDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC0D226C652D0090677E /* TYSearchDetailCollectionViewCell.xib */; };
+		C1F4ACC12281B51200E1505A /* TYPromotionVIPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F4ACC02281B51200E1505A /* TYPromotionVIPModel.m */; };
+		C1F4ACC42281D6FB00E1505A /* TYPromotionVIPFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F4ACC32281D6FB00E1505A /* TYPromotionVIPFooterView.m */; };
+		C1F4ACC62281D70500E1505A /* TYPromotionVIPFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F4ACC52281D70500E1505A /* TYPromotionVIPFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -408,6 +411,11 @@
 		C1F3FC0B226C652D0090677E /* TYSearchDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C1F3FC0C226C652D0090677E /* TYSearchDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSearchDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C1F3FC0D226C652D0090677E /* TYSearchDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYSearchDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		C1F4ACBF2281B51200E1505A /* TYPromotionVIPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPromotionVIPModel.h; sourceTree = "<group>"; };
+		C1F4ACC02281B51200E1505A /* TYPromotionVIPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPromotionVIPModel.m; sourceTree = "<group>"; };
+		C1F4ACC22281D6FB00E1505A /* TYPromotionVIPFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPromotionVIPFooterView.h; sourceTree = "<group>"; };
+		C1F4ACC32281D6FB00E1505A /* TYPromotionVIPFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPromotionVIPFooterView.m; sourceTree = "<group>"; };
+		C1F4ACC52281D70500E1505A /* TYPromotionVIPFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYPromotionVIPFooterView.xib; sourceTree = "<group>"; };
 		D773C77C94ADE494B52D10E1 /* Pods-XXOOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XXOOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XXOOUITests/Pods-XXOOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0301D5C8C4784FEEDBCA751 /* Pods_XXOO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XXOO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -826,6 +834,8 @@
 				C1918A2E227DCDB600CB2096 /* TYLevelAgentModel.m */,
 				C1DAE048227F28B2003F3616 /* TYTGHistoryModel.h */,
 				C1DAE049227F28B2003F3616 /* TYTGHistoryModel.m */,
+				C1F4ACBF2281B51200E1505A /* TYPromotionVIPModel.h */,
+				C1F4ACC02281B51200E1505A /* TYPromotionVIPModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -904,6 +914,9 @@
 				C1E8747422807EBF0008C418 /* TYPromotionVIPView.h */,
 				C1E8747522807EBF0008C418 /* TYPromotionVIPView.m */,
 				C1E8747722807EC90008C418 /* TYPromotionVIPView.xib */,
+				C1F4ACC22281D6FB00E1505A /* TYPromotionVIPFooterView.h */,
+				C1F4ACC32281D6FB00E1505A /* TYPromotionVIPFooterView.m */,
+				C1F4ACC52281D70500E1505A /* TYPromotionVIPFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1126,6 +1139,7 @@
 				C1E8747322807D960008C418 /* TYPromotionVIPTableViewCell.xib in Resources */,
 				C1DAE047227F2772003F3616 /* TYTuiGuangHistoryViewController.xib in Resources */,
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
+				C1F4ACC62281D70500E1505A /* TYPromotionVIPFooterView.xib in Resources */,
 				C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */,
 				C1F1579A22769C6500984A32 /* TYDuiHuanFirstTableViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
@@ -1284,6 +1298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1DAE046227F2772003F3616 /* TYTuiGuangHistoryViewController.m in Sources */,
+				C1F4ACC42281D6FB00E1505A /* TYPromotionVIPFooterView.m in Sources */,
 				C117B508227728970091A627 /* TYEmailTableViewController.m in Sources */,
 				C1ADA2F22271B53700CA8566 /* TYActorModel.m in Sources */,
 				C1ADA2DD226F09E100CA8566 /* TYAVDetailModel.m in Sources */,
@@ -1331,6 +1346,7 @@
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C1ADA2EC227061DC00CA8566 /* TYCategroyListModel.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C1F4ACC12281B51200E1505A /* TYPromotionVIPModel.m in Sources */,
 				C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */,
 				C1E8746D22807CB20008C418 /* TYPromotionVIPViewController.m in Sources */,
 				C1DE538A2260CF1500D41A04 /* TYTaskTableViewCell.m in Sources */,

@@ -57,7 +57,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
-                                        <action selector="changeTF:" destination="iN0-l3-epB" eventType="valueChanged" id="Mkh-ur-aAf"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingChanged" id="yfS-Md-SnC"/>
                                     </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcr-Fl-uF9">
@@ -97,7 +97,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <action selector="changeTF:" destination="iN0-l3-epB" eventType="editingDidEnd" id="IEt-Kc-JKC"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="lZ2-s2-TLR"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -129,7 +129,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <action selector="changeTF:" destination="iN0-l3-epB" eventType="editingDidEnd" id="8ch-U2-wIk"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="kar-uc-4q3"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -161,7 +161,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     <connections>
-                                        <action selector="changeTF:" destination="iN0-l3-epB" eventType="editingDidEnd" id="VIY-pM-OMf"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="rRC-Sa-89f"/>
                                     </connections>
                                 </textField>
                             </subviews>

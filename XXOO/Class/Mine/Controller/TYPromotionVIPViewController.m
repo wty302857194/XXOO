@@ -9,6 +9,8 @@
 #import "TYPromotionVIPViewController.h"
 #import "TYPromotionVIPTableViewCell.h"
 #import "TYPromotionVIPView.h"
+#import "TYPromotionVIPModel.h"
+#import "TYPromotionVIPFooterView.h"
 
 @interface TYPromotionVIPViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -24,9 +26,60 @@
     self.title = @"升级VIP会员";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel_payType_img"] style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+
+    [self addTableViewHeaderView];
+    [self addTableFooterView];
+    [self getMemberInfoRequestData:@"1"];
 }
 - (void)cancel {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)addTableViewHeaderView {
+    TYPromotionVIPView *promotionVIPView = [[[NSBundle mainBundle] loadNibNamed:@"TYPromotionVIPView" owner:nil options:nil] lastObject];
+    TYWEAK_SELF;
+    promotionVIPView.promotionVIPBlock = ^(NSString * _Nonnull type) {
+        [weakSelf getMemberInfoRequestData:type];
+    };
+//    promotionVIPView.frame = CGRectMake(0, 0, KSCREEN_WIDTH, 175);
+    self.tableView.tableHeaderView = promotionVIPView;
+    self.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
+
+}
+- (void)addTableFooterView {
+    TYPromotionVIPFooterView *promotionVIPView = [[[NSBundle mainBundle] loadNibNamed:@"TYPromotionVIPFooterView" owner:nil options:nil] lastObject];
+
+    self.tableView.tableFooterView = promotionVIPView;
+    self.tableView.tableFooterView.autoresizingMask = UIViewAutoresizingNone;
+}
+//  /sysMember/api/getMemberInfo
+
+- (void)getMemberInfoRequestData:(NSString *)type {
+    
+    NSDictionary * dic = @{
+                           @"type":type?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/sysMember/api/getMemberInfo" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            NSArray *arr = [TYPromotionVIPModel mj_objectArrayWithKeyValuesArray:data];
+            if (arr&&arr.count>0) {
+                weakSelf.dataArr = [NSMutableArray arrayWithArray:arr];
+
+            }else {
+                NSLog(@"加载空视图");
+            }
+            [weakSelf.tableView reloadData];
+
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
@@ -39,7 +92,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 70;
 }
 
 
@@ -50,20 +103,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TYPromotionVIPTableViewCell" owner:nil options:nil] lastObject];
     }
-//    cell.historyModel = self.dataArr[indexPath.row];
+    cell.model = self.dataArr[indexPath.row];
     
     return cell;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-
-    TYPromotionVIPView *promotionVIPView = [[[NSBundle mainBundle] loadNibNamed:@"TYPromotionVIPView" owner:nil options:nil] lastObject];
-    
-    return promotionVIPView;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 160;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

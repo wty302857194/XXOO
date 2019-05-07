@@ -8,18 +8,25 @@
 
 #import "TYPromotionVIPView.h"
 
+
 @implementation TYPromotionVIPView
 - (IBAction)changeMoney:(UIButton *)sender {
-    if (sender == _renMinBIBnt) {
-        
-    }else {
-        
+    if (_selectBtn == sender) return;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.topBackImg.center = CGPointMake(sender.center.x, self.topBackImg.centerY);
+    }];
+
+    if (self.promotionVIPBlock) {
+        self.promotionVIPBlock(sender == _renMinBIBnt?@"1":@"2");
     }
+    
+    _selectBtn = sender;
 }
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    
+//    _selectBtn = _renMinBIBnt;
 }
 
 @end

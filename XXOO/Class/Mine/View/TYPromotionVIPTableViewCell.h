@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TYPromotionVIPModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYPromotionVIPTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *iconImg;
+@property (weak, nonatomic) IBOutlet UILabel *describeLab;
+@property (weak, nonatomic) IBOutlet UILabel *favorableLab;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
+@property (weak, nonatomic) IBOutlet UIButton *shengjiBtn;
+
+
+
+
+@property (nonatomic, strong) TYPromotionVIPModel * model;
 
 @end
 
