@@ -17,15 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.translucent = NO;
-    
-    
-    
-    
-    
-    
+
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -48,10 +42,8 @@
 }
 
 - (void)pushVC:(UIViewController *)viewController animated:(BOOL)animated {
-    [super pushViewController:viewController animated:animated];
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-//        [self.navigationBar setTranslucent:false];
         [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:main_text_color}];
         
@@ -62,6 +54,8 @@
         // 就有滑动返回功能
         self.interactivePopGestureRecognizer.delegate = nil;
     }
+    [super pushViewController:viewController animated:animated];
+
 }
 - (void)back {
     

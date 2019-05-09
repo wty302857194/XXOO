@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYAVDetailModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^JianJieBlock)(void);
@@ -20,6 +21,9 @@ typedef void(^JianJieBlock)(void);
 @property (weak, nonatomic) IBOutlet UIButton *problemBtn;//问题汇报
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;//收藏影片
 @property (nonatomic, copy) JianJieBlock jianJieBlock;
+
+@property (nonatomic, strong) TYAVDetailModel * detailModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

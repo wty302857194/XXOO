@@ -16,6 +16,10 @@
 #import "TYHomeModel.h"
 #import "TYJianJieView.h"
 #import "TYSearchDetailViewController.h"
+#import "TYAVOverView.h"
+#import "TYDuiHuanViewController.h"
+
+static SJControlLayerIdentifier const myLayer = 588588588;
 
 static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        // 分享
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
@@ -31,6 +35,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 @property (nonatomic, assign) BOOL isFresh;//是否加载
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) TYJianJieView * jianJieView;
+@property (nonatomic, strong) TYAVOverView * overView;
 
 @end
 
@@ -68,7 +73,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 - (void)avDetailRequestData {
     NSDictionary *dic = @{
                           @"id":self.avID?:@"",
-                          @"uid":@"2"
+                          @"uid":[TYGlobal userId]
                           };
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -78,6 +83,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
             self.detailModel = [TYAVDetailModel mj_objectWithKeyValues:data];
             [self initUI];
             [self getVideoListRequestData];
+//            [self addHistoryRequestData];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -101,12 +107,26 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         if (weakself.detailModel.limitTime == true) {
             if (time>[weakself.detailModel.times floatValue]) {
                 [weakself.player pause];                weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
-                
-                //                UIView *view = [[UIView alloc] initWithFrame:weakself.player.view.bounds];
-                //                view.backgroundColor = [UIColor redColor];
-                //                [weakself.player.view addSubview:view];
+
+                [weakself.player.switcher addControlLayerForIdentifier:myLayer lazyLoading:^id<SJControlLayer> _Nonnull(SJControlLayerIdentifier identifier) {
+                    return weakself.overView;
+                }];
+                [weakself.player.switcher switchControlLayerForIdentitfier:myLayer];
             }
         }
+    }];
+}
+// /userHistory/api/addHistory
+- (void)addHistoryRequestData {
+    
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":self.avID?:@"",
+                           @"viewTime":self.detailModel.timeLong?:@""
+                           };
+    [TYNetWorkTool postRequest:@"/userHistory/api/addHistory" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    } failureBlock:^(NSString * _Nonnull description) {
+        
     }];
 }
 //初始化接口
@@ -126,6 +146,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.mj_footer endRefreshing];
+        [self addHistoryRequestData];
         if (success&&data) {
             weakSelf.homeModel = [TYHomeModel mj_objectWithKeyValues:data];
             NSArray *arr = [NSArray arrayWithArray:weakSelf.homeModel.data];
@@ -173,6 +194,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         TYAVDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYAVDetailCollectionViewCell" forIndexPath:indexPath];
+        cell.detailModel  = self.detailModel;
         cell.jianJieBlock = ^{
             NSLog(@"%@",self.detailModel.vLabel);
             NSArray *arr = [self.detailModel.vLabel componentsSeparatedByString:@","];
@@ -306,6 +328,30 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         }];
     }
     return _jianJieView;
+}
+-(TYAVOverView *)overView {
+    if (!_overView) {
+        _overView = [[[NSBundle mainBundle] loadNibNamed:@"TYAVOverView" owner:nil options:nil] lastObject];
+        _overView.frame = self.player.view.bounds;
+        TYWEAK_SELF;
+        _overView.overBlcok = ^(NSInteger index) {
+            if (index == 10) {
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }else if (index == 20) {
+                /// 删除控制层
+                [weakSelf.player.switcher switchControlLayerForIdentitfier:SJControlLayer_Edge];
+                
+                [weakSelf.player replay];
+            }else {
+                TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
+                vc.refreshBlock = ^{
+                    [weakSelf getVideoListRequestData];
+                };
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }
+        };
+    }
+    return _overView;
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

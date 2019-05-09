@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TYAVOverView">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="314"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAg-q5-LmU">
+                    <rect key="frame" x="10" y="54" width="9" height="22"/>
+                    <state key="normal" image="personal_home_back_black_24x24_"/>
+                    <connections>
+                        <action selector="goback:" destination="iN0-l3-epB" eventType="touchUpInside" id="hln-C8-taU"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="SJY-yK-dRA">
+                    <rect key="frame" x="112" y="101.5" width="270" height="111.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="观看完整请升级VIP！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-hD-syx">
+                            <rect key="frame" x="48" y="0.0" width="174" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="PJO-0K-w6I">
+                            <rect key="frame" x="0.0" y="71.5" width="270" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjB-mz-BGw">
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="AYo-nZ-rHG"/>
+                                        <constraint firstAttribute="width" constant="110" id="lxe-pm-h0F"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="重新试看">
+                                        <color key="titleColor" red="0.12549019610000001" green="0.18039215689999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="renewClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="arc-Ug-mUU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-Uz-zGn">
+                                    <rect key="frame" x="160" y="0.0" width="110" height="40"/>
+                                    <color key="backgroundColor" red="0.85490196078431369" green="0.10196078431372549" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="gWW-Ny-iTC"/>
+                                        <constraint firstAttribute="width" constant="110" id="wwt-AG-G7b"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="升级VIP">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="vipClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NXY-FG-nEa"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.12549019607843137" green="0.1803921568627451" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SJY-yK-dRA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3G4-OE-0Yw"/>
+                <constraint firstItem="mAg-q5-LmU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="GTr-SG-jsi"/>
+                <constraint firstItem="mAg-q5-LmU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="HyB-sc-ygS"/>
+                <constraint firstItem="SJY-yK-dRA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="T3K-qf-HCp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="goBackBtn" destination="mAg-q5-LmU" id="CDJ-EW-HNe"/>
+                <outlet property="renewBnt" destination="hjB-mz-BGw" id="haj-Bk-aWA"/>
+                <outlet property="vipBtn" destination="B9V-Uz-zGn" id="QGm-2A-xqX"/>
+            </connections>
+            <point key="canvasLocation" x="195.6521739130435" y="306.69642857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="personal_home_back_black_24x24_" width="9" height="16"/>
+    </resources>
+</document>

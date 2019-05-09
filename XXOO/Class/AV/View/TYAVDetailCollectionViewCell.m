@@ -21,7 +21,9 @@
 - (IBAction)selectClick:(UIButton *)sender {
     
 }
-
+- (void)setDetailModel:(TYAVDetailModel *)detailModel {
+    self.titleLab.text = detailModel.title;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

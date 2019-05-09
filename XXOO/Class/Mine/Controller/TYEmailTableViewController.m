@@ -64,10 +64,7 @@
         [MBProgressHUD promptMessage:@"最少6位密码" inView:self.view];
         return;
     }
-//    if (![TYGlobal deptIdInputShouldAlphaNum:_firstPasswordStr]) {
-//        [MBProgressHUD promptMessage:@"请输入您的密码" inView:self.view];
-//        return;
-//    }
+
     if (_secondPasswordStr.length==0) {
         [MBProgressHUD promptMessage:@"请再次输入您的密码" inView:self.view];
         return;

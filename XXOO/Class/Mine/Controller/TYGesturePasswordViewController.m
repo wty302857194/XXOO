@@ -69,22 +69,25 @@
     TYBaseNavigationController *rootViewController1 = (TYBaseNavigationController *)appdelegate.window.rootViewController;
     
     if ([rootViewController1.viewControllers[0] isEqual:self]) {
+        
+        //本地验证（看需求怎么说，可以改为接口验证）
         if ([strM isEqualToString:[TYGlobal gesturePassword]]) {
             [appdelegate rootVC];
-            return;
+            
+        }else {
+            [MBProgressHUD promptMessage:@"密码输入错误" inView:self.view];
         }
-    }else {
-        [MBProgressHUD promptMessage:@"密码输入错误" inView:self.view];
+        return;
     }
     
-    
-//    if ([TYGlobal gesturePassword].length>0) {
-//        
-//    }
     if (_firstPassword.length > 0) {
         _secondPassword = strM;
         if ([_secondPassword isEqualToString:_firstPassword]) {
             //跳出，并存储密码
+            // 接口存储
+            [self gesturePwdRequestData:_secondPassword];
+            
+            //本地存储
             [USER_DEFAULTS setObject:_secondPassword forKey:GESTURE_PASSWORD];
             [USER_DEFAULTS synchronize];
             if (self.passwordBlock) {
@@ -105,5 +108,40 @@
     return YES;
 }
 
+- (void)gesturePwdRequestData:(NSString *)gesturePwd {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"gesturePwd":gesturePwd?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/user/api/gesturePwd" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+
+- (void)gestureLoginRequestData:(NSString *)gesturePwd {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"gesturePwd":gesturePwd?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    TYWEAK_SELF;
+    [TYNetWorkTool postRequest:@"/user/api/gestureLogin" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 
 @end

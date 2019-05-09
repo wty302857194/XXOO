@@ -51,6 +51,8 @@
 		C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE6B322602F7900050DCE /* TYHomeTableViewCell.m */; };
 		C17DE6B622602F7900050DCE /* TYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */; };
 		C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1831308226C95B000933B55 /* TYAVLableModel.m */; };
+		C18AAF2D2282DEB000076EE5 /* TYAVOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF2C2282DEB000076EE5 /* TYAVOverView.m */; };
+		C18AAF2F2282DEBC00076EE5 /* TYAVOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AAF2E2282DEBC00076EE5 /* TYAVOverView.xib */; };
 		C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0022794F3300CB2096 /* ZSBntview.m */; };
 		C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */; };
 		C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */; };
@@ -255,6 +257,9 @@
 		C17DE6B422602F7900050DCE /* TYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYHomeTableViewCell.xib; sourceTree = "<group>"; };
 		C1831307226C95B000933B55 /* TYAVLableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVLableModel.h; sourceTree = "<group>"; };
 		C1831308226C95B000933B55 /* TYAVLableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVLableModel.m; sourceTree = "<group>"; };
+		C18AAF2B2282DEB000076EE5 /* TYAVOverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVOverView.h; sourceTree = "<group>"; };
+		C18AAF2C2282DEB000076EE5 /* TYAVOverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVOverView.m; sourceTree = "<group>"; };
+		C18AAF2E2282DEBC00076EE5 /* TYAVOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVOverView.xib; sourceTree = "<group>"; };
 		C19189FF22794F3300CB2096 /* ZSBntview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBntview.h; sourceTree = "<group>"; };
 		C1918A0022794F3300CB2096 /* ZSBntview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBntview.m; sourceTree = "<group>"; };
 		C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGesturePasswordViewController.h; sourceTree = "<group>"; };
@@ -694,6 +699,9 @@
 				C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */,
 				C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */,
 				C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */,
+				C18AAF2B2282DEB000076EE5 /* TYAVOverView.h */,
+				C18AAF2C2282DEB000076EE5 /* TYAVOverView.m */,
+				C18AAF2E2282DEBC00076EE5 /* TYAVOverView.xib */,
 				C1F13A082265BE25006E754A /* TYAVDetailContentCollectionViewCell.h */,
 				C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */,
 				C1F13A0A2265BE25006E754A /* TYAVDetailContentCollectionViewCell.xib */,
@@ -1145,6 +1153,7 @@
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C1918A0B2279C3B900CB2096 /* TYHistoryListViewController.xib in Resources */,
 				C12486EC225D998C0040B476 /* TYCategoryViewController.xib in Resources */,
+				C18AAF2F2282DEBC00076EE5 /* TYAVOverView.xib in Resources */,
 				C1E8746E22807CB20008C418 /* TYPromotionVIPViewController.xib in Resources */,
 				C1C5B89C226865FC00ADB7E0 /* TYTuiGuangView.xib in Resources */,
 				C1F1579522769A5100984A32 /* TYDuiHuanViewController.xib in Resources */,
@@ -1365,6 +1374,7 @@
 				C1F3FC0E226C652D0090677E /* TYSearchDetailCollectionViewCell.m in Sources */,
 				C1DAE04A227F28B2003F3616 /* TYTGHistoryModel.m in Sources */,
 				C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */,
+				C18AAF2D2282DEB000076EE5 /* TYAVOverView.m in Sources */,
 				C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */,
 				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
 				C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */,

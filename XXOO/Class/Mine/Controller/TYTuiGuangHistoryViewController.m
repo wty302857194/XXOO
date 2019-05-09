@@ -25,6 +25,7 @@
             lab.text = @"";
             lab.textColor = main_light_text_color;
             lab.font = [UIFont systemFontOfSize:15];
+            lab.numberOfLines = 2;
             lab.textAlignment = NSTextAlignmentCenter;
             [self.contentView addSubview:lab];
             if (i == 0) {
@@ -54,7 +55,7 @@
 - (void)setHistoryModel:(TYTGHistoryModel *)historyModel {
     _leftLab.text = [NSString stringWithFormat:@"%@",historyModel.ID];
     _middleLab.text = [NSString stringWithFormat:@"%@",historyModel.money];
-    _rightLab.text = [NSString stringWithFormat:@"%@",historyModel.modifyTime];
+    _rightLab.text = [NSString stringWithFormat:@"%@",historyModel.createTime];
 }
 @end
 

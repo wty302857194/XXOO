@@ -26,8 +26,25 @@
     [USER_DEFAULTS setBool:isOpen forKey:GESTURE_OPIN];
     [USER_DEFAULTS synchronize];
     
+    [self gestureBtnRequestData:isOpen?@"1":@"2"];
 }
-
+// /user/api/gestureBtn
+- (void)gestureBtnRequestData:(NSString *)type {
+    
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"gestureBtn":type
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+        
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -21,17 +21,21 @@
 
 @property (nonatomic, copy) NSArray * dataArr;
 
+@property (nonatomic, strong) MBProgressHUD * hud;
 @end
 
 @implementation TYTaskViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.topBackViewLayout.constant = -xkStatusBarHeight;
+    //    self.topBackViewLayout.constant = -xkStatusBarHeight;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TYTaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TYTaskTableViewCell"];
     
     [self getTaskListRequestData];
+    
+    _hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_hud];
 }
 
 
@@ -48,9 +52,10 @@
 // /sysTask/api/getTaskList
 - (void)getTaskListRequestData {
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [_hud showAnimated:YES];
     [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{@"id":[TYGlobal userId]} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.hud hideAnimated:YES];
         if (success&&data) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data[@"data"]];
             NSLog(@"dataArr === %@",self.dataArr);
@@ -62,7 +67,7 @@
         }
         
     } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.hud hideAnimated:YES];
     }];
 }
 //  /user/api/signIn
@@ -70,16 +75,19 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     TYTaskModel *model = self.dataArr[indexPath.row];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [_hud showAnimated:YES];
     [TYNetWorkTool postRequest:@"/user/api/signIn" parameters:@{@"id":[TYGlobal userId],@"tid":model.ID} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        [self.hud hideAnimated:YES];
         if (success&&data) {
-
+            [self getTaskListRequestData];
         }
         [MBProgressHUD promptMessage:msg inView:self.view];
         
     } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        [self.hud hideAnimated:YES];
+        
     }];
 }
 #pragma mark - UITableViewDelegate

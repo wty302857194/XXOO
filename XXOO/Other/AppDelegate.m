@@ -45,6 +45,7 @@
     TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:passwordvVC];
     self.window.rootViewController = nav;
 }
+
 - (void)getInstallParms {
     
 //    [[OpenInstallSDK defaultManager] getInstallParmsCompleted:^(OpeninstallData*_Nullable appData) {

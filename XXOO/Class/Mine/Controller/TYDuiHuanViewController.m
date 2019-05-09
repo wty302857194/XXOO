@@ -82,6 +82,9 @@
     [self addTableVieHeaderView];
     [self getExchangeListRequestData];
 }
+- (void)back {
+    NSLog(@"back");
+}
 //  /sysExchange/api/getExchangeList
 - (void)getExchangeListRequestData {
 
@@ -191,9 +194,6 @@
             TYDuiHuanModel *model = self.dataArr[indexPath.row -1];
             cell.model = model;
             cell.duiHuanBlock = ^{
-//                if ([model.score floatValue] > [weakSelf.userJiFen floatValue]) {
-//                    return ;
-//                }
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"兑换VIP" message:[NSString stringWithFormat:@"你确定要兑换%@天的VIP吗？\n(有效期从成功兑换日期起计算)",model.membershipDuration] preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
