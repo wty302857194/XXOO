@@ -14,6 +14,7 @@
 #import "TYSearchViewController.h"
 #import "TYBaseNavigationController.h"
 #import "TYHomeModel.h"
+#import "TYLongVideoViewController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
@@ -40,7 +41,9 @@
 
 //筛选
 - (IBAction)selectBtnClick:(UIButton *)sender {
-    
+    TYLongVideoViewController *vc = [[TYLongVideoViewController alloc] init];
+    vc.title = @"全部高清影片";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

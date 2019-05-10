@@ -49,7 +49,7 @@
 }
 
 #pragma mark - requestData
-// /sysTask/api/getTaskList
+// /sysTask/api/getTaskList 初始化接口
 - (void)getTaskListRequestData {
     
     [_hud showAnimated:YES];
@@ -70,7 +70,7 @@
         [self.hud hideAnimated:YES];
     }];
 }
-//  /user/api/signIn
+//  /user/api/signIn 签到接口
 - (void)getSignInRequestData:(TYTaskTableViewCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     TYTaskModel *model = self.dataArr[indexPath.row];
@@ -87,6 +87,26 @@
     } failureBlock:^(NSString * _Nonnull description) {
         
         [self.hud hideAnimated:YES];
+        
+    }];
+}
+// /user/api/joinGroup   加群接口
+- (void)joinGroupRequestData:(NSString *)tid {
+    
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":tid?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/user/api/joinGroup" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
     }];
 }
@@ -122,11 +142,16 @@
                 vc.ID = model.ID;
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if ([model.ID isEqualToString:@"3"]) {//加群
+                [TYGlobal openScheme:model.adUrl];
+                // 掉加群接口
+                [weakSelf joinGroupRequestData:model.ID];
                 
-            }else if ([model.ID isEqualToString:@"4"]) {
-                
+            }else if ([model.ID isEqualToString:@"4"]) {//推广新用户
+                TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
+                vc.ID = model.ID;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
             }else {
-                
+                [TYGlobal openScheme:model.adUrl];
             }
         };
     }
@@ -137,5 +162,6 @@
 {
     
 }
+
 
 @end

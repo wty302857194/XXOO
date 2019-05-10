@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  score = 200;
  state = 1;
  title = "\U52a0\U7fa4\U6709\U798f\U5229";
+ adUrl:null    //下载链接
  }
  */
 @interface TYTaskModel : TYBaseModel
@@ -35,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * title;
 @property (nonatomic, copy) NSString * icon;
 @property (nonatomic, copy) NSString * btnContent;
+@property (nonatomic, copy) NSString * adUrl;
+
 @end
 
 NS_ASSUME_NONNULL_END

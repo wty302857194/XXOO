@@ -10,14 +10,14 @@
 @class TYPromotionVIPModel;
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^PaySelectBlock)(void);
 @interface TYPromotionVIPTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImg;
 @property (weak, nonatomic) IBOutlet UILabel *describeLab;
 @property (weak, nonatomic) IBOutlet UILabel *favorableLab;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UIButton *shengjiBtn;
-
+@property (nonatomic, copy) PaySelectBlock paySelectBlock;
 
 
 

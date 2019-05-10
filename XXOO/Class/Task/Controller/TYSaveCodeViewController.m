@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIView *codeBackView;
 @property (weak, nonatomic) IBOutlet UILabel *myInvitationLab;
 @property (weak, nonatomic) IBOutlet UIImageView *codeImage;
-
+@property (nonatomic, copy) NSString * share_url;
 @end
 
 @implementation TYSaveCodeViewController
@@ -21,19 +21,6 @@
 }
 - (IBAction)saveCode:(UIButton *)sender {
     if(sender.tag == 10) {
-        [self saveCodeRequestData];
-    }else {
-        
-    }
-}
-- (void)saveCodeRequestData {
-    NSDictionary * dic = @{
-                           @"id":[TYGlobal userId],
-                           @"tid":self.ID?:@""
-                           };
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/user/api/saveQr" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        
         //开启一个图形上下文
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
         //获取图形上下文
@@ -45,34 +32,11 @@
         //关闭图形上下文
         UIGraphicsEndImageContext();
         [self loadImageFinished:image];
-        
-        
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD promptMessage:msg inView:self.view];
-    } failureBlock:^(NSString * _Nonnull description) {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-    }];
+    }else {
+        [TYGlobal openScheme:self.share_url?:@""];
+    }
 }
-// /user/api/getMySpreadCode
-- (void)getMyCodeRequestData {
-    NSDictionary * dic = @{
-                           @"id":[TYGlobal userId],
-                           };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TYNetWorkTool postRequest:@"/user/api/getMySpreadCode" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if(success&&data) {
-            self.myInvitationLab.text = data[@"code"]?:@"";
-            self.codeImage.image = [self drawImageWithString:data[@"QR"]?:@"" withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
-        }else {
-            [MBProgressHUD promptMessage:msg inView:self.view];
-        }
-    } failureBlock:^(NSString * _Nonnull description) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-    }];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading t
@@ -87,7 +51,40 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
-
+- (void)saveCodeRequestData {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":self.ID?:@""
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/user/api/saveQr" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD promptMessage:msg inView:self.view];
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+// /user/api/getMySpreadCode
+- (void)getMyCodeRequestData {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TYNetWorkTool postRequest:@"/user/api/getMySpreadCode" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if(success&&data) {
+            self.myInvitationLab.text = data[@"code"]?:@"";
+            self.codeImage.image = [self drawImageWithString:data[@"QR"]?:@"" withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
+            self.share_url = [NSString stringWithFormat:@"%@",data[@"url"]];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 - (void)loadImageFinished:(UIImage *)image
 {
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
@@ -95,6 +92,9 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
+    
+    [self saveCodeRequestData];
+    
 }
 
 /**
@@ -144,7 +144,7 @@
     CGFloat sImageX = (qrUIImage.size.width - sImageW) * 0.5;
     CGFloat sImgaeY = (qrUIImage.size.height - sImageH) * 0.5;
     
-//    sImage = [self clipCornerRadius:sImage withSize:CGSizeMake(sImageW, sImageH)];
+    //    sImage = [self clipCornerRadius:sImage withSize:CGSizeMake(sImageW, sImageH)];
     [sImage drawInRect:CGRectMake(sImageX, sImgaeY, sImageW, sImageH)];
     
     //    获取当前画得的这张图片

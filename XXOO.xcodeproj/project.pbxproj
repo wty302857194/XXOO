@@ -53,6 +53,10 @@
 		C1831309226C95B000933B55 /* TYAVLableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1831308226C95B000933B55 /* TYAVLableModel.m */; };
 		C18AAF2D2282DEB000076EE5 /* TYAVOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF2C2282DEB000076EE5 /* TYAVOverView.m */; };
 		C18AAF2F2282DEBC00076EE5 /* TYAVOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AAF2E2282DEBC00076EE5 /* TYAVOverView.xib */; };
+		C18AAF3222841F8100076EE5 /* TYMyPaySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF3122841F8100076EE5 /* TYMyPaySelectView.m */; };
+		C18AAF3422841FA200076EE5 /* TYMyPaySelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AAF3322841FA200076EE5 /* TYMyPaySelectView.xib */; };
+		C18AAF3A228470B900076EE5 /* JCIPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF36228470B900076EE5 /* JCIPAddressConfig.m */; };
+		C18AAF3B228470B900076EE5 /* RequestIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF38228470B900076EE5 /* RequestIPAddress.m */; };
 		C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0022794F3300CB2096 /* ZSBntview.m */; };
 		C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */; };
 		C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */; };
@@ -260,6 +264,13 @@
 		C18AAF2B2282DEB000076EE5 /* TYAVOverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVOverView.h; sourceTree = "<group>"; };
 		C18AAF2C2282DEB000076EE5 /* TYAVOverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVOverView.m; sourceTree = "<group>"; };
 		C18AAF2E2282DEBC00076EE5 /* TYAVOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVOverView.xib; sourceTree = "<group>"; };
+		C18AAF3022841F8100076EE5 /* TYMyPaySelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMyPaySelectView.h; sourceTree = "<group>"; };
+		C18AAF3122841F8100076EE5 /* TYMyPaySelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMyPaySelectView.m; sourceTree = "<group>"; };
+		C18AAF3322841FA200076EE5 /* TYMyPaySelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYMyPaySelectView.xib; sourceTree = "<group>"; };
+		C18AAF36228470B900076EE5 /* JCIPAddressConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCIPAddressConfig.m; sourceTree = "<group>"; };
+		C18AAF37228470B900076EE5 /* RequestIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestIPAddress.h; sourceTree = "<group>"; };
+		C18AAF38228470B900076EE5 /* RequestIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestIPAddress.m; sourceTree = "<group>"; };
+		C18AAF39228470B900076EE5 /* JCIPAddressConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCIPAddressConfig.h; sourceTree = "<group>"; };
 		C19189FF22794F3300CB2096 /* ZSBntview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBntview.h; sourceTree = "<group>"; };
 		C1918A0022794F3300CB2096 /* ZSBntview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBntview.m; sourceTree = "<group>"; };
 		C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGesturePasswordViewController.h; sourceTree = "<group>"; };
@@ -547,6 +558,7 @@
 		C12486C6225D96A30040B476 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C18AAF35228470A600076EE5 /* IpAddress */,
 				C19189FE22794F3300CB2096 /* GesturePassward */,
 				C1F28437226D551A009B57A5 /* HDeviceIdentifierUtils */,
 				C1F28433226D5275009B57A5 /* RefershClass */,
@@ -925,6 +937,9 @@
 				C1F4ACC22281D6FB00E1505A /* TYPromotionVIPFooterView.h */,
 				C1F4ACC32281D6FB00E1505A /* TYPromotionVIPFooterView.m */,
 				C1F4ACC52281D70500E1505A /* TYPromotionVIPFooterView.xib */,
+				C18AAF3022841F8100076EE5 /* TYMyPaySelectView.h */,
+				C18AAF3122841F8100076EE5 /* TYMyPaySelectView.m */,
+				C18AAF3322841FA200076EE5 /* TYMyPaySelectView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -972,6 +987,17 @@
 				C17DE6A2225F6F1E00050DCE /* TYGradientButton.m */,
 			);
 			path = Inherit;
+			sourceTree = "<group>";
+		};
+		C18AAF35228470A600076EE5 /* IpAddress */ = {
+			isa = PBXGroup;
+			children = (
+				C18AAF39228470B900076EE5 /* JCIPAddressConfig.h */,
+				C18AAF36228470B900076EE5 /* JCIPAddressConfig.m */,
+				C18AAF37228470B900076EE5 /* RequestIPAddress.h */,
+				C18AAF38228470B900076EE5 /* RequestIPAddress.m */,
+			);
+			path = IpAddress;
 			sourceTree = "<group>";
 		};
 		C19189FE22794F3300CB2096 /* GesturePassward */ = {
@@ -1149,6 +1175,7 @@
 				C17DE6B122602F5800050DCE /* TYEntertainmentCollectionViewCell.xib in Resources */,
 				C1F4ACC62281D70500E1505A /* TYPromotionVIPFooterView.xib in Resources */,
 				C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */,
+				C18AAF3422841FA200076EE5 /* TYMyPaySelectView.xib in Resources */,
 				C1F1579A22769C6500984A32 /* TYDuiHuanFirstTableViewCell.xib in Resources */,
 				C12486A0225D94CF0040B476 /* LaunchScreen.storyboard in Resources */,
 				C1918A0B2279C3B900CB2096 /* TYHistoryListViewController.xib in Resources */,
@@ -1320,6 +1347,7 @@
 				C1C5B8A0226ADA0400ADB7E0 /* TYMyCollectionViewController.m in Sources */,
 				C1DD4B1522647315005FD5F5 /* TYSettingTableVC.m in Sources */,
 				C1C5B8A8226B48E400ADB7E0 /* TYBaseModel.m in Sources */,
+				C18AAF3222841F8100076EE5 /* TYMyPaySelectView.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
@@ -1380,11 +1408,13 @@
 				C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */,
 				C117B50B22772F3D0091A627 /* UINavigationController+TYExtension.m in Sources */,
 				C1918A0E2279C55200CB2096 /* TYAVHistoryModel.m in Sources */,
+				C18AAF3B228470B900076EE5 /* RequestIPAddress.m in Sources */,
 				C1918A25227D45FB00CB2096 /* TYGoddessHeaderView.m in Sources */,
 				C1C5B8A5226B488000ADB7E0 /* TYTaskModel.m in Sources */,
 				C1DAE040227F1A66003F3616 /* TYTuiGuangEmptyView.m in Sources */,
 				C1036AA5225E0C3C00322B2B /* NSString+BXExtension.m in Sources */,
 				C1036AA7225E0C3C00322B2B /* UIColor+Extend.m in Sources */,
+				C18AAF3A228470B900076EE5 /* JCIPAddressConfig.m in Sources */,
 				C1036AB0225E0E0000322B2B /* MBProgressHUD+Constructor.m in Sources */,
 				C1248695225D94CD0040B476 /* AppDelegate.m in Sources */,
 				C1ADA2F82273331F00CA8566 /* UIButton+TYExtension.m in Sources */,

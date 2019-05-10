@@ -281,7 +281,7 @@
         TYWEAK_SELF;
         _tuiGuangEmptyView.tuiGuangBlcok = ^{
             TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
-//            vc.ID = model.ID;
+            vc.ID = @"2";
             [weakSelf.navigationController pushViewController:vc animated:YES];
         };
     }
