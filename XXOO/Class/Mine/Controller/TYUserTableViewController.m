@@ -13,6 +13,7 @@
 #import "TYDuiHuanViewController.h"
 #import "TYHistoryListViewController.h"
 #import "TYPromotionVIPViewController.h"
+#import "TYSaveCodeViewController.h"
 
 @interface TYUserTableViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
@@ -70,7 +71,9 @@
             break;
         case 103:
         {
-            
+            TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
+            vc.ID = @"2";
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
@@ -186,7 +189,7 @@
             break;
         case 5:
         {
-            
+            [TYGlobal openScheme:self.dataDic[@"joinUrl"]];
         }
             break;
         case 6:
