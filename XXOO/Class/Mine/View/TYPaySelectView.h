@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *kaHaoTopLayout;
 
 @property (nonatomic, copy) NSString * tixianMoney;
-//@property (nonatomic, copy) ALLTiXianBlock tiXianBlock;
+@property (nonatomic, copy) NSString * currentMoney;
 @end
 
 NS_ASSUME_NONNULL_END

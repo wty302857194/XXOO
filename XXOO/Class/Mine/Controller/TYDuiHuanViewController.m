@@ -176,6 +176,7 @@
     TYWEAK_SELF;
     if (indexPath.row == 0) {
         TYDuiHuanFirstTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"TYDuiHuanFirstTableViewCell" owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.cellBackBlock = ^(NSInteger index) {
             if (index == 0) {//购买VIP
                 TYPromotionVIPViewController *vc = [[TYPromotionVIPViewController alloc] init];

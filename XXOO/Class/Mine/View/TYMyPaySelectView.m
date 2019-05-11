@@ -12,23 +12,31 @@
 - (IBAction)cancel:(UIButton *)sender {
     self.hidden = YES;
 }
+- (IBAction)sureClick:(UIButton *)sender {
+    if (self.type == 0) {
+        [MBProgressHUD promptMessage:@" 请选择支付方式" inView:self];
+        return;
+    }
+    if (self.selectBlock) {
+        self.selectBlock(self.type);
+    }
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     [_weiChaView addTarget:self action:@selector(weiXinSelect)];
     [_airPlayView addTarget:self action:@selector(airPlaySelect)];
+    self.type = 0;
 }
 - (void)weiXinSelect {
     _weiChaImg.image = [UIImage imageNamed:@"paySelectImage"];
     _selectImage.image = [UIImage imageNamed:@"selectNomalImage"];
-    if (self.selectBlock) {
-        self.selectBlock(2);
-    }
+    self.type = 2;
+
 }
 - (void)airPlaySelect {
     _weiChaImg.image = [UIImage imageNamed:@"selectNomalImage"];
     _selectImage.image = [UIImage imageNamed:@"paySelectImage"];
-    if (self.selectBlock) {
-        self.selectBlock(1);
-    }
+    self.type = 1;
+    
 }
 @end

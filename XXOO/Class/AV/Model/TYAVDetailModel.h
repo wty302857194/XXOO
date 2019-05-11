@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * vLabel;
 @property (nonatomic, copy) NSString * vNumber;
 @property (nonatomic, copy) NSString * vUrl;
-
+@property (nonatomic, copy) NSString * free;
 @end
 
 NS_ASSUME_NONNULL_END

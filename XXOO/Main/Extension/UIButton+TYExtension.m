@@ -27,10 +27,7 @@ static const char *key = "index";
     return objc_getAssociatedObject(self, key);
 }
 
-//-(void)setMyIndex:(NSString *)myIndex {
-//    objc_setAssociatedObject(self, key, myIndex, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//-(NSString *)myIndex {
-//    return objc_getAssociatedObject(self, key);
-//}
+-(void)setHighlighted:(BOOL)highlighted {
+    
+}
 @end

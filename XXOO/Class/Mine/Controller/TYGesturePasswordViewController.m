@@ -26,23 +26,37 @@
 //    self.title = @"设置手势密码";
     self.edgesForExtendedLayout =  UIRectEdgeAll;
 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Home_refresh_bg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gesture_backImage"]];
     self.bntview.delegate = self;
     
     _firstPassword = @"";
     _secondPassword = @"";
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    // 导航栏透明
-    [self.navigationController.navigationBar setTranslucent:true];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    //处理导航栏有条线的问题
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    TYBaseNavigationController *rootViewController1 = (TYBaseNavigationController *)appdelegate.window.rootViewController;
+    if ([rootViewController1.viewControllers[0] isEqual:self]) {
+        
+    }else {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"重设" style:UIBarButtonItemStylePlain target:self action:@selector(settingPassward)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
 }
-
+- (void)settingPassward {
+    _firstPassword = @"";
+    _secondPassword = @"";
+    self.imageview.image = nil;
+}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    // 导航栏透明
+//    [self.navigationController.navigationBar setTranslucent:true];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    //处理导航栏有条线的问题
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//    
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//}
+//
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     // 导航栏不透明

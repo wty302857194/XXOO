@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/AV/View/TYAVDetailCollectionViewCell.h"
-            timestampString = "579155098.9547189"
+            timestampString = "579247636.187054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/Mine/View/TYPaySelectView.m"
-            timestampString = "578939604.989079"
+            filePath = "XXOO/Class/Mine/Controller/TYDuiHuanViewController.m"
+            timestampString = "579247636.187134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-userWithdrawRequestData"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-back"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/Mine/Controller/TYDuiHuanViewController.m"
-            timestampString = "579155098.955005"
+            filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
+            timestampString = "579247636.187194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-back"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-saveCode:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
+            timestampString = "579247636.187246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-image:didFinishSavingWithError:contextInfo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XXOO/Class/Mine/View/TYPaySelectView.m"
+            timestampString = "579247636.187297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-allTiXian:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XXOO/Class/Mine/Controller/TYChangePasswordViewController.m"
+            timestampString = "579247636.187378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-updatePwdRequestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

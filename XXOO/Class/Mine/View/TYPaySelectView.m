@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString * userName;
 @property (nonatomic, copy) NSString * bankName;
 @property (nonatomic, copy) NSString * kaHao;
+@property (nonatomic, copy) NSString * zhifuKaHao;
 @end
 @implementation TYPaySelectView
 - (IBAction)payState:(UIButton *)sender {
@@ -29,18 +30,21 @@
         self.leftTitleLab.text = @"支付宝账号";
         self.kaHaoTF.placeholder = @"请输入支付宝账号";
         self.type = @"1";
+        self.kaHaoTF.text = self.zhifuKaHao;
     }else {
         self.bankNameView.hidden = NO;
         self.kaHaoTopLayout.constant = 65;
         self.leftTitleLab.text = @"银行卡号";
         self.kaHaoTF.placeholder = @"请输入银行卡号";
-         self.type = @"2";
+        self.kaHaoTF.text = self.kaHao;
+        self.type = @"2";
     }
     
     _selectBtn = sender;
 }
 - (IBAction)allTiXian:(UIButton *)sender {
-    self.currentMoneyTF.text = [NSString stringWithFormat:@"%@",self.tixianMoney];
+    self.currentMoneyTF.text = [NSString stringWithFormat:@"%@",self.currentMoney];
+    self.tixianMoney = self.currentMoney;
 }
 - (IBAction)sureTiXian:(UIButton *)sender {
     [self userWithdrawRequestData];
@@ -54,7 +58,7 @@
         _bankName = sender.text;
     }else if(sender == _kaHaoTF) {
         if ([self.type isEqualToString:@"1"]) {
-            _kaHao = sender.text;
+            _zhifuKaHao = sender.text;
         }else {
             _kaHao = sender.text;
         }
@@ -62,30 +66,12 @@
     }
 }
 
-//- (IBAction)changeTF:(UITextField *)sender {
-//    if (sender == _currentMoneyTF) {
-//        self.tixianMoney = sender.text;
-//    }else if(sender == _userNameTF) {
-//        _userName = sender.text;
-//    }else if(sender == _bankNameTF) {
-//        _bankName = sender.text;
-//    }else if(sender == _kaHaoTF) {
-//        if ([self.type isEqualToString:@"1"]) {
-//            _kaHao = sender.text;
-//        }else {
-//            _kaHao = sender.text;
-//        }
-//        
-//    }
-//    
-//}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     _selectBtn = _bankBtn;
     self.type = @"2";
-    if (self.tixianMoney.length>0) {
-        self.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.tixianMoney];
+    if (self.currentMoney.length>0) {
+        self.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.currentMoney];
     }
     [self.backView addTarget:self action:@selector(cancelView)];
 }
@@ -115,7 +101,7 @@
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
                            @"type":self.type?:@"",
-                           @"account":self.kaHao?:@"",
+                           @"account":[self.type isEqualToString:@"1"]?self.zhifuKaHao:(self.kaHao?:@""),
                            @"payee":self.userName?:@"",
                            @"bankName":self.bankName?:@"",
                            @"money":self.tixianMoney?:@""

@@ -21,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)openScheme:(NSString *)scheme;
 // 用户 手势密码
 + (NSString *)gesturePassword;
-// 用户 手势密码
+// 是否打开手势密码开关
++ (BOOL )gestureIsOpen;
+// 用户 邮箱
 + (NSString *)userEmail;
 
 //判断邮箱格式是否正确的代码：

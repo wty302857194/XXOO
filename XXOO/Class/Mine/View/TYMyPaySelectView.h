@@ -17,6 +17,8 @@ typedef void(^SelectBlock)(NSInteger index);
 @property (weak, nonatomic) IBOutlet UIImageView *selectImage;
 @property (weak, nonatomic) IBOutlet UIImageView *weiChaImg;
 @property (nonatomic, copy) SelectBlock selectBlock;
+
+@property (nonatomic, assign) NSInteger type;
 @end
 
 NS_ASSUME_NONNULL_END

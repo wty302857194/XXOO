@@ -741,7 +741,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                                                 <connections>
-                                                    <action selector="passwordTF:" destination="dBt-PA-awX" eventType="editingDidEnd" id="Jtz-23-fb1"/>
+                                                    <action selector="passwordTF:" destination="dBt-PA-awX" eventType="editingChanged" id="Huu-BE-ndu"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbQ-x3-JuL">
@@ -789,7 +789,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                                                 <connections>
-                                                    <action selector="passwordTF:" destination="dBt-PA-awX" eventType="editingDidEnd" id="HWM-vn-dar"/>
+                                                    <action selector="passwordTF:" destination="dBt-PA-awX" eventType="editingChanged" id="kXd-yO-nYt"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiN-BV-uHG">

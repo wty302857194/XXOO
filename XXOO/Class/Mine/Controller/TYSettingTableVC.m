@@ -110,7 +110,7 @@
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
             TYChangePasswordViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYChangePasswordViewController"];
             
-            [self.navigationController pushVC:vc animated:YES];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3://手势密码

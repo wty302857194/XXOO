@@ -7,9 +7,13 @@
 //
 
 #import "ZSBntview.h"
+
+#define GestureLineColor hexColor(b447fb)
 @interface ZSBntview()
+
 @property(nonatomic)NSMutableArray *bntarry;
 @property(nonatomic)CGPoint currpoint;
+
 @end
 @implementation ZSBntview
 
@@ -25,9 +29,9 @@
     for (NSInteger i=0; i < 9; i++) {
         UIButton *button = [[UIButton alloc]init];
         //设置按钮默认图片
-        [button setBackgroundImage:[UIImage imageNamed:@"gesture_node_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"gesture_normal_image"] forState:UIControlStateNormal];
         //设置按钮选中图片
-        [button setBackgroundImage:[UIImage imageNamed:@"gesture_node_highlighted"] forState:UIControlStateSelected];
+        [button setBackgroundImage:[UIImage imageNamed:@"gesture_select_image"] forState:UIControlStateSelected];
         //禁止交互
         button.userInteractionEnabled = NO;
         //给按钮一个 tag
@@ -134,7 +138,7 @@
     //设置线宽
     path.lineWidth = 5;
     //设置颜色
-    [[UIColor yellowColor]set];
+    [GestureLineColor set];
     //设置其实处样式
     path.lineCapStyle = kCGLineCapRound;
     //设置交点样式

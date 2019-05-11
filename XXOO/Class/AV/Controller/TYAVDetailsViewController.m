@@ -102,16 +102,18 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     
     TYWeakSelf(self);
     [weakself.player setPlayTimeDidChangeExeBlok:^(__kindof SJBaseVideoPlayer * _Nonnull videoPlayer) {
-        NSTimeInterval time = videoPlayer.currentTime;
-        NSLog(@"%f",time);
-        if (weakself.detailModel.limitTime == true) {
-            if (time>[weakself.detailModel.times floatValue]) {
-                [weakself.player pause];                weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
-
-                [weakself.player.switcher addControlLayerForIdentifier:myLayer lazyLoading:^id<SJControlLayer> _Nonnull(SJControlLayerIdentifier identifier) {
-                    return weakself.overView;
-                }];
-                [weakself.player.switcher switchControlLayerForIdentitfier:myLayer];
+        
+        if ([weakself.detailModel.free isEqualToString:@"1"]) {
+            NSTimeInterval time = videoPlayer.currentTime;
+            if (weakself.detailModel.limitTime == YES) {
+                if (time>[weakself.detailModel.times floatValue]) {
+                    [weakself.player pause];                weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
+                    
+                    [weakself.player.switcher addControlLayerForIdentifier:myLayer lazyLoading:^id<SJControlLayer> _Nonnull(SJControlLayerIdentifier identifier) {
+                        return weakself.overView;
+                    }];
+                    [weakself.player.switcher switchControlLayerForIdentitfier:myLayer];
+                }
             }
         }
     }];

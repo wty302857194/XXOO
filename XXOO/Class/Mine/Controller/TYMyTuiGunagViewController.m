@@ -241,7 +241,7 @@
         _tuiGuangView = [[[NSBundle mainBundle] loadNibNamed:@"TYTuiGuangView" owner:nil options:nil] lastObject];
         TYWEAK_SELF;
         _tuiGuangView.tiXianBlock = ^{
-            weakSelf.paySelectView.tixianMoney = [NSString stringWithFormat:@"%@",weakSelf.tuiGuangView.dataDic[@"withdrawMoney"]];
+            weakSelf.paySelectView.currentMoney = [NSString stringWithFormat:@"%@",weakSelf.tuiGuangView.dataDic[@"withdrawMoney"]];
             weakSelf.paySelectView.hidden = NO;
 
         };

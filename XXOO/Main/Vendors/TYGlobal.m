@@ -44,6 +44,10 @@
         return @"";
     }
 }
++ (BOOL )gestureIsOpen {
+    BOOL isOpen = [USER_DEFAULTS boolForKey:GESTURE_OPIN];
+    return isOpen;
+}
 // 用户 手势密码
 + (NSString *)userEmail {
     NSString *str = [USER_DEFAULTS objectForKey:USER_EMAIL];

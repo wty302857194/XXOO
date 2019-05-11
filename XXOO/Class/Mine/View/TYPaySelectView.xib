@@ -97,7 +97,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="lZ2-s2-TLR"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingChanged" id="ihH-ZX-njy"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -129,7 +129,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="kar-uc-4q3"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingChanged" id="pb9-4e-yy8"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -161,7 +161,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     <connections>
-                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingDidEnd" id="rRC-Sa-89f"/>
+                                        <action selector="editingChange:" destination="iN0-l3-epB" eventType="editingChanged" id="LzH-AP-Aot"/>
                                     </connections>
                                 </textField>
                             </subviews>

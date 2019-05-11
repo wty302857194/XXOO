@@ -24,7 +24,7 @@
     [OpenInstallSDK initWithDelegate:self];
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
-    if ([TYGlobal gesturePassword].length>0) {
+    if ([TYGlobal gesturePassword].length>0&&[TYGlobal gestureIsOpen]) {
         [self rootPasswordVC];
     }else {
         [self rootVC];

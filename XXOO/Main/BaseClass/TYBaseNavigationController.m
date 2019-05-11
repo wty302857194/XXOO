@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.translucent = NO;
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
