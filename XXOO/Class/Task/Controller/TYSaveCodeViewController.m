@@ -59,7 +59,14 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/saveQr" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD promptMessage:msg inView:self.view];
+        if(success&&data) {
+            if (self.saveSuccessBlock) {
+                self.saveSuccessBlock();
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         

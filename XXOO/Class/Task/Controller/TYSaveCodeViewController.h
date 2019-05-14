@@ -9,9 +9,10 @@
 #import "TYBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^SaveSuccessBlock)(void);
 @interface TYSaveCodeViewController : TYBaseViewController
 @property (nonatomic, copy) NSString * ID;
+@property (nonatomic, copy) SaveSuccessBlock saveSuccessBlock;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -42,7 +42,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-nu-cTx">
-                    <rect key="frame" x="39" y="216" width="93.5" height="59"/>
+                    <rect key="frame" x="45.5" y="216" width="93.5" height="59"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计推广(人)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd3-QS-eWd">
                             <rect key="frame" x="0.0" y="0.0" width="93.5" height="19.5"/>
@@ -51,7 +51,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcd-Ia-8Ah">
-                            <rect key="frame" x="41" y="19.5" width="11" height="21.5"/>
+                            <rect key="frame" x="41.5" y="19.5" width="11" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JUB-RK-AGW">
-                    <rect key="frame" x="306" y="216" width="93.5" height="59"/>
+                    <rect key="frame" x="299" y="216" width="93.5" height="59"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计充值(元)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBx-J1-Ptd">
                             <rect key="frame" x="0.0" y="0.0" width="93.5" height="19.5"/>
@@ -80,7 +80,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日0.00元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="984-59-N8D">
-                            <rect key="frame" x="8" y="41" width="77" height="18"/>
+                            <rect key="frame" x="8.5" y="41" width="77" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -183,7 +183,7 @@
                 <constraint firstAttribute="trailing" secondItem="6cD-rq-eiy" secondAttribute="trailing" id="78k-KU-nOO"/>
                 <constraint firstItem="ifv-L5-u7G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="An9-XK-fG9"/>
                 <constraint firstItem="0aY-Go-AtE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="E6o-0J-uPu"/>
-                <constraint firstItem="YQR-nu-cTx" firstAttribute="trailing" secondItem="0aY-Go-AtE" secondAttribute="leading" constant="-40" id="G7g-K5-Koi"/>
+                <constraint firstItem="YQR-nu-cTx" firstAttribute="trailing" secondItem="0aY-Go-AtE" secondAttribute="centerX" constant="-80" id="G7g-K5-Koi"/>
                 <constraint firstItem="rZ4-Hy-XuP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GVc-8e-oAW"/>
                 <constraint firstItem="6cD-rq-eiy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HD6-6k-UO9"/>
                 <constraint firstAttribute="trailing" secondItem="rZ4-Hy-XuP" secondAttribute="trailing" id="I0Y-4T-zyx"/>
@@ -196,7 +196,7 @@
                 <constraint firstAttribute="bottom" secondItem="rZ4-Hy-XuP" secondAttribute="bottom" id="Zok-S9-iFZ"/>
                 <constraint firstItem="PaD-Sa-pLn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ccU-nH-SlE"/>
                 <constraint firstAttribute="trailing" secondItem="ifv-L5-u7G" secondAttribute="trailing" id="oJr-j1-plL"/>
-                <constraint firstItem="JUB-RK-AGW" firstAttribute="leading" secondItem="0aY-Go-AtE" secondAttribute="trailing" constant="40" id="pKM-0h-PnX"/>
+                <constraint firstItem="JUB-RK-AGW" firstAttribute="leading" secondItem="0aY-Go-AtE" secondAttribute="centerX" constant="80" id="pKM-0h-PnX"/>
                 <constraint firstItem="0aY-Go-AtE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tsX-Ch-ke2"/>
                 <constraint firstItem="ifv-L5-u7G" firstAttribute="top" secondItem="PaD-Sa-pLn" secondAttribute="bottom" id="wFf-QX-ZcS"/>
             </constraints>

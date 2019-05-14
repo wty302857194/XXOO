@@ -140,6 +140,9 @@
             }else if ([model.ID isEqualToString:@"2"]) {//二维码
                 TYSaveCodeViewController *vc = [[TYSaveCodeViewController alloc] init];
                 vc.ID = model.ID;
+                vc.saveSuccessBlock = ^{
+                    [weakSelf getTaskListRequestData];
+                };
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if ([model.ID isEqualToString:@"3"]) {//加群
                 [TYGlobal openScheme:model.adUrl];

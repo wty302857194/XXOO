@@ -70,15 +70,20 @@
     [super awakeFromNib];
     _selectBtn = _bankBtn;
     self.type = @"2";
-    if (self.currentMoney.length>0) {
-        self.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.currentMoney];
-    }
+//    if (self.currentMoney.length>0) {
+//        self.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.currentMoney];
+//    }
     [self.backView addTarget:self action:@selector(cancelView)];
 }
 - (void)cancelView {
     self.hidden = YES;
 }
-
+- (void)setCurrentMoney:(NSString *)currentMoney {
+    _currentMoney = currentMoney;
+    if (currentMoney.length>0) {
+        self.allManeyLab.text = [NSString stringWithFormat:@"可提现金额：%@",self.currentMoney];
+    }
+}
 //  /userWithdraw/api/userWithdraw
 - (void)userWithdrawRequestData {
     if (self.tixianMoney.length==0) {
@@ -89,14 +94,27 @@
         [MBProgressHUD promptMessage:@"请填写收款人姓名" inView:self];
         return;
     }
-    if (self.bankName.length==0) {
-        [MBProgressHUD promptMessage:@"请填写银行名称" inView:self];
-        return;
+    if ([self.type isEqualToString:@"2"]) {
+        if (self.bankName.length==0) {
+            [MBProgressHUD promptMessage:@"请填写银行名称" inView:self];
+            return;
+        }
+        if (self.kaHao.length==0) {
+            [MBProgressHUD promptMessage:@"请填写银行卡号" inView:self];
+            return;
+        }
+        if (![TYGlobal isBankCardNumber:self.kaHao]) {
+            [MBProgressHUD promptMessage:@"银行卡号不正确" inView:self];
+            return;
+        }
+    }else {
+        if (self.zhifuKaHao.length == 0) {
+            [MBProgressHUD promptMessage:@"请填写支付宝账号" inView:self];
+            return;
+        }
     }
-    if (self.kaHao.length==0) {
-        [MBProgressHUD promptMessage:[self.type isEqualToString:@"1"]?@"请填写支付宝账号":@"请填写银行卡号" inView:self];
-        return;
-    }
+    
+    
     
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
@@ -110,8 +128,14 @@
 
     [TYNetWorkTool postRequest:@"/userWithdraw/api/userWithdraw" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self animated:YES];
-    
-        [MBProgressHUD promptMessage:msg inView:self];
+        if(success&&data) {
+            self.hidden = YES;
+            if (self.tiXianBlock) {
+                self.tiXianBlock();
+            }
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self];
+        }
 
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self animated:YES];

@@ -59,6 +59,12 @@
         weakSelf.isFresh = YES;
         [weakSelf spreadUserRequestData];
     }];
+    
+    [TYRefershClass refreshWithHeader:self.tableView refreshingBlock:^{
+        weakSelf.page = 1;
+        weakSelf.isFresh = NO;
+        [weakSelf spreadRequestData];
+    }];
 }
 - (void)helpClick {
     
@@ -105,19 +111,19 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/user/api/spread" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [self.tableView.mj_header endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             weakSelf.tuiGuangView.dataDic = [NSDictionary dictionaryWithDictionary:data];
             
-            weakSelf.tableView.tableHeaderView = weakSelf.tuiGuangView;
-            weakSelf.tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
+            
             [weakSelf spreadUserRequestData];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 //  /user/api/spreadUser
@@ -221,6 +227,8 @@
         _tableView.backgroundColor = hexColor(f0eef5);
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableHeaderView = self.tuiGuangView;
+        _tableView.tableHeaderView.autoresizingMask = UIViewAutoresizingNone;
         [self.view addSubview:_tableView];
         // 同时也要设置tableView的顶部约束
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -259,6 +267,10 @@
 - (TYPaySelectView *)paySelectView {
     if (!_paySelectView) {
         _paySelectView = [[[NSBundle mainBundle] loadNibNamed:@"TYPaySelectView" owner:nil options:nil] lastObject];
+        TYWEAK_SELF;
+        _paySelectView.tiXianBlock = ^{
+            [weakSelf spreadRequestData];
+        };
         [self.view addSubview:_paySelectView];
         
         [_paySelectView mas_makeConstraints:^(MASConstraintMaker *make) {
