@@ -184,7 +184,7 @@
 }
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(collectionWidth, collectionWidth*(540/328.f));
+    return CGSizeMake(collectionWidth, collectionWidth*(550/320.f));
     
 }
 //定义每个UICollectionView 的间距
