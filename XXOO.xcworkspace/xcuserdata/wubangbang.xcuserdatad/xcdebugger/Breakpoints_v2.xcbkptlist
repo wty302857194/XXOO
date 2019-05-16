@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/AV/Controller/TYAVHomeViewController.m"
-            timestampString = "579670921.6700391"
+            filePath = "XXOO/Class/AV/Controller/TYAVDetailsViewController.m"
+            timestampString = "579674317.926761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "-advertView"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-getVideoListRequestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

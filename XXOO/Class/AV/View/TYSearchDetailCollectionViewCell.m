@@ -26,6 +26,10 @@
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
     self.timeLab.text = itemModel.timeLong;
     self.contentLab.text = itemModel.title;
-    
+    if ([itemModel.cstate isEqualToString:@"0"]) {
+        [self.collectionBtn setImage:[UIImage imageNamed:@"home_add"] forState:UIControlStateNormal];
+    }else {
+        [self.collectionBtn setImage:[UIImage imageNamed:@"shoucang_image"] forState:UIControlStateNormal];
+    }
 }
 @end

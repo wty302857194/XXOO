@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="99" height="175"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IPo-7i-2qQ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IPo-7i-2qQ">
                         <rect key="frame" x="0.0" y="0.0" width="99" height="140"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="IPo-7i-2qQ" secondAttribute="height" multiplier="330:467" id="6cR-xu-RzR"/>
@@ -37,9 +37,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mq-rn-RVT">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mq-rn-RVT">
                         <rect key="frame" x="60" y="0.0" width="39" height="39"/>
-                        <state key="normal" backgroundImage="home_add"/>
+                        <state key="normal" image="home_add"/>
                         <connections>
                             <action selector="collectionClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5nu-AW-PAK"/>
                         </connections>

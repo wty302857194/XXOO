@@ -69,7 +69,7 @@
         [weakSelf getVideoListRequestData];
     }];
     
-    [self getAVADRequestData];
+    
 }
 
 - (void)headerRefreshRequest:(NSString *)vClass {
@@ -78,12 +78,17 @@
     self.page = 1;
     self.isFresh = NO;
     [self getVideoListRequestData];
+    [self getAVADRequestData];
 }
 // 首页广告
 - (void)getAVADRequestData {
+    NSDictionary * dic = @{
+                           
+                           @"vClass":self.vClass?:@""
+                           };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [TYNetWorkTool postRequest:@"/sysAd/api/getHomeAdList" parameters:@{@"vClass":self.vClass?:@""} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysAd/api/getHomeAdList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
             NSArray *arr = [TYHomeADListModel mj_objectArrayWithKeyValuesArray:data];
@@ -102,6 +107,7 @@
 //初始化接口
 - (void)getVideoListRequestData {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"orderBy":@"",
                            @"vCode":@"",
                            @"vClass":self.vClass?:@"",

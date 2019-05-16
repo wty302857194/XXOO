@@ -34,8 +34,8 @@
     self.navigationItem.title = @"搜索结果";
     self.dataArr = [NSMutableArray arrayWithCapacity:0];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYSearchDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYSearchDetailCollectionViewCell"];
-
-//    [self headerRefreshRequest];
+    
+    //    [self headerRefreshRequest];
     
     TYWEAK_SELF;
     [TYRefershClass refreshCollectionWithHeader:self.collectionView refreshingBlock:^{
@@ -64,6 +64,7 @@
 }
 - (void)labelSearchRequestData {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"orderBy":@"",
                            @"vCode":@"",
                            @"vClass":@"",
@@ -169,9 +170,14 @@
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYHomeItemModel *model = self.dataArr[indexPath.row];
         cell.itemModel = model;
+        
         TYWEAK_SELF;
-        cell.itemShouCangBlock = ^{
-            [weakSelf shouCangRequestData:model];
+        cell.itemShouCangBlock = ^() {
+            if ([model.cstate isEqualToString:@"0"]) {
+                [weakSelf shouCangRequestData:model];
+            }else {
+                [weakSelf cancelShouCangRequestData:model];
+            }
         };
     }
     return cell;
@@ -210,7 +216,30 @@
     
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD promptMessage:msg inView:self.view];
+        if (success&&data) {
+            [self labelSearchRequestData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//收藏请求
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":model.ID,
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self labelSearchRequestData];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         

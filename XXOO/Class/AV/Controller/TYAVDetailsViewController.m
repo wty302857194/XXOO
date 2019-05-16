@@ -136,6 +136,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 //初始化接口
 - (void)getVideoListRequestData {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"orderBy":@"",
                            @"vCode":@"",
                            @"vClass":@"",

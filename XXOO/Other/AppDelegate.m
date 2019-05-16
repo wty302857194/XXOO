@@ -10,7 +10,6 @@
 #import "TYBaseTabBarViewController.h"
 #import "OpenInstallSDK.h"
 #import "TYGesturePasswordViewController.h"
-#import "LLFullScreenAdView.h"
 #import "XHLaunchAd.h"
 
 @interface AppDelegate ()<OpenInstallDelegate>
