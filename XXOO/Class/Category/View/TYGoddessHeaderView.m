@@ -32,6 +32,7 @@
     _dataDic = dataDic;
     
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:dataDic[@"avatar"]] placeholderImage:PLACEHOLEDERIMAGE];
+    self.nameLab.text = [NSString stringWithFormat:@"%@",dataDic[@"name"]];
 //    self.imgView.image = [UIImage circleImageWithImage:self.imgView.image borderWidth:1 borderColor:main_select_text_color];
     self.dateLab.text = [NSString stringWithFormat:@"出生日期：%@",dataDic[@"birthDay"]];
     self.heightLab.text = [NSString stringWithFormat:@"身高：%@",dataDic[@"height"]];

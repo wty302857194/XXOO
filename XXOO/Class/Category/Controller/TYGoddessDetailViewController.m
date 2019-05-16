@@ -36,6 +36,11 @@
         [weakSelf getVideoListRequestData:weakSelf.title];
     }];
 }
+- (void)headerRefreshRequest {
+    self.page = 1;
+    self.isFresh = NO;
+    [self getVideoListRequestData:self.title];
+}
 /*
  
  {
@@ -69,7 +74,7 @@
         if (success&&data) {
             weakSelf.title = data[@"name"]?:@"";
             [weakSelf addTableHeaderView:data];
-            [weakSelf getVideoListRequestData:data[@"name"]?:@""];
+            [weakSelf headerRefreshRequest];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -94,7 +99,6 @@
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/video/api/getVideoList" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if (success&&data) {
             weakSelf.homeModel = [TYHomeModel mj_objectWithKeyValues:data];
@@ -138,7 +142,31 @@
     
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD promptMessage:msg inView:self.view];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+        
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
+                           @"id":model.ID
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -175,7 +203,11 @@
         cell.itemModel = model;
         TYWEAK_SELF;
         cell.itemShouCangBlock = ^() {
-            [weakSelf shouCangRequestData:model];
+            if ([model.cstate isEqualToString:@"0"]) {
+                [weakSelf shouCangRequestData:model];
+            }else {
+                [weakSelf cancelShouCangRequestData:model];
+            }
         };
     }
     
@@ -188,7 +220,7 @@
     TYHomeItemModel *model = self.dataArr[indexPath.row];
     TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
     vc.avID = model.ID;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushVC:vc animated:YES];
     
 }
 

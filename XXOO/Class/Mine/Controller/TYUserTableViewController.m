@@ -166,11 +166,11 @@
     self.myJiFen_lab.text = [NSString stringWithFormat:@"%@",self.dataDic[@"score"]];
     NSString *level = [NSString stringWithFormat:@"%@",self.dataDic[@"level"]];
     if ([level isEqualToString:@"1"]) {
-        self.buyVIPBtn.hidden = NO;
+//        self.buyVIPBtn.hidden = NO;
         self.vipLogoImg.image = [UIImage imageNamed:@"ming_vip_img"];
         self.timeLab.text = @"";
     }else {
-        self.buyVIPBtn.hidden = YES;
+//        self.buyVIPBtn.hidden = YES;
         self.vipLogoImg.image = [UIImage imageNamed:@"mineVIPImg"];
         self.timeLab.text = [NSString stringWithFormat:@"%@到期",self.dataDic[@"membershipEndTime"]?:@""];
     }

@@ -33,10 +33,24 @@
         UIGraphicsEndImageContext();
         [self loadImageFinished:image];
     }else {
-        [TYGlobal openScheme:self.share_url?:@""];
+        [self shareWithActivityItems: @[self.share_url?:@""]];
     }
 }
-
+- (void)shareWithActivityItems:(NSArray *)activityItems
+{
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+    // 根据需要指定不需要分享的平台
+    activityVC.excludedActivityTypes = @[UIActivityTypeMail,UIActivityTypePostToTwitter,UIActivityTypeMessage,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    // >=iOS8.0系统用这个方法
+    activityVC.completionWithItemsHandler = ^(NSString *activityType,BOOL completed,NSArray *returnedItems,NSError *activityError)
+    {
+        if (completed) { // 确定分享
+        }
+        else {
+        }
+    };
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading t
@@ -82,7 +96,8 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(success&&data) {
             self.myInvitationLab.text = data[@"code"]?:@"";
-            self.codeImage.image = [self drawImageWithString:data[@"QR"]?:@"" withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
+//            self.codeImage.image = [self drawImageWithString:data[@"QR"]?:@"" withImage:[UIImage imageNamed:@""] withRQ:214 withLogo:0];
+            [self.codeImage sd_setImageWithURL:[NSURL URLWithString:data[@"QR"]?:@""] placeholderImage:PLACEHOLEDERIMAGE];
             self.share_url = [NSString stringWithFormat:@"%@",data[@"url"]];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];

@@ -229,6 +229,7 @@
 //收藏请求
 - (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"id":model.ID,
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

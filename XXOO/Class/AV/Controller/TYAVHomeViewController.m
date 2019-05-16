@@ -33,7 +33,6 @@
 @property (nonatomic, assign) BOOL isFresh;//是否加载
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) TYHomeModel * homeModel;
-@property (nonatomic, copy) NSString * vClass;
 @property (nonatomic, strong) UILabel *header_lab;
 @property (nonatomic, strong) UIImageView *header_imgView;
 @property (nonatomic, strong) NSDictionary * adDic;
@@ -61,7 +60,7 @@
     
     TYWEAK_SELF;
     [TYRefershClass refreshWithHeader:self.tableView refreshingBlock:^{
-        [weakSelf headerRefreshRequest:weakSelf.vClass];
+        [weakSelf headerRefreshRequest];
     }];
     [TYRefershClass refreshWithFooter:self.tableView refreshingBlock:^{
         weakSelf.page ++;
@@ -72,9 +71,8 @@
     
 }
 
-- (void)headerRefreshRequest:(NSString *)vClass {
+- (void)headerRefreshRequest {
     [self.dataArr removeAllObjects];
-    self.vClass = vClass;
     self.page = 1;
     self.isFresh = NO;
     [self getVideoListRequestData];
@@ -257,7 +255,7 @@
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self headerRefreshRequest:self.vClass];
+            [self headerRefreshRequest];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -269,14 +267,15 @@
 //收藏请求
 - (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{
-                           @"id":model.ID,
+                           @"uid":[TYGlobal userId],
+                           @"id":model.ID
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self headerRefreshRequest:self.vClass];
+            [self headerRefreshRequest];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }

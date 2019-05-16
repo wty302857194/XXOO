@@ -26,7 +26,7 @@
     if (indexPath.row == 0||indexPath.row == 1||indexPath.row == 2) {
         self.rankLab.backgroundColor = indexPath.row == 0?hexColor(da374c):(indexPath.row == 2?hexColor(e76d48):hexColor(e76d48));
         self.rankLab.hidden = NO;
-        self.rankLab.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        self.rankLab.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+1];
         
     }else {
         self.rankLab.hidden = YES;

@@ -55,9 +55,9 @@ static NSInteger const btnWidth = 90;
             
             [self setUI];
             
-            TYAVLableModel *model =  self.titleArr[0];
-            TYAVHomeViewController *currentVC = (TYAVHomeViewController *)self.listVCQueue[@(0)];
-            [currentVC headerRefreshRequest:model.name];
+//            TYAVLableModel *model =  self.titleArr[0];
+//            TYAVHomeViewController *currentVC = (TYAVHomeViewController *)self.listVCQueue[@(0)];
+//            [currentVC headerRefreshRequest:model.name];
 
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
@@ -186,8 +186,10 @@ static NSInteger const btnWidth = 90;
     if (![_listVCQueue objectForKey:@(index)]) {
         TYAVHomeViewController *contentVC = [[TYAVHomeViewController alloc] init];
         [self addChildViewController:contentVC];
+        TYAVLableModel *model =  self.titleArr[index];
+        contentVC.vClass = model.name;
 
-         contentVC.view.frame = CGRectMake(KSCREEN_WIDTH*index, 0, self.scrollView.width, self.scrollView.height);
+        contentVC.view.frame = CGRectMake(KSCREEN_WIDTH*index, 0, self.scrollView.width, self.scrollView.height);
         [self.scrollView addSubview:contentVC.view];
         
         [_listVCQueue setObject:contentVC forKey:@(index)];

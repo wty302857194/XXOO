@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYAVHomeViewController : TYBaseViewController
 
+@property (nonatomic, copy) NSString * vClass;
+
 //首页初始化
-- (void)headerRefreshRequest:(NSString *)vClass;
+- (void)headerRefreshRequest;
 
 @end
 

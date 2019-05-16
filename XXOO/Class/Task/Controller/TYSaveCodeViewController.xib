@@ -75,7 +75,7 @@
                         <constraint firstAttribute="height" constant="43" id="x4C-Vt-Szu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="保存推广链接" backgroundImage="task_Code_btnBackImg">
+                    <state key="normal" title="分享链接" backgroundImage="task_Code_btnBackImg">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
