@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
-            timestampString = "579603990.008931"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-saveCode:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
-            timestampString = "579603990.009084"
+            timestampString = "579676428.970014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "-loadImageFinished:"
+            landmarkName = "-image:didFinishSavingWithError:contextInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XXOO/Class/AV/Controller/TYAVDetailsViewController.m"
-            timestampString = "579674317.926761"
+            filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
+            timestampString = "579676428.970788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-getVideoListRequestData"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-saveCode:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

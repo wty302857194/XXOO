@@ -125,6 +125,7 @@
 //初始化接口
 - (void)getVideoListRequestData {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"orderBy":self.orderBy,
                            @"vCode":self.vCode,
                            @"vClass":self.vClass,

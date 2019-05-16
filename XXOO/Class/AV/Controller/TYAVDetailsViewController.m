@@ -45,7 +45,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.dataArr = [NSMutableArray arrayWithCapacity:0];
-    
+    self.page = 1;
     _player = [SJVideoPlayer player];
     _player.pausedToKeepAppearState = YES;
     [self.view addSubview:_player.view];

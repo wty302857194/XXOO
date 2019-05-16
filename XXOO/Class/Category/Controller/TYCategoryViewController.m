@@ -7,7 +7,7 @@
 //
 
 #import "TYCategoryViewController.h"
-#import "TYLongVideoViewController.h"
+#import "TYAVCategoryViewController.h"
 #import "TYGoddessViewController.h"
 #import "TYVideoLableViewController.h"
 //#import <SJScrollEntriesView/SJScrollEntriesView.h>
@@ -165,7 +165,7 @@ static NSInteger const jianGe = 0;//间隔距离
         
          UIViewController *contentVC = nil;
         if (index == 0) {
-            contentVC = [TYLongVideoViewController new];
+            contentVC = [TYAVCategoryViewController new];
         }else if (index == 1) {
             contentVC = [TYGoddessViewController new];
         }else if (index == 2) {
@@ -182,7 +182,7 @@ static NSInteger const jianGe = 0;//间隔距离
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"长片分类",@"女优列表",@"影片标签"];
+        _titleArr = @[@"AV分类",@"女优列表",@"影片标签"];
     }
     return _titleArr;
 }
