@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TYHomeItemModel : TYBaseModel
 
+@property (nonatomic, copy) NSString * cstate; //是否收藏（0否1是）
 @property (nonatomic, copy) NSString * click;
 @property (nonatomic, copy) NSString * content;
 @property (nonatomic, copy) NSString * cover;

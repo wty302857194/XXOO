@@ -75,12 +75,14 @@
                                                             </connections>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ming_vip_img" translatesAutoresizingMaskIntoConstraints="NO" id="ptK-2L-8eh">
-                                                            <rect key="frame" x="80" y="96" width="40" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="l6c-89-9La"/>
-                                                                <constraint firstAttribute="height" constant="20" id="u3T-gz-3MF"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="80" y="96" width="16" height="16"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DD4-qF-6x0">
+                                                            <rect key="frame" x="128" y="95" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -92,12 +94,14 @@
                                                         <constraint firstItem="mLZ-pS-CTf" firstAttribute="centerY" secondItem="6tt-Nr-sDh" secondAttribute="centerY" id="YGJ-sn-1ez"/>
                                                         <constraint firstItem="42S-Ob-nwR" firstAttribute="top" secondItem="6tt-Nr-sDh" secondAttribute="top" id="ZSd-6p-Tqk"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZYc-DF-zHC" secondAttribute="trailing" id="Zgq-z9-hbh"/>
+                                                        <constraint firstItem="DD4-qF-6x0" firstAttribute="centerY" secondItem="ptK-2L-8eh" secondAttribute="centerY" id="ZhT-re-47T"/>
                                                         <constraint firstItem="42S-Ob-nwR" firstAttribute="leading" secondItem="6tt-Nr-sDh" secondAttribute="trailing" constant="10" id="Zt4-aM-PWf"/>
                                                         <constraint firstItem="ZYc-DF-zHC" firstAttribute="leading" secondItem="j6M-rs-5SU" secondAttribute="leading" id="dec-ir-vfD"/>
                                                         <constraint firstAttribute="trailing" secondItem="gH0-sa-HYO" secondAttribute="trailing" constant="30" id="eQs-fB-qLL"/>
                                                         <constraint firstItem="6tt-Nr-sDh" firstAttribute="leading" secondItem="j6M-rs-5SU" secondAttribute="leading" constant="10" id="nPz-or-rrQ"/>
                                                         <constraint firstAttribute="bottom" secondItem="ZYc-DF-zHC" secondAttribute="bottom" id="qNM-QK-kGf"/>
                                                         <constraint firstItem="6tt-Nr-sDh" firstAttribute="top" secondItem="gH0-sa-HYO" secondAttribute="bottom" constant="30" id="rU4-x8-12T"/>
+                                                        <constraint firstItem="DD4-qF-6x0" firstAttribute="leading" secondItem="ptK-2L-8eh" secondAttribute="trailing" constant="10" id="ySu-Yv-8qw"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -443,6 +447,7 @@
                         <outlet property="buyVIPBtn" destination="mLZ-pS-CTf" id="XfT-sI-9hQ"/>
                         <outlet property="headImg" destination="6tt-Nr-sDh" id="vhO-gv-Dh9"/>
                         <outlet property="myJiFen_lab" destination="bp1-8Y-GcK" id="jrc-7o-9ah"/>
+                        <outlet property="timeLab" destination="DD4-qF-6x0" id="bl5-8h-Zee"/>
                         <outlet property="topViewLayout" destination="iKk-3K-SEX" id="wDY-u9-Fng"/>
                         <outlet property="userNameLab" destination="42S-Ob-nwR" id="g0v-qg-7Wf"/>
                         <outlet property="vipLogoImg" destination="ptK-2L-8eh" id="hYt-8C-IJu"/>
@@ -680,16 +685,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_password_img" translatesAutoresizingMaskIntoConstraints="NO" id="uz7-SV-i7Z">
-                                                <rect key="frame" x="13" y="15.5" width="12.5" height="14"/>
+                                                <rect key="frame" x="13" y="14.5" width="16" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEc-KF-bVZ">
-                                                <rect key="frame" x="35.5" y="13.5" width="46" height="18"/>
+                                                <rect key="frame" x="39" y="13.5" width="46" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入旧密码" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-nG-Deo">
-                                                <rect key="frame" x="91.5" y="13" width="309.5" height="19"/>
+                                                <rect key="frame" x="95" y="13" width="306" height="19"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
@@ -727,16 +732,16 @@
                                         <rect key="frame" x="0.0" y="45" width="414" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_password_img" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-EI-4Ua">
-                                                <rect key="frame" x="13" y="15.5" width="12.5" height="14"/>
+                                                <rect key="frame" x="13" y="14.5" width="16" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-Ov-q13">
-                                                <rect key="frame" x="35.5" y="13.5" width="46" height="18"/>
+                                                <rect key="frame" x="39" y="13.5" width="46" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-V6-5sC">
-                                                <rect key="frame" x="91.5" y="13" width="309.5" height="19"/>
+                                                <rect key="frame" x="95" y="13" width="306" height="19"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
@@ -775,16 +780,16 @@
                                         <rect key="frame" x="0.0" y="90" width="414" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_password_img" translatesAutoresizingMaskIntoConstraints="NO" id="lQp-PJ-v68">
-                                                <rect key="frame" x="13" y="15.5" width="12.5" height="14"/>
+                                                <rect key="frame" x="13" y="14.5" width="16" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请重新输入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxq-4Z-wcE">
-                                                <rect key="frame" x="35.5" y="13.5" width="76.5" height="18"/>
+                                                <rect key="frame" x="39" y="13.5" width="76.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请重新输入新密码" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0ER-s3-BVX">
-                                                <rect key="frame" x="122" y="13" width="279" height="19"/>
+                                                <rect key="frame" x="125.5" y="13" width="275.5" height="19"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>

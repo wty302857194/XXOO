@@ -80,6 +80,7 @@
                 <outlet property="contentImg" destination="LNw-ey-GcR" id="i4o-oQ-lzG"/>
                 <outlet property="nameLab" destination="FsP-dp-DPR" id="R0Q-Vk-Bkf"/>
                 <outlet property="saveBtn" destination="Xsc-ZX-eMQ" id="3Pg-or-DJa"/>
+                <outlet property="shouChangImageView" destination="Xsc-ZX-eMQ" id="Jo4-Op-YSN"/>
                 <outlet property="timeLab" destination="0Mi-UV-sLi" id="QmC-rj-NIT"/>
                 <outlet property="timeView" destination="4wx-mJ-NBs" id="xmC-Im-wcq"/>
             </connections>

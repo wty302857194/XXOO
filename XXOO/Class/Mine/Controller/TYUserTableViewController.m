@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backImgLayout;
 @property (weak, nonatomic) IBOutlet UILabel *myJiFen_lab;
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
 @property (nonatomic, copy) NSDictionary * dataDic;
 
@@ -86,6 +87,7 @@
     [super viewDidLoad];
     self.topViewLayout.constant = kStatusBarHeight;
     self.backImgLayout.constant = -kStatusBarHeight;
+    self.timeLab.text = @"";
     [self getCenterAdRequestData];
     [self getUserRequestData];
 }
@@ -131,8 +133,12 @@
  }
  */
 - (void)getUserRequestData {
+    NSDictionary *userMessage = [USER_DEFAULTS objectForKey:YAOQING_MESSAGE];
+
     NSDictionary * dic = @{
                            @"imei":[TYGlobal getDeviceIdentifier],
+                           @"id":userMessage[@"id"]?:@"",
+                           @"code":userMessage[@"code"]?:@""
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
@@ -161,8 +167,12 @@
     NSString *level = [NSString stringWithFormat:@"%@",self.dataDic[@"level"]];
     if ([level isEqualToString:@"1"]) {
         self.buyVIPBtn.hidden = NO;
+        self.vipLogoImg.image = [UIImage imageNamed:@"ming_vip_img"];
+        self.timeLab.text = @"";
     }else {
         self.buyVIPBtn.hidden = YES;
+        self.vipLogoImg.image = [UIImage imageNamed:@"mineVIPImg"];
+        self.timeLab.text = [NSString stringWithFormat:@"%@到期",self.dataDic[@"membershipEndTime"]?:@""];
     }
 }
 #pragma mark - Table view data source

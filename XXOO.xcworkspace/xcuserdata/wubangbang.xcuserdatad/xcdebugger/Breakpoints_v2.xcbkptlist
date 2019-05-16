@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/AV/View/TYAVDetailCollectionViewCell.h"
-            timestampString = "579444863.414217"
+            timestampString = "579603990.008498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/Mine/Controller/TYDuiHuanViewController.m"
-            timestampString = "579444863.414482"
+            timestampString = "579603990.008713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
-            timestampString = "579444863.41476"
+            timestampString = "579603990.008931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/Task/Controller/TYSaveCodeViewController.m"
-            timestampString = "579444863.414958"
+            timestampString = "579603990.009084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-loadImageFinished:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,12 +74,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XXOO/Class/Mine/Controller/TYChangePasswordViewController.m"
-            timestampString = "579444863.415184"
+            timestampString = "579603990.0092781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-updatePwdRequestData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XXOO/Class/AV/Controller/TYAVHomeViewController.m"
+            timestampString = "579670921.6700391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "-advertView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

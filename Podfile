@@ -10,7 +10,7 @@ target 'XXOO' do
   pod 'Masonry'
   pod 'MBProgressHUD'
   pod 'MJRefresh'
-#  pod 'SDCycleScrollView'  # 广告轮播
+  pod 'SDCycleScrollView'  # 广告轮播
   pod 'IQKeyboardManager'
   pod 'MJExtension'
   pod 'SJVideoPlayer'
@@ -19,6 +19,7 @@ target 'XXOO' do
   pod 'Canvas'
   pod 'DZNEmptyDataSet'
   pod 'libOpenInstallSDK'
+  pod 'XHLaunchAd'
   
   # Pods for XXOO
 

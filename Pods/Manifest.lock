@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Canvas (0.1.2)
   - DZNEmptyDataSet (1.8.1)
+  - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (6.2.1)
   - libOpenInstallSDK (2.2.1.1)
   - Masonry (1.1.0)
@@ -24,6 +25,8 @@ PODS:
   - MJRefresh (3.1.16)
   - PYSearch (0.9.1)
   - Reachability (3.2)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -222,6 +225,8 @@ PODS:
     - Masonry
     - SJBaseVideoPlayer (>= 2.3.5)
     - SJUIKit/AttributesFactory (= 0.0.0.23)
+  - XHLaunchAd (3.9.8):
+    - FLAnimatedImage (~> 1.0.12)
 
 DEPENDENCIES:
   - AFNetworking
@@ -234,14 +239,17 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - PYSearch
+  - SDCycleScrollView
   - SDWebImage (~> 4.4.3)
   - SJVideoPlayer
+  - XHLaunchAd
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Canvas
     - DZNEmptyDataSet
+    - FLAnimatedImage
     - IQKeyboardManager
     - libOpenInstallSDK
     - Masonry
@@ -250,15 +258,18 @@ SPEC REPOS:
     - MJRefresh
     - PYSearch
     - Reachability
+    - SDCycleScrollView
     - SDWebImage
     - SJBaseVideoPlayer
     - SJUIKit
     - SJVideoPlayer
+    - XHLaunchAd
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   libOpenInstallSDK: b2ceca6cd23c8497471b35917aed0ecb3c834ccc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -267,11 +278,13 @@ SPEC CHECKSUMS:
   MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SJBaseVideoPlayer: 1187d5d1c108ed1f02152de7af7b234f6b41ba40
   SJUIKit: d97d9b7b37313b004ec44452a137821f18fdf39e
   SJVideoPlayer: cdbdf3a4847e343d47240bdc4d4a5b12713e5774
+  XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
 
-PODFILE CHECKSUM: fd4a2b90714fa647f9edadc296beca2cf6fcdf1d
+PODFILE CHECKSUM: 9c6ec6ac51d88e24551132f6bf7cb003d6a3ce0d
 
 COCOAPODS: 1.5.3

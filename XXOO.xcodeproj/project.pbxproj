@@ -57,6 +57,7 @@
 		C18AAF3422841FA200076EE5 /* TYMyPaySelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AAF3322841FA200076EE5 /* TYMyPaySelectView.xib */; };
 		C18AAF3A228470B900076EE5 /* JCIPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF36228470B900076EE5 /* JCIPAddressConfig.m */; };
 		C18AAF3B228470B900076EE5 /* RequestIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF38228470B900076EE5 /* RequestIPAddress.m */; };
+		C18AAF45228D0F1900076EE5 /* TYHomeADListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C18AAF44228D0F1900076EE5 /* TYHomeADListModel.m */; };
 		C1918A0122794F3300CB2096 /* ZSBntview.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0022794F3300CB2096 /* ZSBntview.m */; };
 		C1918A0522794F7400CB2096 /* TYGesturePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1918A0322794F7400CB2096 /* TYGesturePasswordViewController.m */; };
 		C1918A0622794F7400CB2096 /* TYGesturePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1918A0422794F7400CB2096 /* TYGesturePasswordViewController.xib */; };
@@ -271,6 +272,8 @@
 		C18AAF37228470B900076EE5 /* RequestIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestIPAddress.h; sourceTree = "<group>"; };
 		C18AAF38228470B900076EE5 /* RequestIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestIPAddress.m; sourceTree = "<group>"; };
 		C18AAF39228470B900076EE5 /* JCIPAddressConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCIPAddressConfig.h; sourceTree = "<group>"; };
+		C18AAF43228D0F1900076EE5 /* TYHomeADListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYHomeADListModel.h; sourceTree = "<group>"; };
+		C18AAF44228D0F1900076EE5 /* TYHomeADListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYHomeADListModel.m; sourceTree = "<group>"; };
 		C19189FF22794F3300CB2096 /* ZSBntview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBntview.h; sourceTree = "<group>"; };
 		C1918A0022794F3300CB2096 /* ZSBntview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBntview.m; sourceTree = "<group>"; };
 		C1918A0222794F7400CB2096 /* TYGesturePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYGesturePasswordViewController.h; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 			children = (
 				C17DE6AA2260273900050DCE /* TestItem.h */,
 				C17DE6AB2260273900050DCE /* TestItem.m */,
+				C18AAF43228D0F1900076EE5 /* TYHomeADListModel.h */,
+				C18AAF44228D0F1900076EE5 /* TYHomeADListModel.m */,
 				C1831307226C95B000933B55 /* TYAVLableModel.h */,
 				C1831308226C95B000933B55 /* TYAVLableModel.m */,
 				C1F2844E226DDDB4009B57A5 /* TYHomeModel.h */,
@@ -1292,6 +1297,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -1299,16 +1305,19 @@
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SJVideoPlayer/SJVideoPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/XHLaunchAd/XHLaunchAd.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -1316,10 +1325,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJBaseVideoPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJVideoPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XHLaunchAd.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1420,6 +1431,7 @@
 				C1ADA2F82273331F00CA8566 /* UIButton+TYExtension.m in Sources */,
 				C12486FD225DA01E0040B476 /* TYBaseNavigationController.m in Sources */,
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
+				C18AAF45228D0F1900076EE5 /* TYHomeADListModel.m in Sources */,
 				C1ADA2FC22748E4800CA8566 /* TYSaveCodeViewController.m in Sources */,
 				C11CFE64227FE82100D63555 /* TYChangePasswordViewController.m in Sources */,
 				C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */,

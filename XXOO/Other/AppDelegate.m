@@ -10,9 +10,11 @@
 #import "TYBaseTabBarViewController.h"
 #import "OpenInstallSDK.h"
 #import "TYGesturePasswordViewController.h"
+#import "LLFullScreenAdView.h"
+#import "XHLaunchAd.h"
 
 @interface AppDelegate ()<OpenInstallDelegate>
-
+@property (nonatomic, strong) NSMutableDictionary * adDic;
 @end
 
 @implementation AppDelegate
@@ -24,14 +26,16 @@
     [OpenInstallSDK initWithDelegate:self];
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
+    self.window.backgroundColor = [UIColor whiteColor];
     if ([TYGlobal gesturePassword].length>0&&[TYGlobal gestureIsOpen]) {
         [self rootPasswordVC];
     }else {
         [self rootVC];
     }
-
+    [self adView];
+    
     [self getInstallParms];
-
+    
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -45,6 +49,71 @@
     TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:passwordvVC];
     self.window.rootViewController = nav;
 }
+- (void)adView {
+    //设置你工程的启动页使用的是:LaunchImage 还是 LaunchScreen.storyboard(不设置默认:LaunchImage)
+    [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
+    
+    //1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
+    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+    //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
+    //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
+    [XHLaunchAd setWaitDataDuration:3];
+    
+    
+    //  /sysAd/api/getStartAd   广告业接口
+    /*
+     {
+     createTime: "2019-04-20 16:36:27",     //创建时间
+     id: 1,                                 //主键id
+     linkUrl: "1",                          //链接地址
+     picUrl: "1",                           //图片地址
+     position: 1,                           //放置位置（1启动页 2视频 3个人中心 4娱乐）
+     showTime: "5",                         //启动页展示时长（s）
+     }
+     */
+    [TYNetWorkTool postRequest:@"/sysAd/api/getStartAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        if (success&&data) {
+            self.adDic = [NSMutableDictionary dictionaryWithDictionary:data];
+            //配置广告数据
+            XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
+            //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
+            imageAdconfiguration.imageNameOrURLString = self.adDic[@"picUrl"]?:@"";
+            //广告点击打开页面参数(openModel可为NSString,模型,字典等任意类型)
+            imageAdconfiguration.openModel = self.adDic[@"linkUrl"]?:@"";
+            imageAdconfiguration.duration = [self.adDic[@"showTime"]?:@"" integerValue];
+            //显示开屏广告
+            [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
+            
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        
+    }];
+}
+
+
+/**
+ 广告点击事件代理方法
+ */
+-(void)xhLaunchAd:(XHLaunchAd *)launchAd clickAndOpenModel:(id)openModel clickPoint:(CGPoint)clickPoint{
+    
+    NSLog(@"广告点击事件");
+    
+    /** openModel即配置广告数据设置的点击广告时打开页面参数(configuration.openModel) */
+    
+    if(openModel==nil) return;
+    
+    NSString *urlString = (NSString *)openModel;
+    
+    [TYGlobal openScheme:urlString];
+    //此处跳转页面
+    //WebViewController *VC = [[WebViewController alloc] init];
+    //VC.URLString = urlString;
+    ////此处不要直接取keyWindow
+    //UIViewController* rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
+    //[rootVC.myNavigationController pushViewController:VC animated:YES];
+    
+}
+
 
 - (void)getInstallParms {
     
@@ -69,15 +138,17 @@
         //在主线程中回调
         if (appData.data) {//(动态安装参数)
             //e.g.如免填邀请码建立邀请关系、自动加好友、自动进入某个群组或房间等
+            [USER_DEFAULTS setObject:appData.data forKey:YAOQING_MESSAGE];
+            [USER_DEFAULTS synchronize];
         }
         if (appData.channelCode) {//(通过渠道链接或二维码安装会返回渠道编号)
             //e.g.可自己统计渠道相关数据等
         }
         
         //弹出提示框(便于调试，调试完成后删除此代码)
-//        NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n1、新应用是否上传安装包(是否集成完毕)  2、是否正确配置appKey  3、是否通过含有动态参数的分享链接(或二维码)安装的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [alert show];
+        NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n1、新应用是否上传安装包(是否集成完毕)  2、是否正确配置appKey  3、是否通过含有动态参数的分享链接(或二维码)安装的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
     }];
 }
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler NS_AVAILABLE_IOS(8_0) {

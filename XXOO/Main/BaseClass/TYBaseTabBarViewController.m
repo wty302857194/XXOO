@@ -63,8 +63,12 @@
  }
  */
 - (void)getUserRequestData {
+    NSDictionary *userMessage = [USER_DEFAULTS objectForKey:YAOQING_MESSAGE];
+    
     NSDictionary * dic = @{
                            @"imei":[TYGlobal getDeviceIdentifier],
+                           @"id":userMessage[@"id"]?:@"",
+                           @"code":userMessage[@"code"]?:@""
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {

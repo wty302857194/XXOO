@@ -154,6 +154,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     TYGoddessCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYGoddessCollectionViewCell" forIndexPath:indexPath];
+    cell.imgView.cornerRadius = collectionWidth/2.f;
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYActorListModel *model = self.dataArr[indexPath.row];
         cell.listModel = model;

@@ -15,10 +15,12 @@
 #import "TYBaseNavigationController.h"
 #import "TYHomeModel.h"
 #import "TYLongVideoViewController.h"
+#import "SDCycleScrollView.h"
+#import "TYHomeADListModel.h"
 
 #define collectionWidth (KSCREEN_WIDTH-20-15)/2.0f
 
-@interface TYAVHomeViewController ()<UITableViewDelegate,UITableViewDataSource> {
+@interface TYAVHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate> {
     UILabel *_header_lab;
     UIImageView *_header_imgView;
 }
@@ -35,6 +37,9 @@
 @property (nonatomic, strong) UILabel *header_lab;
 @property (nonatomic, strong) UIImageView *header_imgView;
 @property (nonatomic, strong) NSDictionary * adDic;
+@property (nonatomic, copy) NSArray * adArr;
+@property (nonatomic, strong) SDCycleScrollView *advertView;
+
 @end
 
 @implementation TYAVHomeViewController
@@ -63,7 +68,7 @@
         weakSelf.isFresh = YES;
         [weakSelf getVideoListRequestData];
     }];
-    [self addTableViewHeaderView];
+    
     [self getAVADRequestData];
 }
 
@@ -78,13 +83,14 @@
 - (void)getAVADRequestData {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [TYNetWorkTool postRequest:@"/sysAd/api/getVideoAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    [TYNetWorkTool postRequest:@"/sysAd/api/getHomeAdList" parameters:@{@"vClass":self.vClass?:@""} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            self.adDic = [NSDictionary nullDic:data];
-            self.header_lab.text = data[@"title"];
-            [self.header_imgView sd_setImageWithURL:[NSURL URLWithString:data[@"picUrl"]]];
-            
+            NSArray *arr = [TYHomeADListModel mj_objectArrayWithKeyValuesArray:data];
+            if (arr&&arr.count>0) {
+                self.adArr = arr;
+                [self addTableViewHeaderView];
+            }
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -113,7 +119,6 @@
         if (success&&data) {
             weakSelf.homeModel = [TYHomeModel mj_objectWithKeyValues:data];
             NSArray *arr = [NSArray arrayWithArray:weakSelf.homeModel.data];
-            
             if (weakSelf.isFresh) {
                 if (arr&&arr.count>0) {
                     [weakSelf.dataArr addObjectsFromArray:arr];
@@ -175,7 +180,11 @@
         cell.itemModel = model;
         TYWEAK_SELF;
         cell.itemShouCangBlock = ^() {
-            [weakSelf shouCangRequestData:model];
+            if ([model.cstate isEqualToString:@"0"]) {
+                [weakSelf shouCangRequestData:model];
+            }else {
+                [weakSelf cancelShouCangRequestData:model];
+            }
         };
     }
     
@@ -191,27 +200,45 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
-
 - (void)addTableViewHeaderView{
     NSInteger height = 245;
-   UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, height)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, height)];
     self.tableView.tableHeaderView = headerView;
-    
-    _header_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(13, 10, KSCREEN_WIDTH-26, height-10-20)];
-    [_header_imgView addTarget:self action:@selector(adChoose)];
-    [headerView addSubview:_header_imgView];
-    
-    _header_lab = [[UILabel alloc] initWithFrame:CGRectMake(13, height-20, KSCREEN_WIDTH-26, 20)];
-    _header_lab.textColor = main_light_text_color;
-    _header_lab.numberOfLines = 2;
-    _header_lab.font = [UIFont systemFontOfSize:15];
-    [headerView addSubview:_header_lab];
+    [headerView addSubview:self.advertView];
     
 }
-- (void)adChoose {
-    [TYGlobal openScheme:self.adDic[@"linkUrl"]];
+#pragma mark - 轮播图
+- (SDCycleScrollView *)advertView {
+    // 把图片下载地址数组logoUrlArray 给SDCycleScrollView
+    NSMutableArray *logoUrlArray = [[NSMutableArray alloc]initWithCapacity:0];
+    if ([self.adArr count] > 0) {
+        for (NSInteger i = 0; i < [self.adArr count]; i++) {
+            TYHomeADListModel *binnerModel = (TYHomeADListModel *)self.adArr[i];
+            [logoUrlArray addObject:[NSURL URLWithString:binnerModel.picUrl]];
+        }
+    }
+    if (!_advertView) {
+        NSInteger height = 245;
+        _advertView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(13, 10, KSCREEN_WIDTH-26, height-10-20) delegate:self placeholderImage:PLACEHOLEDERIMAGE];
+        _advertView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        _advertView.currentPageDotColor = [UIColor whiteColor];
+    }
+    if (logoUrlArray.count<2) {
+        _advertView.autoScroll = NO;
+    } else {
+        _advertView.autoScrollTimeInterval = 4.0f;
+    }
+    _advertView.imageURLStringsGroup = logoUrlArray;
+    
+    return _advertView;
 }
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    TYHomeADListModel *binnerModel = (TYHomeADListModel *)self.adArr[index];
+    [TYGlobal openScheme:binnerModel.linkUrl?:@""];
+}
+
 //收藏请求
 - (void)shouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{
@@ -223,7 +250,30 @@
     
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD promptMessage:msg inView:self.view];
+        if (success&&data) {
+            [self headerRefreshRequest:self.vClass];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//收藏请求
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":model.ID,
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest:self.vClass];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
     } failureBlock:^(NSString * _Nonnull description) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         

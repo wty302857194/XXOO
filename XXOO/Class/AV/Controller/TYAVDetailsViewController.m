@@ -95,7 +95,9 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 }
 - (void)initUI {
     // create a player of the default type
-    
+//    NSInteger timeInteger = [self.detailModel.times integerValue];
+//    NSTimeInterval interval = timeInteger;
+//    _player.totalTime = interval;
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:self.detailModel.vUrl]];
     _player.URLAsset.title = self.detailModel.title;
     [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];

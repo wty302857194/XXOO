@@ -135,6 +135,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.scrollEnabled = NO;
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.offset(0);
@@ -145,7 +146,6 @@
 }
 
 - (void)addLable:(NSArray *)labArr withView:(UIView *)view withIndex:(NSInteger)index {
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     UIView *topLabView = [UIView new];
     [view addSubview:topLabView];
     [topLabView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -223,7 +223,8 @@
 
         TYVideoLabelModel *model = self.topLabArr[btn.tag-10];
         [self getVideoLabelByLevelRequestData:model.ID];
-        
+        self.num_lab.text = [NSString stringWithFormat:@"%ld",(long)_num];
+
         _topSelectBtn = btn;
     }else {
         if (btn.selected) {
@@ -234,7 +235,7 @@
         }else {
             btn.layer.borderColor = main_select_text_color.CGColor;
             [btn setTitleColor:main_select_text_color forState:UIControlStateNormal];
-            TYVideoLabelModel *model = self.topLabArr[btn.tag-10];
+            TYVideoLabelModel *model = self.bottomLabArr[btn.tag-10];
             
             [self.labDic setObject:model.label forKey:@(btn.tag)];
             _num++;
