@@ -17,10 +17,10 @@ typedef void(^ItemShouCangBlock)(void);
 //@property (weak, nonatomic) IBOutlet UIButton *shouChangImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UIImageView *xianMianLogo;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @property (nonatomic, strong) TYHomeItemModel * itemModel;
 @property (nonatomic, copy) ItemShouCangBlock itemShouCangBlock;

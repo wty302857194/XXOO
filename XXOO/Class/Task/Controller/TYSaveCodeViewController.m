@@ -9,10 +9,12 @@
 #import "TYSaveCodeViewController.h"
 
 @interface TYSaveCodeViewController ()
+
 @property (weak, nonatomic) IBOutlet UIView *codeBackView;
 @property (weak, nonatomic) IBOutlet UILabel *myInvitationLab;
 @property (weak, nonatomic) IBOutlet UIImageView *codeImage;
 @property (nonatomic, copy) NSString * share_url;
+
 @end
 
 @implementation TYSaveCodeViewController

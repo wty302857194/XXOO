@@ -25,6 +25,24 @@
                             <constraint firstAttribute="width" secondItem="oW9-DC-vde" secondAttribute="height" multiplier="264:119" id="Ki5-Ua-xdb"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o5f-3o-Lfl">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Q9K-mc-006"/>
+                            <constraint firstAttribute="width" constant="40" id="RWN-28-yml"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc9-cD-kPV">
+                        <rect key="frame" x="234" y="0.0" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="7mh-le-52O"/>
+                            <constraint firstAttribute="width" constant="30" id="UBj-c7-ZCu"/>
+                        </constraints>
+                        <state key="normal" image="home_add"/>
+                        <connections>
+                            <action selector="saveClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PEv-Tb-fqj"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKs-Rn-g7g">
                         <rect key="frame" x="10" y="129" width="244" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -35,8 +53,12 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="FKs-Rn-g7g" secondAttribute="trailing" constant="10" id="0iu-y5-9K4"/>
+                <constraint firstItem="Hc9-cD-kPV" firstAttribute="top" secondItem="oW9-DC-vde" secondAttribute="top" id="8Pc-B7-Ogh"/>
+                <constraint firstItem="o5f-3o-Lfl" firstAttribute="top" secondItem="oW9-DC-vde" secondAttribute="top" id="CXl-lK-dco"/>
                 <constraint firstItem="FKs-Rn-g7g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Cdn-qp-tBM"/>
                 <constraint firstAttribute="trailing" secondItem="oW9-DC-vde" secondAttribute="trailing" id="DCg-aa-KwX"/>
+                <constraint firstItem="Hc9-cD-kPV" firstAttribute="trailing" secondItem="oW9-DC-vde" secondAttribute="trailing" id="LJM-BJ-4iV"/>
+                <constraint firstItem="o5f-3o-Lfl" firstAttribute="leading" secondItem="oW9-DC-vde" secondAttribute="leading" id="RZV-wC-Uwp"/>
                 <constraint firstItem="oW9-DC-vde" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SVl-kJ-xpW"/>
                 <constraint firstItem="FKs-Rn-g7g" firstAttribute="top" secondItem="oW9-DC-vde" secondAttribute="bottom" constant="10" id="Sus-mx-l1c"/>
                 <constraint firstItem="oW9-DC-vde" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Tal-tD-Abe"/>
@@ -46,8 +68,13 @@
             <connections>
                 <outlet property="imgView" destination="oW9-DC-vde" id="uva-iH-if9"/>
                 <outlet property="nameLab" destination="FKs-Rn-g7g" id="R3u-ma-tvO"/>
+                <outlet property="saveBtn" destination="Hc9-cD-kPV" id="iN4-eP-9ed"/>
+                <outlet property="xianMianLogo" destination="o5f-3o-Lfl" id="y76-7a-PBV"/>
             </connections>
             <point key="canvasLocation" x="292.75362318840581" y="131.91964285714286"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="home_add" width="39" height="39"/>
+    </resources>
 </document>

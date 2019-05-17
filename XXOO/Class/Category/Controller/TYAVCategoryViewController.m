@@ -9,7 +9,7 @@
 #import "TYAVCategoryViewController.h"
 #import "TYAVCategoryCollectionViewCell.h"
 #import "TYAVCategaryModel.h"
-#import "TYSearchDetailViewController.h"
+#import "TYAVCategoryDetailViewController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-80)/3.0f
 
@@ -103,8 +103,8 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     TYAVCategaryModel *model = self.dataArr[indexPath.row];
-    TYSearchDetailViewController *vc = [[TYSearchDetailViewController alloc] init];
-    vc.vLabel = model.name;
+    TYAVCategoryDetailViewController *vc = [[TYAVCategoryDetailViewController alloc] init];
+    vc.vClass = model.name;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

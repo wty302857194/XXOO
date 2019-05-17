@@ -9,6 +9,7 @@
 #import "TYHistoryListViewController.h"
 #import "TYAVHistoryModel.h"
 #import "TYHistoryListTableViewCell.h"
+#import "TYAVDetailsViewController.h"
 
 @interface TYHistoryListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -105,6 +106,7 @@
     TYHistoryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TYHistoryListTableViewCell" owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.model = self.dataArr[indexPath.row];
     return cell;
@@ -112,7 +114,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    TYAVHistoryModel *model = self.dataArr[indexPath.row];
+    TYAVDetailsViewController *vc = [[TYAVDetailsViewController alloc] init];
+    vc.avID = model.ID;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

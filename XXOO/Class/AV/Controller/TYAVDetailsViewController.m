@@ -46,6 +46,7 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     // Do any additional setup after loading the view from its nib.
     self.dataArr = [NSMutableArray arrayWithCapacity:0];
     self.page = 1;
+    
     _player = [SJVideoPlayer player];
     _player.pausedToKeepAppearState = YES;
     [self.view addSubview:_player.view];
@@ -69,6 +70,12 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     }];
     
     [self avDetailRequestData];
+}
+- (void)headerRefreshRequest {
+    [self.dataArr removeAllObjects];
+    self.page = 1;
+    self.isFresh = NO;
+    [self getVideoListRequestData];
 }
 - (void)avDetailRequestData {
     NSDictionary *dic = @{
@@ -101,6 +108,16 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:self.detailModel.vUrl]];
     _player.URLAsset.title = self.detailModel.title;
     [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];
+    // 2. 49 * title.size.width
+    SJEdgeControlButtonItem *titleItem = [[SJEdgeControlButtonItem alloc] initWithTitle:sj_makeAttributesString(^(SJAttributeWorker * _Nonnull make) {
+        make.append(@"试看中！开通无线看！>>").font([UIFont systemFontOfSize:14]).textColor([UIColor whiteColor]).alignment(NSTextAlignmentCenter);
+    }) target:self action:@selector(test) tag:SJEdgeControlButtonItemTag_Share];
+    
+    // 调整 item 前后间隔
+//    titleItem.insets = SJEdgeInsetsMake(8, 8);
+    [_player.defaultEdgeControlLayer.topAdapter addItem:titleItem];
+    
+    
     
     TYWeakSelf(self);
     [weakself.player setPlayTimeDidChangeExeBlok:^(__kindof SJBaseVideoPlayer * _Nonnull videoPlayer) {
@@ -119,6 +136,15 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
             }
         }
     }];
+}
+- (void)test {
+    
+    TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
+    TYWEAK_SELF;
+    vc.refreshBlock = ^{
+        [weakSelf getVideoListRequestData];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 // /userHistory/api/addHistory
 - (void)addHistoryRequestData {
@@ -260,6 +286,14 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     TYAVDetailContentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TYAVDetailContentCollectionViewCell" forIndexPath:indexPath];
     TYHomeItemModel *model = self.dataArr[indexPath.row];
     cell.itemModel = model;
+    TYWEAK_SELF;
+    cell.itemShouCangBlock = ^() {
+        if ([model.cstate isEqualToString:@"0"]) {
+            [weakSelf shouCangRequestData:model];
+        }else {
+            [weakSelf cancelShouCangRequestData:model];
+        }
+    };
     return cell;
     
 }
@@ -393,4 +427,45 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
     return YES;
 }
 
+//收藏请求
+- (void)shouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//收藏请求
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
+                           @"tid":model.ID
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 @end

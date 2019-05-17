@@ -230,7 +230,7 @@
 - (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
     NSDictionary * dic = @{
                            @"uid":[TYGlobal userId],
-                           @"id":model.ID,
+                           @"tid":model.ID,
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     

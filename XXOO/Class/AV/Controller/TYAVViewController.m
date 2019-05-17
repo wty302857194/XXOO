@@ -10,6 +10,7 @@
 #import "TYAVHomeViewController.h"
 #import "TYAVLableModel.h"
 #import "TYHomeModel.h"
+#import "TYGongGaoView.h"
 
 static NSInteger const scHeight = 40;
 static NSInteger const jianGe = 10;//间隔距离
@@ -24,6 +25,7 @@ static NSInteger const btnWidth = 90;
 @property (nonatomic, strong) UIScrollView * scrollView;
 @property (nonatomic, strong) UIScrollView *titleSC;
 @property (nonatomic, strong) NSMutableDictionary *listVCQueue;
+@property (nonatomic, strong) TYGongGaoView * gongGaoView;
 @end
 
 @implementation TYAVViewController
@@ -33,6 +35,7 @@ static NSInteger const btnWidth = 90;
     [super viewDidLoad];
     _listVCQueue = [NSMutableDictionary dictionaryWithCapacity:0];
     [self getAVRequestData];
+    [self getNoticesListRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -67,7 +70,19 @@ static NSInteger const btnWidth = 90;
 
     }];
 }
-
+//  /sysNotices/api/getNoticesList  公告
+- (void)getNoticesListRequestData {
+    [TYNetWorkTool postRequest:@"/sysNotices/api/getNoticesList" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        if (success&&data) {
+            self.gongGaoView.contentLab.text = [NSString stringWithFormat:@"%@",data];
+            self.gongGaoView.hidden = NO;
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        
+    }];
+}
 
 
 - (void)setUI {
@@ -157,6 +172,7 @@ static NSInteger const btnWidth = 90;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         [self.view addSubview:_scrollView];
+        [self.view sendSubviewToBack:_scrollView];
         [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.titleSC.mas_bottom).offset(0);
             make.left.right.bottom.offset(0);
@@ -194,6 +210,16 @@ static NSInteger const btnWidth = 90;
         
         [_listVCQueue setObject:contentVC forKey:@(index)];
     }
+}
+#pragma mark - ==懒加载==
+- (TYGongGaoView *)gongGaoView {
+    if (!_gongGaoView) {
+        _gongGaoView = [[[NSBundle mainBundle] loadNibNamed:@"TYGongGaoView" owner:nil options:nil] lastObject];
+        _gongGaoView.frame = [UIScreen mainScreen].bounds;
+        [self.view addSubview:_gongGaoView];
+        [self.view bringSubviewToFront:_gongGaoView];
+    }
+    return _gongGaoView;
 }
 @end
 
