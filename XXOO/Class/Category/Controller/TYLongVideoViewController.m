@@ -61,7 +61,12 @@
     [self.dataArr removeAllObjects];
     self.page = 1;
     self.isFresh = NO;
-    [self getVideoTypeListRequestData];
+    
+    if (self.vClass.length>0) {// 有值时 不需要再刷新标签
+        [self getVideoListRequestData];
+    }else {
+        [self getVideoTypeListRequestData];
+    }
 }
 - (void)getVideoTypeListRequestData {
     
@@ -188,7 +193,14 @@
     if (self.dataArr&&self.dataArr.count>indexPath.row) {
         TYHomeItemModel *model = self.dataArr[indexPath.row];
         cell.itemModel = model;
-
+        TYWEAK_SELF;
+        cell.itemShouCangBlock = ^() {
+            if ([model.cstate isEqualToString:@"0"]) {
+                [weakSelf shouCangRequestData:model];
+            }else {
+                [weakSelf cancelShouCangRequestData:model];
+            }
+        };
     }
     return cell;
     
@@ -364,5 +376,47 @@
     
      _allVideoBtn = btn;
     [self getVideoListRequestData];
+}
+
+//收藏请求
+- (void)shouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"id":[TYGlobal userId],
+                           @"tid":model.ID,
+                           @"type":@"1"
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
+//收藏请求
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+    NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
+                           @"tid":model.ID
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
 }
 @end

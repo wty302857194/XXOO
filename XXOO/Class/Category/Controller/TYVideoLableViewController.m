@@ -225,6 +225,8 @@
         [self getVideoLabelByLevelRequestData:model.ID];
         self.num_lab.text = [NSString stringWithFormat:@"%ld",(long)_num];
 
+        [self.labDic removeAllObjects];
+        
         _topSelectBtn = btn;
     }else {
         if (btn.selected) {

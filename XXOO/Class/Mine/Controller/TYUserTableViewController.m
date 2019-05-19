@@ -64,9 +64,9 @@
         {
             TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
             TYWEAK_SELF;
-            vc.refreshBlock = ^{
-                [weakSelf getUserRequestData];
-            };
+//            vc.refreshBlock = ^{
+//                [weakSelf getUserRequestData];
+//            };
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -89,11 +89,12 @@
     self.backImgLayout.constant = -kStatusBarHeight;
     self.timeLab.text = @"";
     [self getCenterAdRequestData];
-    [self getUserRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self getUserRequestData];
+
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -140,6 +141,11 @@
                            @"id":userMessage[@"id"]?:@"",
                            @"code":userMessage[@"code"]?:@""
                            };
+    
+    NSString *parameter = [NSString stringWithFormat:@"动态参数：\n%@",dic];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];

@@ -139,7 +139,7 @@
                     
                 }else {
                     NSLog(@"加载空视图");
-                    self.tableView.tableHeaderView = [UIView new];
+//                    self.tableView.tableHeaderView = [UIView new];
                 }
                 [weakSelf.tableView reloadData];
             }

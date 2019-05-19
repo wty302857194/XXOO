@@ -26,6 +26,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self getInstallParms];
+
+    
     if ([TYGlobal gesturePassword].length>0&&[TYGlobal gestureIsOpen]) {
         [self rootPasswordVC];
     }else {
@@ -33,7 +37,6 @@
     }
     [self adView];
     
-    [self getInstallParms];
     
     [self.window makeKeyAndVisible];
     
@@ -133,12 +136,15 @@
     
     
     //做一个延时处理
+    TYWEAK_SELF;
     [[OpenInstallSDK defaultManager] getInstallParmsWithTimeoutInterval:1 completed:^(OpeninstallData * _Nullable appData) {
         //在主线程中回调
         if (appData.data) {//(动态安装参数)
             //e.g.如免填邀请码建立邀请关系、自动加好友、自动进入某个群组或房间等
             [USER_DEFAULTS setObject:appData.data forKey:YAOQING_MESSAGE];
             [USER_DEFAULTS synchronize];
+            
+            [weakSelf getUserRequestData];
         }
         if (appData.channelCode) {//(通过渠道链接或二维码安装会返回渠道编号)
             //e.g.可自己统计渠道相关数据等
@@ -208,5 +214,39 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/*
+ {
+ avatar: "1.png",               //用户头像
+ gestureBtn: 2,                 //手势密码是否开启（1开启 2关闭）
+ id: 1,                         //主键id
+ level: 1,                      //用户等级（1普通用户 2会员）
+ levelAgent: 3,                 //代理级别（1一级代理 2二级代理 3普通代理）
+ name: "",                      //用户昵称
+ playTimes: 3,                  //'播放次数',
+ score: 0,                      // 积分
+ spreadNum: 0,                  //推广数量
+ viewTimes: 0                   //观看次数
+ }
+ */
+- (void)getUserRequestData {
+    NSDictionary *userMessage = [USER_DEFAULTS objectForKey:YAOQING_MESSAGE];
+    
+    NSDictionary * dic = @{
+                           @"imei":[TYGlobal getDeviceIdentifier],
+                           @"id":userMessage[@"id"]?:@"",
+                           @"code":userMessage[@"code"]?:@""
+                           };
 
+    [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        if (success&&data) {
+            NSDictionary *dic = [NSDictionary nullDic:data];
+            [USER_DEFAULTS setObject:dic forKey:USERMESSAGE];
+            [USER_DEFAULTS synchronize];
+        }else {
+            [MBProgressHUD promptMessage:msg inView:kWindow];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        
+    }];
+}
 @end
