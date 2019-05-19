@@ -13,13 +13,12 @@
 @interface TYVideoLableViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIButton *_topSelectBtn,*_bottomSelectBtn;
-    BOOL _isSelect;// 是否点击btn，点击后不刷表，只刷行
     NSInteger _num;//所选标签数量
 }
 //@property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, copy) NSArray * topLabArr;
-@property (nonatomic, copy) NSArray * bottomLabArr;
+@property (nonatomic, strong) NSMutableArray * bottomLabArr;
 @property (weak, nonatomic) IBOutlet UILabel *num_lab;
 @property (nonatomic, strong) NSMutableDictionary * labDic;//存储所选标签
 
@@ -44,6 +43,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.labDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    self.bottomLabArr = [NSMutableArray arrayWithCapacity:0];
+
     self.tableView.tableFooterView = [UIView new];
     [self getVideoLabelRequestData];
 }
@@ -60,6 +61,9 @@
             
             if (arr&&arr.count>0) {
                 weakSelf.topLabArr = [NSArray arrayWithArray:arr];
+                
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                
                 TYVideoLabelModel *model = arr[0];
                 [weakSelf getVideoLabelByLevelRequestData:model.ID];
             }
@@ -77,18 +81,16 @@
     TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/videoLabel/api/getVideoLabelByLevel" parameters:@{@"id":ID?:@""} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (weakSelf.bottomLabArr&&weakSelf.bottomLabArr.count>0) {
+            [weakSelf.bottomLabArr removeAllObjects];
+        }
         if (success&&data) {
             
             NSArray *arr = [TYVideoLabelModel mj_objectArrayWithKeyValuesArray:data];
             
-            if (arr&&arr.count>0) {
-                weakSelf.bottomLabArr = [NSArray arrayWithArray:arr];
-                if (self->_isSelect) {
-                    [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-                }else {
-                    [weakSelf.tableView reloadData];
-                }
-            }
+            [weakSelf.bottomLabArr addObjectsFromArray:arr];
+            
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -119,6 +121,14 @@
     
     if (indexPath.row == 0) {
         [self addLable:self.topLabArr withView:cell.contentView withIndex:indexPath.row ];
+        
+        UILabel *lineLab = [[UILabel alloc] init];
+        lineLab.backgroundColor = hexColor(f4f5f6);
+        [cell.contentView addSubview:lineLab];
+        [lineLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.offset(0);
+            make.height.offset(1);
+        }];
     }else {
         [self addLable:self.bottomLabArr withView:cell.contentView withIndex:indexPath.row ];
 
@@ -136,6 +146,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.scrollEnabled = NO;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.offset(0);
@@ -211,7 +222,6 @@
     }
 }
 - (void)chooseStation:(UIButton *)btn {
-    _isSelect = YES;
     
     if ([btn.index isEqual:@(0)]) {
         if(_topSelectBtn == btn) return;
