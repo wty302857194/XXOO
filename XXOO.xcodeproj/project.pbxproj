@@ -154,6 +154,8 @@
 		C1F2F6DF228E909600D17A93 /* TYGongGaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F2F6DE228E909600D17A93 /* TYGongGaoView.xib */; };
 		C1F2F6E3228EA91C00D17A93 /* TYAVCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2F6E1228EA91C00D17A93 /* TYAVCategoryDetailViewController.m */; };
 		C1F2F6E4228EA91C00D17A93 /* TYAVCategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F2F6E2228EA91C00D17A93 /* TYAVCategoryDetailViewController.xib */; };
+		C1F2F6E72292407700D17A93 /* TYShengJiView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F2F6E62292407700D17A93 /* TYShengJiView.m */; };
+		C1F2F6E92292408200D17A93 /* TYShengJiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F2F6E82292408200D17A93 /* TYShengJiView.xib */; };
 		C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */; };
 		C1F3FC04226C3D070090677E /* TYSearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FC02226C3D070090677E /* TYSearchDetailViewController.m */; };
 		C1F3FC05226C3D070090677E /* TYSearchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F3FC03226C3D070090677E /* TYSearchDetailViewController.xib */; };
@@ -442,6 +444,9 @@
 		C1F2F6E0228EA91C00D17A93 /* TYAVCategoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVCategoryDetailViewController.h; sourceTree = "<group>"; };
 		C1F2F6E1228EA91C00D17A93 /* TYAVCategoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVCategoryDetailViewController.m; sourceTree = "<group>"; };
 		C1F2F6E2228EA91C00D17A93 /* TYAVCategoryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVCategoryDetailViewController.xib; sourceTree = "<group>"; };
+		C1F2F6E52292407700D17A93 /* TYShengJiView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYShengJiView.h; sourceTree = "<group>"; };
+		C1F2F6E62292407700D17A93 /* TYShengJiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYShengJiView.m; sourceTree = "<group>"; };
+		C1F2F6E82292408200D17A93 /* TYShengJiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYShengJiView.xib; sourceTree = "<group>"; };
 		C1F3FBFE226C1F1E0090677E /* TYSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchViewController.h; sourceTree = "<group>"; };
 		C1F3FBFF226C1F1E0090677E /* TYSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYSearchViewController.m; sourceTree = "<group>"; };
 		C1F3FC01226C3D070090677E /* TYSearchDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYSearchDetailViewController.h; sourceTree = "<group>"; };
@@ -757,6 +762,9 @@
 				C1F2F6DB228E908600D17A93 /* TYGongGaoView.h */,
 				C1F2F6DC228E908600D17A93 /* TYGongGaoView.m */,
 				C1F2F6DE228E909600D17A93 /* TYGongGaoView.xib */,
+				C1F2F6E52292407700D17A93 /* TYShengJiView.h */,
+				C1F2F6E62292407700D17A93 /* TYShengJiView.m */,
+				C1F2F6E82292408200D17A93 /* TYShengJiView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1239,6 +1247,7 @@
 				C1F1579F22769E8800984A32 /* TYDuiHuanSecondTableViewCell.xib in Resources */,
 				C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
+				C1F2F6E92292408200D17A93 /* TYShengJiView.xib in Resources */,
 				C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */,
 				C1918A1D2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib in Resources */,
 				C1ADA2E2226F458100CA8566 /* TYJianJieView.xib in Resources */,
@@ -1403,6 +1412,7 @@
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
 				C1F2F6E3228EA91C00D17A93 /* TYAVCategoryDetailViewController.m in Sources */,
+				C1F2F6E72292407700D17A93 /* TYShengJiView.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
 				C1F1579422769A5100984A32 /* TYDuiHuanViewController.m in Sources */,
 				C1918A21227D450000CB2096 /* TYGoddessDetailViewController.m in Sources */,

@@ -26,14 +26,6 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @synthesize restarted = _restarted;
 
 
@@ -49,21 +41,21 @@
 }
 
 - (void)installedControlViewToVideoPlayer:(__kindof SJBaseVideoPlayer *)videoPlayer {
-//    _player = videoPlayer;
-//
-//    [_player.view layoutIfNeeded];
-//    sj_view_makeDisappear(_topContainerView, NO);
-//    sj_view_makeDisappear(_bottomContainerView, NO);
+    _player = videoPlayer;
+
+    [_player.view layoutIfNeeded];
+    sj_view_makeDisappear(_topContainerView, NO);
+    sj_view_makeDisappear(_bottomContainerView, NO);
 }
 
 - (void)controlLayerNeedAppear:(__kindof SJBaseVideoPlayer *)videoPlayer {
-//    sj_view_makeAppear(_topContainerView, YES);
-//    sj_view_makeAppear(_bottomContainerView, YES);
+    sj_view_makeAppear(_topContainerView, YES);
+    sj_view_makeAppear(_bottomContainerView, YES);
 }
 
 - (void)controlLayerNeedDisappear:(__kindof SJBaseVideoPlayer *)videoPlayer {
-//    sj_view_makeDisappear(_topContainerView, YES);
-//    sj_view_makeDisappear(_bottomContainerView, YES);
+    sj_view_makeDisappear(_topContainerView, YES);
+    sj_view_makeDisappear(_bottomContainerView, YES);
 }
 
 - (void)videoPlayer:(__kindof SJBaseVideoPlayer *)videoPlayer prepareToPlay:(SJVideoPlayerURLAsset *)asset {
@@ -73,6 +65,8 @@
 }
 
 - (void)restartControlLayer {
+    _restarted = YES;
+
     sj_view_makeAppear(self.controlView, YES);
     sj_view_makeAppear(_topContainerView, YES);
     sj_view_makeAppear(_bottomContainerView, YES);
@@ -80,16 +74,24 @@
 }
 
 - (void)exitControlLayer {
+    _restarted = NO;
+    
     _player.controlLayerDataSource = nil;
     _player.controlLayerDelegate = nil;
     _player = nil;
-    
+
     sj_view_makeDisappear(_topContainerView, YES);
     sj_view_makeDisappear(_bottomContainerView, YES);
+    
+//    sj_view_makeDisappear(self.controlView, YES);
     sj_view_makeDisappear(self.controlView, YES, ^{
         if ( !self -> _restarted ) [self.controlView removeFromSuperview];
     });
 }
 
-
+//- (BOOL)videoPlayer:(__kindof SJBaseVideoPlayer *)videoPlayer gestureRecognizerShouldTrigger:(SJPlayerGestureType)type location:(CGPoint)location {
+//    
+//    return NO;
+//    
+//}
 @end

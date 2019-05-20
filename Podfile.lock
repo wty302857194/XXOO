@@ -30,201 +30,235 @@ PODS:
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
-  - SJBaseVideoPlayer (2.3.6):
+  - SJBaseVideoPlayer (2.4.4):
     - Masonry
     - Reachability
-    - SJBaseVideoPlayer/Header (= 2.3.6)
-    - SJBaseVideoPlayer/Model (= 2.3.6)
-    - SJBaseVideoPlayer/SJAVMediaPlaybackController (= 2.3.6)
-    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager (= 2.3.6)
-    - SJBaseVideoPlayer/SJPrompt (= 2.3.6)
-    - SJBaseVideoPlayer/SJRotationManager (= 2.3.6)
-    - SJBaseVideoPlayer/Tool (= 2.3.6)
+    - SJBaseVideoPlayer/Header (= 2.4.4)
+    - SJBaseVideoPlayer/Model (= 2.4.4)
+    - SJBaseVideoPlayer/SJAVMediaPlaybackController (= 2.4.4)
+    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager (= 2.4.4)
+    - SJBaseVideoPlayer/SJPrompt (= 2.4.4)
+    - SJBaseVideoPlayer/SJRotationManager (= 2.4.4)
+    - SJBaseVideoPlayer/Tool (= 2.4.4)
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/Header (2.3.6):
+  - SJBaseVideoPlayer/Header (2.4.4):
     - Masonry
     - Reachability
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/Model (2.3.6):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/Header
-    - SJUIKit/ObserverHelper (>= 0.0.0.23)
-    - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJAVMediaPlaybackController (2.3.6):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/SJAVMediaPlaybackController/Core (= 2.3.6)
-    - SJBaseVideoPlayer/Tool
-    - SJUIKit/ObserverHelper (>= 0.0.0.23)
-    - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJAVMediaPlaybackController/Core (2.3.6):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/Tool
-    - SJUIKit/ObserverHelper (>= 0.0.0.23)
-    - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager (2.3.6):
+  - SJBaseVideoPlayer/Model (2.4.4):
     - Masonry
     - Reachability
     - SJBaseVideoPlayer/Header
-    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core (= 2.3.6)
-    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader (= 2.3.6)
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core (2.3.6):
+  - SJBaseVideoPlayer/SJAVMediaPlaybackController (2.4.4):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/SJAVMediaPlaybackController/Core (= 2.4.4)
+    - SJBaseVideoPlayer/Tool
+    - SJUIKit/ObserverHelper (>= 0.0.0.23)
+    - SJUIKit/Queues (>= 0.0.0.23)
+  - SJBaseVideoPlayer/SJAVMediaPlaybackController/Core (2.4.4):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/Tool
+    - SJUIKit/ObserverHelper (>= 0.0.0.23)
+    - SJUIKit/Queues (>= 0.0.0.23)
+  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager (2.4.4):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/Header
+    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core (= 2.4.4)
+    - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader (= 2.4.4)
+    - SJUIKit/ObserverHelper (>= 0.0.0.23)
+    - SJUIKit/Queues (>= 0.0.0.23)
+  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core (2.4.4):
     - Masonry
     - Reachability
     - SJBaseVideoPlayer/Header
     - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader (2.3.6):
+  - SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader (2.4.4):
     - Masonry
     - Reachability
     - SJBaseVideoPlayer/Header
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJPrompt (2.3.6):
+  - SJBaseVideoPlayer/SJPrompt (2.4.4):
     - Masonry
     - Reachability
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/SJRotationManager (2.3.6):
+  - SJBaseVideoPlayer/SJRotationManager (2.4.4):
     - Masonry
     - Reachability
     - SJBaseVideoPlayer/Header
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJBaseVideoPlayer/Tool (2.3.6):
+  - SJBaseVideoPlayer/Tool (2.4.4):
     - Masonry
     - Reachability
     - SJBaseVideoPlayer/Header
     - SJBaseVideoPlayer/Model
     - SJUIKit/ObserverHelper (>= 0.0.0.23)
     - SJUIKit/Queues (>= 0.0.0.23)
-  - SJUIKit/AttributesFactory (0.0.0.23)
-  - SJUIKit/ObserverHelper (0.0.0.23)
-  - SJUIKit/Queues (0.0.0.23)
-  - SJVideoPlayer (2.5.4):
+  - SJUIKit (0.0.0.29):
+    - SJUIKit/AsyncLoad (= 0.0.0.29)
+    - SJUIKit/AttributesFactory (= 0.0.0.29)
+    - SJUIKit/Base (= 0.0.0.29)
+    - SJUIKit/CornerMask (= 0.0.0.29)
+    - SJUIKit/Date (= 0.0.0.29)
+    - SJUIKit/ObserverHelper (= 0.0.0.29)
+    - SJUIKit/Other (= 0.0.0.29)
+    - SJUIKit/Queues (= 0.0.0.29)
+    - SJUIKit/Refresh (= 0.0.0.29)
+    - SJUIKit/Thread (= 0.0.0.29)
+    - SJUIKit/UIMaker (= 0.0.0.29)
+  - SJUIKit/AsyncLoad (0.0.0.29):
+    - SJUIKit/CornerMask
+  - SJUIKit/AttributesFactory (0.0.0.29):
+    - SJUIKit/AttributesFactory/Deprecated (= 0.0.0.29)
+    - SJUIKit/AttributesFactory/UIKitText (= 0.0.0.29)
+  - SJUIKit/AttributesFactory/Deprecated (0.0.0.29)
+  - SJUIKit/AttributesFactory/UIKitText (0.0.0.29)
+  - SJUIKit/Base (0.0.0.29):
+    - SJUIKit/Base/Core (= 0.0.0.29)
+    - SJUIKit/ObserverHelper
+  - SJUIKit/Base/Core (0.0.0.29):
+    - SJUIKit/ObserverHelper
+  - SJUIKit/CornerMask (0.0.0.29):
+    - SJUIKit/ObserverHelper
+  - SJUIKit/Date (0.0.0.29)
+  - SJUIKit/ObserverHelper (0.0.0.29)
+  - SJUIKit/Other (0.0.0.29):
+    - SJUIKit/Date
+  - SJUIKit/Queues (0.0.0.29)
+  - SJUIKit/Refresh (0.0.0.29):
+    - MJRefresh
+  - SJUIKit/Thread (0.0.0.29)
+  - SJUIKit/UIMaker (0.0.0.29):
+    - SJUIKit/UIMaker/Core (= 0.0.0.29)
+  - SJUIKit/UIMaker/Core (0.0.0.29)
+  - SJVideoPlayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
-    - SJVideoPlayer/Adapters (= 2.5.4)
-    - SJVideoPlayer/Common (= 2.5.4)
-    - SJVideoPlayer/Settings (= 2.5.4)
-    - SJVideoPlayer/SJEdgeControlLayer (= 2.5.4)
-    - SJVideoPlayer/SJFilmEditingControlLayer (= 2.5.4)
-    - SJVideoPlayer/SJLoadFailedControlLayer (= 2.5.4)
-    - SJVideoPlayer/SJLoadingView (= 2.5.4)
-    - SJVideoPlayer/SJMoreSettingControlLayer (= 2.5.4)
-    - SJVideoPlayer/SJNotReachableControlLayer (= 2.5.4)
-    - SJVideoPlayer/SJProgressSlider (= 2.5.4)
-    - SJVideoPlayer/Switcher (= 2.5.4)
-  - SJVideoPlayer/Adapters (2.5.4):
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
+    - SJVideoPlayer/Adapters (= 2.5.7)
+    - SJVideoPlayer/Common (= 2.5.7)
+    - SJVideoPlayer/Settings (= 2.5.7)
+    - SJVideoPlayer/SJEdgeControlLayer (= 2.5.7)
+    - SJVideoPlayer/SJFilmEditingControlLayer (= 2.5.7)
+    - SJVideoPlayer/SJLoadFailedControlLayer (= 2.5.7)
+    - SJVideoPlayer/SJLoadingView (= 2.5.7)
+    - SJVideoPlayer/SJMoreSettingControlLayer (= 2.5.7)
+    - SJVideoPlayer/SJNotReachableControlLayer (= 2.5.7)
+    - SJVideoPlayer/SJProgressSlider (= 2.5.7)
+    - SJVideoPlayer/Switcher (= 2.5.7)
+  - SJVideoPlayer/Adapters (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Common
-  - SJVideoPlayer/Common (2.5.4):
+  - SJVideoPlayer/Common (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
-  - SJVideoPlayer/Settings (2.5.4):
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
+  - SJVideoPlayer/Settings (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader
     - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader
-  - SJVideoPlayer/SJEdgeControlLayer (2.5.4):
+  - SJVideoPlayer/SJEdgeControlLayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
     - SJVideoPlayer/Common
-    - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader (= 2.5.4)
-    - SJVideoPlayer/SJEdgeControlLayer/View (= 2.5.4)
+    - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader (= 2.5.7)
+    - SJVideoPlayer/SJEdgeControlLayer/View (= 2.5.7)
     - SJVideoPlayer/SJLoadingView
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader (2.5.4):
+  - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
     - SJVideoPlayer/Common
     - SJVideoPlayer/SJLoadingView
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJEdgeControlLayer/View (2.5.4):
+  - SJVideoPlayer/SJEdgeControlLayer/View (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
     - SJVideoPlayer/Common
     - SJVideoPlayer/SJEdgeControlLayer/ResourceLoader
     - SJVideoPlayer/SJLoadingView
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJFilmEditingControlLayer (2.5.4):
+  - SJVideoPlayer/SJFilmEditingControlLayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
-    - SJVideoPlayer/SJFilmEditingControlLayer/Core (= 2.5.4)
-    - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader (= 2.5.4)
+    - SJVideoPlayer/SJFilmEditingControlLayer/Core (= 2.5.7)
+    - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader (= 2.5.7)
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJFilmEditingControlLayer/Core (2.5.4):
+  - SJVideoPlayer/SJFilmEditingControlLayer/Core (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
     - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader (2.5.4):
+  - SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/Adapters
     - SJVideoPlayer/SJProgressSlider
     - SJVideoPlayer/Switcher
-  - SJVideoPlayer/SJLoadFailedControlLayer (2.5.4):
+  - SJVideoPlayer/SJLoadFailedControlLayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/SJNotReachableControlLayer
-  - SJVideoPlayer/SJLoadingView (2.5.4):
+  - SJVideoPlayer/SJLoadingView (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
-  - SJVideoPlayer/SJMoreSettingControlLayer (2.5.4):
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
+  - SJVideoPlayer/SJMoreSettingControlLayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/SJEdgeControlLayer
-    - SJVideoPlayer/SJMoreSettingControlLayer/Core (= 2.5.4)
-  - SJVideoPlayer/SJMoreSettingControlLayer/Core (2.5.4):
+    - SJVideoPlayer/SJMoreSettingControlLayer/Core (= 2.5.7)
+  - SJVideoPlayer/SJMoreSettingControlLayer/Core (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/SJEdgeControlLayer
-  - SJVideoPlayer/SJNotReachableControlLayer (2.5.4):
+  - SJVideoPlayer/SJNotReachableControlLayer (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
     - SJVideoPlayer/SJEdgeControlLayer
-  - SJVideoPlayer/SJProgressSlider (2.5.4):
+  - SJVideoPlayer/SJProgressSlider (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
-  - SJVideoPlayer/Switcher (2.5.4):
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
+  - SJVideoPlayer/Switcher (2.5.7):
     - Masonry
-    - SJBaseVideoPlayer (>= 2.3.5)
-    - SJUIKit/AttributesFactory (= 0.0.0.23)
+    - SJBaseVideoPlayer (>= 2.4.1)
+    - SJUIKit/AttributesFactory
   - XHLaunchAd (3.9.8):
     - FLAnimatedImage (~> 1.0.12)
 
@@ -241,7 +275,9 @@ DEPENDENCIES:
   - PYSearch
   - SDCycleScrollView
   - SDWebImage (~> 4.4.3)
-  - SJVideoPlayer
+  - SJBaseVideoPlayer (from `https://gitee.com/changsanjiang/SJBaseVideoPlayer.git`)
+  - SJUIKit (from `https://gitee.com/changsanjiang/SJUIKit.git`)
+  - SJVideoPlayer (from `https://gitee.com/changsanjiang/SJVideoPlayer.git`)
   - XHLaunchAd
 
 SPEC REPOS:
@@ -260,10 +296,26 @@ SPEC REPOS:
     - Reachability
     - SDCycleScrollView
     - SDWebImage
-    - SJBaseVideoPlayer
-    - SJUIKit
-    - SJVideoPlayer
     - XHLaunchAd
+
+EXTERNAL SOURCES:
+  SJBaseVideoPlayer:
+    :git: https://gitee.com/changsanjiang/SJBaseVideoPlayer.git
+  SJUIKit:
+    :git: https://gitee.com/changsanjiang/SJUIKit.git
+  SJVideoPlayer:
+    :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
+
+CHECKOUT OPTIONS:
+  SJBaseVideoPlayer:
+    :commit: 506805d97c8d8a5bec9fc6919ed6db85984a710c
+    :git: https://gitee.com/changsanjiang/SJBaseVideoPlayer.git
+  SJUIKit:
+    :commit: 75298b9c9b16dab4c3afe9e5084c898b42fd34fb
+    :git: https://gitee.com/changsanjiang/SJUIKit.git
+  SJVideoPlayer:
+    :commit: b395ab494ff937f349b0d7fd6865f72b02f3171d
+    :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -280,11 +332,11 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
-  SJBaseVideoPlayer: 1187d5d1c108ed1f02152de7af7b234f6b41ba40
-  SJUIKit: d97d9b7b37313b004ec44452a137821f18fdf39e
-  SJVideoPlayer: cdbdf3a4847e343d47240bdc4d4a5b12713e5774
+  SJBaseVideoPlayer: 86f0828a107b2614aff30d7f6a349733c097b1ab
+  SJUIKit: 890a1a8cb536485dde8bf0c09876f3d8a63fb1eb
+  SJVideoPlayer: 9f819f56c17b0f5520a24fb2caffd06bac893343
   XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
 
-PODFILE CHECKSUM: 9c6ec6ac51d88e24551132f6bf7cb003d6a3ce0d
+PODFILE CHECKSUM: 8971a1d1e005c978db0cbee49c43295db96ead0d
 
 COCOAPODS: 1.5.3

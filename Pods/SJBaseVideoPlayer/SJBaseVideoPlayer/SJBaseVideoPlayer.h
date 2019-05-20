@@ -29,14 +29,13 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "SJVideoPlayerPreviewInfo.h"
 #import "SJPrompt.h"
 #import "SJFitOnScreenManagerDefines.h"
 #import "SJRotationManagerDefines.h"
 #import "SJVideoPlayerControlLayerProtocol.h"
 #import "SJControlLayerAppearManagerDefines.h"
 #import "SJFlipTransitionManagerDefines.h"
-#import "SJMediaPlaybackProtocol.h"
+#import "SJMediaPlaybackControllerDefines.h"
 #import "SJVideoPlayerURLAsset+SJAVMediaPlaybackAdd.h"
 #import "SJPlayerGestureControlDefines.h"
 #import "SJDeviceVolumeAndBrightnessManagerDefines.h"
@@ -73,6 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 播放器准备好显示时, 是否隐藏占位图
 /// - 默认为YES
 @property (nonatomic) BOOL hiddenPlaceholderImageViewWhenPlayerIsReadyForDisplay;
+
+/// 将要隐藏 placeholderImageView 时, 延迟多少秒才去隐藏
+/// - 默认为0
+@property (nonatomic) NSTimeInterval delayInSecondsForHiddenPlaceholderImageView;
 @end
 
 
@@ -555,10 +558,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)screenshotWithTime:(NSTimeInterval)time
                       size:(CGSize)size
                 completion:(void(^)(__kindof SJBaseVideoPlayer *videoPlayer, UIImage * __nullable image, NSError *__nullable error))block;
-
-- (void)generatedPreviewImagesWithMaxItemSize:(CGSize)itemSize
-                                   completion:(void(^)(__kindof SJBaseVideoPlayer *player, NSArray<id<SJVideoPlayerPreviewInfo>> *__nullable images, NSError *__nullable error))block;
-
 @end
 
 

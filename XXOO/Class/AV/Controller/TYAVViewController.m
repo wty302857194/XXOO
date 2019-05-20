@@ -11,6 +11,7 @@
 #import "TYAVLableModel.h"
 #import "TYHomeModel.h"
 #import "TYGongGaoView.h"
+#import "TYShengJiView.h"
 
 static NSInteger const scHeight = 40;
 static NSInteger const jianGe = 10;//间隔距离
@@ -26,6 +27,9 @@ static NSInteger const btnWidth = 90;
 @property (nonatomic, strong) UIScrollView *titleSC;
 @property (nonatomic, strong) NSMutableDictionary *listVCQueue;
 @property (nonatomic, strong) TYGongGaoView * gongGaoView;
+@property (nonatomic, strong) TYShengJiView * shengJiView;
+
+
 @end
 
 @implementation TYAVViewController
@@ -36,6 +40,7 @@ static NSInteger const btnWidth = 90;
     _listVCQueue = [NSMutableDictionary dictionaryWithCapacity:0];
     [self getAVRequestData];
     [self getNoticesListRequestData];
+    [self getVersionByTypeRequestData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -83,7 +88,37 @@ static NSInteger const btnWidth = 90;
         
     }];
 }
+//  /sysVersion/api/getVersionByType  系统-版本更新
 
+/*
+ {
+ "content": "全新版本app下载安装",            //版本说明
+ "createTime": "2019-05-20 10:18:53",       //
+ "deviceCode": "1.1",                       //版本号
+ "deviceType": 1,                           //系统 1安卓 2IOS
+ "id": 1,                                   //id
+ "url": " ",                                //下载地址
+ "versionName": "1.10"                      //版本名称
+ }
+ */
+- (void)getVersionByTypeRequestData {
+    NSString *versionStr = [NSString stringWithFormat:@"%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    
+    [TYNetWorkTool postRequest:@"/sysVersion/api/getVersionByType" parameters:@{@"type":@"2"} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        if (success&&data) {
+            if ([versionStr isEqualToString:data[@"deviceCode"]]) {
+                return ;
+            }else {
+//                self.shengJiView.contentLab.text = [NSString stringWithFormat:@"%@",data];
+//                [TYGlobal openScheme:data[@"url"]?:@""];
+            }
+        }else {
+            [MBProgressHUD promptMessage:msg inView:self.view];
+        }
+    } failureBlock:^(NSString * _Nonnull description) {
+        
+    }];
+}
 
 - (void)setUI {
 
@@ -220,6 +255,15 @@ static NSInteger const btnWidth = 90;
         [self.view bringSubviewToFront:_gongGaoView];
     }
     return _gongGaoView;
+}
+- (TYShengJiView *)shengJiView {
+    if (!_shengJiView) {
+        _shengJiView = [[[NSBundle mainBundle] loadNibNamed:@"TYShengJiView" owner:nil options:nil] lastObject];
+        _shengJiView.frame = [UIScreen mainScreen].bounds;
+        [self.view addSubview:_shengJiView];
+        [self.view bringSubviewToFront:_shengJiView];
+    }
+    return _shengJiView;
 }
 @end
 

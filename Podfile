@@ -13,7 +13,10 @@ target 'XXOO' do
   pod 'SDCycleScrollView'  # 广告轮播
   pod 'IQKeyboardManager'
   pod 'MJExtension'
-  pod 'SJVideoPlayer'
+
+  pod 'SJBaseVideoPlayer', :git =>'https://gitee.com/changsanjiang/SJBaseVideoPlayer.git'
+  pod 'SJVideoPlayer', :git => 'https://gitee.com/changsanjiang/SJVideoPlayer.git'
+  pod 'SJUIKit', :git => 'https://gitee.com/changsanjiang/SJUIKit.git'
 #  pod 'SJScrollEntriesView'
   pod 'PYSearch'
   pod 'Canvas'

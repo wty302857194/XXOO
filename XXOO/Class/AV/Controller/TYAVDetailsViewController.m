@@ -120,8 +120,9 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         if ([weakself.detailModel.free isEqualToString:@"1"]) {
             NSTimeInterval time = videoPlayer.currentTime;
             if (weakself.detailModel.limitTime == YES) {
-                if (time>[weakself.detailModel.times floatValue]) {
-                    [weakself.player pause];                weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
+                if (time>([weakself.detailModel.times floatValue]*60)) {
+                    [weakself.player pause];
+//                    weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
                     
                     [weakself.player.switcher addControlLayerForIdentifier:myLayer lazyLoading:^id<SJControlLayer> _Nonnull(SJControlLayerIdentifier identifier) {
                         return weakself.overView;
@@ -131,17 +132,36 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
             }
         }
     }];
+    
+    // 视频加载出来后 把视频时长传给k后台
+    [self updateVideoTimeRequestData];
 }
 - (void)test {
+    [self.player.rotationManager rotate:SJOrientation_Portrait animated:YES completionHandler:^(id<SJRotationManagerProtocol>  _Nonnull mgr) {
+        
+        TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
+        TYWEAK_SELF;
+        vc.refreshBlock = ^{
+            [weakSelf getVideoListRequestData];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }];
     
-    TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
-    TYWEAK_SELF;
-    vc.refreshBlock = ^{
-        [weakSelf getVideoListRequestData];
-    };
-    [self.navigationController pushViewController:vc animated:YES];
+    
 }
-// /userHistory/api/addHistory
+//  /video/api/updateTime  视频-视频时长确定
+- (void)updateVideoTimeRequestData {
+    NSDictionary * dic = @{
+                           @"id":self.avID?:@"",
+                           @"times":_player.totalTimeStr?:@""
+                           };
+    [TYNetWorkTool postRequest:@"/video/api/updateTime" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+    } failureBlock:^(NSString * _Nonnull description) {
+        
+    }];
+}
+// /userHistory/api/addHistory  添加到播放记录
 - (void)addHistoryRequestData {
     
     NSDictionary * dic = @{
@@ -370,18 +390,24 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         TYWEAK_SELF;
         _overView.overBlcok = ^(NSInteger index) {
             if (index == 10) {
-                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [weakSelf.player.rotationManager rotate:SJOrientation_Portrait animated:YES completionHandler:^(id<SJRotationManagerProtocol>  _Nonnull mgr) {
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                }];
             }else if (index == 20) {
                 /// 删除控制层
                 [weakSelf.player.switcher switchControlLayerForIdentitfier:SJControlLayer_Edge];
+                [weakSelf.player.switcher deleteControlLayerForIdentifier:myLayer];
                 
                 [weakSelf.player replay];
             }else {
-                TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
-                vc.refreshBlock = ^{
-                    [weakSelf getVideoListRequestData];
-                };
-                [weakSelf.navigationController pushViewController:vc animated:YES];
+                [weakSelf.player.rotationManager rotate:SJOrientation_Portrait animated:YES completionHandler:^(id<SJRotationManagerProtocol>  _Nonnull mgr) {
+                    TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
+                    vc.refreshBlock = ^{
+                        [weakSelf getVideoListRequestData];
+                    };
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
+                }];
+                
             }
         };
     }

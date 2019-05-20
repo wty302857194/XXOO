@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TYShengJiView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKS-j6-edH">
+                    <rect key="frame" x="187.5" y="561.5" width="39" height="39"/>
+                    <state key="normal" image="mine_cancelBack_img"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-pO-Tbt">
+                    <rect key="frame" x="75.5" y="234.5" width="263" height="307"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaoImage" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-8n-9Wz">
+                            <rect key="frame" x="0.0" y="0.0" width="263" height="69.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-gq-6XI">
+                            <rect key="frame" x="97" y="14.5" width="69.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoY-Cz-hdB">
+                            <rect key="frame" x="13" y="99.5" width="237" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.12549019610000001" green="0.18039215689999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YsH-pO-Tbt" secondAttribute="height" multiplier="528:616" id="4KV-gp-9kJ"/>
+                        <constraint firstItem="LoY-Cz-hdB" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" constant="13" id="95W-VM-Wqm"/>
+                        <constraint firstItem="dB4-gq-6XI" firstAttribute="centerX" secondItem="uRe-8n-9Wz" secondAttribute="centerX" id="ZG2-8A-SLy"/>
+                        <constraint firstItem="uRe-8n-9Wz" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" id="fOc-61-Sgg"/>
+                        <constraint firstItem="LoY-Cz-hdB" firstAttribute="top" secondItem="uRe-8n-9Wz" secondAttribute="bottom" constant="30" id="lTP-E6-bmY"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LoY-Cz-hdB" secondAttribute="bottom" constant="20" id="niv-P8-rBW"/>
+                        <constraint firstItem="uRe-8n-9Wz" firstAttribute="top" secondItem="YsH-pO-Tbt" secondAttribute="top" id="o6p-SI-WNj"/>
+                        <constraint firstAttribute="trailing" secondItem="LoY-Cz-hdB" secondAttribute="trailing" constant="13" id="vch-Rn-g41"/>
+                        <constraint firstAttribute="trailing" secondItem="uRe-8n-9Wz" secondAttribute="trailing" id="xXc-iu-owo"/>
+                        <constraint firstItem="dB4-gq-6XI" firstAttribute="centerY" secondItem="uRe-8n-9Wz" secondAttribute="centerY" constant="-10" id="zl8-0p-bBn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="YKS-j6-edH" firstAttribute="top" secondItem="YsH-pO-Tbt" secondAttribute="bottom" constant="20" id="Bbi-5E-20M"/>
+                <constraint firstItem="YKS-j6-edH" firstAttribute="centerX" secondItem="YsH-pO-Tbt" secondAttribute="centerX" id="HEH-bT-jN3"/>
+                <constraint firstItem="YsH-pO-Tbt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-60" id="iEn-lc-L9J"/>
+                <constraint firstItem="YsH-pO-Tbt" firstAttribute="width" secondItem="YsH-pO-Tbt" secondAttribute="height" multiplier="528:616" id="xPO-Bz-nNX"/>
+                <constraint firstItem="YsH-pO-Tbt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yfq-ws-7M0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gonggaoImage" width="263" height="69.5"/>
+        <image name="mine_cancelBack_img" width="39" height="39"/>
+    </resources>
+</document>
