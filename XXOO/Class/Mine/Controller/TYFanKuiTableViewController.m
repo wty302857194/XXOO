@@ -20,6 +20,7 @@
 @property (nonatomic, copy) NSString * tvStr;
 @property (nonatomic, copy) NSString * selectTitle;
 @property (nonatomic, copy) NSArray * titleArr;
+@property (nonatomic, copy) NSString * imgUrl;
 @end
 
 @implementation TYFanKuiTableViewController
@@ -239,6 +240,42 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
     _userImage = newImage;
     self.ChooseImgView.image = newImage;
+    
+    [self addImageRequestData];
+}
+- (void)addImageRequestData {
+    NSData *imageData=  UIImagePNGRepresentation(_userImage);
+    //1。创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSMutableDictionary *mulParameters = [NSMutableDictionary dictionaryWithDictionary:@{}];
+    
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@",URL_main,@"/upload/api/uploadFile"];
+    
+    [manager POST:URLStr parameters:mulParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        //上传文件参数
+        NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+        formatter.dateFormat=@"yyyyMMddHHmmss";
+        NSString *str=[formatter stringFromDate:[NSDate date]];
+        NSString *fileName=[NSString stringWithFormat:@"%@.jpg",str];
+        
+        [formData appendPartWithFileData:imageData name:@"content_pic" fileName:fileName mimeType:@"image/png"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        
+        NSArray *infoArr =  [weatherDic objectForKey:@"info"];
+        
+        if ([[weatherDic objectForKey:@"responseCode"] integerValue] == 0) {
+            NSString *str = infoArr[0][@"filePath"];
+            self.imgUrl = [NSString stringWithFormat:@"%@",str];
+        }else{
+            [MBProgressHUD promptMessage:[weatherDic objectForKey:@"responseMsg"] inView:self.view];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
 }
 #pragma mark - 上传图片   /upload/api/uploadFile
 - (void)changePersonPic
@@ -252,20 +289,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         return;
     }
     
-    NSData *data=  UIImagePNGRepresentation(_userImage);
-    NSString *headStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
                            @"content":self.tvStr?:@"",
                            @"title":self.selectTitle?:@"",
-                           @"picUrl":headStr?:@""
+                           @"picUrl":self.imgUrl?:@""
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    TYWEAK_SELF;
     [TYNetWorkTool postRequest:@"/userFeedback/api/feedBack" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }

@@ -10,8 +10,8 @@
 #import "TYAVCategoryViewController.h"
 #import "TYGoddessViewController.h"
 #import "TYVideoLableViewController.h"
-//#import <SJScrollEntriesView/SJScrollEntriesView.h>
-//#import "TestItem.h"
+#import "TYShengJiVIPViewController.h"
+
 
 static NSInteger const scHeight = 40;
 static NSInteger const jianGe = 0;//间隔距离
@@ -38,6 +38,25 @@ static NSInteger const jianGe = 0;//间隔距离
     _listVCQueue = [NSMutableDictionary dictionaryWithCapacity:0];
 
     [self setUI];
+    
+    NSDictionary *dic = [USER_DEFAULTS objectForKey:USERMESSAGE];
+    NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
+    if ([str isEqualToString:@"1"]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(goVIP)];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.offset(0);
+            make.right.offset(0);
+            make.width.height.offset(100);
+        }];
+    }
+}
+- (void)goVIP {
+    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

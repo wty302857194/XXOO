@@ -17,19 +17,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9y-fE-jhF">
-                    <rect key="frame" x="50" y="195" width="314" height="366"/>
+                    <rect key="frame" x="30" y="227" width="354" height="302"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaoImage" translatesAutoresizingMaskIntoConstraints="NO" id="6LR-bB-wgP">
-                            <rect key="frame" x="0.0" y="0.0" width="314" height="69.5"/>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-ff-UCN">
-                            <rect key="frame" x="122.5" y="14" width="69.5" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="140.5" y="45" width="73.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8n-gW-nhg">
-                            <rect key="frame" x="13" y="99.5" width="288" height="18"/>
+                            <rect key="frame" x="13" y="76" width="328" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.12549019610000001" green="0.18039215689999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -37,16 +33,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="6LR-bB-wgP" firstAttribute="leading" secondItem="J9y-fE-jhF" secondAttribute="leading" id="1DA-cB-276"/>
-                        <constraint firstItem="tpm-ff-UCN" firstAttribute="centerX" secondItem="6LR-bB-wgP" secondAttribute="centerX" id="CaX-Wp-lIp"/>
-                        <constraint firstItem="v8n-gW-nhg" firstAttribute="top" secondItem="6LR-bB-wgP" secondAttribute="bottom" constant="30" id="JmR-nk-VfI"/>
+                        <constraint firstItem="v8n-gW-nhg" firstAttribute="top" secondItem="tpm-ff-UCN" secondAttribute="bottom" constant="10" id="FKS-8m-eoD"/>
+                        <constraint firstItem="tpm-ff-UCN" firstAttribute="top" secondItem="J9y-fE-jhF" secondAttribute="top" constant="45" id="IUd-1q-T1F"/>
                         <constraint firstItem="v8n-gW-nhg" firstAttribute="leading" secondItem="J9y-fE-jhF" secondAttribute="leading" constant="13" id="L2R-hk-NGu"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="v8n-gW-nhg" secondAttribute="bottom" constant="20" id="Oqg-pF-N6e"/>
                         <constraint firstAttribute="trailing" secondItem="v8n-gW-nhg" secondAttribute="trailing" constant="13" id="bgI-fn-aqd"/>
-                        <constraint firstAttribute="trailing" secondItem="6LR-bB-wgP" secondAttribute="trailing" id="rJv-A9-Xva"/>
-                        <constraint firstItem="6LR-bB-wgP" firstAttribute="top" secondItem="J9y-fE-jhF" secondAttribute="top" id="rXD-Jg-eO2"/>
-                        <constraint firstAttribute="width" secondItem="J9y-fE-jhF" secondAttribute="height" multiplier="528:616" id="wKw-Rn-0Nq"/>
-                        <constraint firstItem="tpm-ff-UCN" firstAttribute="centerY" secondItem="6LR-bB-wgP" secondAttribute="centerY" constant="-10" id="zjn-xN-C03"/>
+                        <constraint firstItem="tpm-ff-UCN" firstAttribute="centerX" secondItem="J9y-fE-jhF" secondAttribute="centerX" id="rv3-k4-upv"/>
+                        <constraint firstAttribute="width" secondItem="J9y-fE-jhF" secondAttribute="height" multiplier="528:450" id="wKw-Rn-0Nq"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -54,9 +47,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaoTopImage" translatesAutoresizingMaskIntoConstraints="NO" id="6LR-bB-wgP">
+                    <rect key="frame" x="199" y="219" width="16" height="16"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-RC-yfz">
-                    <rect key="frame" x="187.5" y="581" width="39" height="39"/>
-                    <state key="normal" image="mine_cancelBack_img"/>
+                    <rect key="frame" x="199" y="549" width="16" height="22"/>
+                    <state key="normal" image="gonggaoCancelImage"/>
                     <connections>
                         <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="Spj-9s-1My"/>
                     </connections>
@@ -64,10 +60,12 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="J9y-fE-jhF" secondAttribute="trailing" constant="50" id="By5-st-uoq"/>
+                <constraint firstItem="6LR-bB-wgP" firstAttribute="centerY" secondItem="J9y-fE-jhF" secondAttribute="top" id="8Tt-jm-0G2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="J9y-fE-jhF" secondAttribute="trailing" constant="30" id="By5-st-uoq"/>
                 <constraint firstItem="wu4-RC-yfz" firstAttribute="top" secondItem="J9y-fE-jhF" secondAttribute="bottom" constant="20" id="P7N-Jr-lpT"/>
                 <constraint firstItem="J9y-fE-jhF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-70" id="Sbq-WZ-HeO"/>
-                <constraint firstItem="J9y-fE-jhF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="sHU-1B-FRy"/>
+                <constraint firstItem="6LR-bB-wgP" firstAttribute="centerX" secondItem="J9y-fE-jhF" secondAttribute="centerX" id="iCz-Tv-bsV"/>
+                <constraint firstItem="J9y-fE-jhF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="sHU-1B-FRy"/>
                 <constraint firstItem="wu4-RC-yfz" firstAttribute="centerX" secondItem="J9y-fE-jhF" secondAttribute="centerX" id="zWg-qb-u4l"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -79,7 +77,7 @@
         </view>
     </objects>
     <resources>
-        <image name="gonggaoImage" width="263" height="69.5"/>
-        <image name="mine_cancelBack_img" width="39" height="39"/>
+        <image name="gonggaoCancelImage" width="37" height="37"/>
+        <image name="gonggaoTopImage" width="51.5" height="51.5"/>
     </resources>
 </document>

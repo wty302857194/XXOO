@@ -10,6 +10,7 @@
 #import "TYTaskTableViewCell.h"
 #import "TYTaskModel.h"
 #import "TYSaveCodeViewController.h"
+#import "TYShengJiVIPViewController.h"
 
 @interface TYTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeghtLayout;
@@ -36,6 +37,26 @@
     
     _hud = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:_hud];
+    
+    
+    NSDictionary *dic = [USER_DEFAULTS objectForKey:USERMESSAGE];
+    NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
+    if ([str isEqualToString:@"1"]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(goVIP)];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.offset(0);
+            make.right.offset(0);
+            make.width.height.offset(100);
+        }];
+    }
+}
+- (void)goVIP {
+    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 

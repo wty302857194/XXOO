@@ -11,9 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYShengJiView : TYBaseView
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
+@property (nonatomic, strong) NSDictionary * dataDic;
 @end
 
 NS_ASSUME_NONNULL_END

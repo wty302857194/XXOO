@@ -10,6 +10,7 @@
 #import "TYEntertainmentCollectionViewCell.h"
 #import "TYAVDetailsViewController.h"
 #import "TYEntertainmentModel.h"
+#import "TYShengJiVIPViewController.h"
 
 #define collectionWidth (KSCREEN_WIDTH-40)/3.0f
 
@@ -48,7 +49,24 @@
     }];
     
     
-//    [self headerRefreshRequest];
+    NSDictionary *dic = [USER_DEFAULTS objectForKey:USERMESSAGE];
+    NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
+    if ([str isEqualToString:@"1"]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(goVIP)];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.offset(0);
+            make.right.offset(0);
+            make.width.height.offset(100);
+        }];
+    }
+}
+- (void)goVIP {
+    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (void)headerRefreshRequest {
     [self.dataArr removeAllObjects];

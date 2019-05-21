@@ -94,37 +94,6 @@
             }else {
                 successBlock(NO,nil,responseObject[@"msg"]);
             }
-//            NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-//            [dict removeObjectForKey:@"sign"];
-//
-//            NSString *signString = [NSString dp_stringWithDictionary:responseObject key:@"sign"];
-//
-//            BOOL bRe = [SXRSA verify:[NSString dpOriginalData:dict] sign:signString publicKey:[DPOpenSSLRSA shareInstance].serverPublicKey];
-//
-//            HYResponseStatus *status = [HYResponseStatus mj_objectWithKeyValues:responseObject];
-//
-//            if (bRe) {
-//                // 验签通过
-//                [[DPOpenSSLRSA shareInstance] saveClientRSAKey];
-//
-//                if ([status stateIsSuccess]) {
-//                    responseObject = [NSDictionary nullDic:responseObject];
-//                    successBlock(YES, responseObject[@"data"], responseObject[@"msg"]);
-//                }
-//                else {
-//                    successBlock(NO,nil,responseObject[@"msg"]);
-//                }
-//            }
-//            else {
-//                NSLog(@"验签失败");
-//                if ([status stateIsTokenExpired]) {
-//
-//                    [[HYManager sharedManager] logout];
-//
-//                } else {
-//                    successBlock(NO,nil,(@"验签失败"));
-//                }
-//            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -150,19 +119,21 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     NSMutableDictionary *mulParameters = [NSMutableDictionary dictionaryWithDictionary:paramDic];
-    
-    //1:ios,2:android
-    [mulParameters setObject:@"1" forKey:@"type"];
-    
-    
-    [manager POST:requestURL parameters:mulParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@",URL_main,requestURL];
+
+    [manager POST:URLStr parameters:mulParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         //上传文件参数
         
         if (dataArray.count > 0) {
             
             [dataArray enumerateObjectsUsingBlock:^(NSData *imageData, NSUInteger idx, BOOL * _Nonnull stop) {
                 
-                [formData appendPartWithFileData:imageData name:dataKey[idx] fileName:dataName[idx] mimeType:@"image/png"];
+                NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+                formatter.dateFormat=@"yyyyMMddHHmmss";
+                NSString *str=[formatter stringFromDate:[NSDate date]];
+                NSString *fileName=[NSString stringWithFormat:@"%@.jpg",str];
+                
+                [formData appendPartWithFileData:imageData name:dataKey[idx] fileName:fileName mimeType:@"image/png"];
                 
             }];
             

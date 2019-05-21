@@ -12,6 +12,7 @@
 #import "TYHomeModel.h"
 #import "TYGongGaoView.h"
 #import "TYShengJiView.h"
+#import "TYShengJiVIPViewController.h"
 
 static NSInteger const scHeight = 40;
 static NSInteger const jianGe = 10;//间隔距离
@@ -57,7 +58,9 @@ static NSInteger const btnWidth = 90;
     }
 }
 - (void)goVIP {
-    
+    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -127,6 +130,7 @@ static NSInteger const btnWidth = 90;
                 return ;
             }else {
 //                self.shengJiView.contentLab.text = [NSString stringWithFormat:@"%@",data];
+                self.shengJiView.dataDic = data;
 //                [TYGlobal openScheme:data[@"url"]?:@""];
             }
         }else {

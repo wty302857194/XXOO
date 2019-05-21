@@ -89,7 +89,48 @@
     self.topViewLayout.constant = kStatusBarHeight;
     self.backImgLayout.constant = -kStatusBarHeight;
     self.timeLab.text = @"";
+    [self fenLiTaleViewAndView];
     [self getCenterAdRequestData];
+
+    NSDictionary *dic = [USER_DEFAULTS objectForKey:USERMESSAGE];
+    NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
+    if ([str isEqualToString:@"1"]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        btn.frame = CGRectMake(self.view.width-100, self.view.height-200, 100, 100);
+        [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(goVIP)];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.offset(0);
+            make.right.offset(0);
+            make.width.height.offset(100);
+        }];
+    }
+    
+
+}
+- (void)fenLiTaleViewAndView {
+    UITableView *tableView = (UITableView *)self.view;
+    self.view = [[UIView alloc] init] ;
+    tableView.frame = self.view.bounds;
+    self.tableView = tableView;
+}
+- (void)setTableView:(UITableView *)tableView {
+    [self.tableView removeFromSuperview];
+    [self.view addSubview:tableView];
+}
+- (UITableView *) tableView {
+    for (UIView *v in self.view.subviews) {
+        if ([v isKindOfClass:[UITableView class]]) {
+            return (UITableView *)v;
+        }
+    }
+    return nil;
+}
+- (void)goVIP {
+    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -143,9 +184,9 @@
                            @"code":userMessage[@"code"]?:@""
                            };
     
-    NSString *parameter = [NSString stringWithFormat:@"动态参数：\n%@",dic];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alert show];
+//    NSString *parameter = [NSString stringWithFormat:@"动态参数：\n%@",dic];
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {

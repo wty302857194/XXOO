@@ -16,41 +16,48 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKS-j6-edH">
-                    <rect key="frame" x="187.5" y="561.5" width="39" height="39"/>
-                    <state key="normal" image="mine_cancelBack_img"/>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-pO-Tbt">
-                    <rect key="frame" x="75.5" y="234.5" width="263" height="307"/>
+                    <rect key="frame" x="30" y="181.5" width="354" height="413"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaoImage" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-8n-9Wz">
-                            <rect key="frame" x="0.0" y="0.0" width="263" height="69.5"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shengJiImage" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-8n-9Wz">
+                            <rect key="frame" x="0.0" y="0.0" width="354" height="413"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-gq-6XI">
-                            <rect key="frame" x="97" y="14.5" width="69.5" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发现新版本！(最新版本V1.6)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-gq-6XI">
+                            <rect key="frame" x="61.5" y="110" width="231" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoY-Cz-hdB">
-                            <rect key="frame" x="13" y="99.5" width="237" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.12549019610000001" green="0.18039215689999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发现新版本！(最新版本V1.6)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aci-TV-TQE">
+                            <rect key="frame" x="13" y="151.5" width="328" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efT-wI-zqx">
+                            <rect key="frame" x="0.0" y="363" width="354" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="QlV-YD-1sw"/>
+                            </constraints>
+                            <connections>
+                                <action selector="shengJi:" destination="iN0-l3-epB" eventType="touchUpInside" id="HPd-Kw-OUG"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="YsH-pO-Tbt" secondAttribute="height" multiplier="528:616" id="4KV-gp-9kJ"/>
-                        <constraint firstItem="LoY-Cz-hdB" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" constant="13" id="95W-VM-Wqm"/>
+                        <constraint firstAttribute="bottom" secondItem="efT-wI-zqx" secondAttribute="bottom" id="65R-8V-Zmx"/>
+                        <constraint firstItem="efT-wI-zqx" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" id="NoU-DX-MVh"/>
+                        <constraint firstAttribute="trailing" secondItem="efT-wI-zqx" secondAttribute="trailing" id="NyW-CD-LPd"/>
                         <constraint firstItem="dB4-gq-6XI" firstAttribute="centerX" secondItem="uRe-8n-9Wz" secondAttribute="centerX" id="ZG2-8A-SLy"/>
+                        <constraint firstAttribute="bottom" secondItem="uRe-8n-9Wz" secondAttribute="bottom" id="c3I-i4-luy"/>
                         <constraint firstItem="uRe-8n-9Wz" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" id="fOc-61-Sgg"/>
-                        <constraint firstItem="LoY-Cz-hdB" firstAttribute="top" secondItem="uRe-8n-9Wz" secondAttribute="bottom" constant="30" id="lTP-E6-bmY"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LoY-Cz-hdB" secondAttribute="bottom" constant="20" id="niv-P8-rBW"/>
+                        <constraint firstItem="efT-wI-zqx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Aci-TV-TQE" secondAttribute="bottom" constant="10" id="g8J-2G-yud"/>
+                        <constraint firstItem="Aci-TV-TQE" firstAttribute="leading" secondItem="YsH-pO-Tbt" secondAttribute="leading" constant="13" id="n2C-Ap-bLH"/>
                         <constraint firstItem="uRe-8n-9Wz" firstAttribute="top" secondItem="YsH-pO-Tbt" secondAttribute="top" id="o6p-SI-WNj"/>
-                        <constraint firstAttribute="trailing" secondItem="LoY-Cz-hdB" secondAttribute="trailing" constant="13" id="vch-Rn-g41"/>
+                        <constraint firstItem="Aci-TV-TQE" firstAttribute="top" secondItem="dB4-gq-6XI" secondAttribute="bottom" constant="20" id="sJQ-I4-xio"/>
+                        <constraint firstItem="dB4-gq-6XI" firstAttribute="top" secondItem="YsH-pO-Tbt" secondAttribute="top" constant="110" id="vxM-Zk-7cs"/>
+                        <constraint firstAttribute="trailing" secondItem="Aci-TV-TQE" secondAttribute="trailing" constant="13" id="wr0-6h-rsq"/>
                         <constraint firstAttribute="trailing" secondItem="uRe-8n-9Wz" secondAttribute="trailing" id="xXc-iu-owo"/>
-                        <constraint firstItem="dB4-gq-6XI" firstAttribute="centerY" secondItem="uRe-8n-9Wz" secondAttribute="centerY" constant="-10" id="zl8-0p-bBn"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -61,17 +68,21 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="YKS-j6-edH" firstAttribute="top" secondItem="YsH-pO-Tbt" secondAttribute="bottom" constant="20" id="Bbi-5E-20M"/>
-                <constraint firstItem="YKS-j6-edH" firstAttribute="centerX" secondItem="YsH-pO-Tbt" secondAttribute="centerX" id="HEH-bT-jN3"/>
+                <constraint firstItem="YsH-pO-Tbt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="Qdo-Z0-wq3"/>
                 <constraint firstItem="YsH-pO-Tbt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-60" id="iEn-lc-L9J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YsH-pO-Tbt" secondAttribute="trailing" constant="30" id="pbF-9J-EeT"/>
                 <constraint firstItem="YsH-pO-Tbt" firstAttribute="width" secondItem="YsH-pO-Tbt" secondAttribute="height" multiplier="528:616" id="xPO-Bz-nNX"/>
                 <constraint firstItem="YsH-pO-Tbt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yfq-ws-7M0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="contentLab" destination="Aci-TV-TQE" id="zEY-ua-ywO"/>
+                <outlet property="sureBtn" destination="efT-wI-zqx" id="JTd-7d-1cr"/>
+                <outlet property="titleLab" destination="dB4-gq-6XI" id="oHO-oY-ZwN"/>
+            </connections>
         </view>
     </objects>
     <resources>
-        <image name="gonggaoImage" width="263" height="69.5"/>
-        <image name="mine_cancelBack_img" width="39" height="39"/>
+        <image name="shengJiImage" width="297" height="310"/>
     </resources>
 </document>
