@@ -75,7 +75,6 @@
     
     [_hud showAnimated:YES];
     [TYNetWorkTool postRequest:@"/sysTask/api/getTaskList" parameters:@{@"id":[TYGlobal userId]} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
-        //        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.hud hideAnimated:YES];
         if (success&&data) {
             self.dataArr = [TYTaskModel mj_objectArrayWithKeyValuesArray:data[@"data"]];

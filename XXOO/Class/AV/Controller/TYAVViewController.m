@@ -126,12 +126,10 @@ static NSInteger const btnWidth = 90;
     
     [TYNetWorkTool postRequest:@"/sysVersion/api/getVersionByType" parameters:@{@"type":@"2"} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         if (success&&data) {
-            if ([versionStr isEqualToString:data[@"deviceCode"]]) {
+            if ([versionStr floatValue] == [data[@"deviceCode"] floatValue]) {
                 return ;
             }else {
-//                self.shengJiView.contentLab.text = [NSString stringWithFormat:@"%@",data];
                 self.shengJiView.dataDic = data;
-//                [TYGlobal openScheme:data[@"url"]?:@""];
             }
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
@@ -280,8 +278,8 @@ static NSInteger const btnWidth = 90;
     if (!_shengJiView) {
         _shengJiView = [[[NSBundle mainBundle] loadNibNamed:@"TYShengJiView" owner:nil options:nil] lastObject];
         _shengJiView.frame = [UIScreen mainScreen].bounds;
-        [self.view addSubview:_shengJiView];
-        [self.view bringSubviewToFront:_shengJiView];
+        [kWindow addSubview:_shengJiView];
+//        [self.view bringSubviewToFront:_shengJiView];
     }
     return _shengJiView;
 }

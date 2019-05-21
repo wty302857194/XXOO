@@ -32,7 +32,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="176"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_topBackImg" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-DF-zHC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="176"/>
+                                                            <rect key="frame" x="0.0" y="-60" width="414" height="236"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gH0-sa-HYO">
                                                             <rect key="frame" x="354" y="5" width="30" height="30"/>
@@ -86,7 +86,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="ZYc-DF-zHC" firstAttribute="top" secondItem="j6M-rs-5SU" secondAttribute="top" id="5el-1z-YJS"/>
+                                                        <constraint firstItem="ZYc-DF-zHC" firstAttribute="top" secondItem="j6M-rs-5SU" secondAttribute="top" constant="-60" id="5el-1z-YJS"/>
                                                         <constraint firstAttribute="trailing" secondItem="mLZ-pS-CTf" secondAttribute="trailing" constant="10" id="DJH-pt-JAa"/>
                                                         <constraint firstItem="ptK-2L-8eh" firstAttribute="leading" secondItem="42S-Ob-nwR" secondAttribute="leading" id="H3p-w1-AjZ"/>
                                                         <constraint firstItem="gH0-sa-HYO" firstAttribute="top" secondItem="j6M-rs-5SU" secondAttribute="top" constant="5" id="ONK-Hg-KQs"/>

@@ -13,8 +13,8 @@
 + (NSString *)getDeviceIdentifier {
     NSString *deviceIdentifier = [USER_DEFAULTS objectForKey:@"deviceIdentifier"];
     if (!deviceIdentifier) {
-        NSString *identifier = [HDeviceIdentifier deviceIdentifier];
-        [USER_DEFAULTS setObject:identifier forKey:@"deviceIdentifier"];
+        deviceIdentifier = [HDeviceIdentifier deviceIdentifier];
+        [USER_DEFAULTS setObject:deviceIdentifier forKey:@"deviceIdentifier"];
         [USER_DEFAULTS synchronize];
     }
     return deviceIdentifier?:@"";

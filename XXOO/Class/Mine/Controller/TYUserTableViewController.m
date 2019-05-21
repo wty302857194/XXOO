@@ -86,8 +86,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.topViewLayout.constant = kStatusBarHeight;
-    self.backImgLayout.constant = -kStatusBarHeight;
+//    self.topViewLayout.constant = kStatusBarHeight;
+//    self.backImgLayout.constant = -kStatusBarHeight;
+
+    
+        CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+        gradientLayer.frame = self.tableView.bounds;
+        gradientLayer.startPoint = CGPointMake(0, 0);
+        gradientLayer.endPoint = CGPointMake(1, 1);
+        gradientLayer.locations = @[@(0.1),@(0.6),@(1.0)];//渐变点
+        [gradientLayer setColors:@[(id)[hexColor(d87ff7) CGColor],(id)[hexColor(c97df9) CGColor],(id)[hexColor(fa84f2) CGColor]]];//渐变数组
+        [self.tableView.layer addSublayer:gradientLayer];
+    
+
     self.timeLab.text = @"";
     [self fenLiTaleViewAndView];
     [self getCenterAdRequestData];
@@ -183,10 +194,6 @@
                            @"id":userMessage[@"id"]?:@"",
                            @"code":userMessage[@"code"]?:@""
                            };
-    
-//    NSString *parameter = [NSString stringWithFormat:@"动态参数：\n%@",dic];
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alert show];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {

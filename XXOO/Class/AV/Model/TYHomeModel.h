@@ -34,8 +34,25 @@ NS_ASSUME_NONNULL_BEGIN
  "timeLong": "150",                                                                //时长
  "title": "隐天子之大话江湖"                                                         //标题
  }
+ 
+ 
+ 
+ {
+ "click":2,                        //点击量
+ "createTime": "2019-05-19 05:05:23",    //更新时间
+ "cover": " ",                    //封面
+ "cstate": 0,                    //是否收藏（0否1是）
+ "id": 21934,                    //视频id
+ "icon": "限免",                 //是否限免（ 图标  是    null 不是）
+ "latest": "最新",                    //是否最新（ 图标 是 " "不是）
+ "timeLong": "150",                //视频时长
+ "title": " ",                    //标题
+ "vUrl": " "                        //播放地址
+ }
  */
 @interface TYHomeItemModel : TYBaseModel
+@property (nonatomic, copy) NSString * latest;
+
 @property (nonatomic, copy) NSString * icon;
 @property (nonatomic, copy) NSString * cstate; //是否收藏（0否1是）
 @property (nonatomic, copy) NSString * click;
@@ -53,7 +70,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * vLabel;
 @property (nonatomic, copy) NSString * vNumber;
 @property (nonatomic, copy) NSString * vUrl;
-
 @end
 
 NS_ASSUME_NONNULL_END
