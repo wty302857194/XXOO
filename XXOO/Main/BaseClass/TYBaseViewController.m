@@ -9,7 +9,9 @@
 #import "TYBaseViewController.h"
 
 @interface TYBaseViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
-
+{
+    UIButton *_vipBtn;
+}
 @end
 
 @implementation TYBaseViewController
@@ -39,8 +41,29 @@
             collectionView.emptyDataSetDelegate = self;
         }
     }
+    
+    
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _vipBtn = btn;
+//    [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(goVIP)];
+//    [kWindow addSubview:btn];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.offset(-kTabBarHeight);
+//        make.right.offset(0);
+//        make.width.height.offset(100);
+//    }];
+    
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isHiddenBtn) name:KEY_NEED_SHENGJI_VIP object:nil];
+    
+
+
 }
 
+//- (void)isHiddenBtn {
+//    _vipBtn.hidden = YES;
+//}
 //设置状态栏颜色
 - (void)setStatusBarBackgroundColor:(UIColor *)color {
     

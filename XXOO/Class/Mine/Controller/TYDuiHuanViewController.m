@@ -10,7 +10,7 @@
 #import "TYDuiHuanFirstTableViewCell.h"
 #import "TYDuiHuanSecondTableViewCell.h"
 #import "TYDuiHuanModel.h"
-#import "TYPromotionVIPViewController.h"
+#import "TYShengJiVIPViewController.h"
 
 @interface TYDuiHuanHeaderView : TYBaseView
 @property (nonatomic, strong) UIImageView * headerImgView;
@@ -179,7 +179,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.cellBackBlock = ^(NSInteger index) {
             if (index == 0) {//购买VIP
-                TYPromotionVIPViewController *vc = [[TYPromotionVIPViewController alloc] init];
+                TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
                 TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
                 [weakSelf presentViewController:nav animated:YES completion:nil];
             }else {

@@ -35,6 +35,8 @@
     TYUserTableViewController *testVC =  [[UIStoryboard storyboardWithName:@"mine" bundle:nil] instantiateViewControllerWithIdentifier:@"TYUserTableViewController"];;
     [self addTabBarVC:testVC withTitle:@"我的" withNormalImage:@"mine_tabbar_normal" withSelectImage:@"mine_tabbar_select"];
 
+    
+    
 }
 
 - (void)addTabBarVC:(UIViewController *)viewController withTitle:(NSString *)title withNormalImage:(NSString *)normalImage withSelectImage:(NSString *)selectImage {

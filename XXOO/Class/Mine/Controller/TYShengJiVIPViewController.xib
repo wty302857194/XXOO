@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYShengJiVIPViewController">
+            <connections>
+                <outlet property="leftBtn" destination="Eth-z6-8xP" id="Jn9-BT-Zd2"/>
+                <outlet property="rightBtn" destination="m9u-yt-4IG" id="dDd-eP-ZTk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ide-5w-5vA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eth-z6-8xP">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                            <state key="normal" title="在线充值" backgroundImage="mine_topBackImg">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.8526445627" green="0.48115009069999998" blue="0.97942155600000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="selectChoose:" destination="-1" eventType="touchUpInside" id="8FG-Xq-yzj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9u-yt-4IG">
+                            <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                            <state key="normal" title="意见反馈">
+                                <color key="titleColor" red="0.8526445627" green="0.48115009069999998" blue="0.97942155600000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.8526445627" green="0.48115009069999998" blue="0.97942155600000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="selectChoose:" destination="-1" eventType="touchUpInside" id="RwY-XJ-a3M"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="m9u-yt-4IG" secondAttribute="trailing" id="AQc-cL-xIQ"/>
+                        <constraint firstItem="Eth-z6-8xP" firstAttribute="leading" secondItem="Ide-5w-5vA" secondAttribute="leading" id="BBQ-h4-ZOi"/>
+                        <constraint firstItem="m9u-yt-4IG" firstAttribute="leading" secondItem="Eth-z6-8xP" secondAttribute="trailing" id="EEn-0I-zKv"/>
+                        <constraint firstAttribute="bottom" secondItem="m9u-yt-4IG" secondAttribute="bottom" id="Qa0-ts-UCF"/>
+                        <constraint firstAttribute="height" constant="40" id="ZEt-zc-2ac"/>
+                        <constraint firstItem="m9u-yt-4IG" firstAttribute="top" secondItem="Ide-5w-5vA" secondAttribute="top" id="nCM-sE-3vy"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="nVP-W4-OHU"/>
+                        <constraint firstItem="m9u-yt-4IG" firstAttribute="width" secondItem="Eth-z6-8xP" secondAttribute="width" id="pex-86-03A"/>
+                        <constraint firstAttribute="bottom" secondItem="Eth-z6-8xP" secondAttribute="bottom" id="qKy-JQ-PW8"/>
+                        <constraint firstItem="Eth-z6-8xP" firstAttribute="top" secondItem="Ide-5w-5vA" secondAttribute="top" id="u9V-Hq-gcx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ide-5w-5vA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CYl-TU-vwa"/>
+                <constraint firstItem="Ide-5w-5vA" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Z27-XN-qlF"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Ide-5w-5vA" secondAttribute="trailing" id="r7Z-XJ-r3v"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mine_topBackImg" width="375" height="147"/>
+    </resources>
+</document>

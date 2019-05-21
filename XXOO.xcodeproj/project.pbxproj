@@ -120,6 +120,10 @@
 		C1E8747322807D960008C418 /* TYPromotionVIPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E8747122807D960008C418 /* TYPromotionVIPTableViewCell.xib */; };
 		C1E8747622807EBF0008C418 /* TYPromotionVIPView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E8747522807EBF0008C418 /* TYPromotionVIPView.m */; };
 		C1E8747822807EC90008C418 /* TYPromotionVIPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E8747722807EC90008C418 /* TYPromotionVIPView.xib */; };
+		C1EEB44A22938F5D00FC8765 /* TYFanKuiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EEB44822938F5C00FC8765 /* TYFanKuiTableViewController.m */; };
+		C1EEB44E2293947A00FC8765 /* FSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EEB44D2293947A00FC8765 /* FSTextView.m */; };
+		C1EEB4572293D24E00FC8765 /* TYShengJiVIPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EEB4552293D24E00FC8765 /* TYShengJiVIPViewController.m */; };
+		C1EEB4582293D24E00FC8765 /* TYShengJiVIPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EEB4562293D24E00FC8765 /* TYShengJiVIPViewController.xib */; };
 		C1F13A06226573B3006E754A /* TYAVDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */; };
 		C1F13A07226573B3006E754A /* TYAVDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */; };
 		C1F13A0B2265BE25006E754A /* TYAVDetailContentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F13A092265BE25006E754A /* TYAVDetailContentCollectionViewCell.m */; };
@@ -388,6 +392,13 @@
 		C1E8747422807EBF0008C418 /* TYPromotionVIPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPromotionVIPView.h; sourceTree = "<group>"; };
 		C1E8747522807EBF0008C418 /* TYPromotionVIPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPromotionVIPView.m; sourceTree = "<group>"; };
 		C1E8747722807EC90008C418 /* TYPromotionVIPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYPromotionVIPView.xib; sourceTree = "<group>"; };
+		C1EEB44822938F5C00FC8765 /* TYFanKuiTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TYFanKuiTableViewController.m; path = "/Users/wubangbang/Desktop/XXOO项目开发/XXOO/XXOO/XXOO/Class/Mine/Controller/TYFanKuiTableViewController.m"; sourceTree = "<absolute>"; };
+		C1EEB44922938F5D00FC8765 /* TYFanKuiTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TYFanKuiTableViewController.h; path = "/Users/wubangbang/Desktop/XXOO项目开发/XXOO/XXOO/XXOO/Class/Mine/Controller/TYFanKuiTableViewController.h"; sourceTree = "<absolute>"; };
+		C1EEB44C2293947A00FC8765 /* FSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTextView.h; sourceTree = "<group>"; };
+		C1EEB44D2293947A00FC8765 /* FSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTextView.m; sourceTree = "<group>"; };
+		C1EEB4542293D24E00FC8765 /* TYShengJiVIPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYShengJiVIPViewController.h; sourceTree = "<group>"; };
+		C1EEB4552293D24E00FC8765 /* TYShengJiVIPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYShengJiVIPViewController.m; sourceTree = "<group>"; };
+		C1EEB4562293D24E00FC8765 /* TYShengJiVIPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYShengJiVIPViewController.xib; sourceTree = "<group>"; };
 		C1F13A03226573B3006E754A /* TYAVDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C1F13A04226573B3006E754A /* TYAVDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAVDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C1F13A05226573B3006E754A /* TYAVDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYAVDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -589,6 +600,7 @@
 		C12486C6225D96A30040B476 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C1EEB44B2293947A00FC8765 /* FSTextView */,
 				C18AAF35228470A600076EE5 /* IpAddress */,
 				C19189FE22794F3300CB2096 /* GesturePassward */,
 				C1F28437226D551A009B57A5 /* HDeviceIdentifierUtils */,
@@ -942,9 +954,14 @@
 				C1918A092279C3B900CB2096 /* TYHistoryListViewController.xib */,
 				C11CFE62227FE82100D63555 /* TYChangePasswordViewController.h */,
 				C11CFE63227FE82100D63555 /* TYChangePasswordViewController.m */,
+				C1EEB4542293D24E00FC8765 /* TYShengJiVIPViewController.h */,
+				C1EEB4552293D24E00FC8765 /* TYShengJiVIPViewController.m */,
+				C1EEB4562293D24E00FC8765 /* TYShengJiVIPViewController.xib */,
 				C1E8746A22807CB20008C418 /* TYPromotionVIPViewController.h */,
 				C1E8746B22807CB20008C418 /* TYPromotionVIPViewController.m */,
 				C1E8746C22807CB20008C418 /* TYPromotionVIPViewController.xib */,
+				C1EEB44922938F5D00FC8765 /* TYFanKuiTableViewController.h */,
+				C1EEB44822938F5C00FC8765 /* TYFanKuiTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1065,6 +1082,15 @@
 				C1DE5382226065B700D41A04 /* mine.storyboard */,
 			);
 			path = storyboard;
+			sourceTree = "<group>";
+		};
+		C1EEB44B2293947A00FC8765 /* FSTextView */ = {
+			isa = PBXGroup;
+			children = (
+				C1EEB44C2293947A00FC8765 /* FSTextView.h */,
+				C1EEB44D2293947A00FC8765 /* FSTextView.m */,
+			);
+			path = FSTextView;
 			sourceTree = "<group>";
 		};
 		C1F28433226D5275009B57A5 /* RefershClass */ = {
@@ -1247,6 +1273,7 @@
 				C1F1579F22769E8800984A32 /* TYDuiHuanSecondTableViewCell.xib in Resources */,
 				C1F3FC0A226C4F870090677E /* TYSeachTableViewCell.xib in Resources */,
 				C1DF47242266149E00C4C71C /* TYGoddessCollectionViewCell.xib in Resources */,
+				C1EEB4582293D24E00FC8765 /* TYShengJiVIPViewController.xib in Resources */,
 				C1F2F6E92292408200D17A93 /* TYShengJiView.xib in Resources */,
 				C1F2844D226DA328009B57A5 /* TYHelpViewController.xib in Resources */,
 				C1918A1D2279D26200CB2096 /* TYMyCollectionCollectionViewCell.xib in Resources */,
@@ -1411,6 +1438,7 @@
 				C18AAF3222841F8100076EE5 /* TYMyPaySelectView.m in Sources */,
 				C17DE6B522602F7900050DCE /* TYHomeTableViewCell.m in Sources */,
 				C1F13A102265C3D7006E754A /* TYLongVideoViewController.m in Sources */,
+				C1EEB44A22938F5D00FC8765 /* TYFanKuiTableViewController.m in Sources */,
 				C1F2F6E3228EA91C00D17A93 /* TYAVCategoryDetailViewController.m in Sources */,
 				C1F2F6E72292407700D17A93 /* TYShengJiView.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
@@ -1447,6 +1475,7 @@
 				C17DE6B022602F5800050DCE /* TYEntertainmentCollectionViewCell.m in Sources */,
 				C1ADA2EC227061DC00CA8566 /* TYCategroyListModel.m in Sources */,
 				C12486EB225D998C0040B476 /* TYCategoryViewController.m in Sources */,
+				C1EEB4572293D24E00FC8765 /* TYShengJiVIPViewController.m in Sources */,
 				C1F4ACC12281B51200E1505A /* TYPromotionVIPModel.m in Sources */,
 				C18AAF52228D3FFD00076EE5 /* TYAVCategaryModel.m in Sources */,
 				C1F28450226DDDB4009B57A5 /* TYHomeModel.m in Sources */,
@@ -1473,6 +1502,7 @@
 				C1DF47232266149E00C4C71C /* TYGoddessCollectionViewCell.m in Sources */,
 				C1ADA2E0226F453B00CA8566 /* TYJianJieView.m in Sources */,
 				C117B50B22772F3D0091A627 /* UINavigationController+TYExtension.m in Sources */,
+				C1EEB44E2293947A00FC8765 /* FSTextView.m in Sources */,
 				C1918A0E2279C55200CB2096 /* TYAVHistoryModel.m in Sources */,
 				C18AAF3B228470B900076EE5 /* RequestIPAddress.m in Sources */,
 				C1918A25227D45FB00CB2096 /* TYGoddessHeaderView.m in Sources */,

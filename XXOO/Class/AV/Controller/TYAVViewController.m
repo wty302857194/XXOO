@@ -41,6 +41,23 @@ static NSInteger const btnWidth = 90;
     [self getAVRequestData];
     [self getNoticesListRequestData];
     [self getVersionByTypeRequestData];
+    
+    NSDictionary *dic = [USER_DEFAULTS objectForKey:USERMESSAGE];
+    NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
+    if ([str isEqualToString:@"1"]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(goVIP)];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.offset(0);
+            make.right.offset(0);
+            make.width.height.offset(100);
+        }];
+    }
+}
+- (void)goVIP {
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -201,7 +218,6 @@ static NSInteger const btnWidth = 90;
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-//        _scrollView.frame = CGRectMake(0, self.titleSC.bottom, KSCREEN_WIDTH, KSCREENH_HEIGHT-self.titleSC.height);
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;

@@ -25,7 +25,7 @@
     [self.contentImg sendSubviewToBack:self.contentView];
     [self.contentImg sd_setImageWithURL:[NSURL URLWithString:itemModel.cover?:@""] placeholderImage:PLACEHOLEDERIMAGE];
     self.nameLab.text = itemModel.title;
-    self.timeLab.text = itemModel.timeLong;
+    self.timeLab.text = itemModel.createTime;
     if ([itemModel.cstate isEqualToString:@"0"]) {
         [self.saveBtn setImage:[UIImage imageNamed:@"home_add"] forState:UIControlStateNormal];
     }else {

@@ -13,6 +13,7 @@
 #import "TYPromotionVIPFooterView.h"
 #import "TYMyPaySelectView.h"
 #import "RequestIPAddress.h"
+#import "TYFanKuiTableViewController.h"
 
 @interface TYPromotionVIPViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -26,18 +27,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"升级VIP会员";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel_payType_img"] style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel_payType_img"] style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+//
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel_payType_img"] style:UIBarButtonItemStylePlain target:self action:@selector(fanKui)];
 
     [self addTableViewHeaderView];
     [self addTableFooterView];
     [self getMemberInfoRequestData:@"1"];
 }
-- (void)cancel {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//- (void)cancel {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+- (void)fanKui {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
+    TYFanKuiTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYFanKuiTableViewController"];
+    [self.navigationController pushVC:vc animated:YES];
 }
-
 - (void)addTableViewHeaderView {
     TYPromotionVIPView *promotionVIPView = [[[NSBundle mainBundle] loadNibNamed:@"TYPromotionVIPView" owner:nil options:nil] lastObject];
     TYWEAK_SELF;

@@ -21,6 +21,8 @@
     self.navigationBar.translucent = NO;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
+    
+    
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -35,7 +37,8 @@
         backItem.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         viewController.navigationItem.leftBarButtonItem = backItem;
         
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:KEY_NEED_SHENGJI_VIP object:nil];
+
         // 就有滑动返回功能
         self.interactivePopGestureRecognizer.delegate = nil;
     }
@@ -51,6 +54,10 @@
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"mineGoBickImg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
         backItem.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         viewController.navigationItem.leftBarButtonItem = backItem;
+        
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:KEY_NEED_SHENGJI_VIP object:nil];
+
         
         // 就有滑动返回功能
         self.interactivePopGestureRecognizer.delegate = nil;
