@@ -19,14 +19,14 @@
  这样做切换方便,不用来回每个网络请求修改请求域名,降低出错事件
  */
 
-#define DevelopSever    0
+#define DevelopSever    1
 #define TestSever       0
-#define ProductSever    1
+#define ProductSever    0
 
 #if DevelopSever
 
 /**开发服务器*/
-#define URL_main       @"http://192.168.1.36:8080/"
+#define URL_main       @"http://47.95.207.185:8080"
 /** H5 */
 #define WEBURL_main    @""
 /** 图片 */
@@ -46,7 +46,7 @@
 
 /**生产服务器*/
 
-#define URL_main       @"http://47.95.207.185:8080"
+#define URL_main       @"http://ad.sqxpd.com"
 
 /** H5 */
 #define WEBURL_main    @""

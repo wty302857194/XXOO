@@ -34,16 +34,16 @@
     if (itemModel.icon&&itemModel.icon.length>0) {
         self.xianMianLogo.hidden = NO;
         [self.xianMianLogo sd_setImageWithURL:[NSURL URLWithString:itemModel.icon?:@""]];
-    }else {
-        self.xianMianLogo.hidden = YES;
+    }else {        
+        if (itemModel.latest&&itemModel.latest.length>0) {
+            self.xianMianLogo.hidden = NO;
+            [self.xianMianLogo sd_setImageWithURL:[NSURL URLWithString:itemModel.latest?:@""]];
+        }else {
+            self.xianMianLogo.hidden = YES;
+        }
     }
     
-    if (itemModel.latest&&itemModel.latest.length>0) {
-        self.xianMianLogo.hidden = NO;
-        [self.xianMianLogo sd_setImageWithURL:[NSURL URLWithString:itemModel.latest?:@""]];
-    }else {
-        self.xianMianLogo.hidden = YES;
-    }
+    
 }
 
 @end
