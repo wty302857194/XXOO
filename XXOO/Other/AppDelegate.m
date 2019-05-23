@@ -251,9 +251,7 @@
         if (success&&data) {
             NSDictionary *dic = [NSDictionary nullDic:data];
             [USER_DEFAULTS setObject:dic forKey:USERMESSAGE];
-            [USER_DEFAULTS synchronize];
-            NSLog(@"5555");
-            
+            [USER_DEFAULTS synchronize];            
         }else {
             [MBProgressHUD promptMessage:msg inView:kWindow];
         }

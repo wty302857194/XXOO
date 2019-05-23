@@ -112,6 +112,7 @@
 
 - (void)searchResultRequestData {
     NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
                            @"keyWord":self.keyWord?:@"",
                            @"pageNum":@(self.page),
                            @"limit":@"20"
@@ -217,7 +218,7 @@
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self labelSearchRequestData];
+            [self headerRefreshRequest];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -237,7 +238,7 @@
     [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self labelSearchRequestData];
+            [self headerRefreshRequest];
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }

@@ -25,13 +25,13 @@
 - (void)cellWithModel:(TYHotSearchModel *)model andIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0||indexPath.row == 1||indexPath.row == 2) {
         self.rankLab.backgroundColor = indexPath.row == 0?hexColor(da374c):(indexPath.row == 2?hexColor(e76d48):hexColor(e76d48));
-        self.rankLab.hidden = NO;
-        self.rankLab.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+1];
-        
+        self.rankLab.textColor = [UIColor whiteColor];
+
     }else {
-        self.rankLab.hidden = YES;
+        self.rankLab.backgroundColor = [UIColor clearColor];
+        self.rankLab.textColor = main_light_text_color;
     }
-    
+    self.rankLab.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+1];
     self.titleLab.text = model.title;
 }
 

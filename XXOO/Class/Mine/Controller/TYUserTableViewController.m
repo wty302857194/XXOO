@@ -160,9 +160,11 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TYNetWorkTool postRequest:@"/sysAd/api/getCenterAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (success&&data) {
-            self.adDic = [NSDictionary dictionaryWithDictionary:data];
-            [self.adImageView sd_setImageWithURL:[NSURL URLWithString:data[@"picUrl"]] placeholderImage:PLACEHOLEDERIMAGE];
+        if (success) {
+            if ([data isKindOfClass:[NSDictionary class]]) {
+                self.adDic = [NSDictionary dictionaryWithDictionary:data];
+                [self.adImageView sd_setImageWithURL:[NSURL URLWithString:data[@"picUrl"]] placeholderImage:PLACEHOLEDERIMAGE];
+            }
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -207,6 +209,8 @@
                 self.dataDic = [NSDictionary nullDic:[TYGlobal userMessage]];
                 [self initWithData];
             }
+            
+            
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -231,6 +235,10 @@
     }
 }
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {

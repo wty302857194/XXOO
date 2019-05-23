@@ -30,6 +30,9 @@
     for (id obj in self.labDic) {
         labStr = [NSString stringWithFormat:@"%@,%@",labStr,self.labDic[obj]];
     }
+    if([[labStr substringToIndex:1] isEqualToString:@","]) {
+        labStr = [labStr substringFromIndex:1];
+    }
     if (labStr.length==0) {
         [MBProgressHUD promptMessage:@"你未选择影片标签" inView:self.view];
         return;

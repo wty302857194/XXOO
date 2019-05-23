@@ -14,6 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 
 - (IBAction)shengJi:(UIButton *)sender {
@@ -25,7 +26,7 @@
 -(void)setModel:(TYPromotionVIPModel *)model {
     _model = model;
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:model.icon]];
-    self.describeLab.text = model.describe;
+    self.describeLab.text = model.title?:@"";
     self.favorableLab.text = [NSString stringWithFormat:@"首购优惠加码送%@天",model.favorableDays];
     self.moneyLab.text = model.money;
     [self.shengjiBtn setTitle:model.btn forState:UIControlStateNormal];
