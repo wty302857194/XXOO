@@ -12,7 +12,9 @@
 #import "TYGesturePasswordViewController.h"
 #import "XHLaunchAd.h"
 
-@interface AppDelegate ()<OpenInstallDelegate>
+@interface AppDelegate ()<OpenInstallDelegate>{
+    dispatch_group_t downloadGroup;
+}
 @property (nonatomic, strong) NSMutableDictionary * adDic;
 @end
 
@@ -28,10 +30,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     
-    [self getInstallParms];
+    downloadGroup = dispatch_group_create();
     
+    [self getInstallParms];
     [self adView];
 
+    dispatch_group_notify(downloadGroup, dispatch_get_main_queue(),^{
+        if ([TYGlobal gesturePassword].length>0&&[TYGlobal gestureIsOpen]) {
+            [self rootPasswordVC];
+        }else {
+            [self rootVC];
+        }
+        
+        [self.window makeKeyAndVisible];
+    });
     return YES;
 }
 - (void)rootVC {
@@ -51,7 +63,7 @@
     //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:1];
     
     
     //  /sysAd/api/getStartAd   广告业接口
@@ -65,22 +77,27 @@
      showTime: "5",                         //启动页展示时长（s）
      }
      */
+    dispatch_group_enter(downloadGroup);
+
     [TYNetWorkTool postRequest:@"/sysAd/api/getStartAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         if (success&&data) {
-            self.adDic = [NSMutableDictionary dictionaryWithDictionary:data];
-            //配置广告数据
-            XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
-            //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
-            imageAdconfiguration.imageNameOrURLString = self.adDic[@"picUrl"]?:@"";
-            //广告点击打开页面参数(openModel可为NSString,模型,字典等任意类型)
-            imageAdconfiguration.openModel = self.adDic[@"linkUrl"]?:@"";
-            imageAdconfiguration.duration = [self.adDic[@"showTime"]?:@"" integerValue];
-            //显示开屏广告
-            [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
-            
+            if([data isKindOfClass:[NSDictionary class]]) {
+                self.adDic = [NSMutableDictionary dictionaryWithDictionary:data];
+                //配置广告数据
+                XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
+                //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
+                imageAdconfiguration.imageNameOrURLString = self.adDic[@"picUrl"]?:@"";
+                //广告点击打开页面参数(openModel可为NSString,模型,字典等任意类型)
+                imageAdconfiguration.openModel = self.adDic[@"linkUrl"]?:@"";
+                imageAdconfiguration.duration = [self.adDic[@"showTime"]?:@"" integerValue];
+                //显示开屏广告
+                [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
+            }
         }
+        dispatch_group_leave(self->downloadGroup);
     } failureBlock:^(NSString * _Nonnull description) {
-        
+        dispatch_group_leave(self->downloadGroup);
+
     }];
 }
 
@@ -228,25 +245,23 @@
                            @"id":userMessage[@"id"]?:@"",
                            @"code":userMessage[@"code"]?:@""
                            };
-    
+    dispatch_group_enter(downloadGroup);
+
     [TYNetWorkTool postRequest:@"/user/api/login" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         if (success&&data) {
             NSDictionary *dic = [NSDictionary nullDic:data];
             [USER_DEFAULTS setObject:dic forKey:USERMESSAGE];
             [USER_DEFAULTS synchronize];
+            NSLog(@"5555");
             
-            if ([TYGlobal gesturePassword].length>0&&[TYGlobal gestureIsOpen]) {
-                [self rootPasswordVC];
-            }else {
-                [self rootVC];
-            }
-            
-            [self.window makeKeyAndVisible];
         }else {
             [MBProgressHUD promptMessage:msg inView:kWindow];
         }
+        dispatch_group_leave(self->downloadGroup);
+
     } failureBlock:^(NSString * _Nonnull description) {
-        
+        dispatch_group_leave(self->downloadGroup);
+
     }];
 }
 @end

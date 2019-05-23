@@ -101,7 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 // - Time -
 
 @property (nonatomic, readonly) NSTimeInterval currentTime;
-@property (nonatomic, readonly) NSTimeInterval totalTime;
+//@property (nonatomic, readonly) NSTimeInterval totalTime;
+@property (nonatomic,assign) NSTimeInterval totalTime;
 @property (nonatomic, strong, readonly) NSString *currentTimeStr;
 @property (nonatomic, strong, readonly) NSString *totalTimeStr;
 

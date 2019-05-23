@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIButton (TYExtension)
 
 @property (nonatomic, strong) NSNumber * index;
-//@property (nonatomic, copy) NSString * myIndex;
+//@property (nonatomic, assign) NSInteger myIndex;
 @end
 
 NS_ASSUME_NONNULL_END

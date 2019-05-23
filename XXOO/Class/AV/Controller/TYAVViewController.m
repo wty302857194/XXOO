@@ -126,7 +126,7 @@ static NSInteger const btnWidth = 90;
     
     [TYNetWorkTool postRequest:@"/sysVersion/api/getVersionByType" parameters:@{@"type":@"2"} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         if (success&&data) {
-            if ([versionStr floatValue] == [data[@"deviceCode"] floatValue]) {
+            if ([versionStr floatValue] >= [data[@"deviceCode"] floatValue]) {
                 return ;
             }else {
                 self.shengJiView.dataDic = data;

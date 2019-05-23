@@ -104,14 +104,20 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:self.detailModel.vUrl]];
     _player.URLAsset.title = self.detailModel.title;
-    [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];
+    [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];    
+    
     // 2. 49 * title.size.width
-    if([self.detailModel.level isEqualToString:@"1"]) {
+    if([self.detailModel.level isEqualToString:@"1"]) {//非会员
         SJEdgeControlButtonItem *titleItem = [[SJEdgeControlButtonItem alloc] initWithTitle:sj_makeAttributesString(^(SJAttributeWorker * _Nonnull make) {
             make.append([self.detailModel.free isEqualToString:@"2"]?@"限时免费中！开通无线看！>>": @"试看中！开通无线看！>>").font([UIFont systemFontOfSize:14]).textColor([UIColor whiteColor]).alignment(NSTextAlignmentCenter);
         }) target:self action:@selector(test) tag:SJEdgeControlButtonItemTag_Share];
         
         [_player.defaultEdgeControlLayer.topAdapter addItem:titleItem];
+        
+        
+        if ([self.detailModel.free isEqualToString:@"1"]) {//  限免设置限免时间
+            _player.totalTime = [self.detailModel.times floatValue]*60;
+        }
     }
 
     TYWeakSelf(self);
@@ -122,7 +128,6 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
             if (weakself.detailModel.limitTime == YES) {
                 if (time>([weakself.detailModel.times floatValue]*60)) {
                     [weakself.player pause];
-//                    weakself.player.disabledGestures = SJPlayerGestureType_SingleTap | SJPlayerGestureType_DoubleTap | SJPlayerGestureType_Pan | SJPlayerGestureType_Pinch;
                     
                     [weakself.player.switcher addControlLayerForIdentifier:myLayer lazyLoading:^id<SJControlLayer> _Nonnull(SJControlLayerIdentifier identifier) {
                         return weakself.overView;

@@ -51,6 +51,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 static NSInteger _SJBaseVideoPlayerViewTag = 10000;
+static const char *myKey = "index1";
 
 typedef struct _SJPlayerControlInfo {
     struct _PanGesture {
@@ -1482,8 +1483,21 @@ sj_swizzleMethod(Class cls, SEL originalSelector, SEL swizzledSelector) {
     return self.playbackController.currentTime;
 }
 
+//- (NSTimeInterval)totalTime {
+//    return self.playbackController.duration;
+//}
+
 - (NSTimeInterval)totalTime {
+    if (objc_getAssociatedObject(self, myKey)) {
+        NSNumber *numberValue = objc_getAssociatedObject(self, myKey);
+        return [numberValue integerValue];
+    }
     return self.playbackController.duration;
+}
+
+-(void)setTotalTime:(NSTimeInterval)totalTime {
+    objc_setAssociatedObject(self, myKey, @(totalTime), OBJC_ASSOCIATION_ASSIGN);
+    
 }
 
 - (NSString *)currentTimeStr {

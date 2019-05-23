@@ -124,7 +124,7 @@
         [self.collectionView.mj_footer endRefreshing];
         
         if (success&&data) {
-            NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data];
+            NSArray *arr = [TYHomeItemModel mj_objectArrayWithKeyValuesArray:data[@"data"]];
             
             if (weakSelf.isFresh) {
                 if (arr&&arr.count>0) {
