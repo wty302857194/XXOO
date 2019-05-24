@@ -186,8 +186,8 @@ static NSInteger const jianGe = 0;//间隔距离
         if (index == 0) {
             contentVC = [TYAVCategoryViewController new];
         }else if (index == 1) {
-//            contentVC = [TYGoddessViewController new];
-            contentVC = [TYAVCategoryViewController new];
+            contentVC = [TYGoddessViewController new];
+//            contentVC = [TYAVCategoryViewController new];
         }else if (index == 2) {
             contentVC = [TYVideoLableViewController new];
         }

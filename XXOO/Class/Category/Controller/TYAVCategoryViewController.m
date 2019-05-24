@@ -11,7 +11,7 @@
 #import "TYAVCategaryModel.h"
 #import "TYAVCategoryDetailViewController.h"
 
-#define collectionWidth (KSCREEN_WIDTH-80)/3.0f
+#define collectionWidth (KSCREEN_WIDTH-40)/3.0f
 
 @interface TYAVCategoryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -44,6 +44,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.mj_footer endRefreshing];
+        [weakSelf.dataArr removeAllObjects];
         if (success&&data) {
             NSArray *arr = [TYAVCategaryModel mj_objectArrayWithKeyValuesArray:data];
             

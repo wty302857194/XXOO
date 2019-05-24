@@ -11,7 +11,7 @@
 #import "TYAVDetailsViewController.h"
 #import "TYHomeModel.h"
 
-#define collectionWidth (KSCREEN_WIDTH-26 -18)/2.0f
+#define collectionWidth (KSCREEN_WIDTH-20 -15)/2.0f
 
 @interface TYSearchDetailViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -185,7 +185,7 @@
 }
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(collectionWidth, collectionWidth*(550/320.f));
+    return CGSizeMake(collectionWidth, collectionWidth*(170/211.f));
     
 }
 //定义每个UICollectionView 的间距

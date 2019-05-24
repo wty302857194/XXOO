@@ -20,10 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW9-DC-vde">
-                        <rect key="frame" x="0.0" y="0.0" width="264" height="119"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="oW9-DC-vde" secondAttribute="height" multiplier="264:119" id="Ki5-Ua-xdb"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="264" height="124"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o5f-3o-Lfl">
                         <rect key="frame" x="0.0" y="0.0" width="40" height="14"/>
@@ -43,8 +40,11 @@
                             <action selector="saveClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PEv-Tb-fqj"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKs-Rn-g7g">
-                        <rect key="frame" x="10" y="129" width="244" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKs-Rn-g7g">
+                        <rect key="frame" x="0.0" y="134" width="264" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="tQh-6h-aZh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,11 +52,12 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="FKs-Rn-g7g" secondAttribute="trailing" constant="10" id="0iu-y5-9K4"/>
+                <constraint firstAttribute="trailing" secondItem="FKs-Rn-g7g" secondAttribute="trailing" id="0iu-y5-9K4"/>
                 <constraint firstItem="Hc9-cD-kPV" firstAttribute="top" secondItem="oW9-DC-vde" secondAttribute="top" id="8Pc-B7-Ogh"/>
                 <constraint firstItem="o5f-3o-Lfl" firstAttribute="top" secondItem="oW9-DC-vde" secondAttribute="top" id="CXl-lK-dco"/>
-                <constraint firstItem="FKs-Rn-g7g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Cdn-qp-tBM"/>
+                <constraint firstItem="FKs-Rn-g7g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Cdn-qp-tBM"/>
                 <constraint firstAttribute="trailing" secondItem="oW9-DC-vde" secondAttribute="trailing" id="DCg-aa-KwX"/>
+                <constraint firstAttribute="bottom" secondItem="FKs-Rn-g7g" secondAttribute="bottom" constant="10" id="KYT-e2-Q3y"/>
                 <constraint firstItem="Hc9-cD-kPV" firstAttribute="trailing" secondItem="oW9-DC-vde" secondAttribute="trailing" id="LJM-BJ-4iV"/>
                 <constraint firstItem="o5f-3o-Lfl" firstAttribute="leading" secondItem="oW9-DC-vde" secondAttribute="leading" id="RZV-wC-Uwp"/>
                 <constraint firstItem="oW9-DC-vde" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SVl-kJ-xpW"/>
