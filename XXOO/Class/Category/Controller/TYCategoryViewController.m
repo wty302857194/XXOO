@@ -202,7 +202,7 @@ static NSInteger const jianGe = 0;//间隔距离
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"AV分类",@"视频分类",@"影片标签"];
+        _titleArr = @[@"AV分类",@"女优分类",@"影片标签"];
     }
     return _titleArr;
 }

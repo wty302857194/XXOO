@@ -150,7 +150,12 @@
         _payView = [[[NSBundle mainBundle] loadNibNamed:@"TYMyPaySelectView" owner:nil options:nil] lastObject];
         TYWEAK_SELF;
         _payView.selectBlock = ^(NSInteger index) {
-            [weakSelf rechargeRMBRequestData:index==1?@"100036":@"100032"];
+            if (index == 1) {
+                [weakSelf rechargeRMBRequestData];
+
+            }else {
+                [weakSelf rechargeRMBByApplyRequestData];
+            }
         };
         [self.view addSubview:_payView];
         // 同时也要设置tableView的顶部约束
@@ -167,13 +172,13 @@
     }
     return _payView;
 }
-- (void)rechargeRMBRequestData:(NSString *)way {
+- (void)rechargeRMBRequestData {
     
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
                            @"rid":self.currentModel.ID,
                            @"money":self.currentModel.money,
-                           @"way":way,
+                           @"way":@"100036",
                            @"ip":[RequestIPAddress getIPAddress:YES]
                            };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -190,4 +195,35 @@
         
     }];
 }
+
+//  /userRecharge/api/rechargeRMBByApply
+
+- (void)rechargeRMBByApplyRequestData {
+    
+    NSString *str = [NSString stringWithFormat:@"http://ad.sqxpd.com/pay/pay.html?id=%@&rid=%@&money=18",[TYGlobal userId],self.currentModel.ID];
+    [TYGlobal openScheme:str];
+    
+//    NSDictionary * dic = @{
+//                           @"id":[TYGlobal userId],
+//                           @"rid":self.currentModel.ID,
+//                           @"money":self.currentModel.money,
+//                           @"way":@"1006",
+//                           @"ip":[RequestIPAddress getIPAddress:YES]
+//                           };
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [TYNetWorkTool postRequest:@"/userRecharge/api/rechargeRMBByApply" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//
+//        if (success&&data) {
+//            NSString *str = [NSString stringWithFormat:@"http://ad.sqxpd.com/pay/pay.html?id=%@&rid=%@&money=18",[TYGlobal userId],self.currentModel.ID];
+//            [TYGlobal openScheme:str];
+//        }else {
+//            [MBProgressHUD promptMessage:msg inView:self.view];
+//        }
+//    } failureBlock:^(NSString * _Nonnull description) {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//
+//    }];
+}
+
 @end

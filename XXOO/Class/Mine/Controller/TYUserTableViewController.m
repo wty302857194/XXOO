@@ -15,37 +15,21 @@
 #import "TYPromotionVIPViewController.h"
 #import "TYSaveCodeViewController.h"
 #import "TYShengJiVIPViewController.h"
+#import "TYUserHeaderView.h"
 
 @interface TYUserTableViewController ()
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLayout;
-@property (weak, nonatomic) IBOutlet UIImageView *backImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
-@property (weak, nonatomic) IBOutlet UILabel *userNameLab;
-@property (weak, nonatomic) IBOutlet UIImageView *vipLogoImg;
-@property (weak, nonatomic) IBOutlet UIButton *buyVIPBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backImgLayout;
+
 @property (weak, nonatomic) IBOutlet UILabel *myJiFen_lab;
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
-@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
 @property (nonatomic, copy) NSDictionary * dataDic;
-
 @property (nonatomic, copy) NSDictionary * adDic;
+
+@property (nonatomic, strong) TYUserHeaderView * userHeaderView;
 @end
 
 @implementation TYUserTableViewController
-- (IBAction)settingClick:(UIButton *)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
-    TYSettingTableVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYSettingTableVC"];
-    [self.navigationController pushVC:vc animated:YES];
 
-}
-- (IBAction)buyVIPClick:(UIButton *)sender {
-    TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
-    TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
-}
 - (IBAction)featureBtnClick:(UIButton *)sender {
     switch (sender.tag) {
         case 100:
@@ -64,10 +48,6 @@
         case 102:
         {
             TYDuiHuanViewController *vc = [[TYDuiHuanViewController alloc] init];
-            TYWEAK_SELF;
-//            vc.refreshBlock = ^{
-//                [weakSelf getUserRequestData];
-//            };
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -86,20 +66,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.topViewLayout.constant = kStatusBarHeight;
-//    self.backImgLayout.constant = -kStatusBarHeight;
 
-    
-        CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
-        gradientLayer.frame = self.tableView.bounds;
-        gradientLayer.startPoint = CGPointMake(0, 0);
-        gradientLayer.endPoint = CGPointMake(1, 1);
-        gradientLayer.locations = @[@(0.1),@(0.6),@(1.0)];//渐变点
-        [gradientLayer setColors:@[(id)[hexColor(d87ff7) CGColor],(id)[hexColor(c97df9) CGColor],(id)[hexColor(fa84f2) CGColor]]];//渐变数组
-        [self.tableView.layer addSublayer:gradientLayer];
-    
-
-    self.timeLab.text = @"";
     [self fenLiTaleViewAndView];
     [self getCenterAdRequestData];
 
@@ -107,7 +74,6 @@
     NSString *str = [NSString stringWithFormat:@"%@",dic[@"level"]];
     if ([str isEqualToString:@"1"]) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        btn.frame = CGRectMake(self.view.width-100, self.view.height-200, 100, 100);
         [btn setImage:[UIImage imageNamed:@"shengjiVIPImage"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(goVIP)];
         [self.view addSubview:btn];
@@ -206,11 +172,10 @@
             [USER_DEFAULTS synchronize];
             
             if ([TYGlobal userMessage]) {
-                self.dataDic = [NSDictionary nullDic:[TYGlobal userMessage]];
-                [self initWithData];
+                self.dataDic = [TYGlobal userMessage];
+                self.userHeaderView.dataDic = self.dataDic;
+                self.myJiFen_lab.text = [NSString stringWithFormat:@"%@",self.dataDic[@"score"]];
             }
-            
-            
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -219,23 +184,8 @@
         
     }];
 }
-- (void)initWithData {
-    [self.headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_URL_main,self.dataDic[@"avatar"]]] placeholderImage:PLACEHOLEDERIMAGE];
-    self.userNameLab.text = [NSString stringWithFormat:@"代理用户（%@）",self.dataDic[@"name"]];
-    self.myJiFen_lab.text = [NSString stringWithFormat:@"%@",self.dataDic[@"score"]];
-    NSString *level = [NSString stringWithFormat:@"%@",self.dataDic[@"level"]];
-    if ([level isEqualToString:@"1"]) {
-//        self.buyVIPBtn.hidden = NO;
-        self.vipLogoImg.image = [UIImage imageNamed:@"ming_vip_img"];
-        self.timeLab.text = @"";
-    }else {
-//        self.buyVIPBtn.hidden = YES;
-        self.vipLogoImg.image = [UIImage imageNamed:@"mineVIPImg"];
-        self.timeLab.text = [NSString stringWithFormat:@"%@到期",self.dataDic[@"membershipEndTime"]?:@""];
-    }
-}
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -273,6 +223,38 @@
             break;
     }
 }
+#pragma mark - delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float offsetY = scrollView.contentOffset.y;
 
+    if (offsetY < 0) {
+        float totalOffset = 176 + fabsf(offsetY);
 
+        float f = totalOffset / 176.f;
+        self.userHeaderView.backImgView.frame = CGRectMake(-KSCREEN_WIDTH * (f - 1) * 0.5, offsetY, KSCREEN_WIDTH * f, totalOffset);
+        [self.userHeaderView.backImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(offsetY);
+        }];
+    }
+}
+- (TYUserHeaderView *)userHeaderView {
+    if (!_userHeaderView) {
+        _userHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"TYUserHeaderView" owner:nil options:nil] lastObject];
+        _userHeaderView.frame = CGRectMake(0, 0, KSCREEN_WIDTH, 176);
+        self.tableView.tableHeaderView = _userHeaderView;
+
+        TYWEAK_SELF;
+        _userHeaderView.userSettingBlock = ^{
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mine" bundle:nil];
+            TYSettingTableVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"TYSettingTableVC"];
+            [weakSelf.navigationController pushVC:vc animated:YES];
+        };
+        _userHeaderView.buyVIPBlock = ^{
+            TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
+            TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:vc];
+            [weakSelf presentViewController:nav animated:YES completion:nil];
+        };
+    }
+    return _userHeaderView;
+}
 @end

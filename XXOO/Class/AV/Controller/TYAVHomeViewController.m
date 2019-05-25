@@ -183,11 +183,13 @@
         TYHomeItemModel *model = self.dataArr[indexPath.row];
         cell.itemModel = model;
         TYWEAK_SELF;
+        __block TYHomeTableViewCell *blockCell = cell;
+
         cell.itemShouCangBlock = ^() {
             if ([model.cstate isEqualToString:@"0"]) {
-                [weakSelf shouCangRequestData:model];
+                [weakSelf shouCangRequestData:model ContentCell:blockCell];
             }else {
-                [weakSelf cancelShouCangRequestData:model];
+                [weakSelf cancelShouCangRequestData:model ContentCell:blockCell];
             }
         };
     }
@@ -242,9 +244,8 @@
     TYHomeADListModel *binnerModel = (TYHomeADListModel *)self.adArr[index];
     [TYGlobal openScheme:binnerModel.linkUrl?:@""];
 }
-
 //收藏请求
-- (void)shouCangRequestData:(TYHomeItemModel *)model {
+- (void)shouCangRequestData:(TYHomeItemModel *)model ContentCell:(TYHomeTableViewCell *)cell {
     NSDictionary * dic = @{
                            @"id":[TYGlobal userId],
                            @"tid":model.ID,
@@ -255,7 +256,10 @@
     [TYNetWorkTool postRequest:@"/userCollection/api/addCollection" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self headerRefreshRequest];
+            //            [self headerRefreshRequest];
+            [cell.saveBtn setImage:[UIImage imageNamed:@"shoucang_image"] forState:UIControlStateNormal];
+            model.cstate = @"1";
+            
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -265,7 +269,7 @@
     }];
 }
 //收藏请求
-- (void)cancelShouCangRequestData:(TYHomeItemModel *)model {
+- (void)cancelShouCangRequestData:(TYHomeItemModel *)model ContentCell:(TYHomeTableViewCell *)cell {
     NSDictionary * dic = @{
                            @"uid":[TYGlobal userId],
                            @"tid":model.ID
@@ -275,7 +279,9 @@
     [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success&&data) {
-            [self headerRefreshRequest];
+            //            [self headerRefreshRequest];
+            [cell.saveBtn setImage:[UIImage imageNamed:@"home_add"] forState:UIControlStateNormal];
+            model.cstate = @"0";
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];
         }
@@ -284,4 +290,5 @@
         
     }];
 }
+
 @end

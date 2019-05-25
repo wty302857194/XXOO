@@ -63,7 +63,7 @@
     //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:1];
+    [XHLaunchAd setWaitDataDuration:0];
     
     
     //  /sysAd/api/getStartAd   广告业接口
