@@ -41,9 +41,11 @@
         }else {
             [self rootVC];
         }
-        
         [self.window makeKeyAndVisible];
     });
+    
+    [NSThread sleepForTimeInterval:2];
+    
     return YES;
 }
 - (void)rootVC {
@@ -55,34 +57,36 @@
     TYBaseNavigationController *nav = [[TYBaseNavigationController alloc] initWithRootViewController:passwordvVC];
     self.window.rootViewController = nav;
 }
+//  /sysAd/api/getStartAd   广告业接口
+/*
+ {
+ createTime: "2019-04-20 16:36:27",     //创建时间
+ id: 1,                                 //主键id
+ linkUrl: "1",                          //链接地址
+ picUrl: "1",                           //图片地址
+ position: 1,                           //放置位置（1启动页 2视频 3个人中心 4娱乐）
+ showTime: "5",                         //启动页展示时长（s）
+ }
+ */
 - (void)adView {
-    //设置你工程的启动页使用的是:LaunchImage 还是 LaunchScreen.storyboard(不设置默认:LaunchImage)
-    [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
     
-    //1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
-    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
-    //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
-    //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:0];
-    
-    
-    //  /sysAd/api/getStartAd   广告业接口
-    /*
-     {
-     createTime: "2019-04-20 16:36:27",     //创建时间
-     id: 1,                                 //主键id
-     linkUrl: "1",                          //链接地址
-     picUrl: "1",                           //图片地址
-     position: 1,                           //放置位置（1启动页 2视频 3个人中心 4娱乐）
-     showTime: "5",                         //启动页展示时长（s）
-     }
-     */
     dispatch_group_enter(downloadGroup);
 
     [TYNetWorkTool postRequest:@"/sysAd/api/getStartAd" parameters:@{} successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
         if (success&&data) {
             if([data isKindOfClass:[NSDictionary class]]) {
                 self.adDic = [NSMutableDictionary dictionaryWithDictionary:data];
+                
+                //设置你工程的启动页使用的是:LaunchImage 还是 LaunchScreen.storyboard(不设置默认:LaunchImage)
+                [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
+                
+                //1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
+                //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+                //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
+                //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
+                [XHLaunchAd setWaitDataDuration:2];
+                
+                
                 //配置广告数据
                 XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
                 //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
@@ -137,10 +141,6 @@
             //e.g.可自己统计渠道相关数据等
         }
         
-        //弹出提示框(便于调试，调试完成后删除此代码)
-//        NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n1、新应用是否上传安装包(是否集成完毕)  2、是否正确配置appKey  3、是否通过含有动态参数的分享链接(或二维码)安装的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"安装参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [alert show];
     }];
     
     
@@ -191,11 +191,6 @@
     if (appData.channelCode) {//(通过渠道链接或二维码唤醒会返回渠道编号)
         //e.g.可自己统计渠道相关数据等
     }
-    //弹出提示框(便于调试，调试完成后删除此代码)
-    //    NSLog(@"OpenInstallSDK:\n动态参数：%@;\n渠道编号：%@",appData.data,appData.channelCode);
-    //    NSString *parameter = [NSString stringWithFormat:@"如果没有任何参数返回，请确认：\n是否通过含有动态参数的分享链接(或二维码)唤醒的app\n\n动态参数：\n%@\n渠道编号：%@",appData.data,appData.channelCode];
-    //    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"唤醒参数" message:parameter delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    //    [alert show];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

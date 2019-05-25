@@ -190,30 +190,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
-        case 2:
+        case 1:
         {
-            [TYGlobal openScheme:self.adDic[@"linkUrl"]];
+            NSString *str = self.adDic[@"linkUrl"];
+            if(str&&str.length>0) {
+                [TYGlobal openScheme:self.adDic[@"linkUrl"]];
+            }
         }
             break;
-        case 3:
+        case 2:
         {
             
             TYHistoryListViewController *vc = [[TYHistoryListViewController alloc] init];
             [self.navigationController pushVC:vc animated:YES];
         }
             break;
-        case 4:
+        case 3:
         {
             TYMyCollectionViewController *vc = [[TYMyCollectionViewController alloc] init];
             [self.navigationController pushVC:vc animated:YES];
         }
             break;
-        case 5:
+        case 4:
         {
             [TYGlobal openScheme:self.dataDic[@"joinUrl"]];
         }
             break;
-        case 6:
+        case 5:
         {
             TYMyTuiGunagViewController *vc = [[TYMyTuiGunagViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
