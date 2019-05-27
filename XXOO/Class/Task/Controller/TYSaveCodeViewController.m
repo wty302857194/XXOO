@@ -35,7 +35,10 @@
         UIGraphicsEndImageContext();
         [self loadImageFinished:image];
     }else {
-        [self shareWithActivityItems: @[self.share_url?:@""]];
+//        [self shareWithActivityItems: @[self.share_url?:@""]];
+        UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.share_url?:@"";
+        [MBProgressHUD promptMessage:@"狐狸视频：复制成功，快去分享吧！" inView:self.view];
     }
 }
 - (void)shareWithActivityItems:(NSArray *)activityItems

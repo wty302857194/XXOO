@@ -19,9 +19,9 @@
  这样做切换方便,不用来回每个网络请求修改请求域名,降低出错事件
  */
 
-#define DevelopSever    0
-#define TestSever       0
-#define ProductSever    1
+#define DevelopSever    0  /**开发服务器*/
+#define TestSever       0  /**测试服务器**/
+#define ProductSever    1  /**生产服务器*/
 
 #if DevelopSever
 
@@ -39,7 +39,7 @@
 
 /**测试服务器**/
 
-#define URL_main       @"http://192.168.1.199:8080/monitor/"
+#define URL_main       @""
 #define WEBURL_main    @""
 
 #elif ProductSever
@@ -51,7 +51,7 @@
 /** H5 */
 #define WEBURL_main    @""
 /** 图片 */
-#define IMAGE_URL_main @""//@"http://47.95.207.185/pictures/pic/foxVideo/"
+#define IMAGE_URL_main @""
 /** 视频 */
 #define VIDEO_URL_main @""
 
