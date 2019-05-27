@@ -18,6 +18,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMv-nE-UrT">
                     <rect key="frame" x="0.0" y="0.0" width="424" height="176"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_topBackImg" translatesAutoresizingMaskIntoConstraints="NO" id="92P-uo-nv7">
+                            <rect key="frame" x="0.0" y="0.0" width="424" height="176"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFt-lj-zj0">
                             <rect key="frame" x="364" y="5" width="30" height="30"/>
                             <constraints>
@@ -64,12 +67,9 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR7-Qi-vQz">
                             <rect key="frame" x="106" y="95" width="37.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.49019607843137253" green="0.27058823529411763" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_topBackImg" translatesAutoresizingMaskIntoConstraints="NO" id="92P-uo-nv7">
-                            <rect key="frame" x="0.0" y="0.0" width="424" height="176"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

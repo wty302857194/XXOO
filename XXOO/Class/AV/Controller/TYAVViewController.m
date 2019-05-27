@@ -14,7 +14,7 @@
 #import "TYShengJiView.h"
 #import "TYShengJiVIPViewController.h"
 
-static NSInteger const scHeight = 40;
+static NSInteger const scHeight = 50;
 static NSInteger const jianGe = 10;//间隔距离
 static NSInteger const btnWidth = 90;
 
@@ -82,10 +82,6 @@ static NSInteger const btnWidth = 90;
             self.titleArr = [TYAVLableModel mj_objectArrayWithKeyValuesArray:data];
             
             [self setUI];
-            
-//            TYAVLableModel *model =  self.titleArr[0];
-//            TYAVHomeViewController *currentVC = (TYAVHomeViewController *)self.listVCQueue[@(0)];
-//            [currentVC headerRefreshRequest:model.name];
 
         }else {
             [MBProgressHUD promptMessage:msg inView:self.view];

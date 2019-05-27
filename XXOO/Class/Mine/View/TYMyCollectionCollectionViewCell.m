@@ -9,7 +9,11 @@
 #import "TYMyCollectionCollectionViewCell.h"
 
 @implementation TYMyCollectionCollectionViewCell
-
+- (IBAction)collectionClick:(UIButton *)sender {
+    if (self.itemShouCangBlock) {
+        self.itemShouCangBlock();
+    }
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

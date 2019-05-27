@@ -13,7 +13,8 @@
 #import "TYAVDetailsViewController.h"
 #import "TYGoddessDetailViewController.h"
 
-#define av_collectionWidth (KSCREEN_WIDTH-20-30)/3.0f
+
+#define av_collectionWidth (KSCREEN_WIDTH-20 -15)/2.0f
 #define collectionWidth (KSCREEN_WIDTH-20-45)/4.0f
 @interface TYMyCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -134,6 +135,10 @@
         if (self.dataArr&&self.dataArr.count>indexPath.row) {
             TYAVHistoryModel *model = self.dataArr[indexPath.row];
             cell.collectionModel = model;
+            TYWEAK_SELF;
+            cell.itemShouCangBlock = ^{
+                [weakSelf cancelShouCangRequestData:model];
+            };
         }
         
         return cell;
@@ -152,20 +157,22 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.type isEqualToString:@"1"]) {
-        return CGSizeMake(av_collectionWidth, av_collectionWidth*(299/211.f));
-        
+        return CGSizeMake(av_collectionWidth, av_collectionWidth*(170/211.f));
+
     }
     return CGSizeMake(collectionWidth, collectionWidth*(213/150.f));
     
 }
 //定义每个UICollectionView 的间距
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if ([self.type isEqualToString:@"1"]) {
+        return UIEdgeInsetsMake(10, 13, 10, 13);
+    }
     return UIEdgeInsetsMake(5, 10, 5, 10);
     
 } //每个item之间的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
-    
 }
 
 //UICollectionView被选中时调用的方法
@@ -184,5 +191,23 @@
     }
     
 }
-
+//收藏请求
+- (void)cancelShouCangRequestData:(TYAVHistoryModel *)model {
+    NSDictionary * dic = @{
+                           @"uid":[TYGlobal userId],
+                           @"tid":model.tid
+                           };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [TYNetWorkTool postRequest:@"/userCollection/api/delete" parameters:dic successBlock:^(BOOL success, id  _Nonnull data, NSString * _Nonnull msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (success&&data) {
+            [self headerRefreshRequest];
+        }
+        [MBProgressHUD promptMessage:msg inView:self.view];
+    } failureBlock:^(NSString * _Nonnull description) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }];
+}
 @end

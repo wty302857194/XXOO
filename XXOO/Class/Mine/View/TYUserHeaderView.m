@@ -31,15 +31,15 @@
 - (void)setDataDic:(NSDictionary *)dataDic {
     _dataDic = dataDic;
     
-    [self.headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_URL_main,self.dataDic[@"avatar"]]] placeholderImage:PLACEHOLEDERIMAGE];
-    self.userNameLab.text = [NSString stringWithFormat:@"代理用户（%@）",self.dataDic[@"name"]];
-    NSString *level = [NSString stringWithFormat:@"%@",self.dataDic[@"level"]];
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_URL_main,dataDic[@"avatar"]]] placeholderImage:PLACEHOLEDERIMAGE];
+    self.userNameLab.text = [NSString stringWithFormat:@"代理用户（%@）",dataDic[@"name"]];
+    NSString *level = [NSString stringWithFormat:@"%@",dataDic[@"level"]];
     if ([level isEqualToString:@"1"]) {
         self.vipLogoImg.image = [UIImage imageNamed:@"ming_vip_img"];
         self.timeLab.text = @"";
     }else {
         self.vipLogoImg.image = [UIImage imageNamed:@"mineVIPImg"];
-        self.timeLab.text = [NSString stringWithFormat:@"%@到期",self.dataDic[@"membershipEndTime"]?:@""];
+        self.timeLab.text = [NSString stringWithFormat:@"%@到期",dataDic[@"membershipEndTime"]?:@""];
     }
 }
 @end

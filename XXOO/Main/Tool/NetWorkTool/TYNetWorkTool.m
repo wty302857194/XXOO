@@ -8,7 +8,8 @@
 
 #import "TYNetWorkTool.h"
 @interface AFNetworkClient : AFHTTPSessionManager
-
+//@property (nonatomic, assign) BOOL isURL;
+//@property (nonatomic, copy) NSString * urlString;
 + (instancetype)sharedClient;
 
 @end
@@ -33,6 +34,30 @@
 @end
 
 @implementation TYNetWorkTool
+//判断此路径是否能够请求成功,直接进行HTTP请求
+//+ (void)urliSAvailable:(NSString *)urlStr{
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+//    [request setHTTPMethod:@"HEAD"];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"不可用");
+//            [AFNetworkClient sharedClient].isURL = NO;
+//        }else{
+//            NSLog(@"可用");
+//            [AFNetworkClient sharedClient].isURL = YES;
+//        }
+//    }];
+//    [task resume];
+//
+//    NSLog(@"底部");
+//}
+//+ (NSString *)verificationUrl:(NSString *)URLStr {
+//    do {
+//        [self urliSAvailable:URLStr];
+//    } while ([AFNetworkClient sharedClient].isURL);
+//    return URLStr;
+//}
 /**
  *  post请求
  *
@@ -44,6 +69,9 @@
 +(void)postRequest:(NSString*)url parameters:(NSDictionary *)parameters successBlock:(void (^)(BOOL success,id data,NSString* msg))successBlock failureBlock:(void (^)(NSString* description))failureBlock{
     
     NSString *URLStr = [NSString stringWithFormat:@"%@%@",URL_main,url];
+    
+    
+    
     NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary nullDic:parameters?:@{}]];
 
     [[AFNetworkClient sharedClient] POST:URLStr parameters:mutableParams progress:^(NSProgress * _Nonnull uploadProgress) {

@@ -186,7 +186,26 @@
 }
 
 #pragma mark - Table view data source
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return 91;
+            break;
+        case 1:
+        {
+            if (self.adDic) {
+                return 91;
+            }else {
+                return 0;
+            }
+        }
+            break;
+        
+        default:
+            return 47;
+            break;
+    }
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {

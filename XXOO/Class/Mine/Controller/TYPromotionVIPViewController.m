@@ -200,7 +200,7 @@
 
 - (void)rechargeRMBByApplyRequestData {
     
-    NSString *str = [NSString stringWithFormat:@"http://ad.sqxpd.com/pay/pay.html?id=%@&rid=%@&money=18",[TYGlobal userId],self.currentModel.ID];
+    NSString *str = [NSString stringWithFormat:@"http://ad.sqxpd.com/pay/pay.html?id=%@&rid=%@&money=%@",[TYGlobal userId],self.currentModel.ID,self.currentModel.money];
     [TYGlobal openScheme:str];
     
 //    NSDictionary * dic = @{

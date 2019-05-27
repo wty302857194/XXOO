@@ -24,7 +24,7 @@
 
 - (void)setItemModel:(TYHomeItemModel *)itemModel {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:itemModel.cover] placeholderImage:PLACEHOLEDERIMAGE];
-    self.timeLab.text = itemModel.timeLong;
+//    self.timeLab.text = itemModel.timeLong;
     self.contentLab.text = itemModel.title;
     if ([itemModel.cstate isEqualToString:@"0"]) {
         [self.collectionBtn setImage:[UIImage imageNamed:@"home_add"] forState:UIControlStateNormal];

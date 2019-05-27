@@ -10,11 +10,13 @@
 #import "TYAVHistoryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^ItemShouCangBlock)(void);
 @interface TYMyCollectionCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (nonatomic, strong) TYAVHistoryModel * collectionModel;
+@property (nonatomic, copy) ItemShouCangBlock itemShouCangBlock;
 @end
 
 NS_ASSUME_NONNULL_END
