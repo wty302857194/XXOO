@@ -23,6 +23,7 @@ target 'XXOO' do
   pod 'DZNEmptyDataSet'
   pod 'libOpenInstallSDK'
   pod 'XHLaunchAd'
+  pod 'GTMBase64'
   
   # Pods for XXOO
 

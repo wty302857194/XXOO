@@ -17,6 +17,7 @@ PODS:
   - Canvas (0.1.2)
   - DZNEmptyDataSet (1.8.1)
   - FLAnimatedImage (1.0.12)
+  - GTMBase64 (1.0.1)
   - IQKeyboardManager (6.2.1)
   - libOpenInstallSDK (2.2.1.1)
   - Masonry (1.1.0)
@@ -266,6 +267,7 @@ DEPENDENCIES:
   - AFNetworking
   - Canvas
   - DZNEmptyDataSet
+  - GTMBase64
   - IQKeyboardManager
   - libOpenInstallSDK
   - Masonry
@@ -286,6 +288,7 @@ SPEC REPOS:
     - Canvas
     - DZNEmptyDataSet
     - FLAnimatedImage
+    - GTMBase64
     - IQKeyboardManager
     - libOpenInstallSDK
     - Masonry
@@ -322,6 +325,7 @@ SPEC CHECKSUMS:
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GTMBase64: f0f91be06a7a20b84c8e4fee30c0430395091d82
   IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   libOpenInstallSDK: b2ceca6cd23c8497471b35917aed0ecb3c834ccc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -337,6 +341,6 @@ SPEC CHECKSUMS:
   SJVideoPlayer: 9f819f56c17b0f5520a24fb2caffd06bac893343
   XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
 
-PODFILE CHECKSUM: 8971a1d1e005c978db0cbee49c43295db96ead0d
+PODFILE CHECKSUM: 2b975f697dfe30f8a9e17381b9e16fb68807f58c
 
 COCOAPODS: 1.5.3

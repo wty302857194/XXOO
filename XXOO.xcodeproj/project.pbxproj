@@ -39,6 +39,8 @@
 		C1248703225DBE910040B476 /* TYBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1248702225DBE910040B476 /* TYBaseTabBarViewController.m */; };
 		C152627B2298D42500F7E41B /* TYUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C152627A2298D42500F7E41B /* TYUserHeaderView.m */; };
 		C152627D2298D44400F7E41B /* TYUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C152627C2298D44400F7E41B /* TYUserHeaderView.xib */; };
+		C1526289229E25D500F7E41B /* NSData+TY_AES.m in Sources */ = {isa = PBXBuildFile; fileRef = C1526288229E25D500F7E41B /* NSData+TY_AES.m */; };
+		C152628C229E276800F7E41B /* NSString+TY_AES.m in Sources */ = {isa = PBXBuildFile; fileRef = C152628B229E276800F7E41B /* NSString+TY_AES.m */; };
 		C17DE695225F60DD00050DCE /* UIViewController+TestAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE694225F60DD00050DCE /* UIViewController+TestAdd.m */; };
 		C17DE699225F614000050DCE /* TYAVDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C17DE697225F614000050DCE /* TYAVDetailsViewController.m */; };
 		C17DE69A225F614000050DCE /* TYAVDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17DE698225F614000050DCE /* TYAVDetailsViewController.xib */; };
@@ -258,6 +260,10 @@
 		C15262792298D42500F7E41B /* TYUserHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYUserHeaderView.h; sourceTree = "<group>"; };
 		C152627A2298D42500F7E41B /* TYUserHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYUserHeaderView.m; sourceTree = "<group>"; };
 		C152627C2298D44400F7E41B /* TYUserHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYUserHeaderView.xib; sourceTree = "<group>"; };
+		C1526287229E25D500F7E41B /* NSData+TY_AES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+TY_AES.h"; sourceTree = "<group>"; };
+		C1526288229E25D500F7E41B /* NSData+TY_AES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+TY_AES.m"; sourceTree = "<group>"; };
+		C152628A229E276800F7E41B /* NSString+TY_AES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TY_AES.h"; sourceTree = "<group>"; };
+		C152628B229E276800F7E41B /* NSString+TY_AES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TY_AES.m"; sourceTree = "<group>"; };
 		C17DE693225F60DD00050DCE /* UIViewController+TestAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestAdd.h"; sourceTree = "<group>"; };
 		C17DE694225F60DD00050DCE /* UIViewController+TestAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestAdd.m"; sourceTree = "<group>"; };
 		C17DE696225F614000050DCE /* TYAVDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAVDetailsViewController.h; sourceTree = "<group>"; };
@@ -659,6 +665,10 @@
 				C1ADA2F72273331F00CA8566 /* UIButton+TYExtension.m */,
 				C117B50922772F3D0091A627 /* UINavigationController+TYExtension.h */,
 				C117B50A22772F3D0091A627 /* UINavigationController+TYExtension.m */,
+				C1526287229E25D500F7E41B /* NSData+TY_AES.h */,
+				C1526288229E25D500F7E41B /* NSData+TY_AES.m */,
+				C152628A229E276800F7E41B /* NSString+TY_AES.h */,
+				C152628B229E276800F7E41B /* NSString+TY_AES.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1384,6 +1394,7 @@
 				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMBase64/GTMBase64.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -1404,6 +1415,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMBase64.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -1452,6 +1464,7 @@
 				C1F2F6E72292407700D17A93 /* TYShengJiView.m in Sources */,
 				C1C5B896226864B700ADB7E0 /* TYMyTuiGunagViewController.m in Sources */,
 				C1F1579422769A5100984A32 /* TYDuiHuanViewController.m in Sources */,
+				C152628C229E276800F7E41B /* NSString+TY_AES.m in Sources */,
 				C1918A21227D450000CB2096 /* TYGoddessDetailViewController.m in Sources */,
 				C1F2843C226D551A009B57A5 /* SFHFKeychainUtils.m in Sources */,
 				C12486A3225D94CF0040B476 /* main.m in Sources */,
@@ -1529,6 +1542,7 @@
 				C1248700225DBE0F0040B476 /* TYBaseView.m in Sources */,
 				C18AAF45228D0F1900076EE5 /* TYHomeADListModel.m in Sources */,
 				C1ADA2FC22748E4800CA8566 /* TYSaveCodeViewController.m in Sources */,
+				C1526289229E25D500F7E41B /* NSData+TY_AES.m in Sources */,
 				C11CFE64227FE82100D63555 /* TYChangePasswordViewController.m in Sources */,
 				C1F28453226DE9C4009B57A5 /* UIImageView+TYExtension.m in Sources */,
 				C1F3FC00226C1F1E0090677E /* TYSearchViewController.m in Sources */,
@@ -1701,6 +1715,7 @@
 			baseConfigurationReference = 8CCCE7A27C2DD3A418CF414C /* Pods-XXOO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1724,6 +1739,7 @@
 			baseConfigurationReference = BE7F2A015EF971460ECFDBE4 /* Pods-XXOO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = XXOO/XXOO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

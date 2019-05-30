@@ -57,7 +57,8 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
         make.height.equalTo(self->_player.view.mas_width).multipliedBy(9 / 16.0f);
     }];
     
-    
+    SJEdgeControlButtonItem *titleItem = [_player.defaultEdgeControlLayer.topAdapter itemForTag:SJEdgeControlLayerBottomItem_Progress];
+    titleItem.size = 15;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailContentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailContentCollectionViewCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TYAVDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TYAVDetailCollectionViewCell"];
@@ -104,7 +105,11 @@ static SJEdgeControlButtonItemTag SJEdgeControlButtonItemTag_Share = 10;        
 
     _player.URLAsset = [[SJVideoPlayerURLAsset alloc] initWithURL:[NSURL URLWithString:self.detailModel.vUrl]];
     _player.URLAsset.title = self.detailModel.title;
-    [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];    
+    [_player.placeholderImageView sd_setImageWithURL:[NSURL URLWithString:self.detailModel.cover]];
+    
+    SJVideoPlayer.update(^(SJVideoPlayerSettings * _Nonnull commonSettings) {
+        commonSettings.progress_thumbSize = 12;
+    });
     
     // 2. 49 * title.size.width
     if([self.detailModel.level isEqualToString:@"1"]) {//非会员

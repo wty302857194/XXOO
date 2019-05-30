@@ -13,6 +13,8 @@
 #import "TYGongGaoView.h"
 #import "TYShengJiView.h"
 #import "TYShengJiVIPViewController.h"
+#import "NSString+TY_AES.h"
+#import "NSData+TY_AES.h"
 
 static NSInteger const scHeight = 50;
 static NSInteger const jianGe = 10;//间隔距离
@@ -56,6 +58,11 @@ static NSInteger const btnWidth = 90;
             make.width.height.offset(100);
         }];
     }
+    
+//    NSString *aes_str = @"BGcok1qR7TBgaW6ksrBEVQ==";
+//    aes_str = [aes_str aci_decryptWithAES];
+//    TYLog(@"%@",aes_str);
+    
 }
 - (void)goVIP {
     TYShengJiVIPViewController *vc = [[TYShengJiVIPViewController alloc] init];
@@ -275,7 +282,6 @@ static NSInteger const btnWidth = 90;
         _shengJiView = [[[NSBundle mainBundle] loadNibNamed:@"TYShengJiView" owner:nil options:nil] lastObject];
         _shengJiView.frame = [UIScreen mainScreen].bounds;
         [kWindow addSubview:_shengJiView];
-//        [self.view bringSubviewToFront:_shengJiView];
     }
     return _shengJiView;
 }

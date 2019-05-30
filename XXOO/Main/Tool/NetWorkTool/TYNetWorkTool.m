@@ -26,6 +26,8 @@
         // 设置请求接口回来的时候支持什么类型的数据
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html",nil];
         
+        [_sharedClient.requestSerializer setValue:@"5" forHTTPHeaderField:@"Client-Type"];
+        
     });
     
     return _sharedClient;

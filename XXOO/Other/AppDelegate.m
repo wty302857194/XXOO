@@ -44,7 +44,7 @@
         [self.window makeKeyAndVisible];
     });
     
-    [NSThread sleepForTimeInterval:2];
+    [NSThread sleepForTimeInterval:1];
     
     return YES;
 }
