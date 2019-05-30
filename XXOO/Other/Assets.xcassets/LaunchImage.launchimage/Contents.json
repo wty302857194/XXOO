@@ -1,26 +1,28 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "12.0",
+      "idiom" : "iphone",
       "subtype" : "2688h",
+      "filename" : "1242x2688.jpg",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
       "scale" : "3x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "12.0",
+      "idiom" : "iphone",
       "subtype" : "1792h",
+      "filename" : "828x1792.jpg",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2436h",
-      "filename" : "LaunchImage-1100-2436h@3x.png",
+      "filename" : "1125X2436.jpg",
       "minimum-system-version" : "11.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -29,7 +31,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "LaunchImage-800-Portrait-736h@3x.png",
+      "filename" : "1242x2208.jpg",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -38,7 +40,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "LaunchImage-800-667h@2x.png",
+      "filename" : "750x1334.jpg",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -46,7 +48,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage-700@2x.png",
+      "filename" : "640x960.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -55,7 +57,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "LaunchImage-700-568h@2x.png",
+      "filename" : "640X1136.jpg",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"

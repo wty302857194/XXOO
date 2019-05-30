@@ -29,7 +29,7 @@
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREENH_HEIGHT)];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    
+    // 创建队列主要是解决接口没调成功，就加载界面的问题。
     downloadGroup = dispatch_group_create();
     
     [self getInstallParms];
